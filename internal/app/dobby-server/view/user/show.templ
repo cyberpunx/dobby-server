@@ -1,0 +1,12 @@
+package user
+
+import (
+    "localdev/dobby-server/view/layout"
+    "localdev/dobby-server/model"
+    )
+
+templ Show(user model.User){
+    @layout.Base() {
+        <h1> Hola {user.Username}! </h1>
+    }
+}

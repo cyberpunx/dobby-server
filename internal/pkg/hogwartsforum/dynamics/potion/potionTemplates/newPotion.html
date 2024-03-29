@@ -1,0 +1,40 @@
+<div class="EDV"><img src="https://i.imgur.com/FtGPYPC.png" class="joEDV"><div class="ttEDV">Club de Pociones</div><div class="coEDV"><img src="https://i.imgur.com/TSnzBoB.jpg"></div><div class="daEDV">
+    <i><b style="color: #677485;"></b><b>Club de Pociones:</b> [b][url=https://www.hogwartsrol.com/t31139-club-de-pociones]Aquí[/url][/b]</i></div><div class="ttEDV bb">{{.Player1}} & {{.Player2}}</div><div class="xxEDV">
+    Una lechuza ingresó por la habitación del participante, extendió sus blancas alas y dejó caer un sobre dorado que llevaba el sello del Ministerio de Magia, en el interior de la carta se describía el siguiente mensaje:
+
+    [quote]
+    Estimado miembro,
+
+    La preparación de su poción ha sido programada, su compañero estará esperándolo en los salones del Club de Pociones.
+
+    Que su caldero lo guíe hacia el éxito.
+
+    Cordiales saludos,
+
+    Ministerio de Magia[/quote]
+</div><div class="ttEDV bb">Información Importante</div><div class="xxEDV">
+
+    [list]
+    [*][b]Poción:[/b] {{.PotionName}}
+    [*][b]Turnos:[/b] {{.TurnLimit}} Turnos
+    [*][b]Puntos:[/b] {{.TargetScore}} puntos
+    [/list]
+
+    [b]Ingredientes:[/b]
+    [list]
+    {{range .Ingredients}}
+    [*]{{.}}
+    {{end}}
+    [/list]
+
+    [b]Jugador 1:[/b] @"{{.Player1}}"
+    [b]Jugador 2:[/b] @"{{.Player2}}"
+
+    [b]Dado:[/b]
+    [code][rand]1,2[/rand][/code]
+
+
+</div>
+    <br></div>
+
+<style>@font-face {font-family: 'AceSans'; src: url('https://cdn.rawgit.com/EmmesCodes/Tipografias/0eca2fc2/AceSans-Demo.otf');} @font-face {font-family: 'Cocomat'; src: url('https://cdn.rawgit.com/EmmesCodes/Tipografias/53820b27/Cocomat%20Light-trial.ttf');} .EDV, .EDV * {box-sizing: border-box;} .EDV {width: 600px; margin: auto; background: #25252575; color: #8a8a8a; position: relative;} .joEDV {width: 100%; border-top: 20px solid #12100F;} .ttEDV {color: #a2a2a2; background: #12100F; padding: 20px; text-align: right; font: 20px AceSans;} .coEDV {background: #303030; width: 70px; padding: 80PX 5px 5PX; margin: -74px 30px 0; border-radius: 0 0 35px 35px; box-shadow: 3px 3px 3px -1px #0003; position: absolute;} .coEDV img {width: 100%; border-radius: 50%; border: 2px dashed #677485; padding: 2px;} .daEDV {border: 1px dotted transparent; margin: 20px 30px 0 120px;} .daEDV br {display: none;} .daEDV i {display: inline-block; width: 50%; font: 12px Cocomat;} .daEDV b:first-of-type, .pjEDV b:first-of-type {display: inline-block; border: 4px solid; border-radius: 50%; margin: -2px 3px 0 0; vertical-align: middle;} .ssEDV {font: bold 15px AceSans; text-align: right; margin: 20px 0 0; padding: 10px 70px; color: #676A85; letter-spacing: 2px;} .xxEDV {font: 13px; padding: 0px 40px; text-align: justify;} .ttEDV.bb {margin: 50px 0; padding: 10px 20px; font-size: 18px;} .pjEDV div {position: relative; margin: 0px 50px;} .pjEDV div:nth-of-type(odd) {padding: 40px 0 40px 170px;} .pjEDV div:nth-of-type(even) {padding: 40px 170px 40px 0; text-align: right;} .pjEDV img {width: 150px; border-radius: 50%; border: 2px dashed #677485; padding: 3px; background: #303030; box-shadow: 0 0 0 7px #303030; top: 50%; transform: translateY(-50%); position: absolute;} .pjEDV div:nth-of-type(odd) img {left: 0px;} .pjEDV div:nth-of-type(even) img {right: 0px;} .pjEDV div name, .pjEDV div data {display: block;} .pjEDV div name {font: bold 15px AceSans; color: #676A85; letter-spacing: 2px; padding: 0 0 5px;} .pjEDV div name ~ br {display: none;} .pjEDV div data {font: 12px Cocomat;} .mmEDV {display: block; background: #303030; color: #FFF !important; text-align: center; font: 12px Cocomat; padding: 7px; transition: .5s;} </style>

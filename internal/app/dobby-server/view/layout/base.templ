@@ -1,0 +1,25 @@
+package layout
+
+templ Base(){
+    <html>
+        <head>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            };
+            h1 {
+                color: #445566;
+            };
+            .content {
+                margin: 20px;
+            };
+        </style>
+        </head>
+        <body>
+            <h1>Page title</h1>
+            <div class="content">
+                { children... }
+            </div>
+        </body>
+    </html>
+}
