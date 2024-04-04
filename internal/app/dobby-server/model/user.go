@@ -1,7 +1,9 @@
 package model
 
+import "time"
+
 type User struct {
-	Email    string `json:"email"`
-	Username string `json:"username"`
-	Password string `json:"password"`
+	Username *string    `json:"username"`
+	Initials *string    `json:"initials"`
+	Datetime *time.Time `json:"datetime"`
 }

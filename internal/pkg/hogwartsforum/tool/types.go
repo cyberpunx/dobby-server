@@ -3,6 +3,7 @@ package tool
 import (
 	"google.golang.org/api/sheets/v4"
 	"localdev/dobby-server/internal/app/dobby-server/config"
+	"localdev/dobby-server/internal/app/dobby-server/storage/tursodb"
 	"localdev/dobby-server/internal/pkg/util"
 	"net/http"
 	"time"
@@ -26,11 +27,12 @@ type Tool struct {
 	Client        *http.Client
 	SheetService  *sheets.Service
 	ForumDateTime time.Time
+	Store         *tursodb.Store
 	PostSecret1   *string
 	PostSecret2   *string
 }
 
-func NewTool(config *config.Config, client *http.Client, gSheetService *sheets.Service) *Tool {
+func NewTool(config *config.Config, client *http.Client, gSheetService *sheets.Service, store *tursodb.Store) *Tool {
 	forumDateTime, err := util.GetTimeFromTimeZone("America/Mexico_City")
 	util.Panic(err)
 	return &Tool{
@@ -38,5 +40,6 @@ func NewTool(config *config.Config, client *http.Client, gSheetService *sheets.S
 		Client:        client,
 		ForumDateTime: forumDateTime,
 		SheetService:  gSheetService,
+		Store:         store,
 	}
 }

@@ -21,8 +21,8 @@ func main() {
 
 	// Connects to TursoDB and gets config table
 	tursoConnectLine := fmt.Sprintf(*configFile.TursoDbUrl + "?authToken=" + *configFile.TursoDbToken)
-	db := tursodb.InitDB(tursoConnectLine)
-	configTable := tursodb.GetConfig(db)
+	store := tursodb.InitDB(tursoConnectLine)
+	configTable := store.GetConfig()
 
 	// Merges config file and config table
 	conf := config.MergeConfigs(*configFile, *configTable)
@@ -30,7 +30,7 @@ func main() {
 
 	// Starts the server
 	app := echo.New()
-	handler.SetupRoutes(app, &conf)
+	handler.SetupRoutes(app, &conf, store)
 
 	err := app.Start(":" + *conf.ServerPort)
 	util.Panic(err)
