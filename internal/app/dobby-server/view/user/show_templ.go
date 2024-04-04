@@ -5,14 +5,15 @@ package user
 
 //lint:file-ignore SA4006 This context is only used if a nested component is present.
 
-import (
-	"github.com/a-h/templ"
-	"localdev/dobby-server/internal/app/dobby-server/model"
-	"localdev/dobby-server/internal/app/dobby-server/view/layout"
-)
+import "github.com/a-h/templ"
 import "context"
 import "io"
 import "bytes"
+
+import (
+	"localdev/dobby-server/internal/app/dobby-server/model"
+	"localdev/dobby-server/internal/app/dobby-server/view/layout"
+)
 
 func Show(user model.User) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
@@ -40,7 +41,7 @@ func Show(user model.User) templ.Component {
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(user.Username)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view\user\show.templ`, Line: 10, Col: 32}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal\app\dobby-server\view\user\show.templ`, Line: 10, Col: 32}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
