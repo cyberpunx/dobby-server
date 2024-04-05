@@ -1,0 +1,37 @@
+package view
+
+import (
+    "localdev/dobby-server/internal/app/dobby-server/view/layout"
+    "localdev/dobby-server/internal/app/dobby-server/model"
+)
+
+templ Login(u *model.User) {
+    <div id="content">
+        if u.IsLoggedIn {
+            @Welcome(u)
+        } else {
+            @LoginForm()
+        }
+    </div>
+}
+
+templ LoginForm() {
+    @layout.Base("Iniciar Sesión", false) {
+        <form hx-post="/dobby/login" hx-target="#content">
+            <label>
+            <input type="text" name="username" placeholder="Username" />
+            </label>
+
+            <label>
+            <input type="password" name="password" placeholder="Password" />
+            </label>
+            <button type="submit">Login</button>
+        </form>
+    }
+}
+
+templ Welcome(u *model.User){
+    @layout.Base("Iniciar Sesión", true) {
+        Bienvenido <b>{*u.Username}</b>!
+    }
+}

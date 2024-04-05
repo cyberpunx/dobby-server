@@ -3,8 +3,8 @@ package handler
 import (
 	"github.com/labstack/echo/v4"
 	"localdev/dobby-server/internal/app/dobby-server/model"
+	"localdev/dobby-server/internal/app/dobby-server/view"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/tool"
-	"localdev/dobby-server/internal/pkg/util"
 	"net/http"
 )
 
@@ -13,34 +13,40 @@ type DobbyHandler struct {
 	User *model.User
 }
 
-type LoginRequest struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
+func (h DobbyHandler) HandleShowLoginForm(c echo.Context) error {
+	return render(c, view.Login(h.User))
 }
 
-func (h DobbyHandler) HandleDobbyLogin(c echo.Context) error {
-	r := LoginRequest{}
-	err := c.Bind(&r)
-	util.Panic(err)
+func (h DobbyHandler) HandleProcessLoginForm(c echo.Context) error {
+	username := c.FormValue("username")
+	password := c.FormValue("password")
 
-	client, loginResponse := tool.LoginAndGetCookies(r.Username, r.Password)
+	client, loginResponse := tool.LoginAndGetCookies(username, password)
 	if !*loginResponse.Success {
-		return c.JSON(http.StatusUnauthorized, loginResponse.Messaage)
+		return render(c, view.Login(h.User))
 	} else {
 		h.Tool.Client = client
 		secret1, secret2 := h.Tool.GetPostSecrets()
 		h.Tool.PostSecret1 = &secret1
 		h.Tool.PostSecret2 = &secret2
-		h.User = &model.User{
-			Username: &r.Username,
-			Initials: loginResponse.Initials,
-			Datetime: loginResponse.Datetime,
-		}
-		return c.JSON(http.StatusOK, h.User)
+		h.User.Username = &username
+		h.User.Initials = loginResponse.Initials
+		h.User.Datetime = loginResponse.Datetime
+		h.User.IsLoggedIn = true
+		return render(c, view.Login(h.User))
 	}
 }
 
-func (h DobbyHandler) HandleDobbyPotions(c echo.Context) error {
+func (h DobbyHandler) HandleLogout(c echo.Context) error {
+	h.Tool.Client = nil
+	h.User.IsLoggedIn = false
+	h.User.Username = nil
+	h.User.Initials = nil
+	h.User.Datetime = nil
+	return render(c, view.Login(h.User))
+}
+
+func (h DobbyHandler) HandlePotions(c echo.Context) error {
 	subForumConfig := h.Tool.Store.GetPotionSubforum()
 
 	var urls []string
@@ -52,7 +58,7 @@ func (h DobbyHandler) HandleDobbyPotions(c echo.Context) error {
 		turnLimit = sub.TurnLimit
 	}
 
-	h.Tool.ProcessPotionsSubforumList(&urls, timeLimit, turnLimit)
+	potionsReport := h.Tool.ProcessPotionsSubforumList(&urls, timeLimit, turnLimit)
 
-	return c.JSON(http.StatusOK, "Potions processed")
+	return c.JSON(http.StatusOK, potionsReport)
 }

@@ -30,6 +30,7 @@ func main() {
 
 	// Starts the server
 	app := echo.New()
+
 	handler.SetupRoutes(app, &conf, store)
 
 	err := app.Start(":" + *conf.ServerPort)

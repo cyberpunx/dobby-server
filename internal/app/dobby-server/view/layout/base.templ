@@ -1,25 +1,28 @@
 package layout
 
-templ Base(){
-    <html>
-        <head>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-            };
-            h1 {
-                color: #445566;
-            };
-            .content {
-                margin: 20px;
-            };
-        </style>
-        </head>
-        <body>
-            <h1>Page title</h1>
-            <div class="content">
-                { children... }
-            </div>
-        </body>
-    </html>
+templ Base(title string, showNav bool){
+  <html lang="es">
+    <head>
+      <title>{title}</title>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <script src="https://unpkg.com/htmx.org@1.9.11"></script>
+    </head>
+    <body>
+      <h1>{title}</h1>
+      if showNav {
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/" hx-get="dobby/logout" hx-target="body">Logout</a></li>
+          </ul>
+        </nav>
+      }
+      <main>
+        { children... }
+      </main>
+    </body>
+  </html>
 }
