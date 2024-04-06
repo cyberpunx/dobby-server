@@ -5,7 +5,6 @@ import (
 	"localdev/dobby-server/internal/app/dobby-server/model"
 	"localdev/dobby-server/internal/app/dobby-server/view"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/tool"
-	"net/http"
 )
 
 type DobbyHandler struct {
@@ -60,5 +59,5 @@ func (h DobbyHandler) HandlePotions(c echo.Context) error {
 
 	potionsReport := h.Tool.ProcessPotionsSubforumList(&urls, timeLimit, turnLimit)
 
-	return c.JSON(http.StatusOK, potionsReport)
+	return render(c, view.Potions(potionsReport))
 }

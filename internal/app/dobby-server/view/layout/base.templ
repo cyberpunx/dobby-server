@@ -15,7 +15,7 @@ templ Base(title string, showNav bool){
           <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="/" hx-get="dobby/potions" hx-target="body">Pociones</a></li>
             <li><a href="/" hx-get="dobby/logout" hx-target="body">Logout</a></li>
           </ul>
         </nav>

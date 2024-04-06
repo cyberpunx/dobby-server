@@ -1,0 +1,36 @@
+package view
+
+import (
+    "localdev/dobby-server/internal/app/dobby-server/view/layout"
+    "localdev/dobby-server/internal/pkg/hogwartsforum/dynamics/potion"
+    "strconv"
+)
+
+templ Potions(reportList []potion.PotionClubReport){
+    @layout.Base("Potions Club", true){
+        <h1>Potions Reports</h1>
+        for _, report := range reportList {
+            <div>
+            @PotionReportView(report)
+            </div>
+        }
+    }
+}
+
+templ PotionReportView(r potion.PotionClubReport){
+    <h2>{r.Potion.Name}</h2>
+    <h3>Player1: {r.Player1.Name}</h3>
+    <h3>Player2: {r.Player2.Name}</h3>
+    <h3>Mod: {r.Moderator.Name}</h3>
+    <h3>STATUS: {string(r.Status)}</h3>
+    TURNS: <br/>
+    @PotionTurns(r.Turns)
+}
+
+templ PotionTurns(turns []potion.PotionClubTurn){
+    <ul>
+        for _,t := range turns {
+            <li>{strconv.Itoa(t.Number)}) {t.Player.Name} </li>
+        }
+    </ul>
+}

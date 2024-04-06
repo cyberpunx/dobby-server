@@ -1500,3 +1500,9 @@
 /vendor/nhooyr.io/websocket/write.go
 /vendor/nhooyr.io/websocket/ws_js.go
 /vendor/modules.txt
+
+# add any file ending with _templ.go
+*_templ.go
+log
+client_secret.json
+token.json
