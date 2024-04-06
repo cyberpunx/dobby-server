@@ -105,16 +105,30 @@ func GetClient(tokFile string, ctx context.Context, config *oauth2.Config) *http
 	// created automatically when the authorization flow completes for the first time.
 	tok, err := tokenFromFile(tokFile)
 	if err != nil {
-		tok = getTokenFromWeb(config)
-		saveToken(tokFile, tok)
+		//get token from environment variable GSHEET_TOKEN
+		tokEnvValue := os.Getenv("GSHEET_TOKEN")
+		if len(tokEnvValue) > 0 {
+			tok = &oauth2.Token{}
+			err = json.Unmarshal([]byte(tokEnvValue), tok)
+			if err != nil {
+				tok = getTokenFromWeb(config)
+				saveToken(tokFile, tok)
+			}
+		}
 	}
+
 	return config.Client(ctx, tok)
 }
 
 func ReadCredentials(credPath string) ([]byte, error) {
 	b, err := ioutil.ReadFile(credPath)
 	if err != nil {
-		return nil, fmt.Errorf("unable to read client secret file: %w", err)
+		fmt.Println("unable to read client secret file: %w")
+		fmt.Println("attempt to read client secret from environment variable")
+		b = []byte(os.Getenv("GSHEET_CLIENT_SECRET"))
+		if len(b) == 0 {
+			return nil, fmt.Errorf("unable to read client secret from environment variable")
+		}
 	}
 	return b, nil
 }
