@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 	_ "github.com/tursodatabase/libsql-client-go/libsql"
 	"localdev/dobby-server/internal/app/dobby-server/config"
@@ -15,6 +16,12 @@ const (
 )
 
 func main() {
+	//Loads .env file
+	err := godotenv.Load()
+	if err != nil {
+		fmt.Println(".env file not found, not loaded")
+	}
+
 	// Loads config file
 	configFile := config.GetConfigFile()
 	configFile.Validate()
@@ -34,6 +41,6 @@ func main() {
 
 	handler.SetupRoutes(app, &conf, store)
 
-	err := app.Start(":" + *conf.ServerPort)
+	err = app.Start(":" + *conf.ServerPort)
 	util.Panic(err)
 }

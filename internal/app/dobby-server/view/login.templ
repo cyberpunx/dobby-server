@@ -6,32 +6,31 @@ import (
 )
 
 templ Login(u *model.User) {
-    <div id="content">
         if u.IsLoggedIn {
-            @Welcome(u)
+            @layout.Base("¡Bienvenido a Dobby!", true) {
+                @Welcome(u)
+            }
         } else {
-            @LoginForm()
+            @layout.Base("Iniciar Sesión", false) {
+                <p>Inicia sesión con tu cuenta de <b>Hogwarts Rol</b>.</p>
+                @LoginForm()
+            }
         }
-    </div>
 }
 
 templ LoginForm() {
-    @layout.Base("Iniciar Sesión", false) {
-        <form hx-post="/dobby/login" hx-target="#content" hx-indicator="#spinner">
+        <form hx-post="/dobby/login" hx-indicator="#spinner" hx-swap="outerHTML" hx-target="body">
             <label>
-            <input type="text" name="username" placeholder="Username" />
+            <input type="text" name="username" placeholder="Usuario" />
             </label>
 
             <label>
-            <input type="password" name="password" placeholder="Password" />
+            <input type="password" name="password" placeholder="Contraseña" />
             </label>
-            <button type="submit">Login</button>
+            <button type="submit">Acceder</button>
         </form>
-    }
 }
 
 templ Welcome(u *model.User){
-    @layout.Base("Iniciar Sesión", true) {
-        Bienvenido <b>{*u.Username}</b>!
-    }
+        Saludos, <b>{*u.Username}</b>!
 }

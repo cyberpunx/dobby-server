@@ -1,16 +1,24 @@
 package handler
 
 import (
+	"encoding/json"
 	"github.com/labstack/echo/v4"
 	"localdev/dobby-server/internal/app/dobby-server/model"
 	"localdev/dobby-server/internal/app/dobby-server/view"
+	"localdev/dobby-server/internal/pkg/hogwartsforum/dynamics/potion"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/tool"
+	"localdev/dobby-server/internal/pkg/util"
 )
 
 type DobbyHandler struct {
 	Tool *tool.Tool
 	User *model.User
 }
+
+const (
+	loadReportMockup = false
+	saveReportMockup = false
+)
 
 func (h DobbyHandler) HandleShowLoginForm(c echo.Context) error {
 	return render(c, view.Login(h.User))
@@ -32,6 +40,17 @@ func (h DobbyHandler) HandleProcessLoginForm(c echo.Context) error {
 		h.User.Initials = loginResponse.Initials
 		h.User.Datetime = loginResponse.Datetime
 		h.User.IsLoggedIn = true
+
+		if loadReportMockup {
+			var report []potion.PotionClubReport
+			jsonBytes, err := util.LoadJsonFile("./tmp/potionsReport.json")
+			util.Panic(err)
+			err = json.Unmarshal(jsonBytes, &report)
+			util.Panic(err)
+
+			return render(c, view.Potions(report, *h.Tool))
+		}
+
 		return render(c, view.Login(h.User))
 	}
 }
@@ -59,5 +78,13 @@ func (h DobbyHandler) HandlePotions(c echo.Context) error {
 
 	potionsReport := h.Tool.ProcessPotionsSubforumList(&urls, timeLimit, turnLimit)
 
-	return render(c, view.Potions(potionsReport))
+	if saveReportMockup {
+		jsonResponse, err := json.Marshal(potionsReport)
+		util.Panic(err)
+		//save the json file
+		err = util.SaveJsonFile("./tmp/potionsReport.json", jsonResponse)
+		util.Panic(err)
+	}
+
+	return render(c, view.Potions(potionsReport, *h.Tool))
 }

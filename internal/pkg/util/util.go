@@ -214,3 +214,19 @@ func Fprint(format string, p P) string {
 	}
 	return strings.NewReplacer(args...).Replace(format)
 }
+
+func SaveJsonFile(fileName string, data []byte) error {
+	err := os.WriteFile(fileName, data, 0644)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func LoadJsonFile(path string) ([]byte, error) {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return nil, err
+	}
+	return data, nil
+}

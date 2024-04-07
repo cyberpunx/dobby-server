@@ -1,5 +1,10 @@
 package component
 
+import (
+    "time"
+    "fmt"
+)
+
 templ NotFoundComponent(){
   <div>
     <h1>404</h1>
@@ -20,6 +25,19 @@ func GetHouseClass(house string) string {
     case "Extranjeros":
             return "extranjeros"
     default:
-        return "black"
+        return "NormalText"
     }
+}
+
+func GetRowColor(i int) string {
+    if i%2 == 0 {
+        return "even"
+    }
+    return "odd"
+}
+
+func PrintDurationTime(d time.Duration) string {
+    hours := int(d.Hours())
+    minutes := int(d.Minutes()) % 60
+    return fmt.Sprintf("%dh %dm", hours, minutes)
 }

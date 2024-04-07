@@ -5,6 +5,7 @@ go 1.22
 require (
 	github.com/PuerkitoBio/goquery v1.8.1
 	github.com/a-h/templ v0.2.648
+	github.com/joho/godotenv v1.5.1
 	github.com/labstack/echo/v4 v4.11.4
 	github.com/mattn/go-sqlite3 v1.14.22
 	github.com/tursodatabase/libsql-client-go v0.0.0-20240401075953-8e79a99d828a

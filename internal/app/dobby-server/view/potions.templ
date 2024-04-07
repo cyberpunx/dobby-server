@@ -4,36 +4,185 @@ import (
     "localdev/dobby-server/internal/app/dobby-server/view/layout"
     c "localdev/dobby-server/internal/app/dobby-server/view/component"
     "localdev/dobby-server/internal/pkg/hogwartsforum/dynamics/potion"
+    "localdev/dobby-server/internal/pkg/hogwartsforum/tool"
     "strconv"
+    "time"
+	"fmt"
 )
 
-templ Potions(reportList []potion.PotionClubReport){
-    @layout.Base("Potions Club", true) {
-        <h1>Potions Reports</h1>
-        for _, report := range reportList {
-            <div>
-            @PotionReportView(report)
-            </div>
+templ Potions(reportList []potion.PotionClubReport, t tool.Tool){
+    @layout.Base("Pociones", true) {
+        for i, report := range reportList {
+                @PotionReportView(i, report, t)
         }
     }
 }
 
-templ PotionReportView(r potion.PotionClubReport){
-    <h2>{r.Potion.Name}</h2>
-    <ul>
-    <li><b>Player1:</b> <span class={c.GetHouseClass(r.Player1.House)}>{r.Player1.Name}</span></li>
-    <li><b>Player2:</b> <span class={c.GetHouseClass(r.Player2.House)}>{r.Player2.Name}</span></li>
-    <li><b>Mod:</b> {r.Moderator.Name}</li>
-    <li><b>STATUS:</b> {string(r.Status)}</li>
-    </ul>
-    <b>TURNOS:</b> <br/>
-    @PotionTurns(r.Turns)
+templ PotionReportView(i int, r potion.PotionClubReport, t tool.Tool){
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <a href={GetPlayerUrl(r.Moderator, t)} target="_blank" style="text-decoration: none">
+                        <span class="moderator">[{r.Moderator.Name}]</span>
+                    </a>
+                    <a href={GetPotionUrl(r, t)} style="text-decoration: none" class="NormalText" target="_blank">
+                        <b>{r.Potion.Name}</b>
+                    </a>
+                    @TurnsButton(r.Thread.Url)
+                </td>
+                <td>
+                    <a href={GetPlayerUrl(r.Player1, t)} target="_blank" style="text-decoration: none">
+                        <span class={c.GetHouseClass(r.Player1.House)}>{r.Player1.Name} @PlayerBonus(r.Player1)</span>
+                    </a> &
+                    <a href={GetPlayerUrl(r.Player2, t)} target="_blank" style="text-decoration: none">
+                        <span class={c.GetHouseClass(r.Player2.House)}>{r.Player2.Name} @PlayerBonus(r.Player1)</span>
+                    </a>
+                </td>
+            </tr>
+            <tr class="odd" style="color: var(--ds-color6)">
+                <td>
+                    <span><b>Tiempo transcurrido:</b> {GetElapsedTime(r, t.ForumDateTime)}</span>
+                    <span style="margin-left: 5px; margin-right: 5px">|</span>
+                    <span><b>Puntaje:</b> {GetScore(r)}</span>
+                </td>
+                <td>
+                    <span class={GetStatusColor(r)}><b>Estado:</b> {GetStatus(r)}</span>
+                    if r.Status == potion.StatusSuccess || r.Status == potion.StatusFail {
+                        @ModerateButton(r.Score.ModMessage)
+                    }
+                </td>
+            </tr>
+        </table>
+        <div id={r.Thread.Url} style="display: none">
+            @PotionTurns(r.Turns)
+        </div>
+    </div>
 }
 
 templ PotionTurns(turns []potion.PotionClubTurn){
-    <ul>
-        for _,t := range turns {
-            <li>{strconv.Itoa(t.Number)}) {t.Player.Name} </li>
+    <table>
+        <tr style="background-color: var(--ds-color5)">
+            <td>Turno</td>
+            <td>Jugador</td>
+            <td>Dado</td>
+            <td>Tiempo de respuesta</td>
+            <td>A tiempo</td>
+        </tr>
+        for i,t := range turns {
+            <tr class={c.GetRowColor(i)} style="color: var(--ds-color7)">
+                <td>{strconv.Itoa(t.Number)})</td>
+                <td>{t.Player.Name}</td>
+                <td>{strconv.Itoa(t.DiceValue)}</td>
+                if t.OnTime {
+                    <td class="success">{c.PrintDurationTime(t.TimeElapsed)}</td>
+                    <td class="success">SI</td>
+                } else {
+                    if t.DayOffUsed {
+                        <td class="warning">{c.PrintDurationTime(t.TimeElapsed)}</td>
+                        <td class="warning">(Permiso)</td>
+                    } else {
+                        <td class="danger">{c.PrintDurationTime(t.TimeElapsed)}</td>
+                        <td class="danger">NO</td>
+                    }
+                }
+            </tr>
         }
-    </ul>
+    </table>
+}
+
+func GetElapsedTime(r potion.PotionClubReport, forumTime time.Time) string {
+    postList := r.Thread.Posts
+    lastPost := postList[len(postList)-1]
+    postTime := *lastPost.Created
+    elapsedTime := forumTime.Sub(postTime)
+    hours := int(elapsedTime.Hours())
+    minutes := int(elapsedTime.Minutes()) - int(elapsedTime.Hours())*60
+
+    if  r.Status == potion.StatusWaitingPlayer1OnDayOff || r.Status == potion.StatusWaitingPlayer2OnDayOff {
+        return fmt.Sprint("%dh %dm (Permiso)", hours, minutes)
+    }
+    return fmt.Sprintf("%dh %dm", hours, minutes)
+}
+
+func GetScore(r potion.PotionClubReport) string {
+    return fmt.Sprintf("%d / %d", r.Score.DiceScoreSum, r.Score.TargetScore)
+}
+
+func GetStatus(r potion.PotionClubReport) string {
+    switch r.Status {
+    case potion.StatusWaitingPlayer1:
+        return "Esperando a " + r.Player1.Name
+    case potion.StatusWaitingPlayer2:
+        return "Esperando a " + r.Player2.Name
+    case potion.StatusWaitingPlayer1OnDayOff:
+        return "Esperando a " + r.Player1.Name + " (permiso)"
+    case potion.StatusWaitingPlayer2OnDayOff:
+        return "Esperando a " + r.Player2.Name + " (permiso)"
+    case potion.StatusSuccess:
+        return "Poción Exitosa"
+    case potion.StatusFail:
+        return "Poción Fallida"
+    default:
+        return "Estado desconocido"
+    }
+}
+
+func GetStatusColor(r potion.PotionClubReport) string {
+    switch r.Status {
+    case potion.StatusSuccess:
+        return "success"
+    case potion.StatusFail:
+        return "danger"
+    default:
+        return ""
+    }
+}
+
+func GetPlayerUrl(p potion.PotionsUser, t tool.Tool) templ.SafeURL {
+    baseUrl := *t.Config.BaseUrl
+    playerUrl := baseUrl + p.ProfileUrl
+    return templ.SafeURL(playerUrl)
+}
+
+func GetPotionUrl(r potion.PotionClubReport, t tool.Tool) templ.SafeURL {
+    baseUrl := *t.Config.BaseUrl
+    firstPostId := r.Thread.Posts[0].Id
+    potionUrl := baseUrl + r.Thread.Url + "#" + firstPostId
+    return templ.SafeURL(potionUrl)
+}
+
+templ ModerateButton(msg string){
+    <button style="margin-left: 5px; background-color: var(--ds-color6)" onclick={moderatePotion(msg)}>Moderar ⭐</button>
+}
+
+script moderatePotion(modMsg string){
+    navigator.clipboard
+        .writeText(modMsg)
+        .then(() => {
+        alert("Moderación copiada al portapapeles");
+        })
+        .catch(() => {
+        alert("Error al copiar moderación al portapapeles");
+        });
+}
+
+templ PlayerBonus(p potion.PotionsUser) {
+    if p.PlayerBonus != 0 {
+        <span>(+{strconv.Itoa(p.PlayerBonus)})</span>
+    }
+}
+
+templ TurnsButton(id string) {
+    <a style="margin-left: 10px; color: var(--ds-color6)" onclick={toggleTurns(id)}> <b>(Ver Turnos)</b> </a>
+}
+
+
+script toggleTurns(id string){
+    var x = document.getElementById(id);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
 }

@@ -1,5 +1,76 @@
+/* -- BODY CONTENT -- */
+body {
+    background-color: var(--ds-color3);
+    color: var(--ds-color8) !important;
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto"
+}
+
+.NormalText {
+    color: var(--ds-color8) !important;
+}
+
+main {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 90%;
+}
+
+/* -- HEADER -- */
+header {
+    margin-top: 30px;
+    background-color: var(--ds-color4);
+    padding-bottom: 20px;
+    font-size: large;
+}
+
+header a{
+    color: var(--ds-color8);
+    text-decoration: none;
+}
+
+/* -- NAVBAR -- */
+nav {
+    background-color: var(--ds-color5); /* #f0f0f0; */
+    overflow: hidden;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* text-align: center; */
+}
+nav ul li {
+    display: inline;
+}
+nav ul li a {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--ds-color8);
+}
+nav ul li:not(:last-child)::after {
+    content: " / ";
+    color: #000;
+}
+
+/* -- STAR SPINNER -- */
+.star::after {
+    animation: rotating 2s linear infinite;
+    content: "⭐";
+    display: inline-block;
+}
+
+@keyframes rotating {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
 
+/* -- BARS SPINNER -- */
 .htmx-indicator{
     opacity:0;
     transition: opacity 500ms ease-in;
@@ -10,6 +81,32 @@
 .htmx-request.htmx-indicator{
     opacity:1
 }
+
+/* -- TABLE STYLES -- */
+
+.even {
+    background-color: var(--ds-color3);
+}
+
+.odd {
+    background-color: var(--ds-color4);
+}
+
+table {
+    width: 75%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid var(--ds-color5);
+    margin-bottom: 40px;
+}
+
+table td {
+    padding: 10px;
+}
+
+
+/* -- COLOR CONSTANTS -- */
 
 :root{
     --gryffindor-color: #823B3B;
@@ -22,6 +119,19 @@
     --staff-color: #E1A673;
     --mod-color: #468392;
     --hr-color: #917849;
+
+    --ds-color-primary: #7289da;
+    --ds-color1: #040405;
+    --ds-color2: #18191c;
+    --ds-color3: #202225;
+    --ds-color4: #36393f;
+    --ds-color5: #4f545c;
+    --ds-color6: #72767d;
+    --ds-color7: #b9bbbe;
+    --ds-color8: #dcddde;
+    --ds-color9: #f6f6f7;
+
+    --dobby-pink: #f1bacb;
 }
 
 .gryffindor{
@@ -38,4 +148,31 @@
 }
 .extranjeros{
     color: var(--extranjeros-color);
+}
+.moderator{
+    color: var(--mod-color);
+}
+.staff{
+    color: var(--staff-color);
+}
+.witch{
+    color: var(--witch-color);
+}
+.wizard{
+    color: var(--wizard-color);
+}
+
+.danger{
+    color: red;
+    opacity: 0.7;
+}
+
+.success{
+    color: green;
+    opacity: 0.7;
+}
+
+.warning{
+    color: orange;
+    opacity: 0.7;
 }

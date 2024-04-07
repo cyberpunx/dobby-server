@@ -3,6 +3,8 @@ package config
 import (
 	"encoding/json"
 	"flag"
+	"fmt"
+	"github.com/joho/godotenv"
 	_ "github.com/mattn/go-sqlite3"
 	"io/ioutil"
 	"os"
@@ -65,8 +67,13 @@ func InitUnicodeConfig(conf *Config) {
 }
 
 func init() {
+	//Loads .env file
+	err := godotenv.Load()
+	if err != nil {
+		fmt.Println(".env file not found, not loaded")
+	}
 	conf := flag.String("conf", "./config/conf.json", "Config")
-	_, err := LoadConfigFile(*conf, &config)
+	_, err = LoadConfigFile(*conf, &config)
 	if err != nil {
 		//if cannot load config file, try get Environment variables
 		tursoDbUrl := os.Getenv("TURSO_DB_URL")

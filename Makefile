@@ -1,3 +1,3 @@
 run:
-	@templ generate
-	@go run cmd/dobby-server/dobby-server.go
+	@go build -o ./tmp/dobby-server.exe cmd/dobby-server/dobby-server.go
+	@air
