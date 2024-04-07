@@ -30,6 +30,7 @@ func main() {
 
 	// Starts the server
 	app := echo.New()
+	app.Static("/assets", "/internal/app/dobby-server/assets")
 
 	handler.SetupRoutes(app, &conf, store)
 

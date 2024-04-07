@@ -17,7 +17,7 @@ templ Login(u *model.User) {
 
 templ LoginForm() {
     @layout.Base("Iniciar Sesión", false) {
-        <form hx-post="/dobby/login" hx-target="#content">
+        <form hx-post="/dobby/login" hx-target="#content" hx-indicator="#spinner">
             <label>
             <input type="text" name="username" placeholder="Username" />
             </label>

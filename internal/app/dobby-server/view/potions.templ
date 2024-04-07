@@ -2,12 +2,13 @@ package view
 
 import (
     "localdev/dobby-server/internal/app/dobby-server/view/layout"
+    c "localdev/dobby-server/internal/app/dobby-server/view/component"
     "localdev/dobby-server/internal/pkg/hogwartsforum/dynamics/potion"
     "strconv"
 )
 
 templ Potions(reportList []potion.PotionClubReport){
-    @layout.Base("Potions Club", true){
+    @layout.Base("Potions Club", true) {
         <h1>Potions Reports</h1>
         for _, report := range reportList {
             <div>
@@ -19,11 +20,13 @@ templ Potions(reportList []potion.PotionClubReport){
 
 templ PotionReportView(r potion.PotionClubReport){
     <h2>{r.Potion.Name}</h2>
-    <h3>Player1: {r.Player1.Name}</h3>
-    <h3>Player2: {r.Player2.Name}</h3>
-    <h3>Mod: {r.Moderator.Name}</h3>
-    <h3>STATUS: {string(r.Status)}</h3>
-    TURNS: <br/>
+    <ul>
+    <li><b>Player1:</b> <span class={c.GetHouseClass(r.Player1.House)}>{r.Player1.Name}</span></li>
+    <li><b>Player2:</b> <span class={c.GetHouseClass(r.Player2.House)}>{r.Player2.Name}</span></li>
+    <li><b>Mod:</b> {r.Moderator.Name}</li>
+    <li><b>STATUS:</b> {string(r.Status)}</li>
+    </ul>
+    <b>TURNOS:</b> <br/>
     @PotionTurns(r.Turns)
 }
 

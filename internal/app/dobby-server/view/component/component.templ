@@ -6,3 +6,20 @@ templ NotFoundComponent(){
     <p>Page not found</p>
   </div>
 }
+
+func GetHouseClass(house string) string {
+    switch house {
+    case "Gryffindor":
+        return "gryffindor"
+    case "Hufflepuff":
+        return "hufflepuff"
+    case "Ravenclaw":
+        return "ravenclaw"
+    case "Slytherin":
+        return "slytherin"
+    case "Extranjeros":
+            return "extranjeros"
+    default:
+        return "black"
+    }
+}

@@ -1,0 +1,41 @@
+
+
+.htmx-indicator{
+    opacity:0;
+    transition: opacity 500ms ease-in;
+}
+.htmx-request .htmx-indicator{
+    opacity:1
+}
+.htmx-request.htmx-indicator{
+    opacity:1
+}
+
+:root{
+    --gryffindor-color: #823B3B;
+    --slytherin-color: #527A52;
+    --ravenclaw-color: #436594;
+    --hufflepuff-color: #D1C76B;
+    --extranjeros-color: #E1A673;
+    --witch-color: #907791;
+    --wizard-color: #615B73;
+    --staff-color: #E1A673;
+    --mod-color: #468392;
+    --hr-color: #917849;
+}
+
+.gryffindor{
+    color: var(--gryffindor-color);
+}
+.slytherin{
+    color: var(--slytherin-color);
+}
+.ravenclaw{
+    color: var(--ravenclaw-color);
+}
+.hufflepuff{
+    color: var(--hufflepuff-color);
+}
+.extranjeros{
+    color: var(--extranjeros-color);
+}
