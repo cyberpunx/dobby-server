@@ -4,11 +4,14 @@ import (
 	"fmt"
 	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
+	slogecho "github.com/samber/slog-echo"
 	_ "github.com/tursodatabase/libsql-client-go/libsql"
 	"localdev/dobby-server/internal/app/dobby-server/config"
 	"localdev/dobby-server/internal/app/dobby-server/handler"
 	"localdev/dobby-server/internal/app/dobby-server/storage/tursodb"
 	"localdev/dobby-server/internal/pkg/util"
+	"log/slog"
+	"os"
 )
 
 const (
@@ -16,6 +19,8 @@ const (
 )
 
 func main() {
+	logger := slog.New(slog.NewTextHandler(os.Stdout, nil))
+
 	//Loads .env file
 	err := godotenv.Load()
 	if err != nil {
@@ -37,6 +42,8 @@ func main() {
 
 	// Starts the server
 	app := echo.New()
+	app.Use(slogecho.New(logger))
+
 	app.Static("/assets", "/internal/app/dobby-server/assets")
 
 	handler.SetupRoutes(app, &conf, store)

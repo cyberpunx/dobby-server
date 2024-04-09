@@ -27,6 +27,8 @@ const (
 	StatusWaitingPlayer2OnDayOff Status = "WaitingPlayer2OnDayOff"
 
 	DayOffExtraHours = 24
+
+	potionTemplatePath = "internal/pkg/hogwartsforum/dynamics/potion/potionTemplates/"
 )
 
 type Status string
@@ -483,10 +485,10 @@ func generateModMessage(r PotionClubReport) string {
 	var templateFile string
 	var data interface{}
 	if r.Score.Success {
-		templateFile = "internal/hogwartsforum/dynamics/potion/potionTemplates/potionSuccess.html"
+		templateFile = potionTemplatePath + "potionSuccess.html"
 		data = r.Score.ReportSucced
 	} else {
-		templateFile = "internal/hogwartsforum/dynamics/potion/potionTemplates/potionFailed.html"
+		templateFile = potionTemplatePath + "potionFailed.html"
 		data = r.Score.ReportFailed
 	}
 

@@ -23,6 +23,14 @@ header {
     font-size: large;
 }
 
+.author{
+    margin-left: 20px;
+    color: var(--ds-color6);
+    font-size: small;
+    /* monospace font */
+    font-family: monospace;
+}
+
 header a{
     color: var(--ds-color8);
     text-decoration: none;

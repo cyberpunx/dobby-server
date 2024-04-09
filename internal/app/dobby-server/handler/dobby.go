@@ -16,7 +16,7 @@ type DobbyHandler struct {
 }
 
 const (
-	loadReportMockup = false
+	loadReportMockup = true
 	saveReportMockup = false
 )
 
