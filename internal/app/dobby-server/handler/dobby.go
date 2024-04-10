@@ -16,7 +16,7 @@ type DobbyHandler struct {
 }
 
 const (
-	loadReportMockup = true
+	loadReportMockup = false
 	saveReportMockup = false
 )
 
@@ -48,7 +48,7 @@ func (h DobbyHandler) HandleProcessLoginForm(c echo.Context) error {
 			err = json.Unmarshal(jsonBytes, &report)
 			util.Panic(err)
 
-			return render(c, view.Potions(report, *h.Tool))
+			return render(c, view.Potions(report, *h.Tool, "Pociones"))
 		}
 
 		return render(c, view.Login(h.User))
@@ -86,5 +86,30 @@ func (h DobbyHandler) HandlePotions(c echo.Context) error {
 		util.Panic(err)
 	}
 
-	return render(c, view.Potions(potionsReport, *h.Tool))
+	return render(c, view.Potions(potionsReport, *h.Tool, "Pociones"))
+}
+
+func (h DobbyHandler) HandleCreationChamber(c echo.Context) error {
+	subForumConfig := h.Tool.Store.GetCreationChamberSubforum()
+
+	var urls []string
+	var timeLimit *int
+	var turnLimit *int
+	for _, sub := range *subForumConfig {
+		urls = append(urls, *sub.Url)
+		timeLimit = sub.TimeLimit
+		turnLimit = sub.TurnLimit
+	}
+
+	creationChamberReport := h.Tool.ProcessCreationChamberSubforumList(&urls, timeLimit, turnLimit)
+
+	if saveReportMockup {
+		jsonResponse, err := json.Marshal(creationChamberReport)
+		util.Panic(err)
+		//save the json file
+		err = util.SaveJsonFile("./tmp/creationChamber.json", jsonResponse)
+		util.Panic(err)
+	}
+
+	return render(c, view.Potions(creationChamberReport, *h.Tool, "Cámara de Creación"))
 }

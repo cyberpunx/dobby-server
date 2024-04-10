@@ -10,8 +10,8 @@ import (
 	"fmt"
 )
 
-templ Potions(reportList []potion.PotionClubReport, t tool.Tool){
-    @layout.Base("Pociones", true) {
+templ Potions(reportList []potion.PotionClubReport, t tool.Tool, title string){
+    @layout.Base(title, true) {
         for i, report := range reportList {
                 @PotionReportView(i, report, t)
         }
@@ -42,9 +42,9 @@ templ PotionReportView(i int, r potion.PotionClubReport, t tool.Tool){
             </tr>
             <tr class="odd" style="color: var(--ds-color6)">
                 <td>
-                    <span><b>Tiempo transcurrido:</b> {GetElapsedTime(r, t.ForumDateTime)}</span>
-                    <span style="margin-left: 5px; margin-right: 5px">|</span>
-                    <span><b>Puntaje:</b> {GetScore(r)}</span>
+                    <span class={GetStatusColor(r)}><b>Tiempo transcurrido:</b> {GetElapsedTime(r, t.ForumDateTime)}</span>
+                    <span class={GetStatusColor(r)} style="margin-left: 5px; margin-right: 5px">|</span>
+                    <span class={GetStatusColor(r)}><b>Puntaje:</b> {GetScore(r)}</span>
                 </td>
                 <td>
                     <span class={GetStatusColor(r)}><b>Estado:</b> {GetStatus(r)}</span>
@@ -120,9 +120,9 @@ func GetStatus(r potion.PotionClubReport) string {
     case potion.StatusWaitingPlayer2OnDayOff:
         return "Esperando a " + r.Player2.Name + " (permiso)"
     case potion.StatusSuccess:
-        return "Poción Exitosa"
+        return "Éxito"
     case potion.StatusFail:
-        return "Poción Fallida"
+        return "Fallo"
     default:
         return "Estado desconocido"
     }

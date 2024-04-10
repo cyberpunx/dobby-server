@@ -237,3 +237,23 @@ func (o *Tool) ProcessPotionsThreadList(threadsUrls *[]string, timeLimit, turnLi
 
 	return reportMainList
 }
+
+func (o *Tool) ProcessCreationChamberSubforumList(subForumUrls *[]string, timeLimit, turnLimit *int) []potion.PotionClubReport {
+	util.LongPrintlnPrintln("\n\n ========= SUBFORUM CLUB DE CAMARA DE CREACION =========\n\n")
+	util.LongPrintlnPrintln("Time Limit: " + conf.Purple + strconv.Itoa(*timeLimit) + conf.Reset)
+	util.LongPrintlnPrintln("Turn Limit: " + conf.Purple + strconv.Itoa(*turnLimit) + conf.Reset)
+	if len(*subForumUrls) == 0 {
+		util.LongPrintlnPrintln("No subforums URLs to process")
+	}
+	var reportMainList []potion.PotionClubReport
+	for _, subforumUrl := range *subForumUrls {
+		util.LongPrintlnPrintln("=== Fetching Subforum === \n")
+		potionSubHtml := o.getSubforum(subforumUrl)
+		subforumThreads := o.parseSubforum(potionSubHtml)
+		util.LongPrintlnPrintln("=== Fetch Ended === \n")
+		reportList := o.processPotionsSubforum(subforumThreads, *timeLimit, *turnLimit)
+		reportMainList = append(reportMainList, reportList...)
+	}
+
+	return reportMainList
+}

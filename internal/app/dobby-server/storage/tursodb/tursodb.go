@@ -10,9 +10,11 @@ import (
 )
 
 const (
-	NoSuchTable    = "no such table"
-	ForumBaseUrl   = "https://www.hogwartsrol.com/"
-	PotionsClubUrl = "f98-club-de-pociones"
+	NoSuchTable             = "no such table"
+	ForumBaseUrl            = "https://www.hogwartsrol.com/"
+	PotionsClubUrl          = "f98-club-de-pociones"
+	CreationChambersClubUrl = "f237-camara-de-la-creacion-magica"
+	GSheetModerationId      = "13CCYZ4veljB6ItPNHdvxvClBZJaC1w-QMkq-H5btR74"
 )
 
 type Store struct {
@@ -31,7 +33,7 @@ func InitDB(connectionUrl string) *Store {
 		if NoSuchTableError(err) {
 			_, err = db.Exec(query.CreateConfigTable)
 			util.Panic(err)
-			_, err = db.Exec(query.InsertConfigTable, ForumBaseUrl, "token.json", "client_secret.json", "13CCYZ4veljB6ItPNHdvxvClBZJaC1w-QMkq-H5btR74")
+			_, err = db.Exec(query.InsertConfigTable, ForumBaseUrl, "token.json", "client_secret.json", GSheetModerationId)
 			util.Panic(err)
 		} else {
 			util.Panic(err)
@@ -58,6 +60,20 @@ func InitDB(connectionUrl string) *Store {
 	if err != nil {
 		if NoSuchTableError(err) {
 			_, err = db.Exec(query.CreatePotionThrTable)
+			util.Panic(err)
+		} else {
+			util.Panic(err)
+		}
+	} else {
+		util.Panic(err)
+	}
+
+	_, err = db.Query(query.SelectCreationChamberSubTable)
+	if err != nil {
+		if NoSuchTableError(err) {
+			_, err = db.Exec(query.CreateCreationChamberSubTable)
+			util.Panic(err)
+			_, err = db.Exec(query.InsertCreationChamberSubTable, CreationChambersClubUrl, 72, 8)
 			util.Panic(err)
 		} else {
 			util.Panic(err)
@@ -149,15 +165,21 @@ func (store Store) GetPotionSubforum() *[]config.PotionSubforumConfig {
 	return &subforums
 }
 
-func (store Store) UpdatePotionSubforum(potionSubConfig *[]config.PotionSubforumConfig) {
+func (store Store) GetCreationChamberSubforum() *[]config.CreationChamberSubforumConfig {
 	db := store.Conn
-	// Truncate the table and insert the new values
-	_, err := db.Exec(query.TruncateTable, "PotionSubforumConfig")
+	rows, err := db.Query(query.SelectCreationChamberSubTable)
 	util.Panic(err)
 
-	//insert one by one the potionSubConfig
-	for _, potionSubforum := range *potionSubConfig {
-		_, err := db.Exec(query.InsertPotionSubTable, potionSubforum.Url, potionSubforum.TimeLimit, potionSubforum.TurnLimit)
+	var subforums []config.CreationChamberSubforumConfig
+	for rows.Next() {
+		var subforum config.CreationChamberSubforumConfig
+		err = rows.Scan(
+			&subforum.Url,
+			&subforum.TimeLimit,
+			&subforum.TurnLimit)
 		util.Panic(err)
+		subforums = append(subforums, subforum)
 	}
+
+	return &subforums
 }

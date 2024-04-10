@@ -50,4 +50,16 @@ const (
 		timeLimit,
 		turnLimit)
 		VALUES (?, ?, ?);`
+
+	SelectCreationChamberSubTable = `SELECT * FROM CreationChamberSubforumConfig;`
+	CreateCreationChamberSubTable = `CREATE TABLE IF NOT EXISTS CreationChamberSubforumConfig (
+        "url" TEXT PRIMARY KEY,
+        "timeLimit" INTEGER NOT NULL,
+        "turnLimit" INTEGER NOT NULL
+    );`
+	InsertCreationChamberSubTable = `INSERT INTO CreationChamberSubforumConfig (
+		url, 
+		timeLimit, 
+		turnLimit)
+		VALUES (?, ?, ?);`
 )

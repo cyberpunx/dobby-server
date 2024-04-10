@@ -25,6 +25,7 @@ func SetupRoutes(app *echo.Echo, conf *config.Config, store *tursodb.Store) {
 	dobbyGroup.POST("/login", dobbyHandler.HandleProcessLoginForm)
 	dobbyGroup.GET("/logout", dobbyHandler.HandleLogout)
 	dobbyGroup.GET("/potions", dobbyHandler.HandlePotions)
+	dobbyGroup.GET("/creationchamber", dobbyHandler.HandleCreationChamber)
 	app.GET("/", dobbyHandler.HandleShowLoginForm)
 
 }
