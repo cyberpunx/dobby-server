@@ -282,7 +282,7 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 	lastPostTime := *threadWithoutOthers.Created
 	turnCount := 1
 	postCount := 1
-	postDice := ""
+	//postDice := ""
 	diceTotal := 0
 	postOnTime := false
 	threadLastPost := *threadWithoutOthers.Posts[len(threadWithoutOthers.Posts)-1]
@@ -347,10 +347,10 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 
 			postDiceValue := 0
 			if len(post.Dices) != 1 {
-				postDice = "N/A"
+				//postDice = "N/A"
 			} else {
 				postDiceValue = post.Dices[0].Result
-				postDice = config.Yellow + strconv.Itoa(post.Dices[0].Result) + config.Reset
+				//postDice = config.Yellow + strconv.Itoa(post.Dices[0].Result) + config.Reset
 				diceTotal += postDiceValue
 				result.Score.DiceScoreSum += postDiceValue
 			}
@@ -369,8 +369,8 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 			lastPostTime = *post.Created
 		}
 
-		s := printPostReport(isPlayerFlag, postCount, postUser, postRole, turnCount, postOnTime, dayOffUsed, postDice, diceTotal)
-		util.LongPrintlnPrintln(s)
+		//s := printPostReport(isPlayerFlag, postCount, postUser, postRole, turnCount, postOnTime, dayOffUsed, postDice, diceTotal)
+		//util.LongPrintlnPrintln(s)
 
 		if threadLastPost.Id == post.Id && isPlayerFlag {
 			elapsedTime := forumDateTime.Sub(*post.Created)
@@ -388,7 +388,7 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 						}
 					}
 				} else {
-					util.LongPrintlnPrintln(config.Red+"Time Passed: "+config.Reset, elapsedTime)
+					//util.LongPrintlnPrintln(config.Red+"Time Passed: "+config.Reset, elapsedTime)
 					result.Status = StatusFail
 					result.Score.Success = false
 					result.Score.TargetScore = potion.TargetScore
@@ -396,7 +396,7 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 					result.Score.ModMessage = generateModMessage(forumDynamic, result)
 				}
 			} else {
-				util.LongPrintlnPrintln(config.Green+"Time Passed: "+config.Reset, elapsedTime)
+				//util.LongPrintlnPrintln(config.Green+"Time Passed: "+config.Reset, elapsedTime)
 			}
 		}
 

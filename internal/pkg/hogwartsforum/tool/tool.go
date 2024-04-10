@@ -108,27 +108,22 @@ func (o *Tool) parsePost(postHtml string) *parser.Post {
 }
 
 func (o *Tool) processPotionsSubforum(forumDynamic dynamics.ForumDynamic, subforumThreads []*parser.Thread, timeLimit, turnLimit int) []potion.PotionClubReport {
-	util.LongPrintlnPrintln("=== Potions Begin ===")
 	var reportList []potion.PotionClubReport
 	for threadIndex, thread := range subforumThreads {
-		util.LongPrintlnPrintln("Processing Thread: " + conf.Purple + strconv.Itoa(threadIndex+1) + "/" + strconv.Itoa(len(subforumThreads)) + conf.Reset)
+		util.LongPrintlnPrintln("Processing Thread: [" + conf.Purple + strconv.Itoa(threadIndex+1) + "/" + strconv.Itoa(len(subforumThreads)) + conf.Reset + "] " + "Thread: " + conf.Purple + thread.Title + conf.Reset + " (Time: " + strconv.Itoa(timeLimit) + "| Turn: " + strconv.Itoa(turnLimit) + ")")
 		report := o.processPotionsThread(forumDynamic, *thread, timeLimit, turnLimit)
 		reportList = append(reportList, report)
-		util.LongPrintlnPrintln("\n")
+		//reportJson := util.MarshalJsonPretty(report)
+		//util.LongPrintlnPrintln(fmt.Sprintf("%s\n", reportJson))
 	}
-	util.LongPrintlnPrintln("=== Potions End === \n")
 	return reportList
 }
 
 func (o *Tool) processPotionsThread(forumDynamic dynamics.ForumDynamic, thread parser.Thread, timeLimit, turnLimit int) potion.PotionClubReport {
-	util.LongPrintlnPrintln("=== Potion Thread Begin ===")
-	util.LongPrintlnPrintln("Thread: " + conf.Purple + thread.Title + conf.Reset + " (Time: " + strconv.Itoa(timeLimit) + "| Turn: " + strconv.Itoa(turnLimit) + ")" + "\n")
 	var report potion.PotionClubReport
 	daysOff := o.getGoogleSheetPotionsDayOff()
 	playerBonus := o.getGoogleSheetPotionsBonus()
 	report = potion.PotionGetReportFromThread(forumDynamic, thread, timeLimit, turnLimit, o.ForumDateTime, daysOff, playerBonus)
-	util.LongPrintlnPrintln("\n")
-	util.LongPrintlnPrintln("=== Potion Thread End === \n")
 	return report
 }
 
@@ -208,18 +203,14 @@ func (o *Tool) getGoogleSheetPotionsBonus() *[]gsheet2.PlayerBonus {
 }
 
 func (o *Tool) ProcessPotionsSubforumList(forumDynamic dynamics.ForumDynamic, subForumUrls *[]string, timeLimit, turnLimit *int) []potion.PotionClubReport {
-	util.LongPrintlnPrintln("\n\n ========= SUBFORUM CLUB DE " + forumDynamic + " =========\n\n")
-	util.LongPrintlnPrintln("Time Limit: " + conf.Purple + strconv.Itoa(*timeLimit) + conf.Reset)
-	util.LongPrintlnPrintln("Turn Limit: " + conf.Purple + strconv.Itoa(*turnLimit) + conf.Reset)
+	util.LongPrintlnPrintln("Dynamic: " + strings.ToUpper(string(forumDynamic)) + " / TimeLimit: " + strconv.Itoa(*timeLimit) + " / TurnLimit" + strconv.Itoa(*turnLimit))
 	if len(*subForumUrls) == 0 {
 		util.LongPrintlnPrintln("No subforums URLs to process")
 	}
 	var reportMainList []potion.PotionClubReport
 	for _, subforumUrl := range *subForumUrls {
-		util.LongPrintlnPrintln("=== Fetching Subforum === \n")
 		subforumHtml := o.getSubforum(subforumUrl)
 		subforumThreads := o.parseSubforum(subforumHtml)
-		util.LongPrintlnPrintln("=== Fetch Ended === \n")
 		reportList := o.processPotionsSubforum(forumDynamic, subforumThreads, *timeLimit, *turnLimit)
 		reportMainList = append(reportMainList, reportList...)
 	}
@@ -247,6 +238,5 @@ func (o *Tool) GetUserDateTimeFormat() string {
 	threadUrl := *o.Config.BaseUrl + ForumRulesThread
 	threadHtml := o.GetThread(threadUrl)
 	dateTime := parser.PostGetDateTime(threadHtml)
-	println("DateTime: " + dateTime)
 	return dateTime
 }

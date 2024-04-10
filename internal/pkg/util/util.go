@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	conf "localdev/dobby-server/internal/app/dobby-server/config"
+	mylogger "localdev/dobby-server/internal/pkg/log"
 
 	"log"
 	"net/http"
@@ -180,6 +181,9 @@ func LongPrintlnPrintln(a ...any) {
 	// Print to stdout using util.LongPrintlnPrintln
 	//_, err := fmt.Println(fullString)
 	//Panic(err)
+
+	// slogecho logger
+	mylogger.GetLogger().Info(fullString)
 
 	// Append to a log file
 	file, err := os.OpenFile("log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)

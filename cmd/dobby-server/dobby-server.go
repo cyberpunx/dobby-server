@@ -9,9 +9,8 @@ import (
 	"localdev/dobby-server/internal/app/dobby-server/config"
 	"localdev/dobby-server/internal/app/dobby-server/handler"
 	"localdev/dobby-server/internal/app/dobby-server/storage/tursodb"
+	mylogger "localdev/dobby-server/internal/pkg/log"
 	"localdev/dobby-server/internal/pkg/util"
-	"log/slog"
-	"os"
 )
 
 const (
@@ -19,8 +18,6 @@ const (
 )
 
 func main() {
-	logger := slog.New(slog.NewTextHandler(os.Stdout, nil))
-
 	//Loads .env file
 	err := godotenv.Load()
 	if err != nil {
@@ -42,7 +39,7 @@ func main() {
 
 	// Starts the server
 	app := echo.New()
-	app.Use(slogecho.New(logger))
+	app.Use(slogecho.New(mylogger.GetLogger()))
 
 	app.Static("/assets", "/internal/app/dobby-server/assets")
 

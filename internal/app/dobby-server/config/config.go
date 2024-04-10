@@ -33,10 +33,12 @@ func LoadConfigFile(configPath string, config interface{}) (string, error) {
 	if err != nil {
 		return "", err
 	}
+	fmt.Println("Config loaded from: ", loadedPath)
 	return loadedPath, nil
 }
 
 func InitUnicodeConfig(conf *Config) {
+	fmt.Println("Unicode output: ", *conf.UnicodeOutput)
 	if *conf.UnicodeOutput {
 		Reset = "\033[0m"
 		Red = "\033[31m"
@@ -79,7 +81,7 @@ func init() {
 		tursoDbUrl := os.Getenv("TURSO_DB_URL")
 		tursoDbToken := os.Getenv("TURSO_DB_TOKEN")
 		serverPort := os.Getenv("SERVER_PORT")
-		unicodeOutput := true
+		unicodeOutput := false
 		if tursoDbUrl == "" || tursoDbToken == "" || serverPort == "" {
 			panic("Cannot load config file and Environment variables are not set")
 

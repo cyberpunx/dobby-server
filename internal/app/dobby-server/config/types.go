@@ -119,5 +119,12 @@ func MergeConfigs(fileConfig, conf Config) Config {
 		mergedConfig.ServerPort = fileConfig.ServerPort
 	}
 
+	// Combinar UnicodeOutput
+	if conf.UnicodeOutput != nil {
+		mergedConfig.UnicodeOutput = conf.UnicodeOutput
+	} else {
+		mergedConfig.UnicodeOutput = fileConfig.UnicodeOutput
+	}
+
 	return mergedConfig
 }
