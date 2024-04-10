@@ -5,6 +5,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"localdev/dobby-server/internal/app/dobby-server/model"
 	"localdev/dobby-server/internal/app/dobby-server/view"
+	"localdev/dobby-server/internal/pkg/hogwartsforum/dynamics"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/dynamics/potion"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/tool"
 	"localdev/dobby-server/internal/pkg/util"
@@ -79,7 +80,7 @@ func (h DobbyHandler) HandlePotions(c echo.Context) error {
 		turnLimit = sub.TurnLimit
 	}
 
-	potionsReport := h.Tool.ProcessPotionsSubforumList(&urls, timeLimit, turnLimit)
+	potionsReport := h.Tool.ProcessPotionsSubforumList(dynamics.DynamicPotion, &urls, timeLimit, turnLimit)
 
 	if saveReportMockup {
 		jsonResponse, err := json.Marshal(potionsReport)
@@ -104,7 +105,7 @@ func (h DobbyHandler) HandleCreationChamber(c echo.Context) error {
 		turnLimit = sub.TurnLimit
 	}
 
-	creationChamberReport := h.Tool.ProcessCreationChamberSubforumList(&urls, timeLimit, turnLimit)
+	creationChamberReport := h.Tool.ProcessPotionsSubforumList(dynamics.DynamicCreationChamber, &urls, timeLimit, turnLimit)
 
 	if saveReportMockup {
 		jsonResponse, err := json.Marshal(creationChamberReport)

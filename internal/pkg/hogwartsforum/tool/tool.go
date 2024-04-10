@@ -4,6 +4,7 @@ import (
 	"fmt"
 	conf "localdev/dobby-server/internal/app/dobby-server/config"
 	gsheet2 "localdev/dobby-server/internal/pkg/gsheet"
+	"localdev/dobby-server/internal/pkg/hogwartsforum/dynamics"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/dynamics/chronology"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/dynamics/potion"
 	parser "localdev/dobby-server/internal/pkg/hogwartsforum/parser"
@@ -106,12 +107,12 @@ func (o *Tool) parsePost(postHtml string) *parser.Post {
 	}
 }
 
-func (o *Tool) processPotionsSubforum(subforumThreads []*parser.Thread, timeLimit, turnLimit int) []potion.PotionClubReport {
+func (o *Tool) processPotionsSubforum(forumDynamic dynamics.ForumDynamic, subforumThreads []*parser.Thread, timeLimit, turnLimit int) []potion.PotionClubReport {
 	util.LongPrintlnPrintln("=== Potions Begin ===")
 	var reportList []potion.PotionClubReport
 	for threadIndex, thread := range subforumThreads {
 		util.LongPrintlnPrintln("Processing Thread: " + conf.Purple + strconv.Itoa(threadIndex+1) + "/" + strconv.Itoa(len(subforumThreads)) + conf.Reset)
-		report := o.processPotionsThread(*thread, timeLimit, turnLimit)
+		report := o.processPotionsThread(forumDynamic, *thread, timeLimit, turnLimit)
 		reportList = append(reportList, report)
 		util.LongPrintlnPrintln("\n")
 	}
@@ -119,13 +120,13 @@ func (o *Tool) processPotionsSubforum(subforumThreads []*parser.Thread, timeLimi
 	return reportList
 }
 
-func (o *Tool) processPotionsThread(thread parser.Thread, timeLimit, turnLimit int) potion.PotionClubReport {
+func (o *Tool) processPotionsThread(forumDynamic dynamics.ForumDynamic, thread parser.Thread, timeLimit, turnLimit int) potion.PotionClubReport {
 	util.LongPrintlnPrintln("=== Potion Thread Begin ===")
 	util.LongPrintlnPrintln("Thread: " + conf.Purple + thread.Title + conf.Reset + " (Time: " + strconv.Itoa(timeLimit) + "| Turn: " + strconv.Itoa(turnLimit) + ")" + "\n")
 	var report potion.PotionClubReport
 	daysOff := o.getGoogleSheetPotionsDayOff()
 	playerBonus := o.getGoogleSheetPotionsBonus()
-	report = potion.PotionGetReportFromThread(thread, timeLimit, turnLimit, o.ForumDateTime, daysOff, playerBonus)
+	report = potion.PotionGetReportFromThread(forumDynamic, thread, timeLimit, turnLimit, o.ForumDateTime, daysOff, playerBonus)
 	util.LongPrintlnPrintln("\n")
 	util.LongPrintlnPrintln("=== Potion Thread End === \n")
 	return report
@@ -206,8 +207,8 @@ func (o *Tool) getGoogleSheetPotionsBonus() *[]gsheet2.PlayerBonus {
 	return &playerBonus
 }
 
-func (o *Tool) ProcessPotionsSubforumList(subForumUrls *[]string, timeLimit, turnLimit *int) []potion.PotionClubReport {
-	util.LongPrintlnPrintln("\n\n ========= SUBFORUM CLUB DE POCIONES =========\n\n")
+func (o *Tool) ProcessPotionsSubforumList(forumDynamic dynamics.ForumDynamic, subForumUrls *[]string, timeLimit, turnLimit *int) []potion.PotionClubReport {
+	util.LongPrintlnPrintln("\n\n ========= SUBFORUM CLUB DE " + forumDynamic + " =========\n\n")
 	util.LongPrintlnPrintln("Time Limit: " + conf.Purple + strconv.Itoa(*timeLimit) + conf.Reset)
 	util.LongPrintlnPrintln("Turn Limit: " + conf.Purple + strconv.Itoa(*turnLimit) + conf.Reset)
 	if len(*subForumUrls) == 0 {
@@ -216,17 +217,17 @@ func (o *Tool) ProcessPotionsSubforumList(subForumUrls *[]string, timeLimit, tur
 	var reportMainList []potion.PotionClubReport
 	for _, subforumUrl := range *subForumUrls {
 		util.LongPrintlnPrintln("=== Fetching Subforum === \n")
-		potionSubHtml := o.getSubforum(subforumUrl)
-		subforumThreads := o.parseSubforum(potionSubHtml)
+		subforumHtml := o.getSubforum(subforumUrl)
+		subforumThreads := o.parseSubforum(subforumHtml)
 		util.LongPrintlnPrintln("=== Fetch Ended === \n")
-		reportList := o.processPotionsSubforum(subforumThreads, *timeLimit, *turnLimit)
+		reportList := o.processPotionsSubforum(forumDynamic, subforumThreads, *timeLimit, *turnLimit)
 		reportMainList = append(reportMainList, reportList...)
 	}
 
 	return reportMainList
 }
 
-func (o *Tool) ProcessPotionsThreadList(threadsUrls *[]string, timeLimit, turnLimit *int) []potion.PotionClubReport {
+func (o *Tool) ProcessPotionsThreadList(forumDynamic dynamics.ForumDynamic, threadsUrls *[]string, timeLimit, turnLimit *int) []potion.PotionClubReport {
 	util.LongPrintlnPrintln("\n\n ========= THREADS DE POCIONES =========\n\n")
 	if len(*threadsUrls) == 0 {
 		util.LongPrintlnPrintln("No Threads URLs to process")
@@ -235,28 +236,8 @@ func (o *Tool) ProcessPotionsThreadList(threadsUrls *[]string, timeLimit, turnLi
 	for _, threadUrl := range *threadsUrls {
 		potionThreadHtml := o.GetThread(threadUrl)
 		potionThread := o.ParseThread(potionThreadHtml)
-		report := o.processPotionsThread(*potionThread, *timeLimit, *turnLimit)
+		report := o.processPotionsThread(forumDynamic, *potionThread, *timeLimit, *turnLimit)
 		reportMainList = append(reportMainList, report)
-	}
-
-	return reportMainList
-}
-
-func (o *Tool) ProcessCreationChamberSubforumList(subForumUrls *[]string, timeLimit, turnLimit *int) []potion.PotionClubReport {
-	util.LongPrintlnPrintln("\n\n ========= SUBFORUM CLUB DE CAMARA DE CREACION =========\n\n")
-	util.LongPrintlnPrintln("Time Limit: " + conf.Purple + strconv.Itoa(*timeLimit) + conf.Reset)
-	util.LongPrintlnPrintln("Turn Limit: " + conf.Purple + strconv.Itoa(*turnLimit) + conf.Reset)
-	if len(*subForumUrls) == 0 {
-		util.LongPrintlnPrintln("No subforums URLs to process")
-	}
-	var reportMainList []potion.PotionClubReport
-	for _, subforumUrl := range *subForumUrls {
-		util.LongPrintlnPrintln("=== Fetching Subforum === \n")
-		potionSubHtml := o.getSubforum(subforumUrl)
-		subforumThreads := o.parseSubforum(potionSubHtml)
-		util.LongPrintlnPrintln("=== Fetch Ended === \n")
-		reportList := o.processPotionsSubforum(subforumThreads, *timeLimit, *turnLimit)
-		reportMainList = append(reportMainList, reportList...)
 	}
 
 	return reportMainList

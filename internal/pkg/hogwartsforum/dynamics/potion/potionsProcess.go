@@ -6,6 +6,7 @@ import (
 	"html/template"
 	"localdev/dobby-server/internal/app/dobby-server/config"
 	gsheet "localdev/dobby-server/internal/pkg/gsheet"
+	"localdev/dobby-server/internal/pkg/hogwartsforum/dynamics"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/parser"
 	"localdev/dobby-server/internal/pkg/util"
 	"strconv"
@@ -28,7 +29,7 @@ const (
 
 	DayOffExtraHours = 24
 
-	potionTemplatePath = "internal/pkg/hogwartsforum/dynamics/potion/potionTemplates/"
+	TemplatePath = "internal/pkg/hogwartsforum/dynamics/templates/"
 )
 
 type Status string
@@ -272,7 +273,7 @@ func printPostReport(isPlayer bool, postCount int, postUser string, role string,
 		})
 	return s
 }
-func PotionGetReportFromThread(rawThread parser.Thread, timeLimitHours, turnLimit int, forumDateTime time.Time, daysOff *[]gsheet.DayOff, playerBonus *[]gsheet.PlayerBonus) PotionClubReport {
+func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread parser.Thread, timeLimitHours, turnLimit int, forumDateTime time.Time, daysOff *[]gsheet.DayOff, playerBonus *[]gsheet.PlayerBonus) PotionClubReport {
 	timeThreshold := time.Duration(timeLimitHours) * time.Hour
 	potion := getPotionFromThread(rawThread)
 	player1, player2, moderator, others := identifyRolesOnThread(rawThread)
@@ -392,7 +393,7 @@ func PotionGetReportFromThread(rawThread parser.Thread, timeLimitHours, turnLimi
 					result.Score.Success = false
 					result.Score.TargetScore = potion.TargetScore
 					generatePotionFailedReport(notPostPlayer.Name, &result)
-					result.Score.ModMessage = generateModMessage(result)
+					result.Score.ModMessage = generateModMessage(forumDynamic, result)
 				}
 			} else {
 				util.LongPrintlnPrintln(config.Green+"Time Passed: "+config.Reset, elapsedTime)
@@ -414,7 +415,7 @@ func PotionGetReportFromThread(rawThread parser.Thread, timeLimitHours, turnLimi
 				result.Score.TargetScore = potion.TargetScore
 				generatePotionFailedReport(postPlayer.Name, &result)
 			}
-			result.Score.ModMessage = generateModMessage(result)
+			result.Score.ModMessage = generateModMessage(forumDynamic, result)
 		}
 
 		postCount++
@@ -432,7 +433,7 @@ func PotionGetReportFromThread(rawThread parser.Thread, timeLimitHours, turnLimi
 				result.Status = StatusFail
 				result.Score.Success = false
 				generatePotionFailedReport(turn.Player.Name, &result)
-				result.Score.ModMessage = generateModMessage(result)
+				result.Score.ModMessage = generateModMessage(forumDynamic, result)
 			}
 		}
 	}
@@ -481,14 +482,22 @@ func generatePotionSuccessReport(report *PotionClubReport) {
 	}
 }
 
-func generateModMessage(r PotionClubReport) string {
+func generateModMessage(forumDynamic dynamics.ForumDynamic, r PotionClubReport) string {
 	var templateFile string
 	var data interface{}
+	var templateFolder string
+	switch forumDynamic {
+	case dynamics.DynamicPotion:
+		templateFolder = "potionTemplates/"
+	case dynamics.DynamicCreationChamber:
+		templateFolder = "creationChamberTemplates/"
+	}
+
 	if r.Score.Success {
-		templateFile = potionTemplatePath + "potionSuccess.html"
+		templateFile = TemplatePath + templateFolder + "success.html"
 		data = r.Score.ReportSucced
 	} else {
-		templateFile = potionTemplatePath + "potionFailed.html"
+		templateFile = TemplatePath + templateFolder + "failed.html"
 		data = r.Score.ReportFailed
 	}
 
