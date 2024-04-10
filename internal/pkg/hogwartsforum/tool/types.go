@@ -15,11 +15,11 @@ type LoginRequest struct {
 }
 
 type LoginResponse struct {
-	Success  *bool      `json:"success"`
-	Messaage *string    `json:"message"`
-	Username *string    `json:"username"`
-	Initials *string    `json:"initials"`
-	Datetime *time.Time `json:"datetime"`
+	Success       *bool      `json:"success"`
+	Messaage      *string    `json:"message"`
+	Username      *string    `json:"username"`
+	Initials      *string    `json:"initials"`
+	LoginDatetime *time.Time `json:"datetime"`
 }
 
 type Tool struct {

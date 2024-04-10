@@ -79,11 +79,11 @@ func LoginAndGetCookies(user, pass string) (*http.Client, *LoginResponse) {
 	initials := util.GetInitials(username)
 	timestamp := time.Now()
 	loginResponse = LoginResponse{
-		Success:  util.PBool(true),
-		Messaage: &msg,
-		Username: &username,
-		Initials: &initials,
-		Datetime: &timestamp,
+		Success:       util.PBool(true),
+		Messaage:      &msg,
+		Username:      &username,
+		Initials:      &initials,
+		LoginDatetime: &timestamp,
 	}
 
 	return client, &loginResponse
@@ -233,7 +233,7 @@ func (o *Tool) getSubforum(subUrl string) string {
 }
 
 func (o *Tool) getForumHome() string {
-	util.LongPrintlnPrintln("Getting Home (Get Forum Datetime): ")
+	util.LongPrintlnPrintln("Getting Home (Get Forum LoginDatetime): ")
 
 	baseDomain := *o.Config.BaseUrl
 	req, err := http.NewRequest("GET", baseDomain, nil)

@@ -2,6 +2,7 @@ package view
 
 import (
     "localdev/dobby-server/internal/app/dobby-server/view/layout"
+    "localdev/dobby-server/internal/app/dobby-server/model"
     c "localdev/dobby-server/internal/app/dobby-server/view/component"
     "localdev/dobby-server/internal/pkg/hogwartsforum/dynamics/potion"
     "localdev/dobby-server/internal/pkg/hogwartsforum/tool"
@@ -10,8 +11,8 @@ import (
 	"fmt"
 )
 
-templ Potions(reportList []potion.PotionClubReport, t tool.Tool, title string){
-    @layout.Base(title, true) {
+templ Potions(reportList []potion.PotionClubReport, u model.User, t tool.Tool, title string){
+    @layout.Base(title, true, u, t) {
         for i, report := range reportList {
                 @PotionReportView(i, report, t)
         }

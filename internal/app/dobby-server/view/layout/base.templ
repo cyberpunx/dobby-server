@@ -1,6 +1,11 @@
 package layout
 
-templ Base(title string, showNav bool){
+import (
+    "localdev/dobby-server/internal/app/dobby-server/model"
+    "localdev/dobby-server/internal/pkg/hogwartsforum/tool"
+)
+
+templ Base(title string, showNav bool, u model.User, t tool.Tool){
   <html lang="es">
     <head>
       <title>{title}</title>
@@ -24,8 +29,10 @@ templ Base(title string, showNav bool){
         <nav>
           <ul>
             <li><a href="/" hx-get="/" hx-swap="outerHTML" hx-target="body" hx-indicator="#spinner">Inicio</a></li>
-            <li><a href="/" hx-get="dobby/potions" hx-swap="outerHTML" hx-target="body" hx-indicator="#spinner">Pociones</a></li>
-            <li><a href="/" hx-get="dobby/creationchamber" hx-swap="outerHTML" hx-target="body" hx-indicator="#spinner">Cámara de Creación</a></li>
+            if u.IsCorrectDateFmt {
+                <li><a href="/" hx-get="dobby/potions" hx-swap="outerHTML" hx-target="body" hx-indicator="#spinner">Pociones</a></li>
+                <li><a href="/" hx-get="dobby/creationchamber" hx-swap="outerHTML" hx-target="body" hx-indicator="#spinner">Cámara de Creación</a></li>
+            }
             <li><a href="/" hx-get="dobby/logout"  hx-swap="outerHTML" hx-target="body" hx-indicator="#spinner">Salir</a></li>
           </ul>
         </nav>

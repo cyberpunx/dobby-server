@@ -16,6 +16,10 @@ import (
 	"strings"
 )
 
+const (
+	ForumRulesThread = "t24-001-normas-del-foro"
+)
+
 func (o *Tool) parseSubforum(subHtml string) []*parser.Thread {
 	threadList := parser.GetSubforumThreads(subHtml)
 
@@ -256,4 +260,12 @@ func (o *Tool) ProcessCreationChamberSubforumList(subForumUrls *[]string, timeLi
 	}
 
 	return reportMainList
+}
+
+func (o *Tool) GetUserDateTimeFormat() string {
+	threadUrl := *o.Config.BaseUrl + ForumRulesThread
+	threadHtml := o.GetThread(threadUrl)
+	dateTime := parser.PostGetDateTime(threadHtml)
+	println("DateTime: " + dateTime)
+	return dateTime
 }

@@ -3,15 +3,16 @@ package view
 import (
     "localdev/dobby-server/internal/app/dobby-server/view/layout"
     "localdev/dobby-server/internal/app/dobby-server/model"
+    "localdev/dobby-server/internal/pkg/hogwartsforum/tool"
 )
 
-templ Login(u *model.User) {
+templ Login(u model.User, t tool.Tool) {
         if u.IsLoggedIn {
-            @layout.Base("¡Bienvenido a Dobby!", true) {
+            @layout.Base("¡Bienvenido a Dobby!", true, u, t) {
                 @Welcome(u)
             }
         } else {
-            @layout.Base("Iniciar Sesión", false) {
+            @layout.Base("Iniciar Sesión", false, u, t) {
                 <p>Inicia sesión con tu cuenta de <b>Hogwarts Rol</b>.</p>
                 @LoginForm()
             }
@@ -31,6 +32,15 @@ templ LoginForm() {
         </form>
 }
 
-templ Welcome(u *model.User){
+templ Welcome(u model.User){
         Saludos, <b>{*u.Username}</b>!
+        if u.IsCorrectDateFmt {
+            <p>El formato de fecha configurado en tu cuenta del foro es correcto: [<b class="success">{*u.UserDateFormat}</b>] </p>
+        } else {
+            <div style="padding: 20px; margin-top: 15px; width: fit-content;">
+                <p>El formato de fecha configurado en tu cuenta del foro  es incorrecto: [<b class="danger">{*u.UserDateFormat}</b>] ️</p>
+                <p>Dírigete a las <a style="color: var(--ds-color6); text-decoration: none" href="https://www.hogwartsrol.com/profile?mode=editprofile&page_profil=preferences">preferencias de tu cuenta</a>, selecciona el formato correcto y vuelve a iniciar sesión en Dobby.</p>
+                <img style="border: var(--ds-color3); border-style: outset" src="assets/img/dateFormat.png"/>
+            </div>
+        }
 }

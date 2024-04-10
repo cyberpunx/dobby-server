@@ -503,3 +503,14 @@ func IsPostSuccessful(html string) (bool, string) {
 		return false, ""
 	}
 }
+
+func PostGetDateTime(html string) string {
+	reader := strings.NewReader(html)
+	doc, err := goquery.NewDocumentFromReader(reader)
+	util.Panic(err)
+
+	// Find the <div> element with class "linkfecha" format:  29/11/2023, 08:31
+	dateDiv := doc.Find("div.linkfecha").Nodes[0].LastChild
+	dateDivStr := strings.Trim(dateDiv.Data, " ")
+	return dateDivStr
+}

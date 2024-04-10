@@ -230,3 +230,61 @@ func LoadJsonFile(path string) ([]byte, error) {
 	}
 	return data, nil
 }
+
+func parseDate(dateStr string) (time.Time, error) {
+	var layouts = []string{
+		"Mon 2 Jan - 15:04",       // Miér 10 Abr - 7:53
+		"Mon 2 Jan 2006 - 15:04",  // Miér 10 Abr 2024 - 7:53
+		"Mon 2 Jan - 15:04:05",    // Miér 10 Abr - 7:53:02
+		"02.01.06 15:04",          // 10.04.24 7:53
+		"02/01/06, 3:04 pm",       // 10/04/24, 07:53 am
+		"Mon 2 Jan 2006, 3:04 pm", // Miér 10 Abr 2024, 7:53 am
+		"Mon 2 Jan 2006, 15:04",   // Miér 10 Abr 2024, 07:53
+		"Mon Jan 2, 2006 3:04 pm", // Miér Abr 10, 2024 7:53 am
+		"Mon Jan 2 2006, 15:04",   // Miér Abr 10 2024, 07:53
+		"2nd Jan 2006, 3:04 pm",   // Ajustar según el sufijo necesario
+		"2nd Jan 2006, 15:04",     // Ajustar según el sufijo necesario
+		"Jan 2nd 2006, 3:04 pm",   // Ajustar según el sufijo necesario
+		"Jan 2nd 2006, 15:04",     // Ajustar según el sufijo necesario
+		"2/1/2006, 3:04 pm",       // 10/4/2024, 7:53 am
+		"2/1/2006, 15:04",         // 10/4/2024, 07:53
+		"1/2/2006, 3:04 pm",       // 4/10/2024, 7:53 am
+		"1/2/2006, 15:04",         // 4/10/2024, 07:53
+		"2006-01-02, 3:04 pm",     // 2024-04-10, 7:53 am
+		"2006-01-02, 15:04",       // 2024-04-10, 07:53
+	}
+
+	for _, layout := range layouts {
+		t, err := time.Parse(layout, dateStr)
+		if err == nil {
+			return t, nil
+		}
+	}
+	return time.Time{}, fmt.Errorf("formato de fecha no reconocido: %s", dateStr)
+}
+
+func IsUserDateFormatCorrect(userDateFormat string, forumDateTime time.Time) bool {
+	var timeStr, dateStr string
+	var parts []string // Para almacenar partes divididas de la cadena.
+
+	datetimeStr := userDateFormat
+	if strings.Contains(datetimeStr, "Hoy a las") || strings.Contains(datetimeStr, "Ayer a las") {
+		parts = strings.Split(datetimeStr, " ")
+		if len(parts) < 4 { // Verificar que haya suficientes partes.
+			return false
+		}
+		timeStr = parts[3]                                     // Tiempo extraído correctamente.
+		dateStr = AdjustDateTimeToStr(forumDateTime, parts[0]) // Ajuste de fecha según "Hoy" o "Ayer".
+	} else {
+		parts = strings.Split(datetimeStr, ",")
+		if len(parts) < 2 { // Verificar que haya suficientes partes.
+			return false
+		}
+		dateStr = parts[0]
+		timeStr = strings.TrimSpace(parts[1])
+	}
+
+	layout := "2/1/2006 15:04"
+	_, err := time.Parse(layout, dateStr+" "+timeStr)
+	return err == nil
+}

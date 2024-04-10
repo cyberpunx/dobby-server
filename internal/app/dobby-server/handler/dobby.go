@@ -21,7 +21,7 @@ const (
 )
 
 func (h DobbyHandler) HandleShowLoginForm(c echo.Context) error {
-	return render(c, view.Login(h.User))
+	return render(c, view.Login(*h.User, *h.Tool))
 }
 
 func (h DobbyHandler) HandleProcessLoginForm(c echo.Context) error {
@@ -30,15 +30,18 @@ func (h DobbyHandler) HandleProcessLoginForm(c echo.Context) error {
 
 	client, loginResponse := tool.LoginAndGetCookies(username, password)
 	if !*loginResponse.Success {
-		return render(c, view.Login(h.User))
+		return render(c, view.Login(*h.User, *h.Tool))
 	} else {
 		h.Tool.Client = client
 		secret1, secret2 := h.Tool.GetPostSecrets()
 		h.Tool.PostSecret1 = &secret1
 		h.Tool.PostSecret2 = &secret2
+		userDateFormat := h.Tool.GetUserDateTimeFormat()
+		h.User.UserDateFormat = &userDateFormat
+		h.User.IsCorrectDateFmt = util.IsUserDateFormatCorrect(userDateFormat, h.Tool.ForumDateTime)
 		h.User.Username = &username
 		h.User.Initials = loginResponse.Initials
-		h.User.Datetime = loginResponse.Datetime
+		h.User.LoginDatetime = loginResponse.LoginDatetime
 		h.User.IsLoggedIn = true
 
 		if loadReportMockup {
@@ -48,10 +51,10 @@ func (h DobbyHandler) HandleProcessLoginForm(c echo.Context) error {
 			err = json.Unmarshal(jsonBytes, &report)
 			util.Panic(err)
 
-			return render(c, view.Potions(report, *h.Tool, "Pociones"))
+			return render(c, view.Potions(report, *h.User, *h.Tool, "Pociones"))
 		}
 
-		return render(c, view.Login(h.User))
+		return render(c, view.Login(*h.User, *h.Tool))
 	}
 }
 
@@ -60,8 +63,8 @@ func (h DobbyHandler) HandleLogout(c echo.Context) error {
 	h.User.IsLoggedIn = false
 	h.User.Username = nil
 	h.User.Initials = nil
-	h.User.Datetime = nil
-	return render(c, view.Login(h.User))
+	h.User.LoginDatetime = nil
+	return render(c, view.Login(*h.User, *h.Tool))
 }
 
 func (h DobbyHandler) HandlePotions(c echo.Context) error {
@@ -86,7 +89,7 @@ func (h DobbyHandler) HandlePotions(c echo.Context) error {
 		util.Panic(err)
 	}
 
-	return render(c, view.Potions(potionsReport, *h.Tool, "Pociones"))
+	return render(c, view.Potions(potionsReport, *h.User, *h.Tool, "Pociones"))
 }
 
 func (h DobbyHandler) HandleCreationChamber(c echo.Context) error {
@@ -111,5 +114,5 @@ func (h DobbyHandler) HandleCreationChamber(c echo.Context) error {
 		util.Panic(err)
 	}
 
-	return render(c, view.Potions(creationChamberReport, *h.Tool, "Cámara de Creación"))
+	return render(c, view.Potions(creationChamberReport, *h.User, *h.Tool, "Cámara de Creación"))
 }

@@ -14,10 +14,10 @@ func SetupRoutes(app *echo.Echo, conf *config.Config, store *tursodb.Store) {
 	dobbyHandler := DobbyHandler{
 		Tool: tool.NewTool(conf, nil, nil, store),
 		User: &model.User{
-			IsLoggedIn: false,
-			Username:   nil,
-			Initials:   nil,
-			Datetime:   nil,
+			IsLoggedIn:    false,
+			Username:      nil,
+			Initials:      nil,
+			LoginDatetime: nil,
 		},
 	}
 	sheetService := gsheet.GetSheetService(*dobbyHandler.Tool.Config.GSheetTokenFile, *dobbyHandler.Tool.Config.GSheetCredFile)
