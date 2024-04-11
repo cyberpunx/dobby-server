@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"github.com/PuerkitoBio/goquery"
 	"html/template"
-	"localdev/dobby-server/internal/app/dobby-server/config"
 	gsheet "localdev/dobby-server/internal/pkg/gsheet"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/dynamics"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/parser"
@@ -50,17 +49,18 @@ type PotionsUser struct {
 	Posts       []*parser.Post
 }
 type PotionClubReport struct {
-	Player1   PotionsUser
-	Player2   PotionsUser
-	Moderator PotionsUser
-	Other     []PotionsUser
-	Thread    parser.Thread
-	Potion    Potion
-	Status    Status
-	Score     PotionClubScoreBoard
-	TurnLimit int
-	TimeLimit int
-	Turns     []PotionClubTurn
+	Player1     PotionsUser
+	Player2     PotionsUser
+	Moderator   PotionsUser
+	Other       []PotionsUser
+	Thread      parser.Thread
+	Potion      Potion
+	Status      Status
+	Score       PotionClubScoreBoard
+	TurnLimit   int
+	TimeLimit   int
+	Turns       []PotionClubTurn
+	ElapsedTime time.Duration
 }
 
 type ModMsgPotionFailData struct {
@@ -244,35 +244,6 @@ func removeOtherPostsFromThread(player1 PotionsUser, player2 PotionsUser, modera
 	return threadWithoutOthers
 }
 
-func printPostReport(isPlayer bool, postCount int, postUser string, role string, turnCount int, onTime bool, dayOffUsed bool, turnDice string, diceTotal int) string {
-	strReport := ""
-	timeStatus := ""
-	if !isPlayer {
-		strReport = "{i}) " + config.Purple + "{postUser} " + config.Reset + " ({role})" + config.Reset
-	} else {
-		if onTime {
-			timeStatus = config.Green + "OK" + config.Reset
-		} else {
-			if dayOffUsed {
-				timeStatus = config.Yellow + "DAY OFF" + config.Reset
-			} else {
-				timeStatus = config.Red + "FAIL" + config.Reset
-			}
-		}
-		strReport = "{i}) Turn {turnCount} " + config.Purple + "{postUser} " + config.Reset + " ({role}) | Time: {timeStatus} | Dice: {turnDice} | Total: {diceTotal}" + config.Reset
-	}
-
-	s := util.Fprint(strReport,
-		util.P{"i": strconv.Itoa(postCount),
-			"postUser":   postUser,
-			"role":       role,
-			"turnCount":  strconv.Itoa(turnCount),
-			"timeStatus": timeStatus,
-			"turnDice":   turnDice,
-			"diceTotal":  config.Purple + strconv.Itoa(diceTotal) + config.Reset,
-		})
-	return s
-}
 func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread parser.Thread, timeLimitHours, turnLimit int, forumDateTime time.Time, daysOff *[]gsheet.DayOff, playerBonus *[]gsheet.PlayerBonus) PotionClubReport {
 	timeThreshold := time.Duration(timeLimitHours) * time.Hour
 	potion := getPotionFromThread(rawThread)
@@ -369,9 +340,6 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 			lastPostTime = *post.Created
 		}
 
-		//s := printPostReport(isPlayerFlag, postCount, postUser, postRole, turnCount, postOnTime, dayOffUsed, postDice, diceTotal)
-		//util.LongPrintlnPrintln(s)
-
 		if threadLastPost.Id == post.Id && isPlayerFlag {
 			elapsedTime := forumDateTime.Sub(*post.Created)
 			dateLimit := lastPostTime.Add(timeThreshold)
@@ -388,15 +356,12 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 						}
 					}
 				} else {
-					//util.LongPrintlnPrintln(config.Red+"Time Passed: "+config.Reset, elapsedTime)
 					result.Status = StatusFail
 					result.Score.Success = false
 					result.Score.TargetScore = potion.TargetScore
 					generatePotionFailedReport(notPostPlayer.Name, &result)
 					result.Score.ModMessage = generateModMessage(forumDynamic, result)
 				}
-			} else {
-				//util.LongPrintlnPrintln(config.Green+"Time Passed: "+config.Reset, elapsedTime)
 			}
 		}
 
@@ -436,6 +401,18 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 				result.Score.ModMessage = generateModMessage(forumDynamic, result)
 			}
 		}
+	}
+
+	if result.Turns != nil && len(result.Turns) > 0 {
+		lastTurn := result.Turns[len(result.Turns)-1]
+		turnTime := lastTurn.TurnDatePosted
+		elapsedTime := forumDateTime.Sub(turnTime)
+		result.ElapsedTime = elapsedTime
+	} else {
+		lastPost := result.Thread.Posts[len(result.Thread.Posts)-1]
+		postTime := *lastPost.Created
+		elapsedTime := forumDateTime.Sub(postTime)
+		result.ElapsedTime = elapsedTime
 	}
 
 	return result

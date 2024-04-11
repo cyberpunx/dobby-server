@@ -2,7 +2,6 @@ package tool
 
 import (
 	"fmt"
-	conf "localdev/dobby-server/internal/app/dobby-server/config"
 	gsheet2 "localdev/dobby-server/internal/pkg/gsheet"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/dynamics"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/dynamics/chronology"
@@ -110,7 +109,7 @@ func (o *Tool) parsePost(postHtml string) *parser.Post {
 func (o *Tool) processPotionsSubforum(forumDynamic dynamics.ForumDynamic, subforumThreads []*parser.Thread, timeLimit, turnLimit int) []potion.PotionClubReport {
 	var reportList []potion.PotionClubReport
 	for threadIndex, thread := range subforumThreads {
-		util.LongPrintlnPrintln("Processing Thread: [" + conf.Purple + strconv.Itoa(threadIndex+1) + "/" + strconv.Itoa(len(subforumThreads)) + conf.Reset + "] " + "Thread: " + conf.Purple + thread.Title + conf.Reset + " (Time: " + strconv.Itoa(timeLimit) + "| Turn: " + strconv.Itoa(turnLimit) + ")")
+		util.LongPrintlnPrintln("Processing Thread: [" + strconv.Itoa(threadIndex+1) + "/" + strconv.Itoa(len(subforumThreads)) + "] " + "Thread: " + thread.Title + " (Time: " + strconv.Itoa(timeLimit) + "| Turn: " + strconv.Itoa(turnLimit) + ")")
 		report := o.processPotionsThread(forumDynamic, *thread, timeLimit, turnLimit)
 		reportList = append(reportList, report)
 		//reportJson := util.MarshalJsonPretty(report)
@@ -129,7 +128,7 @@ func (o *Tool) processPotionsThread(forumDynamic dynamics.ForumDynamic, thread p
 
 func (o *Tool) processChronoMainThread(chronoMainThread parser.Thread, hrTool *Tool) {
 	util.LongPrintlnPrintln("=== Chronology Thread Begin ===")
-	util.LongPrintlnPrintln("Thread: " + conf.Purple + chronoMainThread.Title + conf.Reset)
+	util.LongPrintlnPrintln("Thread: " + chronoMainThread.Title)
 
 	var chronoLinks []string
 	for _, post := range chronoMainThread.Posts {
@@ -189,21 +188,21 @@ func (o *Tool) processChronoMainThread(chronoMainThread parser.Thread, hrTool *T
 }
 
 func (o *Tool) getGoogleSheetPotionsDayOff() *[]gsheet2.DayOff {
-	rows, err := gsheet2.ReadSheetData(o.SheetService, *o.Config.GSheetId, gsheet2.SheetRangeDaysOff)
+	rows, err := gsheet2.ReadSheetData(o.SheetService, o.Config.GSheetModeracionId, gsheet2.SheetRangeDaysOff)
 	util.Panic(err)
 	daysOff := gsheet2.ParseDayOff(rows)
 	return &daysOff
 }
 
 func (o *Tool) getGoogleSheetPotionsBonus() *[]gsheet2.PlayerBonus {
-	rows, err := gsheet2.ReadSheetData(o.SheetService, *o.Config.GSheetId, gsheet2.SheetRangePlayerBonus)
+	rows, err := gsheet2.ReadSheetData(o.SheetService, o.Config.GSheetModeracionId, gsheet2.SheetRangePlayerBonus)
 	util.Panic(err)
 	playerBonus := gsheet2.ParsePlayerBonus(rows)
 	return &playerBonus
 }
 
 func (o *Tool) ProcessPotionsSubforumList(forumDynamic dynamics.ForumDynamic, subForumUrls *[]string, timeLimit, turnLimit *int) []potion.PotionClubReport {
-	util.LongPrintlnPrintln("Dynamic: " + strings.ToUpper(string(forumDynamic)) + " / TimeLimit: " + strconv.Itoa(*timeLimit) + " / TurnLimit" + strconv.Itoa(*turnLimit))
+	util.LongPrintlnPrintln("Dynamic: " + strings.ToUpper(string(forumDynamic)) + " / TimeLimit: " + strconv.Itoa(*timeLimit) + " / TurnLimit: " + strconv.Itoa(*turnLimit))
 	if len(*subForumUrls) == 0 {
 		util.LongPrintlnPrintln("No subforums URLs to process")
 	}
@@ -235,7 +234,7 @@ func (o *Tool) ProcessPotionsThreadList(forumDynamic dynamics.ForumDynamic, thre
 }
 
 func (o *Tool) GetUserDateTimeFormat() string {
-	threadUrl := *o.Config.BaseUrl + ForumRulesThread
+	threadUrl := o.Config.BaseUrl + ForumRulesThread
 	threadHtml := o.GetThread(threadUrl)
 	dateTime := parser.PostGetDateTime(threadHtml)
 	return dateTime

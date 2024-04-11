@@ -7,7 +7,6 @@ import (
     "localdev/dobby-server/internal/pkg/hogwartsforum/dynamics/potion"
     "localdev/dobby-server/internal/pkg/hogwartsforum/tool"
     "strconv"
-    "time"
 	"fmt"
 )
 
@@ -43,7 +42,7 @@ templ PotionReportView(i int, r potion.PotionClubReport, t tool.Tool){
             </tr>
             <tr class="odd" style="color: var(--ds-color6)">
                 <td>
-                    <span class={GetStatusColor(r)}><b>Tiempo transcurrido:</b> {GetElapsedTime(r, t.ForumDateTime)}</span>
+                    <span class={GetStatusColor(r)}><b>Tiempo transcurrido:</b> {GetElapsedTime(r)}</span>
                     <span class={GetStatusColor(r)} style="margin-left: 5px; margin-right: 5px">|</span>
                     <span class={GetStatusColor(r)}><b>Puntaje:</b> {GetScore(r)}</span>
                 </td>
@@ -92,11 +91,8 @@ templ PotionTurns(turns []potion.PotionClubTurn){
     </table>
 }
 
-func GetElapsedTime(r potion.PotionClubReport, forumTime time.Time) string {
-    postList := r.Thread.Posts
-    lastPost := postList[len(postList)-1]
-    postTime := *lastPost.Created
-    elapsedTime := forumTime.Sub(postTime)
+func GetElapsedTime(r potion.PotionClubReport) string {
+    elapsedTime := r.ElapsedTime
     hours := int(elapsedTime.Hours())
     minutes := int(elapsedTime.Minutes()) - int(elapsedTime.Hours())*60
 
@@ -141,13 +137,13 @@ func GetStatusColor(r potion.PotionClubReport) string {
 }
 
 func GetPlayerUrl(p potion.PotionsUser, t tool.Tool) templ.SafeURL {
-    baseUrl := *t.Config.BaseUrl
+    baseUrl := t.Config.BaseUrl
     playerUrl := baseUrl + p.ProfileUrl
     return templ.SafeURL(playerUrl)
 }
 
 func GetPotionUrl(r potion.PotionClubReport, t tool.Tool) templ.SafeURL {
-    baseUrl := *t.Config.BaseUrl
+    baseUrl := t.Config.BaseUrl
     firstPostId := r.Thread.Posts[0].Id
     potionUrl := baseUrl + r.Thread.Url + "#" + firstPostId
     return templ.SafeURL(potionUrl)

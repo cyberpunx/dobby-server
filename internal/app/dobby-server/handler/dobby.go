@@ -12,8 +12,12 @@ import (
 )
 
 type DobbyHandler struct {
-	Tool *tool.Tool
-	User *model.User
+	Tool                  *tool.Tool
+	User                  *model.User
+	ConfigApi             *model.ConfigApi
+	PotionSubApi          *model.PotionSubApi
+	PotionThrApi          *model.PotionThreadApi
+	CreationChamberSubApi *model.CreationChamberSubApi
 }
 
 const (
@@ -69,15 +73,16 @@ func (h DobbyHandler) HandleLogout(c echo.Context) error {
 }
 
 func (h DobbyHandler) HandlePotions(c echo.Context) error {
-	subForumConfig := h.Tool.Store.GetPotionSubforum()
+	subForumConfig, err := h.PotionSubApi.GetAllPotionSub()
+	util.Panic(err)
 
 	var urls []string
 	var timeLimit *int
 	var turnLimit *int
-	for _, sub := range *subForumConfig {
-		urls = append(urls, *sub.Url)
-		timeLimit = sub.TimeLimit
-		turnLimit = sub.TurnLimit
+	for _, sub := range subForumConfig {
+		urls = append(urls, sub.Url)
+		timeLimit = &sub.TimeLimit
+		turnLimit = &sub.TurnLimit
 	}
 
 	potionsReport := h.Tool.ProcessPotionsSubforumList(dynamics.DynamicPotion, &urls, timeLimit, turnLimit)
@@ -94,15 +99,16 @@ func (h DobbyHandler) HandlePotions(c echo.Context) error {
 }
 
 func (h DobbyHandler) HandleCreationChamber(c echo.Context) error {
-	subForumConfig := h.Tool.Store.GetCreationChamberSubforum()
+	subForumConfig, err := h.CreationChamberSubApi.GetAllCreationChamberSub()
+	util.Panic(err)
 
 	var urls []string
 	var timeLimit *int
 	var turnLimit *int
-	for _, sub := range *subForumConfig {
-		urls = append(urls, *sub.Url)
-		timeLimit = sub.TimeLimit
-		turnLimit = sub.TurnLimit
+	for _, sub := range subForumConfig {
+		urls = append(urls, sub.Url)
+		timeLimit = &sub.TimeLimit
+		turnLimit = &sub.TurnLimit
 	}
 
 	creationChamberReport := h.Tool.ProcessPotionsSubforumList(dynamics.DynamicCreationChamber, &urls, timeLimit, turnLimit)

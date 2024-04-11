@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	conf "localdev/dobby-server/internal/app/dobby-server/config"
 	mylogger "localdev/dobby-server/internal/pkg/log"
 
 	"log"
@@ -195,16 +194,7 @@ func LongPrintlnPrintln(a ...any) {
 }
 
 func PrintResponseStatus(status string) {
-	statusColor := ""
-	statusEmoji := ""
-	if status == "200 OK" {
-		statusColor = conf.Green
-		statusEmoji = " " + conf.CheckEmoji + " "
-	} else {
-		statusColor = conf.Red
-		statusEmoji = " " + conf.CrossEmoji + " "
-	}
-	LongPrintlnPrintln("Response Status: " + statusColor + statusEmoji + " " + status + conf.Reset)
+	LongPrintlnPrintln("Response Status: " + status)
 }
 
 type P map[string]interface{}
