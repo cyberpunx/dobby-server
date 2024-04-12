@@ -13,7 +13,7 @@ import (
 
 type DobbyHandler struct {
 	Tool                  *tool.Tool
-	User                  *model.User
+	User                  *model.UserSession
 	ConfigApi             *model.ConfigApi
 	PotionSubApi          *model.PotionSubApi
 	PotionThrApi          *model.PotionThreadApi

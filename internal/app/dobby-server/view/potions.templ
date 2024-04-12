@@ -10,7 +10,7 @@ import (
 	"fmt"
 )
 
-templ Potions(reportList []potion.PotionClubReport, u model.User, t tool.Tool, title string){
+templ Potions(reportList []potion.PotionClubReport, u model.UserSession, t tool.Tool, title string){
     @layout.Base(title, true, u, t) {
         for i, report := range reportList {
                 @PotionReportView(i, report, t)

@@ -5,7 +5,7 @@ import (
     "localdev/dobby-server/internal/pkg/hogwartsforum/tool"
 )
 
-templ Base(title string, showNav bool, u model.User, t tool.Tool){
+templ Base(title string, showNav bool, u model.UserSession, t tool.Tool){
   <html lang="es">
     <head>
       <title>{title}</title>

@@ -4,7 +4,7 @@ import (
 	"time"
 )
 
-type User struct {
+type UserSession struct {
 	IsLoggedIn       bool       `json:"isLoggedIn"`
 	Username         *string    `json:"username"`
 	Initials         *string    `json:"initials"`

@@ -12,7 +12,7 @@ func SetupRoutes(app *echo.Echo, conf *model.Config, store *storage.Store) {
 	dobbyGroup := app.Group("/dobby")
 	dobbyHandler := DobbyHandler{
 		Tool: tool.NewTool(conf, nil, nil, store),
-		User: &model.User{
+		User: &model.UserSession{
 			IsLoggedIn:    false,
 			Username:      nil,
 			Initials:      nil,

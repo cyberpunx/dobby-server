@@ -6,7 +6,7 @@ import (
     "localdev/dobby-server/internal/pkg/hogwartsforum/tool"
 )
 
-templ Login(u model.User, t tool.Tool) {
+templ Login(u model.UserSession, t tool.Tool) {
         if u.IsLoggedIn {
             @layout.Base("¡Bienvenido a Dobby!", true, u, t) {
                 @Welcome(u)
@@ -32,7 +32,7 @@ templ LoginForm() {
         </form>
 }
 
-templ Welcome(u model.User){
+templ Welcome(u model.UserSession){
         Saludos, <b>{*u.Username}</b>!
         if u.IsCorrectDateFmt {
             <p>El formato de fecha configurado en tu cuenta del foro es correcto: [<b class="success">{*u.UserDateFormat}</b>] </p>
