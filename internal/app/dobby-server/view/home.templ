@@ -1,0 +1,41 @@
+package view
+
+import (
+    "localdev/dobby-server/internal/app/dobby-server/view/layout"
+    "localdev/dobby-server/internal/app/dobby-server/model"
+    "localdev/dobby-server/internal/pkg/hogwartsforum/tool"
+)
+
+templ Home(u model.UserSession, t tool.Tool, title, msg string){
+    @layout.Base("Inicio", true, u, t) {
+        if msg != "" {
+            <div style="width:50%; padding: 20px; margin-bottom: 20px; border-radius: 10px;background-color: var(--ds-color4)">
+                {msg}
+            </div>
+        }
+        <div>
+            Has iniciado sesión como <b>{u.User.Username}: {u.User.Title}</b>
+        </div>
+        <hr/>
+        <p>
+            Bienvenido a <span style="color: var(--dobby-pink)"><b>Dobby</b></span>. Esta es una herramienta en desarrollo, por lo que es posible que encuentres errores o cosas que no funcionen correctamente. Si encuentras algo que no funciona, por favor, avísame para que pueda corregirlo.
+            <br/>
+            <span style="color: var(--ds-color6)"> Aiden Ward &lt;<i>Tecnomago Programador</i>&gt;</span>
+        </p>
+        <hr/>
+        if u.IsCorrectDateFmt {
+            <div style="width: fit-content; padding: 10px; margin-bottom: 20px;margin-top: 10px; border-radius: 10px;background-color: var(--ds-color4)">
+            <span>El formato de fecha configurado en tu cuenta del foro es correcto: [ <b class="success">{*u.UserDateFormat}</b> ] </span>
+            </div>
+        } else {
+            <div style="padding: 20px; margin-top: 15px; width: fit-content;">
+                <div style="width: fit-content; padding: 10px; margin-bottom: 20px;margin-top: 10px; border-radius: 10px;background-color: var(--ds-color4)">
+                    <span>El formato de fecha configurado en tu cuenta del foro  es incorrecto: [ <b class="danger">{*u.UserDateFormat}</b> ] ️</span>
+                </div>
+                <p>Dírigete a las <a style="color: var(--ds-color6); text-decoration: none" href="https://www.hogwartsrol.com/profile?mode=editprofile&page_profil=preferences">preferencias de tu cuenta</a>, selecciona el formato correcto y vuelve a iniciar sesión en <span style="color: var(--dobby-pink)"><b>Dobby</b></span>.</p>
+                <img style="border: var(--ds-color3); border-style: outset" src="assets/img/dateFormat.png"/>
+            </div>
+        }
+    }
+}
+

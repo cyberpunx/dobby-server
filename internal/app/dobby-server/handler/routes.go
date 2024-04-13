@@ -30,6 +30,6 @@ func SetupRoutes(app *echo.Echo, conf *model.Config, store *storage.Store) {
 	dobbyGroup.GET("/logout", dobbyHandler.HandleLogout)
 	dobbyGroup.GET("/potions", dobbyHandler.HandlePotions)
 	dobbyGroup.GET("/creationchamber", dobbyHandler.HandleCreationChamber)
-	app.GET("/", dobbyHandler.HandleShowLoginForm)
+	app.GET("/", dobbyHandler.HandleHome)
 
 }

@@ -27,6 +27,14 @@ const (
 	saveReportMockup = false
 )
 
+func (h DobbyHandler) HandleHome(c echo.Context) error {
+	if h.UserSession.IsLoggedIn {
+		return render(c, view.Home(*h.UserSession, *h.Tool, "Inicio", ""))
+	} else {
+		return render(c, view.Login("", *h.UserSession, *h.Tool))
+	}
+}
+
 func (h DobbyHandler) HandleShowLoginForm(c echo.Context) error {
 	return render(c, view.Login("", *h.UserSession, *h.Tool))
 }
@@ -75,7 +83,7 @@ func (h DobbyHandler) HandleProcessLoginForm(c echo.Context) error {
 			return render(c, view.Potions(report, *h.UserSession, *h.Tool, "Pociones"))
 		}
 
-		return render(c, view.Login("", *h.UserSession, *h.Tool))
+		return render(c, view.Home(*h.UserSession, *h.Tool, "Inicio", ""))
 	}
 }
 
@@ -94,7 +102,7 @@ func (h DobbyHandler) HandleLogout(c echo.Context) error {
 
 func (h DobbyHandler) HandlePotions(c echo.Context) error {
 	if !h.UserSession.HavePermission(model.PermissionPotions) {
-		return c.String(401, "Unauthorized - No tienes permisos para ver esta página")
+		return render(c, view.Home(*h.UserSession, *h.Tool, "Inicio", "No tienes permisos para ver esta página"))
 	}
 
 	subForumConfig, err := h.PotionSubApi.GetAllPotionSub()
@@ -124,7 +132,7 @@ func (h DobbyHandler) HandlePotions(c echo.Context) error {
 
 func (h DobbyHandler) HandleCreationChamber(c echo.Context) error {
 	if !h.UserSession.HavePermission(model.PermissionCreationChamber) {
-		return c.String(401, "Unauthorized - No tienes permisos para ver esta página")
+		return render(c, view.Home(*h.UserSession, *h.Tool, "Inicio", "No tienes permisos para ver esta página"))
 	}
 
 	subForumConfig, err := h.CreationChamberSubApi.GetAllCreationChamberSub()
