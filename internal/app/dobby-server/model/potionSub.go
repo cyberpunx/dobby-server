@@ -38,20 +38,21 @@ func NewPotionSubApi(p PotionSub, store storage.Store) *PotionSubApi {
 	}
 }
 
-func (api *PotionSubApi) CreateInitialPotionSubTable() (PotionSub, error) {
+func (api *PotionSubApi) CreateInitialPotionSubTable() error {
 	_, err := api.Store.Conn.Exec(CreatePotionSubTable)
 	if err != nil {
-		return PotionSub{}, err
+		return err
 	}
-	_, err = api.Store.Conn.Exec(InsertPotionSubTable, PotionsClubUrl, PotionsClubTimeLimit, PotionsClubTurnLimit)
-	if err != nil {
-		return PotionSub{}, err
+
+	potionConfig, err := api.GetAllPotionSub()
+	if len(potionConfig) == 0 {
+		_, err = api.Store.Conn.Exec(InsertPotionSubTable, PotionsClubUrl, PotionsClubTimeLimit, PotionsClubTurnLimit)
+		if err != nil {
+			return err
+		}
 	}
-	return PotionSub{
-		Url:       PotionsClubUrl,
-		TimeLimit: 72,
-		TurnLimit: 8,
-	}, nil
+
+	return nil
 }
 
 func (api *PotionSubApi) GetAllPotionSub() ([]PotionSub, error) {

@@ -187,7 +187,7 @@ func PostGetUserUrl(html string) string {
 	reader := strings.NewReader(html)
 	doc, err := goquery.NewDocumentFromReader(reader)
 	if err != nil {
-		return "<User URL Not Found>"
+		return "<UserSession URL Not Found>"
 	}
 
 	post := doc.Find("div.post1")
@@ -199,7 +199,7 @@ func PostGetUserHouse(html string) string {
 	reader := strings.NewReader(html)
 	doc, err := goquery.NewDocumentFromReader(reader)
 	if err != nil {
-		return "<User URL Not Found>"
+		return "<UserSession URL Not Found>"
 	}
 
 	information := doc.Find("div.informacion img").Last()

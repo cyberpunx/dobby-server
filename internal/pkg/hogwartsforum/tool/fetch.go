@@ -13,7 +13,7 @@ import (
 )
 
 func LoginAndGetCookies(user, pass string) (*http.Client, *LoginResponse) {
-	util.LongPrintlnPrintln("Logging in with User: " + user)
+	util.LongPrintlnPrintln("Logging in with UserSession: " + user)
 	params := url.Values{}
 	params.Add("username", user)
 	params.Add("password", pass)
@@ -293,7 +293,7 @@ func (o *Tool) getThreadByViewTopic(threadId, postId string) string {
 	return string(body)
 }
 
-func (o *Tool) GetPostSecrets() (string, string) {
+func (o *Tool) GetPostSecrets() (string, string, error) {
 	util.LongPrintlnPrintln("Getting Post Secrets: ")
 	baseDomain := o.Config.BaseUrl
 	postUrl := baseDomain + "/post?f=44&mode=newtopic"
@@ -313,10 +313,10 @@ func (o *Tool) GetPostSecrets() (string, string) {
 	if secret1 == "" || secret2 == "" {
 		util.LongPrintlnPrintln("ERROR: Could not get post secrets")
 		err := fmt.Errorf("Could not get post secrets. Closing...")
-		util.Panic(err)
+		return "", "", err
 	} else {
 		util.LongPrintlnPrintln("OK: Post secrets obtained successfully")
 	}
 
-	return secret1, secret2
+	return secret1, secret2, nil
 }

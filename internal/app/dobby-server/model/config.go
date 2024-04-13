@@ -55,28 +55,21 @@ func NewConfigApi(c Config, store storage.Store) *ConfigApi {
 	}
 }
 
-func (api *ConfigApi) CreateInitialConfigTable() (Config, error) {
+func (api *ConfigApi) CreateInitialConfigTable() error {
 	_, err := api.Store.Conn.Exec(CreateConfigTable)
 	if err != nil {
-		return Config{}, err
+		return err
 	}
-	_, err = api.Store.Conn.Exec(InsertConfigTable, ForumBaseUrl, "token.json", "client_secret.json", GSheetModerationId)
-	if err != nil {
-		return Config{}, err
+
+	configTable, err := api.GetAllConfig()
+	if len(configTable) == 0 {
+		_, err = api.Store.Conn.Exec(InsertConfigTable, ForumBaseUrl, "token.json", "client_secret.json", GSheetModerationId)
+		if err != nil {
+			return err
+		}
+
 	}
-	rows, err := api.Store.Conn.Query(SelectConfigTableLimit1)
-	if err != nil {
-		return Config{}, err
-	}
-	defer rows.Close()
-	var c Config
-	for rows.Next() {
-		err = rows.Scan(&c.BaseUrl, &c.GSheetTokenFile, &c.GSheetCredFile, &c.GSheetModeracionId)
-	}
-	if err != nil {
-		return Config{}, err
-	}
-	return c, err
+	return nil
 }
 
 func (api *ConfigApi) GetConfig() (Config, error) {

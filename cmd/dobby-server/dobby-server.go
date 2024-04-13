@@ -32,10 +32,28 @@ func main() {
 	// Connects to TursoDB and gets config table
 	tursoConnectLine := fmt.Sprintf(tursoDbUrl + "?authToken=" + tursoDbToken)
 	store := storage.NewStore(tursoConnectLine)
+
+	// Create fables if needed
 	configApi := model.NewConfigApi(model.Config{}, *store)
-	configTable, err := configApi.GetConfig()
+	potionSubApi := model.NewPotionSubApi(model.PotionSub{}, *store)
+	potionThrApi := model.NewPotionThreadApi(model.PotionThread{}, *store)
+	creationChamberSubApi := model.NewCreationChamberSubApi(model.CreationChamberSub{}, *store)
+	userApi := model.NewUserApi(model.User{}, *store)
+
+	err = configApi.CreateInitialConfigTable()
+	util.Panic(err)
+	err = potionSubApi.CreateInitialPotionSubTable()
+	util.Panic(err)
+	err = potionThrApi.CreateInitialPotionThreadTable()
+	util.Panic(err)
+	err = creationChamberSubApi.CreateInitialCreationChamberSubTable()
+	util.Panic(err)
+	err = userApi.CreateInitialUserTable()
 	util.Panic(err)
 
+	// Gets config
+	configTable, err := configApi.GetConfig()
+	util.Panic(err)
 	fmt.Printf("Config: \n %s", util.MarshalJsonPretty(configTable))
 
 	// Starts the server

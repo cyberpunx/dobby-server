@@ -12,6 +12,11 @@ import (
 
 templ Potions(reportList []potion.PotionClubReport, u model.UserSession, t tool.Tool, title string){
     @layout.Base(title, true, u, t) {
+        <div style="margin-bottom: 20px">
+            <a href="https://docs.google.com/spreadsheets/d/13CCYZ4veljB6ItPNHdvxvClBZJaC1w-QMkq-H5btR74/edit" style="text-decoration: none; color: var(--slytherin-color)">
+                [ Planilla de Moderación 🔗 ]
+            </a>
+        </div>
         for i, report := range reportList {
                 @PotionReportView(i, report, t)
         }

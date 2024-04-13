@@ -38,20 +38,19 @@ func NewCreationChamberSubApi(p CreationChamberSub, store storage.Store) *Creati
 	}
 }
 
-func (api *CreationChamberSubApi) CreateInitialCreationChamberSubTable() (CreationChamberSub, error) {
+func (api *CreationChamberSubApi) CreateInitialCreationChamberSubTable() error {
 	_, err := api.Store.Conn.Exec(CreateCreationChamberSubTable)
 	if err != nil {
-		return CreationChamberSub{}, err
+		return err
 	}
-	_, err = api.Store.Conn.Exec(InsertCreationChamberSubTable, CreationChamberUrl, CreationChamberTimeLimit, CreationChamberTurnLimit)
-	if err != nil {
-		return CreationChamberSub{}, err
+	creationChamberConfig, err := api.GetAllCreationChamberSub()
+	if len(creationChamberConfig) == 0 {
+		_, err = api.Store.Conn.Exec(InsertCreationChamberSubTable, CreationChamberUrl, CreationChamberTimeLimit, CreationChamberTurnLimit)
+		if err != nil {
+			return err
+		}
 	}
-	return CreationChamberSub{
-		Url:       CreationChamberUrl,
-		TimeLimit: 72,
-		TurnLimit: 8,
-	}, nil
+	return nil
 }
 
 func (api *CreationChamberSubApi) GetAllCreationChamberSub() ([]CreationChamberSub, error) {

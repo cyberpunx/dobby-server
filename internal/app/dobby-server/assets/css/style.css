@@ -5,6 +5,16 @@ body {
     font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto"
 }
 
+body a, a:visited {
+    color: var(--ds-color8);
+    text-decoration: none;
+}
+
+.link {
+    color: var(--ds-color8);
+    text-decoration: none;
+}
+
 .NormalText {
     color: var(--ds-color8) !important;
 }

@@ -17,8 +17,6 @@ func NewStore(connectionUrl string) *Store {
 		os.Exit(1)
 	}
 
-	//Create Migrations if needed here
-
 	util.LongPrintlnPrintln("🚀 Connected successfully to the Database")
 	return &Store{Conn: db}
 }

@@ -12,6 +12,13 @@ templ NotFoundComponent(){
   </div>
 }
 
+templ UnauthorizedComponent(){
+  <div>
+    <h1>401</h1>
+    <p>Unauthorized</p>
+  </div>
+}
+
 func GetHouseClass(house string) string {
     switch house {
     case "Gryffindor":

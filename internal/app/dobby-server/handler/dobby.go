@@ -2,6 +2,7 @@ package handler
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/labstack/echo/v4"
 	"localdev/dobby-server/internal/app/dobby-server/model"
 	"localdev/dobby-server/internal/app/dobby-server/view"
@@ -13,11 +14,12 @@ import (
 
 type DobbyHandler struct {
 	Tool                  *tool.Tool
-	User                  *model.UserSession
+	UserSession           *model.UserSession
 	ConfigApi             *model.ConfigApi
 	PotionSubApi          *model.PotionSubApi
 	PotionThrApi          *model.PotionThreadApi
 	CreationChamberSubApi *model.CreationChamberSubApi
+	UserApi               *model.UserApi
 }
 
 const (
@@ -26,7 +28,7 @@ const (
 )
 
 func (h DobbyHandler) HandleShowLoginForm(c echo.Context) error {
-	return render(c, view.Login(*h.User, *h.Tool))
+	return render(c, view.Login("", *h.UserSession, *h.Tool))
 }
 
 func (h DobbyHandler) HandleProcessLoginForm(c echo.Context) error {
@@ -35,19 +37,33 @@ func (h DobbyHandler) HandleProcessLoginForm(c echo.Context) error {
 
 	client, loginResponse := tool.LoginAndGetCookies(username, password)
 	if !*loginResponse.Success {
-		return render(c, view.Login(*h.User, *h.Tool))
+		return render(c, view.Login("Usuario y/o Contraseña incorrectos", *h.UserSession, *h.Tool))
 	} else {
+		// UserSession is logged in at Forum
 		h.Tool.Client = client
-		secret1, secret2 := h.Tool.GetPostSecrets()
+		secret1, secret2, err := h.Tool.GetPostSecrets()
+		if err != nil {
+			return render(c, view.Login("Es posible que el usuario no tenga permisos en el foro / error al obtener secretos", *h.UserSession, *h.Tool))
+		}
 		h.Tool.PostSecret1 = &secret1
 		h.Tool.PostSecret2 = &secret2
+
+		//Check if the user has permissions on Dobby
+		user, err := h.UserApi.GetUserByUsername(username)
+		if err != nil || user == nil {
+			return render(c, view.Login("No tienes permisos para Dobby", *h.UserSession, *h.Tool))
+		}
+
+		h.UserSession.User = user
+		h.UserSession.Permissions = user.GetUserPermissions()
 		userDateFormat := h.Tool.GetUserDateTimeFormat()
-		h.User.UserDateFormat = &userDateFormat
-		h.User.IsCorrectDateFmt = util.IsUserDateFormatCorrect(userDateFormat, h.Tool.ForumDateTime)
-		h.User.Username = &username
-		h.User.Initials = loginResponse.Initials
-		h.User.LoginDatetime = loginResponse.LoginDatetime
-		h.User.IsLoggedIn = true
+		h.UserSession.UserDateFormat = &userDateFormat
+		h.UserSession.IsCorrectDateFmt = util.IsUserDateFormatCorrect(userDateFormat, h.Tool.ForumDateTime)
+		h.UserSession.Username = &username
+		h.UserSession.Initials = loginResponse.Initials
+		h.UserSession.LoginDatetime = loginResponse.LoginDatetime
+		h.UserSession.IsLoggedIn = true
+		fmt.Printf("UserSession: \n %s", util.MarshalJsonPretty(h.UserSession))
 
 		if loadReportMockup {
 			var report []potion.PotionClubReport
@@ -56,23 +72,31 @@ func (h DobbyHandler) HandleProcessLoginForm(c echo.Context) error {
 			err = json.Unmarshal(jsonBytes, &report)
 			util.Panic(err)
 
-			return render(c, view.Potions(report, *h.User, *h.Tool, "Pociones"))
+			return render(c, view.Potions(report, *h.UserSession, *h.Tool, "Pociones"))
 		}
 
-		return render(c, view.Login(*h.User, *h.Tool))
+		return render(c, view.Login("", *h.UserSession, *h.Tool))
 	}
 }
 
 func (h DobbyHandler) HandleLogout(c echo.Context) error {
 	h.Tool.Client = nil
-	h.User.IsLoggedIn = false
-	h.User.Username = nil
-	h.User.Initials = nil
-	h.User.LoginDatetime = nil
-	return render(c, view.Login(*h.User, *h.Tool))
+	h.UserSession.IsLoggedIn = false
+	h.UserSession.Username = nil
+	h.UserSession.Initials = nil
+	h.UserSession.LoginDatetime = nil
+	h.UserSession.Permissions = nil
+	h.UserSession.User = nil
+	h.UserSession.UserDateFormat = nil
+	h.UserSession.IsCorrectDateFmt = false
+	return render(c, view.Login("", *h.UserSession, *h.Tool))
 }
 
 func (h DobbyHandler) HandlePotions(c echo.Context) error {
+	if !h.UserSession.HavePermission(model.PermissionPotions) {
+		return c.String(401, "Unauthorized - No tienes permisos para ver esta página")
+	}
+
 	subForumConfig, err := h.PotionSubApi.GetAllPotionSub()
 	util.Panic(err)
 
@@ -95,10 +119,14 @@ func (h DobbyHandler) HandlePotions(c echo.Context) error {
 		util.Panic(err)
 	}
 
-	return render(c, view.Potions(potionsReport, *h.User, *h.Tool, "Pociones"))
+	return render(c, view.Potions(potionsReport, *h.UserSession, *h.Tool, "Pociones"))
 }
 
 func (h DobbyHandler) HandleCreationChamber(c echo.Context) error {
+	if !h.UserSession.HavePermission(model.PermissionCreationChamber) {
+		return c.String(401, "Unauthorized - No tienes permisos para ver esta página")
+	}
+
 	subForumConfig, err := h.CreationChamberSubApi.GetAllCreationChamberSub()
 	util.Panic(err)
 
@@ -121,5 +149,5 @@ func (h DobbyHandler) HandleCreationChamber(c echo.Context) error {
 		util.Panic(err)
 	}
 
-	return render(c, view.Potions(creationChamberReport, *h.User, *h.Tool, "Cámara de Creación"))
+	return render(c, view.Potions(creationChamberReport, *h.UserSession, *h.Tool, "Cámara de Creación"))
 }

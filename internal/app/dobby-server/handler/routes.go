@@ -12,12 +12,13 @@ func SetupRoutes(app *echo.Echo, conf *model.Config, store *storage.Store) {
 	dobbyGroup := app.Group("/dobby")
 	dobbyHandler := DobbyHandler{
 		Tool: tool.NewTool(conf, nil, nil, store),
-		User: &model.UserSession{
+		UserSession: &model.UserSession{
 			IsLoggedIn:    false,
 			Username:      nil,
 			Initials:      nil,
 			LoginDatetime: nil,
 		},
+		UserApi:               model.NewUserApi(model.User{}, *store),
 		ConfigApi:             model.NewConfigApi(model.Config{}, *store),
 		PotionSubApi:          model.NewPotionSubApi(model.PotionSub{}, *store),
 		PotionThrApi:          model.NewPotionThreadApi(model.PotionThread{}, *store),
