@@ -9,7 +9,7 @@ import (
 	"localdev/dobby-server/internal/app/dobby-server/handler"
 	"localdev/dobby-server/internal/app/dobby-server/model"
 	"localdev/dobby-server/internal/app/dobby-server/storage"
-	mylogger "localdev/dobby-server/internal/pkg/log"
+	mylogger "localdev/dobby-server/internal/pkg/logger"
 	"localdev/dobby-server/internal/pkg/util"
 	"os"
 )

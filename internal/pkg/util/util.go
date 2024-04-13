@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	mylogger "localdev/dobby-server/internal/pkg/log"
+	mylogger "localdev/dobby-server/internal/pkg/logger"
 
 	"log"
 	"net/http"
