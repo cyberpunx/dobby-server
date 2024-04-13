@@ -51,6 +51,22 @@ func main() {
 	err = userApi.CreateInitialUserTable()
 	util.Panic(err)
 
+	//Initial user
+	userList, err := userApi.GetAllUser()
+	util.Panic(err)
+
+	if len(userList) == 0 {
+		user := model.User{
+			Username:    "Arikel McDowell",
+			Active:      true,
+			Title:       "Sirena!",
+			Permissions: string(model.PermissionAdmin + "," + model.PermissionPotions + "," + model.PermissionCreationChamber),
+		}
+		fmt.Printf("Inserting test user: \n %s", util.MarshalJsonPretty(user))
+		err = userApi.InsertUser(user)
+		util.Panic(err)
+	}
+
 	// Gets config
 	configTable, err := configApi.GetConfig()
 	util.Panic(err)

@@ -1,0 +1,40 @@
+package view
+
+import(
+    "localdev/dobby-server/internal/app/dobby-server/view/layout"
+    "localdev/dobby-server/internal/app/dobby-server/model"
+    "localdev/dobby-server/internal/pkg/hogwartsforum/tool"
+    "strconv"
+)
+
+templ UserList(u model.UserSession, t tool.Tool, userList []model.User){
+    @layout.Base("User List", true, u, t) {
+        <div>
+            <table>
+                <tr style="text-align: left">
+                    <th style="width:5%">Activo</th>
+                    <th>Usuario</th>
+                    <th>Título</th>
+                    <th>Permisos</th>
+                    <th>Acciones</th>
+                </tr>
+               for _, user := range userList {
+                   <form>
+                   <tr>
+                        <td>{strconv.FormatBool(user.Active)}</td>
+                        <td>{user.Username}</td>
+                        <td>{user.Title}</td>
+                        <td>{user.Permissions}</td>
+                        <td>
+                            <button hx-get="/user/1/edit" class="btn btn-primary">
+                                Editar
+                            </button>
+                        </td>
+
+                   </tr>
+                   </form>
+               }
+           </table>
+        </div>
+    }
+}

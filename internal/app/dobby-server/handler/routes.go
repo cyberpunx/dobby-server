@@ -20,7 +20,7 @@ type BaseHandler struct {
 
 func SetupRoutes(app *echo.Echo, conf *model.Config, store *storage.Store) {
 	handler := BaseHandler{
-		Tool: tool.NewTool(conf, nil, nil, store),
+		Tool: tool.NewTool(conf, nil, gsheet.GetSheetService(conf.GSheetTokenFile, conf.GSheetCredFile), store),
 		UserSession: &model.UserSession{
 			IsLoggedIn:    false,
 			Username:      nil,
@@ -33,8 +33,6 @@ func SetupRoutes(app *echo.Echo, conf *model.Config, store *storage.Store) {
 		PotionThrApi:          model.NewPotionThreadApi(model.PotionThread{}, *store),
 		CreationChamberSubApi: model.NewCreationChamberSubApi(model.CreationChamberSub{}, *store),
 	}
-	sheetService := gsheet.GetSheetService(handler.Tool.Config.GSheetTokenFile, handler.Tool.Config.GSheetCredFile)
-	handler.Tool.SheetService = sheetService
 
 	modHandler := ModerationHandler{&handler}
 	moderationGroup := app.Group("/moderation")
@@ -47,4 +45,8 @@ func SetupRoutes(app *echo.Echo, conf *model.Config, store *storage.Store) {
 
 	pagesHandler := PagesHandler{&handler}
 	app.GET("/", pagesHandler.HandleHome)
+
+	adminHandler := AdminHandler{&handler}
+	adminGroup := app.Group("/admin")
+	adminGroup.GET("/userlist", adminHandler.HandleUserList)
 }

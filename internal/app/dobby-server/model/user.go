@@ -11,7 +11,8 @@ const (
 	SelectUserTable      = `SELECT * FROM User;`
 	SelectUserByUsername = `SELECT * FROM User WHERE username = ?;`
 	CreateUserTable      = `CREATE TABLE IF NOT EXISTS User (
-    	"username" TEXT PRIMARY KEY,
+    	id INTEGER PRIMARY KEY AUTOINCREMENT,
+    	"username" TEXT UNIQUE,
     	"active" BOOLEAN NOT NULL,
     	"title" TEXT NOT NULL,
     	"permissions" TEXT NOT NULL
@@ -36,6 +37,7 @@ const (
 type Permission string
 
 type User struct {
+	Id          int    `json:"id"`
 	Username    string `json:"username"`
 	Active      bool   `json:"active"`
 	Title       string `json:"title"`
@@ -70,7 +72,7 @@ func (api *UserApi) GetAllUser() ([]User, error) {
 	defer rows.Close()
 	var users []User
 	for rows.Next() {
-		err = rows.Scan(&api.User.Username, &api.User.Active, &api.User.Title, &api.User.Permissions)
+		err = rows.Scan(&api.User.Id, &api.User.Username, &api.User.Active, &api.User.Title, &api.User.Permissions)
 		users = append(users, api.User)
 	}
 	return users, nil
@@ -100,7 +102,7 @@ func (api *UserApi) GetUserByUsername(username string) (*User, error) {
 	defer rows.Close()
 	var user User
 	if rows.Next() {
-		err = rows.Scan(&user.Username, &user.Active, &user.Title, &user.Permissions)
+		err = rows.Scan(&user.Id, &user.Username, &user.Active, &user.Title, &user.Permissions)
 		if err != nil {
 			return nil, err
 		}
@@ -111,6 +113,25 @@ func (api *UserApi) GetUserByUsername(username string) (*User, error) {
 		return nil, errors.New("multiple users found with the same username")
 	}
 	return &user, nil
+}
+
+func (api *UserApi) GetUserById(id int) (*User, error) {
+	rows, err := api.Store.Conn.Query(SelectUserTable)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var user User
+	for rows.Next() {
+		err = rows.Scan(&user.Id, &user.Username, &user.Active, &user.Title, &user.Permissions)
+		if err != nil {
+			return nil, err
+		}
+		if user.Id == id {
+			return &user, nil
+		}
+	}
+	return nil, errors.New("no user found")
 }
 
 func PermissionsToString(permissions []string) string {
