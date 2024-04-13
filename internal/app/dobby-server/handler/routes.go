@@ -8,9 +8,18 @@ import (
 	"localdev/dobby-server/internal/pkg/hogwartsforum/tool"
 )
 
+type BaseHandler struct {
+	Tool                  *tool.Tool
+	UserSession           *model.UserSession
+	ConfigApi             *model.ConfigApi
+	PotionSubApi          *model.PotionSubApi
+	PotionThrApi          *model.PotionThreadApi
+	CreationChamberSubApi *model.CreationChamberSubApi
+	UserApi               *model.UserApi
+}
+
 func SetupRoutes(app *echo.Echo, conf *model.Config, store *storage.Store) {
-	dobbyGroup := app.Group("/dobby")
-	dobbyHandler := DobbyHandler{
+	handler := BaseHandler{
 		Tool: tool.NewTool(conf, nil, nil, store),
 		UserSession: &model.UserSession{
 			IsLoggedIn:    false,
@@ -24,12 +33,18 @@ func SetupRoutes(app *echo.Echo, conf *model.Config, store *storage.Store) {
 		PotionThrApi:          model.NewPotionThreadApi(model.PotionThread{}, *store),
 		CreationChamberSubApi: model.NewCreationChamberSubApi(model.CreationChamberSub{}, *store),
 	}
-	sheetService := gsheet.GetSheetService(dobbyHandler.Tool.Config.GSheetTokenFile, dobbyHandler.Tool.Config.GSheetCredFile)
-	dobbyHandler.Tool.SheetService = sheetService
-	dobbyGroup.POST("/login", dobbyHandler.HandleProcessLoginForm)
-	dobbyGroup.GET("/logout", dobbyHandler.HandleLogout)
-	dobbyGroup.GET("/potions", dobbyHandler.HandlePotions)
-	dobbyGroup.GET("/creationchamber", dobbyHandler.HandleCreationChamber)
-	app.GET("/", dobbyHandler.HandleHome)
+	sheetService := gsheet.GetSheetService(handler.Tool.Config.GSheetTokenFile, handler.Tool.Config.GSheetCredFile)
+	handler.Tool.SheetService = sheetService
 
+	modHandler := ModerationHandler{&handler}
+	moderationGroup := app.Group("/moderation")
+	moderationGroup.GET("/potions", modHandler.HandlePotions)
+	moderationGroup.GET("/creationchamber", modHandler.HandleCreationChamber)
+
+	loginHandler := LoginHandler{&handler}
+	app.POST("/login", loginHandler.HandleProcessLoginForm)
+	app.GET("/logout", loginHandler.HandleLogout)
+
+	pagesHandler := PagesHandler{&handler}
+	app.GET("/", pagesHandler.HandleHome)
 }
