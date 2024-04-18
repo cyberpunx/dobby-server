@@ -16,13 +16,13 @@ templ Login(msg string, u model.UserSession, t tool.Tool) {
         <p>Inicia sesión con tu cuenta de <b>Hogwarts Rol</b>.</p>
         <form hx-post="/login" hx-indicator="#spinner" hx-swap="outerHTML" hx-target="body">
             <label>
-            <input type="text" name="username" placeholder="Usuario" />
+            <input class="form-control" type="text" name="username" placeholder="Usuario" />
             </label>
 
             <label>
-            <input type="password" name="password" placeholder="Contraseña" />
+            <input class="form-control" type="password" name="password" placeholder="Contraseña" />
             </label>
-            <button type="submit">Acceder</button>
+            <button type="submit" class="btn btn-primary">Acceder</button>
         </form>
     }
 }

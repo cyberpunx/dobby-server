@@ -48,5 +48,11 @@ func SetupRoutes(app *echo.Echo, conf *model.Config, store *storage.Store) {
 
 	adminHandler := AdminHandler{&handler}
 	adminGroup := app.Group("/admin")
-	adminGroup.GET("/userlist", adminHandler.HandleUserList)
+	adminGroup.GET("/user/list", adminHandler.HandleUserList)
+	adminGroup.GET("/user/:id/edit", adminHandler.HandleUserEdit)
+	adminGroup.DELETE("/user/:id", adminHandler.HandleUserDelete)
+	adminGroup.PUT("/user/:id", adminHandler.HandleUserUpdate)
+	adminGroup.GET("/user/:id", adminHandler.HandleUserView)
+	adminGroup.GET("/user/new", adminHandler.HandleUserNewForm)
+	adminGroup.POST("/user/new", adminHandler.HandleUserNew)
 }

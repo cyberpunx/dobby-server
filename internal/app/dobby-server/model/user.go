@@ -27,9 +27,12 @@ const (
 					username = ?,
 					active = ?,
 					title = ?,
-					permissions = ?;`
+					permissions = ?
+					WHERE id = ?;`
+	DeleteUserTable = `DELETE FROM User WHERE id = ?;`
 
 	PermissionAdmin           Permission = "Admin"
+	PermissionAdminReadOnly   Permission = "AdminReadOnly"
 	PermissionPotions         Permission = Permission(dynamics.DynamicPotion)
 	PermissionCreationChamber Permission = Permission(dynamics.DynamicCreationChamber)
 )
@@ -44,9 +47,25 @@ type User struct {
 	Permissions string `json:"permissions"`
 }
 
+type UserCrud struct {
+	User
+	EditUrl   string
+	ViewUrl   string
+	UpdateUrl string
+	DeleteUrl string
+}
+
 type UserApi struct {
 	User  User
 	Store storage.Store
+}
+
+func GetAllPermissions() []Permission {
+	return []Permission{
+		PermissionAdmin,
+		PermissionPotions,
+		PermissionCreationChamber,
+	}
 }
 
 func NewUserApi(u User, store storage.Store) *UserApi {
@@ -86,8 +105,8 @@ func (api *UserApi) InsertUser(user User) error {
 	return nil
 }
 
-func (api *UserApi) UpdateUser(user *User) error {
-	_, err := api.Store.Conn.Exec(UpdateUserTable, user.Username, user.Active, user.Title, user.Permissions)
+func (api *UserApi) UpdateUser(id int, user *User) error {
+	_, err := api.Store.Conn.Exec(UpdateUserTable, user.Username, user.Active, user.Title, user.Permissions, id)
 	if err != nil {
 		return err
 	}
@@ -113,6 +132,14 @@ func (api *UserApi) GetUserByUsername(username string) (*User, error) {
 		return nil, errors.New("multiple users found with the same username")
 	}
 	return &user, nil
+}
+
+func (api *UserApi) DeleteUserById(id int) error {
+	_, err := api.Store.Conn.Exec(DeleteUserTable, id)
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
 func (api *UserApi) GetUserById(id int) (*User, error) {
@@ -158,4 +185,13 @@ func (user *User) GetUserPermissions() []Permission {
 		permissions = append(permissions, Permission(permission))
 	}
 	return permissions
+}
+
+func (user *User) HavePermission(p Permission) bool {
+	for _, perm := range user.GetUserPermissions() {
+		if perm == p {
+			return true
+		}
+	}
+	return false
 }

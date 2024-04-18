@@ -11,6 +11,10 @@ import (
 	"localdev/dobby-server/internal/pkg/util"
 )
 
+const (
+	ByPassForumLogin = true
+)
+
 type LoginHandler struct {
 	h *BaseHandler
 }
@@ -18,6 +22,34 @@ type LoginHandler struct {
 func (l LoginHandler) HandleProcessLoginForm(c echo.Context) error {
 	username := c.FormValue("username")
 	password := c.FormValue("password")
+
+	if ByPassForumLogin {
+		user, err := l.h.UserApi.GetUserByUsername(username)
+		if err != nil || user == nil {
+			return render(c, view.Login("No tienes permisos para Dobby", *l.h.UserSession, *l.h.Tool))
+		}
+		l.h.UserSession.User = user
+		l.h.UserSession.Permissions = user.GetUserPermissions()
+		l.h.UserSession.UserDateFormat = util.PStr("19/4/2024, 06:51")
+		l.h.UserSession.IsCorrectDateFmt = true
+		l.h.UserSession.Username = &username
+		l.h.UserSession.Initials = nil
+		l.h.UserSession.LoginDatetime = nil
+		l.h.UserSession.IsLoggedIn = true
+		fmt.Printf("UserSession: \n %s", util.MarshalJsonPretty(l.h.UserSession))
+
+		if loadPotionsReportMockup {
+			var report []potion.PotionClubReport
+			jsonBytes, err := util.LoadJsonFile("./tmp/potionsReport.json")
+			util.Panic(err)
+			err = json.Unmarshal(jsonBytes, &report)
+			util.Panic(err)
+
+			return render(c, view.Potions(report, *l.h.UserSession, *l.h.Tool, "Pociones"))
+		}
+
+		return render(c, view.Home(*l.h.UserSession, *l.h.Tool, "Inicio", ""))
+	}
 
 	client, loginResponse := tool.LoginAndGetCookies(username, password)
 	if !*loginResponse.Success {
@@ -49,7 +81,7 @@ func (l LoginHandler) HandleProcessLoginForm(c echo.Context) error {
 		l.h.UserSession.IsLoggedIn = true
 		fmt.Printf("UserSession: \n %s", util.MarshalJsonPretty(l.h.UserSession))
 
-		if loadReportMockup {
+		if loadPotionsReportMockup {
 			var report []potion.PotionClubReport
 			jsonBytes, err := util.LoadJsonFile("./tmp/potionsReport.json")
 			util.Panic(err)

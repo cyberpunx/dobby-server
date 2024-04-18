@@ -10,8 +10,8 @@ import (
 )
 
 const (
-	loadReportMockup = false
-	saveReportMockup = false
+	loadPotionsReportMockup = false
+	savePotionsReportMockup = false
 )
 
 type ModerationHandler struct {
@@ -37,7 +37,7 @@ func (m ModerationHandler) HandlePotions(c echo.Context) error {
 
 	potionsReport := m.h.Tool.ProcessPotionsSubforumList(dynamics.DynamicPotion, &urls, timeLimit, turnLimit)
 
-	if saveReportMockup {
+	if savePotionsReportMockup {
 		jsonResponse, err := json.Marshal(potionsReport)
 		util.Panic(err)
 		//save the json file
@@ -67,7 +67,7 @@ func (m ModerationHandler) HandleCreationChamber(c echo.Context) error {
 
 	creationChamberReport := m.h.Tool.ProcessPotionsSubforumList(dynamics.DynamicCreationChamber, &urls, timeLimit, turnLimit)
 
-	if saveReportMockup {
+	if savePotionsReportMockup {
 		jsonResponse, err := json.Marshal(creationChamberReport)
 		util.Panic(err)
 		//save the json file

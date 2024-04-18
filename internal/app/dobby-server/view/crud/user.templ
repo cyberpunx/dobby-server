@@ -2,39 +2,122 @@ package view
 
 import(
     "localdev/dobby-server/internal/app/dobby-server/view/layout"
+    "localdev/dobby-server/internal/app/dobby-server/view/component"
     "localdev/dobby-server/internal/app/dobby-server/model"
     "localdev/dobby-server/internal/pkg/hogwartsforum/tool"
-    "strconv"
 )
 
-templ UserList(u model.UserSession, t tool.Tool, userList []model.User){
-    @layout.Base("User List", true, u, t) {
-        <div>
-            <table>
-                <tr style="text-align: left">
-                    <th style="width:5%">Activo</th>
-                    <th>Usuario</th>
-                    <th>Título</th>
-                    <th>Permisos</th>
-                    <th>Acciones</th>
-                </tr>
-               for _, user := range userList {
-                   <form>
-                   <tr>
-                        <td>{strconv.FormatBool(user.Active)}</td>
-                        <td>{user.Username}</td>
-                        <td>{user.Title}</td>
-                        <td>{user.Permissions}</td>
-                        <td>
-                            <button hx-get="/user/1/edit" class="btn btn-primary">
-                                Editar
-                            </button>
-                        </td>
+templ UserList(u model.UserSession, t tool.Tool, userList []model.UserCrud){
+    @layout.Base("Usuarios de Dobby", true, u, t) {
+        if u.HavePermission(model.PermissionAdmin){
+            <div class="my-5" style="width: 30%;">
+                <div id="formNew">
+                    <button class="btn btn-primary" hx-get="/admin/user/new" hx-swap="outerHTML" hx-target="#formNew">
+                        <i class="fa fa-plus"></i> Nuevo Usuario </button>
+                </div>
+            </div>
+        }
+       for _, user := range userList {
+       <div class="card my-3" style="width: 30%;">
+          <div class="card-body">
+              <h5 class="card-title">{user.Username}</h5>
+               <div hx-target="this" hx-swap="outerHTML">
+                    <div><label>Activo</label>:
+                        @component.PrintCheckmark(user.Active)
+                    </div>
+                    <div><label>Usuario</label>: {user.Username}</div>
+                    <div><label>Título</label>: {user.Title}</div>
+                    <div><label>Permisos</label>:</div>
+                    for _, perm := range model.GetAllPermissions() {
+                        <div class="mb-1">
+                            @component.Switch(string(perm),string(perm),user.HavePermission(perm), true)
+                        </div>
+                    }
+                    if u.HavePermission(model.PermissionAdmin){
+                        <button hx-get={user.EditUrl} class="btn btn-primary">
+                            Editar
+                        </button>
+                    }
+               </div>
+          </div>
+       </div>
+       }
+   }
+}
 
-                   </tr>
-                   </form>
-               }
-           </table>
+templ UserEdit(user model.UserCrud){
+    <form hx-put={user.UpdateUrl} hx-target="this" hx-swap="outerHTML">
+        <div class="mb-3">
+            @component.Switch("Activo","active",user.Active, false)
         </div>
-    }
+        <div class="mb-3">
+            <label class="form-label">Usuario</label>
+            <input class="form-control" type="text" name="username" value={user.Username} />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Título</label>
+            <input class="form-control" type="text" name="title" value={user.Title} />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Permisos</label>
+            for _, perm := range model.GetAllPermissions() {
+                <div class="mb-1">
+                    @component.Switch(string(perm),string(perm),user.HavePermission(perm), false)
+                </div>
+            }
+        </div>
+          <button class="btn btn-primary" >Submit</button>
+          <button class="btn btn-secondary" hx-get={user.ViewUrl}>Cancel</button>
+          <button class="btn btn-danger float-right" hx-delete={user.DeleteUrl} hx-swap="outerHTML" hx-target="body">
+            Borrar Usuario</button>
+    </form>
+}
+
+
+
+templ UserView(u model.UserSession, user model.UserCrud){
+    <div hx-target="this" hx-swap="outerHTML">
+        <div><label>Activo</label>:
+            @component.PrintCheckmark(user.Active)
+        </div>
+        <div><label>Usuario</label>: {user.Username}</div>
+        <div><label>Título</label>: {user.Title}</div>
+        <div><label>Permisos</label>: {user.Permissions}</div>
+        for _, perm := range model.GetAllPermissions() {
+            <div class="mb-1">
+                @component.Switch(string(perm),string(perm),user.HavePermission(perm), true)
+            </div>
+        }
+        if u.HavePermission(model.PermissionAdmin){
+            <button hx-get={user.EditUrl} class="btn btn-primary">
+                Editar
+            </button>
+        }
+   </div>
+}
+
+templ UserNew(){
+    <form hx-post="/admin/user/new" hx-indicator="#spinner" hx-swap="outerHTML" hx-target="body">
+        <div class="mb-3">
+            @component.Switch("Activo","active",true, false)
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Usuario</label>
+            <input class="form-control" type="text" name="username" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Título</label>
+            <input class="form-control" type="text" name="title" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Permisos</label>
+            for _, perm := range model.GetAllPermissions() {
+                <div class="mb-1">
+                    @component.Switch(string(perm),string(perm),false, false)
+                </div>
+            }
+        </div>
+          <button class="btn btn-primary">Submit</button>
+          <button class="btn btn-secondary" hx-get="/admin/user/list">Cancel</button>
+    </form>
 }

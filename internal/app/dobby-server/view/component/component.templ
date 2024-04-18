@@ -48,3 +48,47 @@ func PrintDurationTime(d time.Duration) string {
     minutes := int(d.Minutes()) % 60
     return fmt.Sprintf("%dh %dm", hours, minutes)
 }
+
+templ PrintCheckmark(value bool){
+    if value{
+        <i class="fa fa-check success"></i>
+    }else{
+        <i class="fa fa-times danger"></i>
+    }
+}
+
+templ CheckBox(name string, value bool){
+    if value{
+        <input type="checkbox" name={name} checked />
+    }else{
+        <input type="checkbox" name={name} />
+    }
+}
+
+templ Switch(label, name string, value bool, disabled bool){
+    if value{
+        if disabled{
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" name={name} checked disabled />
+                <label class="form-check-label">{label}</label>
+            </div>
+        }else{
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" name={name} checked />
+                <label class="form-check-label">{label}</label>
+            </div>
+        }
+    }else{
+        if disabled{
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" name={name} disabled />
+                <label class="form-check-label">{label}</label>
+            </div>
+        }else{
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" name={name} />
+                <label class="form-check-label">{label}</label>
+            </div>
+        }
+    }
+}
