@@ -392,13 +392,15 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 	}
 
 	//if at least 1 turn is out of time and day off was not used, the potion is a fail
-	for _, turn := range result.Turns {
-		if !turn.OnTime {
-			if !turn.DayOffUsed {
-				result.Status = StatusFail
-				result.Score.Success = false
-				generatePotionFailedReport(turn.Player.Name, &result)
-				result.Score.ModMessage = generateModMessage(forumDynamic, result)
+	if result.Status != StatusSuccess {
+		for _, turn := range result.Turns {
+			if !turn.OnTime {
+				if !turn.DayOffUsed {
+					result.Status = StatusFail
+					result.Score.Success = false
+					generatePotionFailedReport(turn.Player.Name, &result)
+					result.Score.ModMessage = generateModMessage(forumDynamic, result)
+				}
 			}
 		}
 	}

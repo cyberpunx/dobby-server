@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	ByPassForumLogin = true
+	ByPassForumLogin = false
 )
 
 type LoginHandler struct {

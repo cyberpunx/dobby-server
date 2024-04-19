@@ -54,7 +54,9 @@ templ PotionReportView(i int, r potion.PotionClubReport, t tool.Tool){
                 <td>
                     <span class={GetStatusColor(r)}><b>Estado:</b> {GetStatus(r)}</span>
                     if r.Status == potion.StatusSuccess || r.Status == potion.StatusFail {
-                        @ModerateButton(r.Score.ModMessage)
+                        <span style="float: inline-end">
+                            @ModerateButton(r.Score.ModMessage)
+                        </span>
                     }
                 </td>
             </tr>
@@ -155,7 +157,9 @@ func GetPotionUrl(r potion.PotionClubReport, t tool.Tool) templ.SafeURL {
 }
 
 templ ModerateButton(msg string){
-    <button style="margin-left: 5px; background-color: var(--ds-color6)" onclick={moderatePotion(msg)}>Moderar ⭐</button>
+    <button class="btn btn-outline-secondary mx-1" onclick={moderatePotion(msg)}>
+        Moderar <i class="fas fa-wand-sparkles"></i>
+    </button>
 }
 
 script moderatePotion(modMsg string){
