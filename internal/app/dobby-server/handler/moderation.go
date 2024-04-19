@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	loadPotionsReportMockup = false
+	loadPotionsReportMockup = true
 	savePotionsReportMockup = false
 )
 

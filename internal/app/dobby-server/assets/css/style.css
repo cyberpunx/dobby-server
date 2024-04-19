@@ -2,7 +2,7 @@
 body {
     background-color: var(--ds-color3);
     color: var(--ds-color8) !important;
-    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto"
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
 }
 
 body a, a:visited {

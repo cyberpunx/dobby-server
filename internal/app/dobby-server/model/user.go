@@ -63,6 +63,7 @@ type UserApi struct {
 func GetAllPermissions() []Permission {
 	return []Permission{
 		PermissionAdmin,
+		PermissionAdminReadOnly,
 		PermissionPotions,
 		PermissionCreationChamber,
 	}

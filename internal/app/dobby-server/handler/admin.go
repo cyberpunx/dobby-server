@@ -13,7 +13,6 @@ type AdminHandler struct {
 }
 
 func (a AdminHandler) HandleUserList(c echo.Context) error {
-
 	userTable, err := a.h.UserApi.GetAllUser()
 	var userList []model.UserCrud
 	for _, user := range userTable {
@@ -25,7 +24,6 @@ func (a AdminHandler) HandleUserList(c echo.Context) error {
 			DeleteUrl: "/admin/user/" + strconv.Itoa(user.Id),
 		})
 	}
-
 	util.Panic(err)
 
 	return render(c, view.UserList(*a.h.UserSession, *a.h.Tool, userList))
@@ -126,7 +124,6 @@ func (a AdminHandler) HandleUserNew(c echo.Context) error {
 			DeleteUrl: "/admin/user/" + strconv.Itoa(user.Id),
 		})
 	}
-
 	util.Panic(err)
 
 	return render(c, view.UserList(*a.h.UserSession, *a.h.Tool, userList))
