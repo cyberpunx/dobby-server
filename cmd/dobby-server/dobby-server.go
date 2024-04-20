@@ -51,7 +51,7 @@ func main() {
 	err = userApi.CreateInitialUserTable()
 	util.Panic(err)
 
-	//Initial user
+	//Initial user if needed
 	userList, err := userApi.GetAllUser()
 	util.Panic(err)
 
@@ -75,11 +75,8 @@ func main() {
 	// Starts the server
 	app := echo.New()
 	app.Use(slogecho.New(mylogger.GetLogger()))
-
 	app.Static("/assets", "/internal/app/dobby-server/assets")
-
 	handler.SetupRoutes(app, &configTable, store)
-
 	err = app.Start(":" + serverPort)
 	util.Panic(err)
 }
