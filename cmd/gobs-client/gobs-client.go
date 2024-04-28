@@ -6,19 +6,18 @@ import (
 	clientConfig "localdev/dobby-server/internal/app/gobs-client/config"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/tool"
 	"localdev/dobby-server/internal/pkg/util"
-	"time"
 )
 
 const (
-	username = ""
-	password = ""
+	pathToConfig = "cmd/gobs-client/conf.json"
 )
 
-var o *tool.Tool
+var ToolArray *[]tool.Tool
 
 func main() {
 	// LOAD CONFIGS
-	conf := clientConfig.NewConfig()
+	ToolArray = &[]tool.Tool{}
+	conf := clientConfig.ReadConfigFile(pathToConfig)
 	serverConfig := model.Config{
 		BaseUrl:            "https://www.hogwartsrol.com/",
 		GSheetTokenFile:    "",
@@ -28,26 +27,34 @@ func main() {
 	fmt.Printf("Config: \n %s", util.MarshalJsonPretty(conf))
 
 	// LOGIN
-	client, loginResponse := tool.LoginAndGetCookies(username, password)
-	if !*loginResponse.Success {
-		fmt.Println("Usuario y/o Contraseña incorrectos")
-	} else {
-		o = tool.NewTool(&serverConfig, client, nil, nil)
-		secret1, secret2, err := o.GetPostSecrets()
-		if err != nil {
-			fmt.Println("Es posible que el usuario no tenga permisos en el foro / error al obtener secretos")
+	for _, user := range conf.Users {
+		var o *tool.Tool
+		client, loginResponse := tool.LoginAndGetCookies(user.Username, user.Password)
+		if !*loginResponse.Success {
+			fmt.Println("Usuario y/o Contraseña incorrectos")
+		} else {
+			o = tool.NewTool(&serverConfig, client, nil, nil)
+			secret1, secret2, err := o.GetPostSecrets()
+			if err != nil {
+				fmt.Println("Es posible que el usuario no tenga permisos en el foro / error al obtener secretos")
+			}
+			o.PostSecret1 = &secret1
+			o.PostSecret2 = &secret2
 		}
-		o.PostSecret1 = &secret1
-		o.PostSecret2 = &secret2
+		*ToolArray = append(*ToolArray, *o)
 	}
 
-	// POST NEW THREAD
-	timeNow := time.Now()
-	todayDate := timeNow.Format("02/01/2006")
-	subject := "Arikel McDowell | " + todayDate
-	subforumId := "44" // f44-ocio -> id = 44
-	message := `probando`
-	thread, err := o.PostNewThread(subforumId, subject, message, false, false)
-	util.Panic(err)
-	fmt.Printf("Thread: \n %s", util.MarshalJsonPretty(thread))
+	// POST A NEW THREAD FOR EACH USER
+	/*
+		for _, o := range *ToolArray {
+			// POST NEW THREAD
+			timeNow := time.Now()
+			todayDate := timeNow.Format("02/01/2006")
+			subject := "Posteando desde Dobby | " + todayDate
+			subforumId := "132" // f132-tecnomagia
+			message := `probando!!!  [roll="Ajedrez mágico"][/roll]`
+			_, err := o.PostNewThread(subforumId, subject, message, false, false, true)
+			util.Panic(err)
+		}
+	*/
 }

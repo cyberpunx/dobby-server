@@ -11,8 +11,8 @@ import (
 type Config struct {
 	Users         []User `json:"users"`
 	BaseUrl       string `json:"baseUrl"`
-	GobstonsUrl   string `json:"GobstonsUrl"`
-	MagicChessUrl string `json:"MagicChessUrl"`
+	GobstonsUrl   string `json:"gobstonsUrl"`
+	MagicChessUrl string `json:"magicChessUrl"`
 }
 
 type User struct {

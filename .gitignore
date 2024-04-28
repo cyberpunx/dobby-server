@@ -8,6 +8,7 @@
 # add any file ending with _templ.go
 *_templ.go
 *_templ.txt
+*conf.json
 log
 client_secret.json
 token.json
