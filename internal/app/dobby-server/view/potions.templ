@@ -12,54 +12,32 @@ import (
 
 templ Potions(reportList []potion.PotionClubReport, u model.UserSession, t tool.Tool, potionList []string, title string){
     @layout.Base(title, true, u, t) {
-        <div style="margin-bottom: 20px">
-            <a href="https://docs.google.com/spreadsheets/d/13CCYZ4veljB6ItPNHdvxvClBZJaC1w-QMkq-H5btR74/edit" style="text-decoration: none; color: var(--slytherin-color)">
-                [ Planilla de Moderación 🔗 ]
-            </a>
-            <span class="d-flex justify-content-end">
-                <button class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#newPotionModal">
-                    Nueva Poción <i class="fas fa-flask mx-1"></i>
-                </button>
-            </span>
+        <div class="row mb-3">
+            <div class="col">
+                    <a href="https://docs.google.com/spreadsheets/d/13CCYZ4veljB6ItPNHdvxvClBZJaC1w-QMkq-H5btR74/edit" style="text-decoration: none; color: var(--slytherin-color)">
+                        [ Planilla de Moderación 🔗 ]
+                    </a>
+                </div>
+            <div class="col">
+                <span class="d-flex justify-content-end">
+                        <button class="btn btn-primary" hx-get="/moderation/potion/new" hx-swap="outerHTML" hx-target="#formNew" data-bs-toggle="modal" data-bs-target="#newPotionModal">
+                            <i class="fa fa-plus"></i> Nueva Poción </button>
+                </span>
+            </div>
         </div>
         for i, report := range reportList {
                 @PotionReportView(i, report, t)
         }
-        <!-- MODAL NEW POTION -->
-        <div class="modal fade" id="newPotionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Modal -->
+        <div class="modal fade" id="newPotionModal" tabindex="-1" aria-labelledby="newPotionModal" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5">Abrir Poción</h1>
+                <h1 class="modal-title fs-5" id="newPotionModal">Modal title</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="potionName" class="form-label">Poción</label>
-                        <select class="form-select" aria-label="Default select example">
-                            for _, potion := range potionList {
-                                <option value={potion}>{potion}</option>
-                            }
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="player1" class="form-label">Jugador 1</label>
-                        <input type="text" class="form-control" id="player1" placeholder="Nombre del jugador 1"/>
-                    </div>
-                    <div class="mb-3">
-                        <label for="player2" class="form-label">Jugador 2</label>
-                        <input type="text" class="form-control" id="player2" placeholder="Nombre del jugador 2"/>
-                    </div>
-                    <div class="mb-3">
-                        <label for="moderator" class="form-label">Moderador</label>
-                        <input type="text" class="form-control" id="moderator" placeholder="Nombre del moderador"/>
-                    </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Crear Poción</button>
+                <div id="formNew"></div>
               </div>
             </div>
           </div>
@@ -236,3 +214,26 @@ script toggleTurns(id string){
         x.style.display = "none";
     }
 }
+
+templ NewPotionForm(potionList []string){
+    <form hx-post="/moderation/potion/new" hx-indicator="#spinner" hx-swap="none">
+        <div class="mb-3 form-group">
+            <label for="potionName">Poción</label>
+            <select class="form-control" id="potionName" name="potionName" required>
+            for _, potion := range potionList {
+                <option value={potion}>{potion}</option>
+            }
+            </select>
+        </div>
+        <div class="mb-3 form-group">
+            <label for="player1">Jugador 1</label>
+            <input type="text" class="form-control" id="player1" name="player1" required />
+        </div>
+        <div class="mb-3 form-group">
+            <label for="player2">Jugador 2</label>
+            <input type="text" class="form-control" id="player2" name="player2" required />
+        </div>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Crear Poción</button>
+    </form>
+}
+

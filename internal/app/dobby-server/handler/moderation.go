@@ -2,7 +2,6 @@ package handler
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/labstack/echo/v4"
 	"localdev/dobby-server/internal/app/dobby-server/model"
 	"localdev/dobby-server/internal/app/dobby-server/view"
@@ -12,7 +11,7 @@ import (
 )
 
 const (
-	loadPotionsReportMockup = true
+	loadPotionsReportMockup = false
 	savePotionsReportMockup = false
 )
 
@@ -50,14 +49,28 @@ func (m ModerationHandler) HandlePotions(c echo.Context) error {
 	return render(c, view.Potions(potionsReport, *m.h.UserSession, *m.h.Tool, potion.PotionNames, "Pociones"))
 }
 
-func (m ModerationHandler) NewPotion(c echo.Context) error {
+func (a ModerationHandler) HandlePotionNewForm(c echo.Context) error {
+	return render(c, view.NewPotionForm(potion.PotionNames))
+}
+
+func (m ModerationHandler) HandleNewPotion(c echo.Context) error {
 	player1 := c.FormValue("player1")
 	player2 := c.FormValue("player2")
 	potionName := c.FormValue("potionName")
-	mod := m.h.UserSession.Username
-	subforumUrl := "f98-club-de-pociones" //TODO: Hardcoded for now
+	mod := *m.h.UserSession.Username
+	//subforumUrl := "f98-club-de-pociones" //TODO: Hardcoded for now
+	subforumUrl := "f132-tecnomagia" //TODO: Hardcoded for now
 
-	fmt.Println("NewPotion: ", player1, player2, potionName, mod, subforumUrl)
+	subForumConfig, err := m.h.PotionSubApi.GetAllPotionSub()
+	util.Panic(err)
+
+	var turnLimit int
+	for _, sub := range subForumConfig {
+		turnLimit = sub.TurnLimit
+	}
+
+	threadUrl := m.h.Tool.PostNewPotionThread(dynamics.DynamicPotion, player1, player2, potionName, mod, subforumUrl, turnLimit, 69)
+	util.LongPrintlnPrintln("New thread created: " + threadUrl)
 	return nil
 }
 

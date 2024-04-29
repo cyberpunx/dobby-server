@@ -36,3 +36,12 @@ func GetTandTopicNameFromViewTopicUrl(viewTopicUrl string) (string, string) {
 
 	return tValue, topicName
 }
+
+func GetSubForumIdFromSubForumUrl(subForumUrl string) string {
+	//subforum url example -> "f98-club-de-pociones"
+	//expected id -> "98"
+	startIndex := strings.Index(subForumUrl, "f") + 1
+	endIndex := strings.Index(subForumUrl[startIndex:], "-")
+	subForumIdStr := subForumUrl[startIndex : startIndex+endIndex]
+	return subForumIdStr
+}

@@ -491,3 +491,28 @@ func generateModMessage(forumDynamic dynamics.ForumDynamic, r PotionClubReport) 
 
 	return out.String()
 }
+
+func GenerateNewPotionMessage(potionName, player1, player2 string, turnLimit, targetScore int) string {
+	ingredientsLine := PotionIngredients[potionName]
+	ingrentsArray := strings.Split(ingredientsLine, "\n")
+
+	data := ModMsgNewPotionData{
+		Player1:     player1,
+		Player2:     player2,
+		PotionName:  potionName,
+		TurnLimit:   turnLimit,
+		TargetScore: targetScore,
+		Ingredients: ingrentsArray,
+	}
+
+	// Parse the selected template
+	tmpl, err := template.ParseFiles(TemplatePath + "potionTemplates/new.html")
+	util.Panic(err)
+
+	// Execute the template with the report data
+	var out bytes.Buffer
+	err = tmpl.Execute(&out, data)
+	util.Panic(err)
+
+	return out.String()
+}
