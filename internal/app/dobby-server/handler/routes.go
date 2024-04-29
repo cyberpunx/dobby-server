@@ -37,6 +37,7 @@ func SetupRoutes(app *echo.Echo, conf *model.Config, store *storage.Store) {
 	modHandler := ModerationHandler{&handler}
 	moderationGroup := app.Group("/moderation")
 	moderationGroup.GET("/potions", modHandler.HandlePotions)
+	moderationGroup.POST("/potion", modHandler.NewPotion)
 	moderationGroup.GET("/creationchamber", modHandler.HandleCreationChamber)
 
 	loginHandler := LoginHandler{&handler}

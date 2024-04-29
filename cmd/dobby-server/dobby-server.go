@@ -71,6 +71,7 @@ func main() {
 	configTable, err := configApi.GetConfig()
 	util.Panic(err)
 	fmt.Printf("Config: \n %s", util.MarshalJsonPretty(configTable))
+	fmt.Println("Server starting at: http://localhost:" + serverPort)
 
 	// Starts the server
 	app := echo.New()

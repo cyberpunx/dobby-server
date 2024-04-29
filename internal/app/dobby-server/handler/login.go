@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	ByPassForumLogin = false
+	ByPassForumLogin = true
 )
 
 type LoginHandler struct {
@@ -46,7 +46,7 @@ func (l LoginHandler) HandleProcessLoginForm(c echo.Context) error {
 			err = json.Unmarshal(jsonBytes, &report)
 			util.Panic(err)
 
-			return render(c, view.Potions(report, *l.h.UserSession, *l.h.Tool, "Pociones"))
+			return render(c, view.Potions(report, *l.h.UserSession, *l.h.Tool, potion.PotionNames, "Pociones"))
 		}
 
 		return render(c, view.Home(*l.h.UserSession, *l.h.Tool, "Inicio", ""))
@@ -80,7 +80,7 @@ func (l LoginHandler) HandleProcessLoginForm(c echo.Context) error {
 		err = json.Unmarshal(jsonBytes, &report)
 		util.Panic(err)
 
-		return render(c, view.Potions(report, *l.h.UserSession, *l.h.Tool, "Pociones"))
+		return render(c, view.Potions(report, *l.h.UserSession, *l.h.Tool, potion.PotionNames, "Pociones"))
 	}
 
 	return render(c, view.Home(*l.h.UserSession, *l.h.Tool, "Inicio", ""))

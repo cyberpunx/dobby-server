@@ -111,7 +111,7 @@ nav ul li:not(:last-child)::after {
 }
 
 table {
-    width: 75%;
+    width: 100%;
     table-layout: fixed;
     border-collapse: collapse;
     border-spacing: 0;

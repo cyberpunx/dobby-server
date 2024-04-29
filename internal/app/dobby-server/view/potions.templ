@@ -10,16 +10,60 @@ import (
 	"fmt"
 )
 
-templ Potions(reportList []potion.PotionClubReport, u model.UserSession, t tool.Tool, title string){
+templ Potions(reportList []potion.PotionClubReport, u model.UserSession, t tool.Tool, potionList []string, title string){
     @layout.Base(title, true, u, t) {
         <div style="margin-bottom: 20px">
             <a href="https://docs.google.com/spreadsheets/d/13CCYZ4veljB6ItPNHdvxvClBZJaC1w-QMkq-H5btR74/edit" style="text-decoration: none; color: var(--slytherin-color)">
                 [ Planilla de Moderación 🔗 ]
             </a>
+            <span class="d-flex justify-content-end">
+                <button class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#newPotionModal">
+                    Nueva Poción <i class="fas fa-flask mx-1"></i>
+                </button>
+            </span>
         </div>
         for i, report := range reportList {
                 @PotionReportView(i, report, t)
         }
+        <!-- MODAL NEW POTION -->
+        <div class="modal fade" id="newPotionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5">Abrir Poción</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="potionName" class="form-label">Poción</label>
+                        <select class="form-select" aria-label="Default select example">
+                            for _, potion := range potionList {
+                                <option value={potion}>{potion}</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="player1" class="form-label">Jugador 1</label>
+                        <input type="text" class="form-control" id="player1" placeholder="Nombre del jugador 1"/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="player2" class="form-label">Jugador 2</label>
+                        <input type="text" class="form-control" id="player2" placeholder="Nombre del jugador 2"/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="moderator" class="form-label">Moderador</label>
+                        <input type="text" class="form-control" id="moderator" placeholder="Nombre del moderador"/>
+                    </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Crear Poción</button>
+              </div>
+            </div>
+          </div>
+        </div>
     }
 }
 
