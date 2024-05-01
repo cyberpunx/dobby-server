@@ -28,16 +28,18 @@ templ Potions(reportList []potion.PotionClubReport, u model.UserSession, t tool.
         for i, report := range reportList {
                 @PotionReportView(i, report, t)
         }
-        <!-- Modal -->
+        <!-- New Potion Modal -->
         <div class="modal fade" id="newPotionModal" tabindex="-1" aria-labelledby="newPotionModal" aria-hidden="true">
-          <div class="modal-dialog">
+          <div class="modal-dialog" style="max-width: 75%">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="newPotionModal">Modal title</h1>
+                <h1 class="modal-title fs-5" id="newPotionModal">Nueva Poción</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
+              <div id="newPotionMsg"></div>
                 <div id="formNew"></div>
+
               </div>
             </div>
           </div>
@@ -188,10 +190,10 @@ script moderatePotion(modMsg string){
     navigator.clipboard
         .writeText(modMsg)
         .then(() => {
-        alert("Moderación copiada al portapapeles");
+        alert("Copiado al portapapeles");
         })
         .catch(() => {
-        alert("Error al copiar moderación al portapapeles");
+        alert("Error al copiar en el portapapeles");
         });
 }
 
@@ -216,7 +218,7 @@ script toggleTurns(id string){
 }
 
 templ NewPotionForm(potionList []string){
-    <form hx-post="/moderation/potion/new" hx-indicator="#spinner" hx-swap="none">
+    <form hx-post="/moderation/potion/new" hx-indicator="#spinner" hx-swap="innerHTML" hx-target="#newPotionMsg">
         <div class="mb-3 form-group">
             <label for="potionName">Poción</label>
             <select class="form-control" id="potionName" name="potionName" required>
@@ -233,7 +235,18 @@ templ NewPotionForm(potionList []string){
             <label for="player2">Jugador 2</label>
             <input type="text" class="form-control" id="player2" name="player2" required />
         </div>
-        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Crear Poción</button>
+        <button type="submit" class="btn btn-primary">Crear Poción</button>
     </form>
+}
+
+templ NewPotionMsg(msg string){
+    <div class="form-group my-3">
+        <label for="exampleFormControlTextarea1">Mensaje Generado</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" disabled>{msg}</textarea>
+    </div>
+    <button class="btn btn-primary my-3" onclick={moderatePotion(msg)}>
+            Copiar al portapapeles <i class="fas fa-clipboard"></i>
+    </button>
+    <hr/>
 }
 

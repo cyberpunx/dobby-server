@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	loadPotionsReportMockup = false
+	loadPotionsReportMockup = true
 	savePotionsReportMockup = false
 )
 
@@ -60,18 +60,15 @@ func (m ModerationHandler) HandleNewPotion(c echo.Context) error {
 	mod := *m.h.UserSession.Username
 	//subforumUrl := "f98-club-de-pociones" //TODO: Hardcoded for now
 	subforumUrl := "f132-tecnomagia" //TODO: Hardcoded for now
-
 	subForumConfig, err := m.h.PotionSubApi.GetAllPotionSub()
 	util.Panic(err)
-
 	var turnLimit int
 	for _, sub := range subForumConfig {
 		turnLimit = sub.TurnLimit
 	}
-
-	threadUrl := m.h.Tool.PostNewPotionThread(dynamics.DynamicPotion, player1, player2, potionName, mod, subforumUrl, turnLimit, 69)
-	util.LongPrintlnPrintln("New thread created: " + threadUrl)
-	return nil
+	targetScore := potion.PotionScores[potionName]
+	potionMsg := m.h.Tool.GetNewPotionMessage(dynamics.DynamicPotion, player1, player2, potionName, mod, subforumUrl, turnLimit, targetScore)
+	return render(c, view.NewPotionMsg(potionMsg))
 }
 
 func (m ModerationHandler) HandleCreationChamber(c echo.Context) error {
