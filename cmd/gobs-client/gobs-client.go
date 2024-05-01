@@ -156,7 +156,7 @@ func createChessMsg(gobsLines []string) string {
 	msg := "[roll=\"Ajedrez mágico\"][/roll]" + "<br><br>"
 	if len(gobsLines) == 3 {
 		for i, line := range gobsLines {
-			msg += "[b]Cara  Triste " + strconv.Itoa(i+1) + ":[/b] [url=" + line + "]" + strconv.Itoa(i+1) + "º Enlace[/url]" + "<br>"
+			msg += "[b]Cara  Triste " + strconv.Itoa(i+1) + ":[/b] [url=https://www.hogwartsrol.com/" + line + "]" + strconv.Itoa(i+1) + "º Enlace[/url]" + "<br>"
 		}
 	}
 	return msg
