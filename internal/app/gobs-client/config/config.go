@@ -16,8 +16,15 @@ type Config struct {
 }
 
 type User struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
+	Username string      `json:"username"`
+	Password string      `json:"password"`
+	Msg      UserMessage `json:"msg"`
+}
+
+type UserMessage struct {
+	Message    string `json:"message"`
+	Subject    string `json:"subject"`
+	SubForumId string `json:"subForumId"`
 }
 
 func ReadConfigFile(path string) Config {
