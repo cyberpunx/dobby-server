@@ -52,6 +52,9 @@ templ Base(title string, showNav bool, u model.UserSession, t tool.Tool){
         <hr />
       }
       <main class="container">
+        <div id="spinner" class="htmx-indicator">
+        <div class="loading-state"><div class="loading"></div></div>
+        </div>
         <h2 style="color: var(--ds-color5)">{title}</h2>
         <div id="content" >
             { children... }
