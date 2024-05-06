@@ -100,6 +100,7 @@ func main() {
 			isGobs := parser.PostIsGobstons(thread.Posts[0].Content)
 			if isGobs {
 				gobsValue := parser.PostGetGobsValue(thread.Posts[0].Content)
+				fmt.Println("GOBS VALUE: ", gobsValue)
 				if gobsValue == 0 {
 					saveSadFaceToFile(gobsThreadUrl)
 				}

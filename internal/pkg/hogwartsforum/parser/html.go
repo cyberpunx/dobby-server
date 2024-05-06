@@ -13,7 +13,7 @@ import (
 
 const (
 	gobsSadFace = "https://i.imgur.com/0QvpfXr.gif"
-	gobs150     = "https://i.imgur.com/150.gif"
+	gobs150     = "https://i.imgur.com/sG6RoCV.gif"
 	gobs100     = "https://i.imgur.com/0NIKwhb.gif"
 	gobs50      = "https://i.imgur.com/NJ6SzEJ.gif"
 )
