@@ -16,6 +16,10 @@ const (
 	gobs150     = "https://i.imgur.com/sG6RoCV.gif"
 	gobs100     = "https://i.imgur.com/0NIKwhb.gif"
 	gobs50      = "https://i.imgur.com/NJ6SzEJ.gif"
+	chess200    = "https://i.imgur.com/r7LgPEs.gif"
+	chess150    = "https://i.imgur.com/UOSjsVJ.gif"
+	chess100    = "https://i.imgur.com/CkHmQYW.gif"
+	chess50     = "https://i.imgur.com/XtAGtdR.gif"
 )
 
 func GetSubforumAllThreads(html string) []string {
