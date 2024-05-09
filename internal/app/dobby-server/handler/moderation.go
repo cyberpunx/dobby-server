@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	loadPotionsReportMockup = true
+	loadPotionsReportMockup = false
 	savePotionsReportMockup = false
 )
 
@@ -21,7 +21,7 @@ type ModerationHandler struct {
 
 func (m ModerationHandler) HandlePotions(c echo.Context) error {
 	if !m.h.UserSession.HavePermission(model.PermissionPotions) {
-		return render(c, view.Home(*m.h.UserSession, *m.h.Tool, "Inicio", "No tienes permisos para ver esta página"))
+		return render(c, view.Home(*m.h.UserSession, *m.h.Tool, "Inicio", "No tienes permisos para ver esta página", nil))
 	}
 
 	subForumConfig, err := m.h.PotionSubApi.GetAllPotionSub()
@@ -73,7 +73,7 @@ func (m ModerationHandler) HandleNewPotion(c echo.Context) error {
 
 func (m ModerationHandler) HandleCreationChamber(c echo.Context) error {
 	if !m.h.UserSession.HavePermission(model.PermissionCreationChamber) {
-		return render(c, view.Home(*m.h.UserSession, *m.h.Tool, "Inicio", "No tienes permisos para ver esta página"))
+		return render(c, view.Home(*m.h.UserSession, *m.h.Tool, "Inicio", "No tienes permisos para ver esta página", nil))
 	}
 
 	subForumConfig, err := m.h.CreationChamberSubApi.GetAllCreationChamberSub()

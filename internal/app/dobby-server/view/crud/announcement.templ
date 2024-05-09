@@ -1,0 +1,98 @@
+package view
+
+import(
+    "localdev/dobby-server/internal/app/dobby-server/view/layout"
+    "localdev/dobby-server/internal/app/dobby-server/model"
+    "localdev/dobby-server/internal/pkg/hogwartsforum/tool"
+)
+
+templ AnnouncementList(u model.UserSession, t tool.Tool, announcementList []model.AnnouncementCrud){
+    @layout.Base("Anuncios", true, u, t) {
+        if u.HavePermission(model.PermissionAdmin){
+            <div class="my-5" style="width: 30%;">
+                <div id="formNew">
+                    <button class="btn btn-primary" hx-get="/admin/announcement/new" hx-swap="outerHTML" hx-target="#formNew">
+                        <i class="fa fa-plus"></i> Nuevo Anuncio </button>
+                </div>
+            </div>
+        }
+        for _, announcement := range announcementList {
+           <div class="card my-3" style="width: 100%;">
+              <div class="card-body">
+                  <h5 class="card-title">{announcement.Title} - {announcement.Type} </h5>
+                   <div hx-target="this" hx-swap="outerHTML">
+                        <div class="mb-3">
+                            {announcement.Message}
+                        </div>
+                        if u.HavePermission(model.PermissionAdmin){
+                            <button hx-get={announcement.EditUrl} class="btn btn-primary">
+                                Editar
+                            </button>
+                        }
+                   </div>
+              </div>
+           </div>
+        }
+    }
+}
+
+templ AnnouncementEdit(announcement model.AnnouncementCrud){
+    <form hx-put={announcement.UpdateUrl} hx-target="this" hx-swap="outerHTML">
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input class="form-control" type="text" name="title" value={announcement.Title} />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Mensaje</label>
+            <textarea class="form-control" type="text" name="message" rows="5">
+                {announcement.Message}
+            </textarea>
+        </div>
+        <div class="mb-3">
+            <label for="type">Tipo</label>
+            @typeList(model.GetAllAnnouncementTypes())
+        </div>
+          <button class="btn btn-primary" >Aceptar</button>
+          <button class="btn btn-secondary" hx-get={announcement.ViewUrl}>Cancelar</button>
+          <button class="btn btn-danger float-right" hx-delete={announcement.DeleteUrl} hx-swap="outerHTML" hx-target="body">
+            Borrar Anuncio</button>
+    </form>
+}
+
+templ AnnouncementView(u model.UserSession, announcement model.AnnouncementCrud){
+    <div hx-target="this" hx-swap="outerHTML">
+        <div>{announcement.Message}</div>
+        if u.HavePermission(model.PermissionAdmin){
+            <button hx-get={announcement.EditUrl} class="btn btn-primary mt-3">
+                Editar
+            </button>
+        }
+   </div>
+}
+
+templ AnnouncementNew(){
+    <form hx-post="/admin/announcement/new" hx-indicator="#spinner" hx-swap="outerHTML" hx-target="body">
+        <div class="mb-3">
+            <label class="form-label">Título</label>
+            <input class="form-control" type="text" name="title" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Mensaje</label>
+            <input class="form-control" type="text" name="message" />
+        </div>
+        <div class="mb-3">
+            <label for="type">Tipo</label>
+            @typeList(model.GetAllAnnouncementTypes())
+        </div>
+          <button class="btn btn-primary">Submit</button>
+          <button class="btn btn-secondary" hx-get="/admin/announcement/list">Cancel</button>
+    </form>
+}
+
+templ typeList(typeList []model.AnnouncementType){
+    <select class="form-control" id="type" name="type" required>
+    for _, annType := range typeList {
+        <option value={ string(annType) }>{ string(annType) }</option>
+    }
+    </select>
+}

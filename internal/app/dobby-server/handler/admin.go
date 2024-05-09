@@ -149,3 +149,128 @@ func (a AdminHandler) HandleUserDelete(c echo.Context) error {
 
 	return render(c, view.UserList(*a.h.UserSession, *a.h.Tool, userList))
 }
+
+func (a AdminHandler) HandleAnnouncementList(c echo.Context) error {
+	announcementTable, err := a.h.AnnouncementApi.GetAllAnnouncement()
+	var announcementList []model.AnnouncementCrud
+	for _, announcement := range announcementTable {
+		announcementList = append(announcementList, model.AnnouncementCrud{
+			Announcement: announcement,
+			EditUrl:      "/admin/announcement/" + strconv.Itoa(announcement.Id) + "/edit",
+			ViewUrl:      "/admin/announcement/" + strconv.Itoa(announcement.Id),
+			UpdateUrl:    "/admin/announcement/" + strconv.Itoa(announcement.Id),
+			DeleteUrl:    "/admin/announcement/" + strconv.Itoa(announcement.Id),
+		})
+	}
+	util.Panic(err)
+
+	return render(c, view.AnnouncementList(*a.h.UserSession, *a.h.Tool, announcementList))
+}
+
+func (a AdminHandler) HandleAnnouncementEdit(c echo.Context) error {
+	id, _ := strconv.Atoi(c.Param("id"))
+	announcement, err := a.h.AnnouncementApi.GetAnnouncementById(id)
+	util.Panic(err)
+	announcementCrud := model.AnnouncementCrud{
+		Announcement: *announcement,
+		EditUrl:      "/admin/announcement/" + strconv.Itoa(announcement.Id) + "/edit",
+		ViewUrl:      "/admin/announcement/" + strconv.Itoa(announcement.Id),
+		UpdateUrl:    "/admin/announcement/" + strconv.Itoa(announcement.Id),
+		DeleteUrl:    "/admin/announcement/" + strconv.Itoa(announcement.Id),
+	}
+	util.Panic(err)
+
+	return render(c, view.AnnouncementEdit(announcementCrud))
+}
+
+func (a AdminHandler) HandleAnnouncementUpdate(c echo.Context) error {
+	id, _ := strconv.Atoi(c.Param("id"))
+	announcement, err := a.h.AnnouncementApi.GetAnnouncementById(id)
+	util.Panic(err)
+	announcement.Message = c.FormValue("message")
+	announcement.Title = c.FormValue("title")
+	announcement.Type = c.FormValue("type")
+
+	err = a.h.AnnouncementApi.UpdateAnnouncement(id, announcement)
+	util.Panic(err)
+
+	announcementCrud := model.AnnouncementCrud{
+		Announcement: *announcement,
+		EditUrl:      "/admin/announcement/" + strconv.Itoa(announcement.Id) + "/edit",
+		ViewUrl:      "/admin/announcement/" + strconv.Itoa(announcement.Id),
+		UpdateUrl:    "/admin/announcement/" + strconv.Itoa(announcement.Id),
+		DeleteUrl:    "/admin/announcement/" + strconv.Itoa(announcement.Id),
+	}
+	util.Panic(err)
+
+	return render(c, view.AnnouncementView(*a.h.UserSession, announcementCrud))
+}
+
+func (a AdminHandler) HandleAnnouncementView(c echo.Context) error {
+	id, _ := strconv.Atoi(c.Param("id"))
+	announcement, err := a.h.AnnouncementApi.GetAnnouncementById(id)
+	util.Panic(err)
+
+	announcementCrud := model.AnnouncementCrud{
+		Announcement: *announcement,
+		EditUrl:      "/admin/announcement/" + strconv.Itoa(announcement.Id) + "/edit",
+		ViewUrl:      "/admin/announcement/" + strconv.Itoa(announcement.Id),
+		UpdateUrl:    "/admin/announcement/" + strconv.Itoa(announcement.Id),
+		DeleteUrl:    "/admin/announcement/" + strconv.Itoa(announcement.Id),
+	}
+	util.Panic(err)
+
+	return render(c, view.AnnouncementView(*a.h.UserSession, announcementCrud))
+}
+
+func (a AdminHandler) HandleAnnouncementNewForm(c echo.Context) error {
+	return render(c, view.AnnouncementNew())
+}
+
+func (a AdminHandler) HandleAnnouncementNew(c echo.Context) error {
+	//insert new announcement
+	announcement := model.Announcement{
+		Message: c.FormValue("message"),
+		Title:   c.FormValue("title"),
+		Type:    c.FormValue("type"),
+	}
+	err := a.h.AnnouncementApi.InsertAnnouncement(&announcement)
+	util.Panic(err)
+
+	//Reload announcement list with the new announcement added
+	announcementTable, err := a.h.AnnouncementApi.GetAllAnnouncement()
+	var announcementList []model.AnnouncementCrud
+	for _, announcement := range announcementTable {
+		announcementList = append(announcementList, model.AnnouncementCrud{
+			Announcement: announcement,
+			EditUrl:      "/admin/announcement/" + strconv.Itoa(announcement.Id) + "/edit",
+			ViewUrl:      "/admin/announcement/" + strconv.Itoa(announcement.Id),
+			UpdateUrl:    "/admin/announcement/" + strconv.Itoa(announcement.Id),
+			DeleteUrl:    "/admin/announcement/" + strconv.Itoa(announcement.Id),
+		})
+	}
+	util.Panic(err)
+
+	return render(c, view.AnnouncementList(*a.h.UserSession, *a.h.Tool, announcementList))
+}
+
+func (a AdminHandler) HandleAnnouncementDelete(c echo.Context) error {
+	id, _ := strconv.Atoi(c.Param("id"))
+	err := a.h.AnnouncementApi.DeleteAnnouncementById(id)
+	util.Panic(err)
+
+	//Reload user list with the user deleted
+	announcementTable, err := a.h.AnnouncementApi.GetAllAnnouncement()
+	var announcementList []model.AnnouncementCrud
+	for _, announcement := range announcementTable {
+		announcementList = append(announcementList, model.AnnouncementCrud{
+			Announcement: announcement,
+			EditUrl:      "/admin/announcement/" + strconv.Itoa(announcement.Id) + "/edit",
+			ViewUrl:      "/admin/announcement/" + strconv.Itoa(announcement.Id),
+			UpdateUrl:    "/admin/announcement/" + strconv.Itoa(announcement.Id),
+			DeleteUrl:    "/admin/announcement/" + strconv.Itoa(announcement.Id),
+		})
+	}
+
+	return render(c, view.AnnouncementList(*a.h.UserSession, *a.h.Tool, announcementList))
+}
