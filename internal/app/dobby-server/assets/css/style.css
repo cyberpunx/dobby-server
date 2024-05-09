@@ -55,6 +55,7 @@ nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: inline;
     /* text-align: center; */
 }
 nav ul li {
@@ -69,6 +70,15 @@ nav ul li a {
 nav ul li:not(:last-child)::after {
     content: " / ";
     color: #000;
+}
+
+nav ul li.admin-li a{
+    color: var(--ds-color2);
+}
+
+nav ul li.admin-li:not(:last-child)::after {
+    content: "  | ";
+    color: var(--ds-color2);
 }
 
 /* -- STAR SPINNER -- */
