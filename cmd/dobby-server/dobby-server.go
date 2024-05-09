@@ -39,6 +39,7 @@ func main() {
 	potionThrApi := model.NewPotionThreadApi(model.PotionThread{}, *store)
 	creationChamberSubApi := model.NewCreationChamberSubApi(model.CreationChamberSub{}, *store)
 	userApi := model.NewUserApi(model.User{}, *store)
+	announcementApi := model.NewAnnouncementApi(model.Announcement{}, *store)
 
 	err = configApi.CreateInitialConfigTable()
 	util.Panic(err)
@@ -49,6 +50,8 @@ func main() {
 	err = creationChamberSubApi.CreateInitialCreationChamberSubTable()
 	util.Panic(err)
 	err = userApi.CreateInitialUserTable()
+	util.Panic(err)
+	err = announcementApi.CreateAnnouncementTable()
 	util.Panic(err)
 
 	//Initial user if needed
@@ -71,6 +74,7 @@ func main() {
 	configTable, err := configApi.GetConfig()
 	util.Panic(err)
 	fmt.Printf("Config: \n %s", util.MarshalJsonPretty(configTable))
+	fmt.Println("Server starting at: http://localhost:" + serverPort)
 
 	// Starts the server
 	app := echo.New()

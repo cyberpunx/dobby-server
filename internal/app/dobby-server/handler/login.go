@@ -24,6 +24,9 @@ func (l LoginHandler) HandleProcessLoginForm(c echo.Context) error {
 	username := c.FormValue("username")
 	password := c.FormValue("password")
 
+	announcementList, err := l.h.AnnouncementApi.GetAllAnnouncement()
+	util.Panic(err)
+
 	if ByPassForumLogin {
 		user, err := l.h.UserApi.GetUserByUsername(username)
 		if err != nil || user == nil {
@@ -46,10 +49,10 @@ func (l LoginHandler) HandleProcessLoginForm(c echo.Context) error {
 			err = json.Unmarshal(jsonBytes, &report)
 			util.Panic(err)
 
-			return render(c, view.Potions(report, *l.h.UserSession, *l.h.Tool, "Pociones"))
+			return render(c, view.Potions(report, *l.h.UserSession, *l.h.Tool, potion.PotionNames, "Pociones"))
 		}
 
-		return render(c, view.Home(*l.h.UserSession, *l.h.Tool, "Inicio", ""))
+		return render(c, view.Home(*l.h.UserSession, *l.h.Tool, "Inicio", "", &announcementList))
 	}
 
 	// First check if user is a Dobby user
@@ -65,7 +68,7 @@ func (l LoginHandler) HandleProcessLoginForm(c echo.Context) error {
 	}
 
 	l.h.Tool.Client = client
-	err := l.SetPostSecrets()
+	err = l.SetPostSecrets()
 	if err != nil {
 		return render(c, view.Login("Es posible que el usuario no tenga permisos en el foro / error al obtener secretos", *l.h.UserSession, *l.h.Tool))
 	}
@@ -80,10 +83,10 @@ func (l LoginHandler) HandleProcessLoginForm(c echo.Context) error {
 		err = json.Unmarshal(jsonBytes, &report)
 		util.Panic(err)
 
-		return render(c, view.Potions(report, *l.h.UserSession, *l.h.Tool, "Pociones"))
+		return render(c, view.Potions(report, *l.h.UserSession, *l.h.Tool, potion.PotionNames, "Pociones"))
 	}
 
-	return render(c, view.Home(*l.h.UserSession, *l.h.Tool, "Inicio", ""))
+	return render(c, view.Home(*l.h.UserSession, *l.h.Tool, "Inicio", "", &announcementList))
 }
 
 func (l LoginHandler) HandleLogout(c echo.Context) error {

@@ -16,6 +16,7 @@ type BaseHandler struct {
 	PotionThrApi          *model.PotionThreadApi
 	CreationChamberSubApi *model.CreationChamberSubApi
 	UserApi               *model.UserApi
+	AnnouncementApi       *model.AnnouncementApi
 }
 
 func SetupRoutes(app *echo.Echo, conf *model.Config, store *storage.Store) {
@@ -32,11 +33,14 @@ func SetupRoutes(app *echo.Echo, conf *model.Config, store *storage.Store) {
 		PotionSubApi:          model.NewPotionSubApi(model.PotionSub{}, *store),
 		PotionThrApi:          model.NewPotionThreadApi(model.PotionThread{}, *store),
 		CreationChamberSubApi: model.NewCreationChamberSubApi(model.CreationChamberSub{}, *store),
+		AnnouncementApi:       model.NewAnnouncementApi(model.Announcement{}, *store),
 	}
 
 	modHandler := ModerationHandler{&handler}
 	moderationGroup := app.Group("/moderation")
 	moderationGroup.GET("/potions", modHandler.HandlePotions)
+	moderationGroup.GET("/potion/new", modHandler.HandlePotionNewForm)
+	moderationGroup.POST("/potion/new", modHandler.HandleNewPotion)
 	moderationGroup.GET("/creationchamber", modHandler.HandleCreationChamber)
 
 	loginHandler := LoginHandler{&handler}
@@ -55,4 +59,13 @@ func SetupRoutes(app *echo.Echo, conf *model.Config, store *storage.Store) {
 	adminGroup.GET("/user/:id", adminHandler.HandleUserView)
 	adminGroup.GET("/user/new", adminHandler.HandleUserNewForm)
 	adminGroup.POST("/user/new", adminHandler.HandleUserNew)
+
+	adminGroup.GET("/announcement/list", adminHandler.HandleAnnouncementList)
+	adminGroup.GET("/announcement/:id/edit", adminHandler.HandleAnnouncementEdit)
+	adminGroup.DELETE("/announcement/:id", adminHandler.HandleAnnouncementDelete)
+	adminGroup.PUT("/announcement/:id", adminHandler.HandleAnnouncementUpdate)
+	adminGroup.GET("/announcement/:id", adminHandler.HandleAnnouncementView)
+	adminGroup.GET("/announcement/new", adminHandler.HandleAnnouncementNewForm)
+	adminGroup.POST("/announcement/new", adminHandler.HandleAnnouncementNew)
+
 }

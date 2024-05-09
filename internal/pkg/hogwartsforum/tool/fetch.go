@@ -88,31 +88,31 @@ func LoginAndGetCookies(user, pass string) (*http.Client, *LoginResponse) {
 	return client, &loginResponse
 }
 
-func (o *Tool) PostNewThread(subforumId, subject, message string, notify, attachSig bool) (*parser.Thread, error) {
+func (o *Tool) PostNewThread(subforumId, subject, message string, notify, attachSig bool, hasDice bool) (*parser.Thread, error) {
 	util.LongPrintlnPrintln("Posting New Topic: " + subject + " on subforum " + subforumId)
 
-	attachSigStr := "on"
-	if !attachSig {
-		attachSigStr = "off"
-	}
-
-	notifyStr := "on"
-	if !notify {
-		notifyStr = "off"
-	}
-
 	data := url.Values{
-		"attach_sig": {attachSigStr},
-		"notify":     {notifyStr},
-		"subject":    {subject},
-		"message":    {message},
-		"post":       {"Enviar"},
-		"f":          {subforumId},
-		"lt":         {"0"},
-		"mode":       {"newtopic"},
-		"auth[]":     {*o.PostSecret1},
+		"subject": {subject},
+		"message": {message},
+		"post":    {"Enviar"},
+		"f":       {subforumId},
+		"lt":      {"0"},
+		"mode":    {"newtopic"},
+		"auth[]":  {*o.PostSecret1},
 	}
 	data.Add("auth[]", *o.PostSecret2)
+
+	if notify {
+		data.Add("notify", "on")
+	}
+
+	if attachSig {
+		data.Add("attach_sig", "on")
+	}
+
+	if hasDice {
+		data.Add("post_dice_0", "")
+	}
 
 	queryValues := url.Values{}
 	queryValues.Add("f", subforumId)
@@ -137,7 +137,7 @@ func (o *Tool) PostNewThread(subforumId, subject, message string, notify, attach
 	success, viewTopicUrl := parser.IsPostSuccessful(string(body))
 	if !success {
 		util.LongPrintlnPrintln("ERROR: Could not post new topic")
-		return nil, fmt.Errorf("Could not post new topic")
+		return nil, fmt.Errorf("Could not post new topic check logs for more info: \n" + string(body))
 	} else {
 		util.LongPrintlnPrintln("OK: New Topic Posted: " + viewTopicUrl)
 		t, topic_name := parser.GetTandTopicNameFromViewTopicUrl(viewTopicUrl)

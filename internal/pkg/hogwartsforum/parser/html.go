@@ -11,6 +11,17 @@ import (
 	"time"
 )
 
+const (
+	gobsSadFace = "https://i.imgur.com/0QvpfXr.gif"
+	gobs150     = "https://i.imgur.com/sG6RoCV.gif"
+	gobs100     = "https://i.imgur.com/0NIKwhb.gif"
+	gobs50      = "https://i.imgur.com/NJ6SzEJ.gif"
+	chess200    = "https://i.imgur.com/r7LgPEs.gif"
+	chess150    = "https://i.imgur.com/UOSjsVJ.gif"
+	chess100    = "https://i.imgur.com/CkHmQYW.gif"
+	chess50     = "https://i.imgur.com/XtAGtdR.gif"
+)
+
 func GetSubforumAllThreads(html string) []string {
 	var threads []string
 
@@ -513,4 +524,48 @@ func PostGetDateTime(html string) string {
 	dateDiv := doc.Find("div.linkfecha").Nodes[0].LastChild
 	dateDivStr := strings.Trim(dateDiv.Data, " ")
 	return dateDivStr
+}
+
+func PostIsGobstons(html string) bool {
+	//element  <div>
+	//    <strong> <User Name> ha efectuado 1 lanzada(s) de uno Gobstons : </strong>
+	//    <dl class="codebox"><dd><img src="https://i.imgur.com/0QvpfXr.gif" alt="<User Name> | 01/05/2024 0QvpfXr"/>
+	//        </dd>
+	//    </dl>
+	//</div>
+	reader := strings.NewReader(html)
+	doc, err := goquery.NewDocumentFromReader(reader)
+	if err != nil {
+		util.LongPrintlnPrintln("Error:", err)
+	}
+
+	searchString := "ha efectuado 1 lanzada(s) de uno Gobstons : "
+	// Find the <strong> element with class "lanzada"
+	strongElement := doc.Find("dl.codebox")
+	haveStrongElement := strongElement.Length() > 0
+	haveSearchString := strings.Contains(html, searchString)
+	return haveStrongElement && haveSearchString
+}
+
+func PostGetGobsValue(html string) int {
+	reader := strings.NewReader(html)
+	doc, err := goquery.NewDocumentFromReader(reader)
+	if err != nil {
+		util.LongPrintlnPrintln("Error:", err)
+	}
+
+	// Find the <img> element inside the <dl> element
+	imgElement := doc.Find("dl.codebox img")
+	imgSrc, _ := imgElement.Attr("src")
+	if imgSrc == gobsSadFace {
+		return 0
+	} else if imgSrc == gobs50 {
+		return 50
+	} else if imgSrc == gobs100 {
+		return 100
+	} else if imgSrc == gobs150 {
+		return 100
+	} else {
+		return -1
+	}
 }

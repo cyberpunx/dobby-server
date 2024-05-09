@@ -32,9 +32,7 @@ templ Base(title string, showNav bool, u model.UserSession, t tool.Tool){
       if showNav {
         <nav>
           <ul>
-            <li><a href="/" hx-get="/" hx-swap="outerHTML" hx-target="body" hx-indicator="#spinner">
-                <span style="color: var(--dobby-pink)"><i class="fa fa-socks fa-xl mx-1"></i></span> Inicio
-            </a></li>
+            <li><a href="/" hx-get="/" hx-swap="outerHTML" hx-target="body" hx-indicator="#spinner"><span style="color: var(--dobby-pink)"><i class="fa fa-socks fa-xl mx-1"></i></span> Inicio</a></li>
             if u.IsCorrectDateFmt {
                 if u.HavePermission(model.PermissionPotions) || u.HavePermission(model.PermissionAdmin) || u.HavePermission(model.PermissionAdminReadOnly){
                     <li><a href="/" hx-get="moderation/potions" hx-swap="outerHTML" hx-target="body" hx-indicator="#spinner">Pociones</a></li>
@@ -43,15 +41,30 @@ templ Base(title string, showNav bool, u model.UserSession, t tool.Tool){
                     <li><a href="/" hx-get="moderation/creationchamber" hx-swap="outerHTML" hx-target="body" hx-indicator="#spinner">Cámara de Creación</a></li>
                 }
             }
-            if u.HavePermission(model.PermissionAdmin) || u.HavePermission(model.PermissionAdminReadOnly){
-                <li><a href="/" hx-get="/admin/user/list"  hx-swap="outerHTML" hx-target="body" hx-indicator="#spinner">Usuarios</a></li>
-            }
-            <li><a href="/" hx-get="/logout"  hx-swap="outerHTML" hx-target="body" hx-indicator="#spinner">[ <span style="font-size: small">{*u.Username}</span> ] Salir</a></li>
           </ul>
+
+          <span style="float: right; margin-right: 20px">
+              if u.HavePermission(model.PermissionAdmin) || u.HavePermission(model.PermissionAdminReadOnly){
+                      <span style="color:var(--ds-color3);">[</span>
+                      <ul class="ml-5 pl-5">
+                          <li class="admin-li"><a href="/" hx-get="/admin/user/list"  hx-swap="outerHTML" hx-target="body" hx-indicator="#spinner">Usuarios</a></li>
+                          <li class="admin-li"><a href="/" hx-get="/admin/announcement/list"  hx-swap="outerHTML" hx-target="body" hx-indicator="#spinner">Anuncios</a></li>
+                      </ul>
+                      <span style="color:var(--ds-color3);">]</span>
+              }
+                <ul>
+                    <li><a href="/" hx-get="/logout"  hx-swap="outerHTML" hx-target="body" hx-indicator="#spinner">
+                        [ <span style="font-size: small">{*u.Username}</span> ] Salir
+                    </a></li>
+                </ul>
+          </span>
         </nav>
         <hr />
       }
       <main class="container">
+        <div id="spinner" class="htmx-indicator">
+        <div class="loading-state"><div class="loading"></div></div>
+        </div>
         <h2 style="color: var(--ds-color5)">{title}</h2>
         <div id="content" >
             { children... }

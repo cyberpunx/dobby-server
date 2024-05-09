@@ -239,3 +239,26 @@ func (o *Tool) GetUserDateTimeFormat() string {
 	dateTime := parser.PostGetDateTime(threadHtml)
 	return dateTime
 }
+
+func (o *Tool) PostNewPotionThread(forumDynamic dynamics.ForumDynamic, player1, player2, potionName, mod, subForumUrl string, turnLimit, targetScore int) string {
+	if forumDynamic == dynamics.DynamicPotion {
+		message := potion.GenerateNewPotionMessage(potionName, player1, player2, turnLimit, targetScore)
+		subforumId := parser.GetSubForumIdFromSubForumUrl(subForumUrl)
+
+		//subject example -> CLUB DE POCIONES | Ophelia E. Greengrass \u0026 Idylla Macnair (Esencia de Dictamo)
+		subject := "CLUB DE POCIONES | " + player1 + " & " + player2 + " (" + potionName + ")"
+		thread, err := o.PostNewThread(subforumId, subject, message, true, true, false)
+		util.Panic(err)
+
+		return thread.Url
+	}
+	return ""
+}
+
+func (o *Tool) GetNewPotionMessage(forumDynamic dynamics.ForumDynamic, player1, player2, potionName, mod, subForumUrl string, turnLimit, targetScore int) string {
+	if forumDynamic == dynamics.DynamicPotion {
+		message := potion.GenerateNewPotionMessage(potionName, player1, player2, turnLimit, targetScore)
+		return message
+	}
+	return ""
+}

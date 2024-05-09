@@ -4,38 +4,109 @@ import (
     "localdev/dobby-server/internal/app/dobby-server/view/layout"
     "localdev/dobby-server/internal/app/dobby-server/model"
     "localdev/dobby-server/internal/pkg/hogwartsforum/tool"
+	"strconv"
 )
 
-templ Home(u model.UserSession, t tool.Tool, title, msg string){
+templ Home(u model.UserSession, t tool.Tool, title, msg string, announcementList *[]model.Announcement){
     @layout.Base("Inicio", true, u, t) {
+        @autoShowToast()
         if msg != "" {
             <div style="width:50%; padding: 20px; margin-bottom: 20px; border-radius: 10px;background-color: var(--ds-color4)">
                 {msg}
             </div>
         }
-        <div>
-            Has iniciado sesión como <b>{u.User.Username}: {u.User.Title}</b>
+        <div class="toast-container" style="position: absolute; top: 5%; right: 45%">
+            <div class="toast text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="d-flex">
+                <div class="toast-body center-text">
+                  Has iniciado sesión como <br />
+                  <b>
+                  {u.User.Username}
+                  if u.User.Title != "" {
+                    : {u.User.Title}
+                  }
+                  </b>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+            </div>
+            if u.IsCorrectDateFmt {
+                <div class="toast text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                  <div class="d-flex">
+                    <div class="toast-body center-text">
+                      <span>El formato de fecha configurado en tu cuenta del foro es correcto: [ <b>{*u.UserDateFormat}</b> ] </span>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                  </div>
+                </div>
+            }else{
+                <div class="toast text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                 <div class="d-flex">
+                    <div class="toast-body center-text">
+                      <span>El formato de fecha configurado en tu cuenta del foro es incorrecto: [ <b>{*u.UserDateFormat}</b> ] </span>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                  </div>
+                </div>
+            }
         </div>
-        <hr/>
-        <p>
+        <div class="alert alert-dark alert-dismissible fade show" role="alert">
+            <span class="text-warning"><i class="fa fa-exclamation-triangle"></i></span>
             Bienvenido a <span style="color: var(--dobby-pink)"><b>Dobby</b></span>. Esta es una herramienta en desarrollo, por lo que es posible que encuentres errores o cosas que no funcionen correctamente. Si encuentras algo que no funciona, por favor, avísame para que pueda corregirlo.
             <br/>
             <span style="color: var(--ds-color6)"> Aiden Ward &lt;<i>Tecnomago Programador</i>&gt;</span>
-        </p>
-        <hr/>
-        if u.IsCorrectDateFmt {
-            <div style="width: fit-content; padding: 10px; margin-bottom: 20px;margin-top: 10px; border-radius: 10px;background-color: var(--ds-color4)">
-            <span>El formato de fecha configurado en tu cuenta del foro es correcto: [ <b class="success">{*u.UserDateFormat}</b> ] </span>
-            </div>
-        } else {
-            <div style="padding: 20px; margin-top: 15px; width: fit-content;">
-                <div style="width: fit-content; padding: 10px; margin-bottom: 20px;margin-top: 10px; border-radius: 10px;background-color: var(--ds-color4)">
-                    <span>El formato de fecha configurado en tu cuenta del foro  es incorrecto: [ <b class="danger">{*u.UserDateFormat}</b> ] ️</span>
-                </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+         if !u.IsCorrectDateFmt {
+            <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                <span>El formato de fecha configurado en tu cuenta del foro  es incorrecto: [ <b class="danger">{*u.UserDateFormat}</b> ] ️</span>
                 <p>Dírigete a las <a style="color: var(--ds-color6); text-decoration: none" href="https://www.hogwartsrol.com/profile?mode=editprofile&page_profil=preferences">preferencias de tu cuenta</a>, selecciona el formato correcto y vuelve a iniciar sesión en <span style="color: var(--dobby-pink)"><b>Dobby</b></span>.</p>
-                <img style="border: var(--ds-color3); border-style: outset" src="assets/img/dateFormat.png"/>
+                <a href="assets/img/dateFormat.png" target="_blank">
+                    <img style="border: var(--ds-color3); border-style: outset; width: 25%" src="assets/img/dateFormat.png"/>
+                </a>
+
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         }
+        <div class="accordion" id="accordionAnnouncements">
+            for i, a := range *announcementList {
+                <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target={"#collapse"+strconv.Itoa(i)} aria-expanded="true" aria-controls={"#collapse"+strconv.Itoa(i)}
+                    style="background-color: var(--ds-color3); color: var(--ds-color8)">
+
+                        if a.Type == string(model.TypeGeneral){
+                            <span class="text-info">
+                                <i class="fa fa-info-circle"></i>
+                                <span class="fw-medium mx-3">{a.Title}</span>
+                            </span>
+                        }else if a.Type == string(model.TypeKnownIssue){
+                            <span class="text-warning">
+                                <i class="fa fa-exclamation-triangle"></i>
+                                <span class="fw-medium mx-3">{a.Title}</span>
+                                <span class="font-monospace">[{a.Type}]</span>
+                            </span>
+                        }
+                  </button>
+                </h2>
+                <div id={"collapse"+strconv.Itoa(i)} class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    {a.Message}
+                  </div>
+                </div>
+              </div>
+            }
+        </div>
     }
 }
+
+script autoShowToast(){
+    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+    var toastList = toastElList.map(function (toastEl) {
+        return new bootstrap.Toast(toastEl)
+    })
+    toastList.forEach(toast => toast.show())
+}
+
 

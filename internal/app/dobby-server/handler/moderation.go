@@ -6,6 +6,7 @@ import (
 	"localdev/dobby-server/internal/app/dobby-server/model"
 	"localdev/dobby-server/internal/app/dobby-server/view"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/dynamics"
+	"localdev/dobby-server/internal/pkg/hogwartsforum/dynamics/potion"
 	"localdev/dobby-server/internal/pkg/util"
 )
 
@@ -20,7 +21,7 @@ type ModerationHandler struct {
 
 func (m ModerationHandler) HandlePotions(c echo.Context) error {
 	if !m.h.UserSession.HavePermission(model.PermissionPotions) {
-		return render(c, view.Home(*m.h.UserSession, *m.h.Tool, "Inicio", "No tienes permisos para ver esta página"))
+		return render(c, view.Home(*m.h.UserSession, *m.h.Tool, "Inicio", "No tienes permisos para ver esta página", nil))
 	}
 
 	subForumConfig, err := m.h.PotionSubApi.GetAllPotionSub()
@@ -45,12 +46,34 @@ func (m ModerationHandler) HandlePotions(c echo.Context) error {
 		util.Panic(err)
 	}
 
-	return render(c, view.Potions(potionsReport, *m.h.UserSession, *m.h.Tool, "Pociones"))
+	return render(c, view.Potions(potionsReport, *m.h.UserSession, *m.h.Tool, potion.PotionNames, "Pociones"))
+}
+
+func (a ModerationHandler) HandlePotionNewForm(c echo.Context) error {
+	return render(c, view.NewPotionForm(potion.PotionNames))
+}
+
+func (m ModerationHandler) HandleNewPotion(c echo.Context) error {
+	player1 := c.FormValue("player1")
+	player2 := c.FormValue("player2")
+	potionName := c.FormValue("potionName")
+	mod := *m.h.UserSession.Username
+	//subforumUrl := "f98-club-de-pociones" //TODO: Hardcoded for now
+	subforumUrl := "f132-tecnomagia" //TODO: Hardcoded for now
+	subForumConfig, err := m.h.PotionSubApi.GetAllPotionSub()
+	util.Panic(err)
+	var turnLimit int
+	for _, sub := range subForumConfig {
+		turnLimit = sub.TurnLimit
+	}
+	targetScore := potion.PotionScores[potionName]
+	potionMsg := m.h.Tool.GetNewPotionMessage(dynamics.DynamicPotion, player1, player2, potionName, mod, subforumUrl, turnLimit, targetScore)
+	return render(c, view.NewPotionMsg(potionMsg))
 }
 
 func (m ModerationHandler) HandleCreationChamber(c echo.Context) error {
 	if !m.h.UserSession.HavePermission(model.PermissionCreationChamber) {
-		return render(c, view.Home(*m.h.UserSession, *m.h.Tool, "Inicio", "No tienes permisos para ver esta página"))
+		return render(c, view.Home(*m.h.UserSession, *m.h.Tool, "Inicio", "No tienes permisos para ver esta página", nil))
 	}
 
 	subForumConfig, err := m.h.CreationChamberSubApi.GetAllCreationChamberSub()
@@ -75,5 +98,5 @@ func (m ModerationHandler) HandleCreationChamber(c echo.Context) error {
 		util.Panic(err)
 	}
 
-	return render(c, view.Potions(creationChamberReport, *m.h.UserSession, *m.h.Tool, "Cámara de Creación"))
+	return render(c, view.Potions(creationChamberReport, *m.h.UserSession, *m.h.Tool, potion.PotionNames, "Cámara de Creación"))
 }
