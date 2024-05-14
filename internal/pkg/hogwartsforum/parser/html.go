@@ -569,3 +569,55 @@ func PostGetGobsValue(html string) int {
 		return -1
 	}
 }
+
+func PostGetChessValue(html string) int {
+	reader := strings.NewReader(html)
+	doc, err := goquery.NewDocumentFromReader(reader)
+	if err != nil {
+		util.LongPrintlnPrintln("Error:", err)
+	}
+
+	// Find the <img> element inside the <dl> element
+	imgElement := doc.Find("dl.codebox img")
+	imgSrc, _ := imgElement.Attr("src")
+	if imgSrc == chess50 {
+		return 50
+	} else if imgSrc == chess100 {
+		return 100
+	} else if imgSrc == chess150 {
+		return 150
+	} else if imgSrc == chess200 {
+		return 200
+	} else {
+		return -1
+	}
+}
+
+func PostGetChessLinks(html string) []string {
+	reader := strings.NewReader(html)
+	doc, err := goquery.NewDocumentFromReader(reader)
+	if err != nil {
+		util.LongPrintlnPrintln("Error:", err)
+	}
+
+	var allLinks []string
+	// Find all <a> elements inside the <div class="content">
+	doc.Find("a").Each(func(i int, aSelection *goquery.Selection) {
+		// Get the href attribute
+		link, _ := aSelection.Attr("href")
+		allLinks = append(allLinks, link)
+	})
+
+	var filteredLinks []string
+	for _, link := range allLinks {
+		parts := strings.Split(link, "/")
+		if len(parts) > 3 {
+			firstSegment := parts[3]
+			if strings.HasPrefix(firstSegment, "t") { //only threads links
+				filteredLinks = append(filteredLinks, link)
+			}
+		}
+	}
+
+	return filteredLinks
+}

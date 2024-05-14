@@ -16,9 +16,10 @@ import (
 )
 
 const (
-	pathToConfig = "conf.json"
-	gobsSubject  = "<gobs>"
-	gobsFile     = "gobs.txt"
+	pathToConfig    = "conf.json"
+	gobsSubject     = "<gobs>"
+	gobsFile        = "gobs.txt"
+	spamControlWait = 11
 )
 
 type session struct {
@@ -108,6 +109,9 @@ func main() {
 				if len(gobsLines) == 3 {
 					msg := createChessMsg(gobsLines)
 
+					//Sleep X seconds to avoid spamming control
+					time.Sleep(spamControlWait * time.Second)
+
 					// POST NEW THREAD
 					if s.User.Msg.Subject == gobsSubject {
 						subject = s.User.Username + " | " + todayDate
@@ -119,6 +123,10 @@ func main() {
 					chessThread, err := s.Tool.PostNewThread(subforumId, subject, message, false, false, true)
 					util.Panic(err)
 					fmt.Println("CHESS THREAD: ", chessThread.Url)
+					chessValue := parser.PostGetChessValue(chessThread.Posts[0].Content)
+					fmt.Println("CHESS VALUE: ", chessValue)
+					chessLinks := parser.PostGetChessLinks(chessThread.Posts[0].Content)
+					fmt.Println("CHESS LINKS: ", chessLinks)
 					eraseGobsFile()
 				}
 
