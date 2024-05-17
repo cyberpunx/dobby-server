@@ -57,7 +57,7 @@ func GetSubforumPinnedThreads(html string) []string {
 	return pinnedThreads
 }
 
-func GetSubforumThreads(html string) []string {
+func GetSubforumThreadsNotAnnouncement(html string) []string {
 	var threads []string
 
 	reader := strings.NewReader(html)
@@ -68,6 +68,24 @@ func GetSubforumThreads(html string) []string {
 
 	// Find <li> tags inside <div class="forumbg"> but not within <div class="forumbg announcement">
 	doc.Find("div.forumbg:not(.announcement) li.row").Each(func(index int, element *goquery.Selection) {
+		text, _ := element.Html()
+		threads = append(threads, text)
+	})
+
+	return threads
+}
+
+func GetSubforumThreadsAnnouncement(html string) []string {
+	var threads []string
+
+	reader := strings.NewReader(html)
+	doc, err := goquery.NewDocumentFromReader(reader)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Find <li> tags inside <div class="forumbg"> but not within <div class="forumbg announcement">
+	doc.Find("div.forumbg.announcement li.row").Each(func(index int, element *goquery.Selection) {
 		text, _ := element.Html()
 		threads = append(threads, text)
 	})
@@ -169,6 +187,28 @@ func ThreadNextPageURL(html string) (string, bool) {
 
 	// Find the <p> tag with the "pagination" class
 	paginationElement := doc.Find("p.pagination span")
+	if paginationElement.Length() == 0 {
+		return "", false // No "next" link found
+	}
+
+	nextButton := paginationElement.Find("a").Last()
+	nextButtonHtml, _ := nextButton.Html()
+	if !strings.Contains(nextButtonHtml, "Siguiente") {
+		return "", false // No "next" link found
+	}
+	nextButtonUrl := nextButton.AttrOr("href", "")
+	return nextButtonUrl, true
+}
+
+func SubNextPageURL(html string) (string, bool) {
+	// Load the HTML content into a goquery document
+	doc, err := goquery.NewDocumentFromReader(strings.NewReader(html))
+	if err != nil {
+		return "", false
+	}
+
+	// Find the <p> tag with the "pagination" class
+	paginationElement := doc.Find("div.pagination span")
 	if paginationElement.Length() == 0 {
 		return "", false // No "next" link found
 	}

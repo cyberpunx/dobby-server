@@ -8,6 +8,13 @@ import (
 	"path/filepath"
 )
 
+const (
+	GobsPostDynamic  PostDynamic = "GOBS"
+	ChessPostDynamic PostDynamic = "CHESS"
+)
+
+type PostDynamic string
+
 type Config struct {
 	Users         []User `json:"users"`
 	BaseUrl       string `json:"baseUrl"`
@@ -16,15 +23,17 @@ type Config struct {
 }
 
 type User struct {
-	Username string      `json:"username"`
-	Password string      `json:"password"`
-	Msg      UserMessage `json:"msg"`
+	Username string        `json:"username"`
+	Password string        `json:"password"`
+	Msg      []UserMessage `json:"msg"`
 }
 
 type UserMessage struct {
-	Message    string `json:"message"`
-	Subject    string `json:"subject"`
-	SubForumId string `json:"subForumId"`
+	Message     string      `json:"message"`
+	Subject     string      `json:"subject"`
+	SubForumId  string      `json:"subForumId"`
+	SubForumUrl string      `json:"subForumUrl"`
+	PostDynamic PostDynamic `json:"postDynamic"`
 }
 
 func ReadConfigFile(path string) Config {

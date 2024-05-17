@@ -21,7 +21,7 @@ const (
 )
 
 func (o *Tool) parseSubforum(subHtml string) []*parser.Thread {
-	threadList := parser.GetSubforumThreads(subHtml)
+	threadList := parser.GetSubforumThreadsNotAnnouncement(subHtml)
 
 	var threads []*parser.Thread
 	for _, thread := range threadList {
@@ -199,6 +199,38 @@ func (o *Tool) getGoogleSheetPotionsBonus() *[]gsheet2.PlayerBonus {
 	util.Panic(err)
 	playerBonus := gsheet2.ParsePlayerBonus(rows)
 	return &playerBonus
+}
+
+func (o *Tool) GetThreadsUrlsFromSubforum(subforumUrl string) []string {
+	subforumHtml := o.getSubforum(subforumUrl)
+	subforumThreads := parser.GetSubforumThreadsNotAnnouncement(subforumHtml)
+
+	var pagesUrl []string
+	pagesUrl = append(pagesUrl, subforumUrl)
+	for {
+		// Check if there is a "next" link in the pagination
+		nextPageURL, hasMore := parser.SubNextPageURL(subforumHtml)
+
+		if !hasMore {
+			break // No more pages to fetch
+		}
+
+		// Fetch the next page and update the threadHtml
+		pagesUrl = append(pagesUrl, nextPageURL)
+		subforumHtml = o.getSubforum(nextPageURL)
+		subForumNextThreadsNotAnnouncement := parser.GetSubforumThreadsNotAnnouncement(subforumHtml)
+		subforumThreads = append(subforumThreads, subForumNextThreadsNotAnnouncement...)
+		subForumNextThreadsAnnouncement := parser.GetSubforumThreadsAnnouncement(subforumHtml)
+		subforumThreads = append(subforumThreads, subForumNextThreadsAnnouncement...)
+	}
+
+	var threadsUrls []string
+	for _, thread := range subforumThreads {
+		threadUrl := parser.SubGetThreadUrl(thread)
+		threadsUrls = append(threadsUrls, threadUrl)
+	}
+
+	return threadsUrls
 }
 
 func (o *Tool) ProcessPotionsSubforumList(forumDynamic dynamics.ForumDynamic, subForumUrls *[]string, timeLimit, turnLimit *int) []potion.PotionClubReport {
