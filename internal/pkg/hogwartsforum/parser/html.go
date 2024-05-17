@@ -564,7 +564,7 @@ func PostGetGobsValue(html string) int {
 	} else if imgSrc == gobs100 {
 		return 100
 	} else if imgSrc == gobs150 {
-		return 100
+		return 150
 	} else {
 		return -1
 	}
