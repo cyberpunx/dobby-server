@@ -27,6 +27,14 @@ func (l LoginHandler) HandleProcessLoginForm(c echo.Context) error {
 	announcementList, err := l.h.AnnouncementApi.GetAllAnnouncement()
 	util.Panic(err)
 
+	//ensure user session is empty
+	l.h.UserSession = &model.UserSession{
+		IsLoggedIn:    false,
+		Username:      nil,
+		Initials:      nil,
+		LoginDatetime: nil,
+	}
+
 	if ByPassForumLogin {
 		user, err := l.h.UserApi.GetUserByUsername(username)
 		if err != nil || user == nil {
