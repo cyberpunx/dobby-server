@@ -3,12 +3,14 @@ package handler
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/labstack/echo-contrib/session"
 	"github.com/labstack/echo/v4"
 	"localdev/dobby-server/internal/app/dobby-server/model"
 	"localdev/dobby-server/internal/app/dobby-server/view"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/dynamics/potion"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/tool"
 	"localdev/dobby-server/internal/pkg/util"
+	"net/http"
 	"time"
 )
 
@@ -26,14 +28,6 @@ func (l LoginHandler) HandleProcessLoginForm(c echo.Context) error {
 
 	announcementList, err := l.h.AnnouncementApi.GetAllAnnouncement()
 	util.Panic(err)
-
-	//ensure user session is empty
-	l.h.UserSession = &model.UserSession{
-		IsLoggedIn:    false,
-		Username:      nil,
-		Initials:      nil,
-		LoginDatetime: nil,
-	}
 
 	if ByPassForumLogin {
 		user, err := l.h.UserApi.GetUserByUsername(username)
@@ -81,6 +75,13 @@ func (l LoginHandler) HandleProcessLoginForm(c echo.Context) error {
 		return render(c, view.Login("Es posible que el usuario no tenga permisos en el foro / error al obtener secretos", *l.h.UserSession, *l.h.Tool))
 	}
 
+	// saves user session
+	sess, _ := session.Get("session", c)
+	sess.Values["username"] = username
+	sess.Values["user_id"] = user.Id
+	err = sess.Save(c.Request(), c.Response())
+	util.Panic(err)
+
 	l.SetUserSession(user, loginResponse.Initials, loginResponse.LoginDatetime)
 	fmt.Printf("UserSession: \n %s", util.MarshalJsonPretty(l.h.UserSession))
 
@@ -102,6 +103,14 @@ func (l LoginHandler) HandleLogout(c echo.Context) error {
 	l.h.Tool.PostSecret1 = nil
 	l.h.Tool.PostSecret2 = nil
 	l.h.UserSession = &model.UserSession{}
+
+	sess, _ := session.Get("session", c)
+	sess.Options.MaxAge = -1
+	err := sess.Save(c.Request(), c.Response())
+	if err != nil {
+		return c.String(http.StatusInternalServerError, "Error cerrando sesión")
+	}
+
 	return render(c, view.Login("", *l.h.UserSession, *l.h.Tool))
 }
 
