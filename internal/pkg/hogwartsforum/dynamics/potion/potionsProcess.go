@@ -410,11 +410,13 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 		turnTime := lastTurn.TurnDatePosted
 		elapsedTime := forumDateTime.Sub(turnTime)
 		result.ElapsedTime = elapsedTime
+		// TODO if elapsedTime > timeThreshold  the potion fails (aslo check for day off)
 	} else {
 		lastPost := result.Thread.Posts[len(result.Thread.Posts)-1]
 		postTime := *lastPost.Created
 		elapsedTime := forumDateTime.Sub(postTime)
 		result.ElapsedTime = elapsedTime
+		// TODO if elapsedTime > timeThreshold  the potion fails (aslo check for day off)
 	}
 
 	return result

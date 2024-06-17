@@ -16,7 +16,7 @@ import (
 )
 
 const (
-	pathToConfig    = "conf.json"
+	pathToConfig    = "conf_gobs.json"
 	gobsSubject     = "<gobs>"
 	gobsFile        = "gobs.txt"
 	spamControlWait = 11
@@ -30,6 +30,8 @@ type session struct {
 
 var SessionArray *[]session
 
+var CurrentUser = ""
+
 func main() {
 	name := flag.String("name", "", "Username")
 	confPath := flag.String("conf", pathToConfig, "Path to config file")
@@ -39,6 +41,7 @@ func main() {
 		fmt.Println("Please provide a username")
 		return
 	}
+	CurrentUser = *name
 
 	// LOAD CONFIGS
 	SessionArray = &[]session{}
@@ -83,7 +86,6 @@ func main() {
 				case gobsconfig.GobsPostDynamic:
 					err := GobsDynamic(s, userConfMsg)
 					util.Panic(err)
-
 				}
 			}
 		}
@@ -96,7 +98,7 @@ func GobsDynamic(s session, msgConfig gobsconfig.UserMessage) error {
 	util.LongPrintlnPrintln("Threads: ", urList)
 	postedToday := checkIfPostGobTodayWithUser(urList, s.User.Username)
 	if postedToday {
-		return fmt.Errorf("User has already posted today")
+		return fmt.Errorf("user has already posted today")
 	}
 
 	// POST NEW THREAD
@@ -136,7 +138,7 @@ func GobsDynamic(s session, msgConfig gobsconfig.UserMessage) error {
 
 func saveSadFaceToFile(url string) {
 	// Open or create gobs.txt, if exists append at the end
-	file, err := os.OpenFile(gobsFile, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	file, err := os.OpenFile(CurrentUser+"-"+gobsFile, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	util.Panic(err)
 	defer file.Close()
 
@@ -147,7 +149,7 @@ func saveSadFaceToFile(url string) {
 
 func getGobsFileLines() []string {
 	// Open or create gobs.txt
-	file, err := os.OpenFile(gobsFile, os.O_RDWR|os.O_CREATE, 0666)
+	file, err := os.OpenFile(CurrentUser+"-"+gobsFile, os.O_RDWR|os.O_CREATE, 0666)
 	util.Panic(err)
 	defer file.Close()
 
@@ -172,7 +174,7 @@ func createChessMsg(gobsLines []string) string {
 
 func eraseGobsFile() {
 	// Open or create gobs.txt
-	file, err := os.OpenFile(gobsFile, os.O_RDWR|os.O_CREATE, 0666)
+	file, err := os.OpenFile(CurrentUser+"-"+gobsFile, os.O_RDWR|os.O_CREATE, 0666)
 	util.Panic(err)
 	defer file.Close()
 
@@ -182,8 +184,11 @@ func eraseGobsFile() {
 
 func postGobsNewThread(s session, MsgConfig gobsconfig.UserMessage) *parser.Thread {
 	var subject string
-	timeNow := time.Now()
-	todayDate := timeNow.Format("02/01/2006")
+
+	location, err := time.LoadLocation("America/Mexico_City")
+	util.Panic(err)
+	currentTime := time.Now().In(location)
+	todayDate := currentTime.Format("02/01/2006")
 	if MsgConfig.Subject == gobsSubject {
 		subject = s.User.Username + " | " + todayDate
 	} else {
@@ -200,8 +205,10 @@ func postGobsNewThread(s session, MsgConfig gobsconfig.UserMessage) *parser.Thre
 
 func postChessNewThread(s session, MsgConfig gobsconfig.UserMessage, chessMessage string) *parser.Thread {
 	var subject string
-	timeNow := time.Now()
-	todayDate := timeNow.Format("02/01/2006")
+	location, err := time.LoadLocation("America/Mexico_City")
+	util.Panic(err)
+	currentTime := time.Now().In(location)
+	todayDate := currentTime.Format("02/01/2006")
 	if MsgConfig.Subject == gobsSubject {
 		subject = s.User.Username + " | " + todayDate
 	} else {
@@ -220,7 +227,10 @@ func checkIfPostGobTodayWithUser(urlList []string, user string) bool {
 	//User Example Hikaru Munetaka
 	//URL Example: /t99287-hikaru-munetaka-17-05-2024
 
-	datePart := time.Now().Format("02-01-2006")
+	location, err := time.LoadLocation("America/Mexico_City")
+	util.Panic(err)
+	currentTime := time.Now().In(location)
+	datePart := currentTime.Format("02-01-2006")
 	userPart := strings.ReplaceAll(strings.ToLower(user), " ", "-")
 
 	for _, url := range urlList {
