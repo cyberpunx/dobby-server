@@ -11,6 +11,7 @@ type PagesHandler struct {
 }
 
 func (p PagesHandler) HandleHome(c echo.Context) error {
+	p.h.UserSession, p.h.Tool = GetCurrentSessionAndTool(c, p.h.Tool)
 
 	announcementList, err := p.h.AnnouncementApi.GetAllAnnouncement()
 	util.Panic(err)

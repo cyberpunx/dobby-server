@@ -84,9 +84,13 @@ func main() {
 	app.Use(slogecho.New(mylogger.GetLogger()))
 	app.Static("/assets", "/internal/app/dobby-server/assets")
 
+	// Generate new sessionKey to invalidate all previous sessions
+	sessionKey, err = util.GenerateRandomKey(32)
+	util.Panic(err)
 	app.Use(session.Middleware(sessions.NewCookieStore([]byte(sessionKey))))
 
 	handler.SetupRoutes(app, &configTable, store)
 	err = app.Start(":" + serverPort)
+
 	util.Panic(err)
 }

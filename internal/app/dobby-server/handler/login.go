@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"encoding/gob"
 	"encoding/json"
 	"fmt"
 	"github.com/labstack/echo-contrib/session"
@@ -20,6 +21,10 @@ const (
 
 type LoginHandler struct {
 	h *BaseHandler
+}
+
+func init() {
+	gob.Register(&model.UserSession{})
 }
 
 func (l LoginHandler) HandleProcessLoginForm(c echo.Context) error {
@@ -75,15 +80,20 @@ func (l LoginHandler) HandleProcessLoginForm(c echo.Context) error {
 		return render(c, view.Login("Es posible que el usuario no tenga permisos en el foro / error al obtener secretos", *l.h.UserSession, *l.h.Tool))
 	}
 
-	// saves user session
+	l.SetUserSession(user, loginResponse.Initials, loginResponse.LoginDatetime)
+	fmt.Printf("UserSession: \n %s", util.MarshalJsonPretty(l.h.UserSession))
+	l.h.UserSession.PostSecret1 = l.h.Tool.PostSecret1
+	l.h.UserSession.PostSecret2 = l.h.Tool.PostSecret2
+	forumCookies := GetForumCookiesFromClient(l.h.Tool.Client, l.h.UserSession.User.Username)
+	l.h.UserSession.ForumCookies = forumCookies
+
+	// saves user session in Gorilla's session
 	sess, _ := session.Get("session", c)
+	sess.Values["user_session"] = l.h.UserSession
 	sess.Values["username"] = username
 	sess.Values["user_id"] = user.Id
 	err = sess.Save(c.Request(), c.Response())
 	util.Panic(err)
-
-	l.SetUserSession(user, loginResponse.Initials, loginResponse.LoginDatetime)
-	fmt.Printf("UserSession: \n %s", util.MarshalJsonPretty(l.h.UserSession))
 
 	if loadPotionsReportMockup {
 		var report []potion.PotionClubReport
@@ -133,6 +143,7 @@ func (l LoginHandler) SetPostSecrets() error {
 }
 
 func (l LoginHandler) SetUserSession(user *model.User, initials *string, loginDateTime *time.Time) {
+	l.h.UserSession = &model.UserSession{}
 	l.h.UserSession.User = user
 	l.h.UserSession.Permissions = user.GetUserPermissions()
 	userDateFormat := l.h.Tool.GetUserDateTimeFormat()

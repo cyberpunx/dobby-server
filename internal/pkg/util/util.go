@@ -2,8 +2,11 @@ package util
 
 import (
 	"bytes"
+	"crypto/rand"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
 	mylogger "localdev/dobby-server/internal/pkg/logger"
 
@@ -281,4 +284,12 @@ func IsUserDateFormatCorrect(userDateFormat string, forumDateTime time.Time) boo
 	layout := "2/1/2006 15:04"
 	_, err := time.Parse(layout, dateStr+" "+timeStr)
 	return err == nil
+}
+
+func GenerateRandomKey(length int) (string, error) {
+	bytes := make([]byte, length)
+	if _, err := io.ReadFull(rand.Reader, bytes); err != nil {
+		return "", err
+	}
+	return hex.EncodeToString(bytes), nil
 }
