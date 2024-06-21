@@ -29,6 +29,10 @@ const (
 	DayOffExtraHours = 24
 
 	TemplatePath = "internal/pkg/hogwartsforum/dynamics/templates/"
+
+	FailBecauseOfTime       FailType = "Time"
+	FailBecauseOfScore      FailType = "Score"
+	FailBecauseOfEditedDice FailType = "EditedDice"
 )
 
 type Status string
@@ -106,6 +110,8 @@ type PotionClubTurn struct {
 	TimeElapsed    time.Duration
 }
 
+type FailType string
+
 type PotionClubScoreBoard struct {
 	ReportFailed      ModMsgPotionFailData
 	ReportSucced      ModMsgPotionSuccessData
@@ -118,6 +124,7 @@ type PotionClubScoreBoard struct {
 	TargetScore       int
 	TotalScore        int
 	Success           bool
+	FailureReason     FailType
 	ModMessage        string
 }
 
@@ -302,6 +309,16 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 				result.Status = StatusWaitingPlayer1
 			}
 
+			//if post is edited, the potion fails automatically
+			if post.Edited != nil {
+				result.Status = StatusFail
+				result.Score.Success = false
+				result.Score.FailureReason = FailBecauseOfEditedDice
+				result.Score.TargetScore = potion.TargetScore
+				generatePotionFailedReport(postPlayer.Name, &result)
+				result.Score.ModMessage = generateModMessage(forumDynamic, result)
+			}
+
 			postOnTime = util.IsDateWithinTimeLimit(*post.Created, lastPostTime, timeThreshold)
 			dateLimit := lastPostTime.Add(timeThreshold)
 			// if player post is out of time, check if the player used a day off
@@ -358,6 +375,7 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 				} else {
 					result.Status = StatusFail
 					result.Score.Success = false
+					result.Score.FailureReason = FailBecauseOfTime
 					result.Score.TargetScore = potion.TargetScore
 					generatePotionFailedReport(notPostPlayer.Name, &result)
 					result.Score.ModMessage = generateModMessage(forumDynamic, result)
@@ -376,6 +394,7 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 				generatePotionSuccessReport(&result)
 			} else {
 				result.Status = StatusFail
+				result.Score.FailureReason = FailBecauseOfScore
 				result.Score.Success = false
 				result.Score.TargetScore = potion.TargetScore
 				generatePotionFailedReport(postPlayer.Name, &result)
@@ -478,8 +497,15 @@ func generateModMessage(forumDynamic dynamics.ForumDynamic, r PotionClubReport) 
 		templateFile = TemplatePath + templateFolder + "success.html"
 		data = r.Score.ReportSucced
 	} else {
-		templateFile = TemplatePath + templateFolder + "failed.html"
 		data = r.Score.ReportFailed
+		switch r.Score.FailureReason {
+		case FailBecauseOfTime:
+			templateFile = TemplatePath + templateFolder + "failed_time.html"
+		case FailBecauseOfScore:
+			templateFile = TemplatePath + templateFolder + "failed_score.html"
+		case FailBecauseOfEditedDice:
+			templateFile = TemplatePath + templateFolder + "failed_edited_dice.html"
+		}
 	}
 
 	// Parse the selected template
