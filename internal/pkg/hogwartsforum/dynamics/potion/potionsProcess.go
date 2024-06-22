@@ -424,18 +424,30 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 		}
 	}
 
+	//calculate the elapsed time
+	var elapsedTime time.Duration
 	if result.Turns != nil && len(result.Turns) > 0 {
 		lastTurn := result.Turns[len(result.Turns)-1]
 		turnTime := lastTurn.TurnDatePosted
-		elapsedTime := forumDateTime.Sub(turnTime)
+		elapsedTime = forumDateTime.Sub(turnTime)
 		result.ElapsedTime = elapsedTime
-		// TODO if elapsedTime > timeThreshold  the potion fails (aslo check for day off)
 	} else {
 		lastPost := result.Thread.Posts[len(result.Thread.Posts)-1]
 		postTime := *lastPost.Created
-		elapsedTime := forumDateTime.Sub(postTime)
+		elapsedTime = forumDateTime.Sub(postTime)
 		result.ElapsedTime = elapsedTime
-		// TODO if elapsedTime > timeThreshold  the potion fails (aslo check for day off)
+	}
+	if elapsedTime > timeThreshold {
+		result.Score.Success = false
+		result.Score.FailureReason = FailBecauseOfTime
+		result.Score.TargetScore = potion.TargetScore
+		if result.Status == StatusWaitingPlayer1 {
+			generatePotionFailedReport(player1.Name, &result)
+		} else {
+			generatePotionFailedReport(player2.Name, &result)
+		}
+		result.Status = StatusFail
+		result.Score.ModMessage = generateModMessage(forumDynamic, result)
 	}
 
 	return result
