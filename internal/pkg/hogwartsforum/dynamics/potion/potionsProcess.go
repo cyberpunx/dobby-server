@@ -20,6 +20,7 @@ const (
 	Other     = "Moderator"
 
 	StatusSuccess                Status = "Success"
+	StatusFailButMightSucceed    Status = "FailButMightSucceed"
 	StatusFail                   Status = "Fail"
 	StatusWaitingPlayer1         Status = "WaitingPlayer1"
 	StatusWaitingPlayer2         Status = "WaitingPlayer2"
@@ -27,6 +28,7 @@ const (
 	StatusWaitingPlayer2OnDayOff Status = "WaitingPlayer2OnDayOff"
 
 	DayOffExtraHours = 24
+	ModMaxBonus      = 5
 
 	TemplatePath = "internal/pkg/hogwartsforum/dynamics/templates/"
 
@@ -387,12 +389,17 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 			result.Score.DiceScoreSum = diceTotal
 			result.Score.TotalScore = diceTotal + result.Score.ModeratorBonus + result.Score.ModeratorMalus + result.Score.Player1Bonus + result.Score.Player2Bonus
 
-			if diceTotal > potion.TargetScore {
+			if diceTotal >= potion.TargetScore {
 				result.Status = StatusSuccess
 				result.Score.Success = true
 				result.Score.TargetScore = potion.TargetScore
 				generatePotionSuccessReport(&result)
-			} else {
+			} else if diceTotal+ModMaxBonus >= potion.TargetScore {
+				result.Status = StatusFailButMightSucceed
+				result.Score.Success = true
+				result.Score.TargetScore = potion.TargetScore
+				generatePotionFailedReport(postPlayer.Name, &result)
+			} else if diceTotal+ModMaxBonus < potion.TargetScore {
 				result.Status = StatusFail
 				result.Score.FailureReason = FailBecauseOfScore
 				result.Score.Success = false

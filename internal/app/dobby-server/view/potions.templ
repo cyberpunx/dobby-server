@@ -151,6 +151,8 @@ func GetStatus(r potion.PotionClubReport) string {
         return "Éxito"
     case potion.StatusFail:
         return "Fallo"
+    case potion.StatusFailButMightSucceed:
+        return "Exito (con puntos de Mod)"
     default:
         return "Estado desconocido"
     }
@@ -162,6 +164,8 @@ func GetStatusColor(r potion.PotionClubReport) string {
         return "success"
     case potion.StatusFail:
         return "danger"
+    case potion.StatusFailButMightSucceed:
+        return "warning"
     default:
         return ""
     }
