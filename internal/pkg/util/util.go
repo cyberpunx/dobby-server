@@ -293,3 +293,10 @@ func GenerateRandomKey(length int) (string, error) {
 	}
 	return hex.EncodeToString(bytes), nil
 }
+
+func GetElapsedTime(elapsedTime time.Duration) string {
+	hours := int(elapsedTime.Hours())
+	minutes := int(elapsedTime.Minutes()) - int(elapsedTime.Hours())*60
+
+	return fmt.Sprintf("%dh %dm", hours, minutes)
+}
