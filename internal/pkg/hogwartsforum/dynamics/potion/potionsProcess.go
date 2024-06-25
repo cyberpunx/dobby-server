@@ -20,6 +20,7 @@ const (
 	Other     = "Moderator"
 
 	StatusSuccess                Status = "Success"
+	StatusFailButMightSucceed    Status = "FailButMightSucceed"
 	StatusFail                   Status = "Fail"
 	StatusWaitingPlayer1         Status = "WaitingPlayer1"
 	StatusWaitingPlayer2         Status = "WaitingPlayer2"
@@ -27,8 +28,13 @@ const (
 	StatusWaitingPlayer2OnDayOff Status = "WaitingPlayer2OnDayOff"
 
 	DayOffExtraHours = 24
+	ModMaxBonus      = 5
 
 	TemplatePath = "internal/pkg/hogwartsforum/dynamics/templates/"
+
+	FailBecauseOfTime       FailType = "Time"
+	FailBecauseOfScore      FailType = "Score"
+	FailBecauseOfEditedDice FailType = "EditedDice"
 )
 
 type Status string
@@ -106,6 +112,8 @@ type PotionClubTurn struct {
 	TimeElapsed    time.Duration
 }
 
+type FailType string
+
 type PotionClubScoreBoard struct {
 	ReportFailed      ModMsgPotionFailData
 	ReportSucced      ModMsgPotionSuccessData
@@ -118,6 +126,7 @@ type PotionClubScoreBoard struct {
 	TargetScore       int
 	TotalScore        int
 	Success           bool
+	FailureReason     FailType
 	ModMessage        string
 }
 
@@ -302,6 +311,16 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 				result.Status = StatusWaitingPlayer1
 			}
 
+			//if post is edited, the potion fails automatically
+			if post.Edited != nil {
+				result.Status = StatusFail
+				result.Score.Success = false
+				result.Score.FailureReason = FailBecauseOfEditedDice
+				result.Score.TargetScore = potion.TargetScore
+				generatePotionFailedReport(postPlayer.Name, &result)
+				result.Score.ModMessage = generateModMessage(forumDynamic, result)
+			}
+
 			postOnTime = util.IsDateWithinTimeLimit(*post.Created, lastPostTime, timeThreshold)
 			dateLimit := lastPostTime.Add(timeThreshold)
 			// if player post is out of time, check if the player used a day off
@@ -358,6 +377,7 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 				} else {
 					result.Status = StatusFail
 					result.Score.Success = false
+					result.Score.FailureReason = FailBecauseOfTime
 					result.Score.TargetScore = potion.TargetScore
 					generatePotionFailedReport(notPostPlayer.Name, &result)
 					result.Score.ModMessage = generateModMessage(forumDynamic, result)
@@ -369,13 +389,19 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 			result.Score.DiceScoreSum = diceTotal
 			result.Score.TotalScore = diceTotal + result.Score.ModeratorBonus + result.Score.ModeratorMalus + result.Score.Player1Bonus + result.Score.Player2Bonus
 
-			if diceTotal > potion.TargetScore {
+			if diceTotal >= potion.TargetScore {
 				result.Status = StatusSuccess
 				result.Score.Success = true
 				result.Score.TargetScore = potion.TargetScore
 				generatePotionSuccessReport(&result)
-			} else {
+			} else if diceTotal+ModMaxBonus >= potion.TargetScore {
+				result.Status = StatusFailButMightSucceed
+				result.Score.Success = true
+				result.Score.TargetScore = potion.TargetScore
+				generatePotionFailedReport(postPlayer.Name, &result)
+			} else if diceTotal+ModMaxBonus < potion.TargetScore {
 				result.Status = StatusFail
+				result.Score.FailureReason = FailBecauseOfScore
 				result.Score.Success = false
 				result.Score.TargetScore = potion.TargetScore
 				generatePotionFailedReport(postPlayer.Name, &result)
@@ -405,16 +431,30 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 		}
 	}
 
+	//calculate the elapsed time
+	var elapsedTime time.Duration
 	if result.Turns != nil && len(result.Turns) > 0 {
 		lastTurn := result.Turns[len(result.Turns)-1]
 		turnTime := lastTurn.TurnDatePosted
-		elapsedTime := forumDateTime.Sub(turnTime)
+		elapsedTime = forumDateTime.Sub(turnTime)
 		result.ElapsedTime = elapsedTime
 	} else {
 		lastPost := result.Thread.Posts[len(result.Thread.Posts)-1]
 		postTime := *lastPost.Created
-		elapsedTime := forumDateTime.Sub(postTime)
+		elapsedTime = forumDateTime.Sub(postTime)
 		result.ElapsedTime = elapsedTime
+	}
+	if elapsedTime > timeThreshold {
+		result.Score.Success = false
+		result.Score.FailureReason = FailBecauseOfTime
+		result.Score.TargetScore = potion.TargetScore
+		if result.Status == StatusWaitingPlayer1 {
+			generatePotionFailedReport(player1.Name, &result)
+		} else {
+			generatePotionFailedReport(player2.Name, &result)
+		}
+		result.Status = StatusFail
+		result.Score.ModMessage = generateModMessage(forumDynamic, result)
 	}
 
 	return result
@@ -476,8 +516,15 @@ func generateModMessage(forumDynamic dynamics.ForumDynamic, r PotionClubReport) 
 		templateFile = TemplatePath + templateFolder + "success.html"
 		data = r.Score.ReportSucced
 	} else {
-		templateFile = TemplatePath + templateFolder + "failed.html"
 		data = r.Score.ReportFailed
+		switch r.Score.FailureReason {
+		case FailBecauseOfTime:
+			templateFile = TemplatePath + templateFolder + "failed_time.html"
+		case FailBecauseOfScore:
+			templateFile = TemplatePath + templateFolder + "failed_score.html"
+		case FailBecauseOfEditedDice:
+			templateFile = TemplatePath + templateFolder + "failed_edited_dice.html"
+		}
 	}
 
 	// Parse the selected template

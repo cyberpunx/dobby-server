@@ -65,7 +65,7 @@ templ PotionReportView(i int, r potion.PotionClubReport, t tool.Tool){
                         <span class={c.GetHouseClass(r.Player1.House)}>{r.Player1.Name} @PlayerBonus(r.Player1)</span>
                     </a> &
                     <a href={GetPlayerUrl(r.Player2, t)} target="_blank" style="text-decoration: none">
-                        <span class={c.GetHouseClass(r.Player2.House)}>{r.Player2.Name} @PlayerBonus(r.Player1)</span>
+                        <span class={c.GetHouseClass(r.Player2.House)}>{r.Player2.Name} @PlayerBonus(r.Player2)</span>
                     </a>
                 </td>
             </tr>
@@ -151,6 +151,8 @@ func GetStatus(r potion.PotionClubReport) string {
         return "Éxito"
     case potion.StatusFail:
         return "Fallo"
+    case potion.StatusFailButMightSucceed:
+        return "Exito (con puntos de Mod)"
     default:
         return "Estado desconocido"
     }
@@ -162,6 +164,8 @@ func GetStatusColor(r potion.PotionClubReport) string {
         return "success"
     case potion.StatusFail:
         return "danger"
+    case potion.StatusFailButMightSucceed:
+        return "warning"
     default:
         return ""
     }

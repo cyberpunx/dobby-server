@@ -57,7 +57,7 @@ func GetSubforumPinnedThreads(html string) []string {
 	return pinnedThreads
 }
 
-func GetSubforumThreads(html string) []string {
+func GetSubforumThreadsNotAnnouncement(html string) []string {
 	var threads []string
 
 	reader := strings.NewReader(html)
@@ -68,6 +68,24 @@ func GetSubforumThreads(html string) []string {
 
 	// Find <li> tags inside <div class="forumbg"> but not within <div class="forumbg announcement">
 	doc.Find("div.forumbg:not(.announcement) li.row").Each(func(index int, element *goquery.Selection) {
+		text, _ := element.Html()
+		threads = append(threads, text)
+	})
+
+	return threads
+}
+
+func GetSubforumThreadsAnnouncement(html string) []string {
+	var threads []string
+
+	reader := strings.NewReader(html)
+	doc, err := goquery.NewDocumentFromReader(reader)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Find <li> tags inside <div class="forumbg"> but not within <div class="forumbg announcement">
+	doc.Find("div.forumbg.announcement li.row").Each(func(index int, element *goquery.Selection) {
 		text, _ := element.Html()
 		threads = append(threads, text)
 	})
@@ -169,6 +187,28 @@ func ThreadNextPageURL(html string) (string, bool) {
 
 	// Find the <p> tag with the "pagination" class
 	paginationElement := doc.Find("p.pagination span")
+	if paginationElement.Length() == 0 {
+		return "", false // No "next" link found
+	}
+
+	nextButton := paginationElement.Find("a").Last()
+	nextButtonHtml, _ := nextButton.Html()
+	if !strings.Contains(nextButtonHtml, "Siguiente") {
+		return "", false // No "next" link found
+	}
+	nextButtonUrl := nextButton.AttrOr("href", "")
+	return nextButtonUrl, true
+}
+
+func SubNextPageURL(html string) (string, bool) {
+	// Load the HTML content into a goquery document
+	doc, err := goquery.NewDocumentFromReader(strings.NewReader(html))
+	if err != nil {
+		return "", false
+	}
+
+	// Find the <p> tag with the "pagination" class
+	paginationElement := doc.Find("div.pagination span")
 	if paginationElement.Length() == 0 {
 		return "", false // No "next" link found
 	}
@@ -564,8 +604,60 @@ func PostGetGobsValue(html string) int {
 	} else if imgSrc == gobs100 {
 		return 100
 	} else if imgSrc == gobs150 {
-		return 100
+		return 150
 	} else {
 		return -1
 	}
+}
+
+func PostGetChessValue(html string) int {
+	reader := strings.NewReader(html)
+	doc, err := goquery.NewDocumentFromReader(reader)
+	if err != nil {
+		util.LongPrintlnPrintln("Error:", err)
+	}
+
+	// Find the <img> element inside the <dl> element
+	imgElement := doc.Find("dl.codebox img")
+	imgSrc, _ := imgElement.Attr("src")
+	if imgSrc == chess50 {
+		return 50
+	} else if imgSrc == chess100 {
+		return 100
+	} else if imgSrc == chess150 {
+		return 150
+	} else if imgSrc == chess200 {
+		return 200
+	} else {
+		return -1
+	}
+}
+
+func PostGetChessLinks(html string) []string {
+	reader := strings.NewReader(html)
+	doc, err := goquery.NewDocumentFromReader(reader)
+	if err != nil {
+		util.LongPrintlnPrintln("Error:", err)
+	}
+
+	var allLinks []string
+	// Find all <a> elements inside the <div class="content">
+	doc.Find("a").Each(func(i int, aSelection *goquery.Selection) {
+		// Get the href attribute
+		link, _ := aSelection.Attr("href")
+		allLinks = append(allLinks, link)
+	})
+
+	var filteredLinks []string
+	for _, link := range allLinks {
+		parts := strings.Split(link, "/")
+		if len(parts) > 3 {
+			firstSegment := parts[3]
+			if strings.HasPrefix(firstSegment, "t") { //only threads links
+				filteredLinks = append(filteredLinks, link)
+			}
+		}
+	}
+
+	return filteredLinks
 }

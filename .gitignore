@@ -15,4 +15,5 @@ token.json
 /.env
 /tmp/
 .air.toml
-/cmd/gobs-client/gobs.txt
+/cmd/gobs-client/*gobs.txt
+/cmd/gobs-client/*.json

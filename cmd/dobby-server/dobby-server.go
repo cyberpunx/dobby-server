@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"github.com/gorilla/sessions"
 	"github.com/joho/godotenv"
+	"github.com/labstack/echo-contrib/session"
 	"github.com/labstack/echo/v4"
 	slogecho "github.com/samber/slog-echo"
 	_ "github.com/tursodatabase/libsql-client-go/libsql"
@@ -28,6 +30,7 @@ func main() {
 	tursoDbUrl := os.Getenv("TURSO_DB_URL")
 	tursoDbToken := os.Getenv("TURSO_DB_TOKEN")
 	serverPort := os.Getenv("SERVER_PORT")
+	sessionKey := os.Getenv("DOBBY_SESSION_KEY")
 
 	// Connects to TursoDB and gets config table
 	tursoConnectLine := fmt.Sprintf(tursoDbUrl + "?authToken=" + tursoDbToken)
@@ -80,7 +83,14 @@ func main() {
 	app := echo.New()
 	app.Use(slogecho.New(mylogger.GetLogger()))
 	app.Static("/assets", "/internal/app/dobby-server/assets")
+
+	// Generate new sessionKey to invalidate all previous sessions
+	sessionKey, err = util.GenerateRandomKey(32)
+	util.Panic(err)
+	app.Use(session.Middleware(sessions.NewCookieStore([]byte(sessionKey))))
+
 	handler.SetupRoutes(app, &configTable, store)
 	err = app.Start(":" + serverPort)
+
 	util.Panic(err)
 }

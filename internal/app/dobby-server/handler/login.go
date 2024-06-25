@@ -1,14 +1,17 @@
 package handler
 
 import (
+	"encoding/gob"
 	"encoding/json"
 	"fmt"
+	"github.com/labstack/echo-contrib/session"
 	"github.com/labstack/echo/v4"
 	"localdev/dobby-server/internal/app/dobby-server/model"
 	"localdev/dobby-server/internal/app/dobby-server/view"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/dynamics/potion"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/tool"
 	"localdev/dobby-server/internal/pkg/util"
+	"net/http"
 	"time"
 )
 
@@ -18,6 +21,10 @@ const (
 
 type LoginHandler struct {
 	h *BaseHandler
+}
+
+func init() {
+	gob.Register(&model.UserSession{})
 }
 
 func (l LoginHandler) HandleProcessLoginForm(c echo.Context) error {
@@ -75,6 +82,18 @@ func (l LoginHandler) HandleProcessLoginForm(c echo.Context) error {
 
 	l.SetUserSession(user, loginResponse.Initials, loginResponse.LoginDatetime)
 	fmt.Printf("UserSession: \n %s", util.MarshalJsonPretty(l.h.UserSession))
+	l.h.UserSession.PostSecret1 = l.h.Tool.PostSecret1
+	l.h.UserSession.PostSecret2 = l.h.Tool.PostSecret2
+	forumCookies := GetForumCookiesFromClient(l.h.Tool.Client, l.h.UserSession.User.Username)
+	l.h.UserSession.ForumCookies = forumCookies
+
+	// saves user session in Gorilla's session
+	sess, _ := session.Get("session", c)
+	sess.Values["user_session"] = l.h.UserSession
+	sess.Values["username"] = username
+	sess.Values["user_id"] = user.Id
+	err = sess.Save(c.Request(), c.Response())
+	util.Panic(err)
 
 	if loadPotionsReportMockup {
 		var report []potion.PotionClubReport
@@ -94,6 +113,14 @@ func (l LoginHandler) HandleLogout(c echo.Context) error {
 	l.h.Tool.PostSecret1 = nil
 	l.h.Tool.PostSecret2 = nil
 	l.h.UserSession = &model.UserSession{}
+
+	sess, _ := session.Get("session", c)
+	sess.Options.MaxAge = -1
+	err := sess.Save(c.Request(), c.Response())
+	if err != nil {
+		return c.String(http.StatusInternalServerError, "Error cerrando sesión")
+	}
+
 	return render(c, view.Login("", *l.h.UserSession, *l.h.Tool))
 }
 
@@ -116,6 +143,7 @@ func (l LoginHandler) SetPostSecrets() error {
 }
 
 func (l LoginHandler) SetUserSession(user *model.User, initials *string, loginDateTime *time.Time) {
+	l.h.UserSession = &model.UserSession{}
 	l.h.UserSession.User = user
 	l.h.UserSession.Permissions = user.GetUserPermissions()
 	userDateFormat := l.h.Tool.GetUserDateTimeFormat()

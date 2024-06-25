@@ -20,6 +20,7 @@ type ModerationHandler struct {
 }
 
 func (m ModerationHandler) HandlePotions(c echo.Context) error {
+	m.h.UserSession, m.h.Tool = GetCurrentSessionAndTool(c, m.h.Tool)
 	if !m.h.UserSession.HavePermission(model.PermissionPotions) {
 		return render(c, view.Home(*m.h.UserSession, *m.h.Tool, "Inicio", "No tienes permisos para ver esta página", nil))
 	}
@@ -54,6 +55,7 @@ func (a ModerationHandler) HandlePotionNewForm(c echo.Context) error {
 }
 
 func (m ModerationHandler) HandleNewPotion(c echo.Context) error {
+	m.h.UserSession, m.h.Tool = GetCurrentSessionAndTool(c, m.h.Tool)
 	player1 := c.FormValue("player1")
 	player2 := c.FormValue("player2")
 	potionName := c.FormValue("potionName")
@@ -72,6 +74,7 @@ func (m ModerationHandler) HandleNewPotion(c echo.Context) error {
 }
 
 func (m ModerationHandler) HandleCreationChamber(c echo.Context) error {
+	m.h.UserSession, m.h.Tool = GetCurrentSessionAndTool(c, m.h.Tool)
 	if !m.h.UserSession.HavePermission(model.PermissionCreationChamber) {
 		return render(c, view.Home(*m.h.UserSession, *m.h.Tool, "Inicio", "No tienes permisos para ver esta página", nil))
 	}

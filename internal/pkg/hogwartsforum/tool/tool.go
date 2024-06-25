@@ -14,6 +14,7 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"time"
 )
 
 const (
@@ -21,7 +22,7 @@ const (
 )
 
 func (o *Tool) parseSubforum(subHtml string) []*parser.Thread {
-	threadList := parser.GetSubforumThreads(subHtml)
+	threadList := parser.GetSubforumThreadsNotAnnouncement(subHtml)
 
 	var threads []*parser.Thread
 	for _, thread := range threadList {
@@ -201,6 +202,38 @@ func (o *Tool) getGoogleSheetPotionsBonus() *[]gsheet2.PlayerBonus {
 	return &playerBonus
 }
 
+func (o *Tool) GetThreadsUrlsFromSubforum(subforumUrl string) []string {
+	subforumHtml := o.getSubforum(subforumUrl)
+	subforumThreads := parser.GetSubforumThreadsNotAnnouncement(subforumHtml)
+
+	var pagesUrl []string
+	pagesUrl = append(pagesUrl, subforumUrl)
+	for {
+		// Check if there is a "next" link in the pagination
+		nextPageURL, hasMore := parser.SubNextPageURL(subforumHtml)
+
+		if !hasMore {
+			break // No more pages to fetch
+		}
+
+		// Fetch the next page and update the threadHtml
+		pagesUrl = append(pagesUrl, nextPageURL)
+		subforumHtml = o.getSubforum(nextPageURL)
+		subForumNextThreadsNotAnnouncement := parser.GetSubforumThreadsNotAnnouncement(subforumHtml)
+		subforumThreads = append(subforumThreads, subForumNextThreadsNotAnnouncement...)
+		subForumNextThreadsAnnouncement := parser.GetSubforumThreadsAnnouncement(subforumHtml)
+		subforumThreads = append(subforumThreads, subForumNextThreadsAnnouncement...)
+	}
+
+	var threadsUrls []string
+	for _, thread := range subforumThreads {
+		threadUrl := parser.SubGetThreadUrl(thread)
+		threadsUrls = append(threadsUrls, threadUrl)
+	}
+
+	return threadsUrls
+}
+
 func (o *Tool) ProcessPotionsSubforumList(forumDynamic dynamics.ForumDynamic, subForumUrls *[]string, timeLimit, turnLimit *int) []potion.PotionClubReport {
 	util.LongPrintlnPrintln("Dynamic: " + strings.ToUpper(string(forumDynamic)) + " / TimeLimit: " + strconv.Itoa(*timeLimit) + " / TurnLimit: " + strconv.Itoa(*turnLimit))
 	if len(*subForumUrls) == 0 {
@@ -261,4 +294,13 @@ func (o *Tool) GetNewPotionMessage(forumDynamic dynamics.ForumDynamic, player1, 
 		return message
 	}
 	return ""
+}
+
+func (o *Tool) CheckThreadElapsedTime(threadUrl string) time.Duration {
+	threadHtml := o.GetThread(threadUrl)
+	thread := o.ParseThread(threadHtml)
+	lastPost := thread.Posts[len(thread.Posts)-1]
+	postTime := *lastPost.Created
+	elapsedTime := o.ForumDateTime.Sub(postTime)
+	return elapsedTime
 }

@@ -49,6 +49,8 @@ func SetupRoutes(app *echo.Echo, conf *model.Config, store *storage.Store) {
 
 	pagesHandler := PagesHandler{&handler}
 	app.GET("/", pagesHandler.HandleHome)
+	app.GET("/timecheck", pagesHandler.HandleTimeCheckForm)
+	app.POST("/timecheck", pagesHandler.HandleTimeCheck)
 
 	adminHandler := AdminHandler{&handler}
 	adminGroup := app.Group("/admin")

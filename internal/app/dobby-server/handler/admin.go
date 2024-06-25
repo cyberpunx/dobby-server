@@ -13,6 +13,7 @@ type AdminHandler struct {
 }
 
 func (a AdminHandler) HandleUserList(c echo.Context) error {
+	a.h.UserSession, a.h.Tool = GetCurrentSessionAndTool(c, a.h.Tool)
 	userTable, err := a.h.UserApi.GetAllUser()
 	var userList []model.UserCrud
 	for _, user := range userTable {
@@ -46,6 +47,7 @@ func (a AdminHandler) HandleUserEdit(c echo.Context) error {
 }
 
 func (a AdminHandler) HandleUserUpdate(c echo.Context) error {
+	a.h.UserSession, a.h.Tool = GetCurrentSessionAndTool(c, a.h.Tool)
 	id, _ := strconv.Atoi(c.Param("id"))
 	user, err := a.h.UserApi.GetUserById(id)
 	util.Panic(err)
@@ -75,6 +77,7 @@ func (a AdminHandler) HandleUserUpdate(c echo.Context) error {
 }
 
 func (a AdminHandler) HandleUserView(c echo.Context) error {
+	a.h.UserSession, a.h.Tool = GetCurrentSessionAndTool(c, a.h.Tool)
 	id, _ := strconv.Atoi(c.Param("id"))
 	user, err := a.h.UserApi.GetUserById(id)
 	util.Panic(err)
@@ -96,6 +99,7 @@ func (a AdminHandler) HandleUserNewForm(c echo.Context) error {
 }
 
 func (a AdminHandler) HandleUserNew(c echo.Context) error {
+	a.h.UserSession, a.h.Tool = GetCurrentSessionAndTool(c, a.h.Tool)
 	//insert new user
 	var userPermissions []string
 	for _, permission := range model.GetAllPermissions() {
@@ -130,6 +134,7 @@ func (a AdminHandler) HandleUserNew(c echo.Context) error {
 }
 
 func (a AdminHandler) HandleUserDelete(c echo.Context) error {
+	a.h.UserSession, a.h.Tool = GetCurrentSessionAndTool(c, a.h.Tool)
 	id, _ := strconv.Atoi(c.Param("id"))
 	err := a.h.UserApi.DeleteUserById(id)
 	util.Panic(err)
@@ -151,6 +156,7 @@ func (a AdminHandler) HandleUserDelete(c echo.Context) error {
 }
 
 func (a AdminHandler) HandleAnnouncementList(c echo.Context) error {
+	a.h.UserSession, a.h.Tool = GetCurrentSessionAndTool(c, a.h.Tool)
 	announcementTable, err := a.h.AnnouncementApi.GetAllAnnouncement()
 	var announcementList []model.AnnouncementCrud
 	for _, announcement := range announcementTable {
@@ -184,6 +190,7 @@ func (a AdminHandler) HandleAnnouncementEdit(c echo.Context) error {
 }
 
 func (a AdminHandler) HandleAnnouncementUpdate(c echo.Context) error {
+	a.h.UserSession, a.h.Tool = GetCurrentSessionAndTool(c, a.h.Tool)
 	id, _ := strconv.Atoi(c.Param("id"))
 	announcement, err := a.h.AnnouncementApi.GetAnnouncementById(id)
 	util.Panic(err)
@@ -207,6 +214,7 @@ func (a AdminHandler) HandleAnnouncementUpdate(c echo.Context) error {
 }
 
 func (a AdminHandler) HandleAnnouncementView(c echo.Context) error {
+	a.h.UserSession, a.h.Tool = GetCurrentSessionAndTool(c, a.h.Tool)
 	id, _ := strconv.Atoi(c.Param("id"))
 	announcement, err := a.h.AnnouncementApi.GetAnnouncementById(id)
 	util.Panic(err)
@@ -228,6 +236,7 @@ func (a AdminHandler) HandleAnnouncementNewForm(c echo.Context) error {
 }
 
 func (a AdminHandler) HandleAnnouncementNew(c echo.Context) error {
+	a.h.UserSession, a.h.Tool = GetCurrentSessionAndTool(c, a.h.Tool)
 	//insert new announcement
 	announcement := model.Announcement{
 		Message: c.FormValue("message"),
@@ -255,6 +264,7 @@ func (a AdminHandler) HandleAnnouncementNew(c echo.Context) error {
 }
 
 func (a AdminHandler) HandleAnnouncementDelete(c echo.Context) error {
+	a.h.UserSession, a.h.Tool = GetCurrentSessionAndTool(c, a.h.Tool)
 	id, _ := strconv.Atoi(c.Param("id"))
 	err := a.h.AnnouncementApi.DeleteAnnouncementById(id)
 	util.Panic(err)
