@@ -434,8 +434,9 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 
 	//calculate the elapsed time
 	var elapsedTime time.Duration
+	var lastTurn PotionClubTurn
 	if result.Turns != nil && len(result.Turns) > 0 {
-		lastTurn := result.Turns[len(result.Turns)-1]
+		lastTurn = result.Turns[len(result.Turns)-1]
 		turnTime := lastTurn.TurnDatePosted
 		elapsedTime = forumDateTime.Sub(turnTime)
 		result.ElapsedTime = elapsedTime
@@ -445,7 +446,7 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 		elapsedTime = forumDateTime.Sub(postTime)
 		result.ElapsedTime = elapsedTime
 	}
-	if elapsedTime > timeThreshold {
+	if elapsedTime > timeThreshold && lastTurn.Player.Role != Player2 && lastTurn.Number == turnLimit {
 		result.Score.Success = false
 		result.Score.FailureReason = FailBecauseOfTime
 		result.Score.TargetScore = potion.TargetScore
