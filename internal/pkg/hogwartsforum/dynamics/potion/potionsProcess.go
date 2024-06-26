@@ -423,6 +423,7 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 			if !turn.OnTime {
 				if !turn.DayOffUsed {
 					result.Status = StatusFail
+					result.Score.FailureReason = FailBecauseOfTime
 					result.Score.Success = false
 					generatePotionFailedReport(turn.Player.Name, &result)
 					result.Score.ModMessage = generateModMessage(forumDynamic, result)
