@@ -47,10 +47,9 @@ func main() {
 	SessionArray = &[]session{}
 	conf := gobsconfig.ReadConfigFile(*confPath)
 	serverConfig := model.Config{
-		BaseUrl:            "https://www.hogwartsrol.com/",
-		GSheetTokenFile:    "",
-		GSheetCredFile:     "",
-		GSheetModeracionId: "",
+		BaseUrl:         "https://www.hogwartsrol.com/",
+		GSheetTokenFile: "",
+		GSheetCredFile:  "",
 	}
 	fmt.Printf("Config: \n %s", util.MarshalJsonPretty(conf))
 

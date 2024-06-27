@@ -6,41 +6,35 @@ import (
 )
 
 const (
-	ForumBaseUrl       = "https://www.hogwartsrol.com/"
-	GSheetModerationId = "13CCYZ4veljB6ItPNHdvxvClBZJaC1w-QMkq-H5btR74"
+	ForumBaseUrl = "https://www.hogwartsrol.com/"
 
 	SelectConfigTable       = `SELECT * FROM Config;`
 	SelectConfigTableLimit1 = `SELECT * FROM Config LIMIT 1;`
 	CreateConfigTable       = `CREATE TABLE IF NOT EXISTS Config (
         "baseUrl" TEXT,
         "gSheetTokenFile" TEXT,
-        "gSheetCredFile" TEXT,
-        "gSheetModeracionId" TEXT
+        "gSheetCredFile" TEXT
     );`
 	InsertConfigTable = `INSERT INTO Config (
 		baseUrl,
 		gSheetTokenFile,
-		gSheetCredFile,
-		gSheetModeracionId)
-		VALUES (?, ?, ?, ?);`
+		gSheetCredFile)
+		VALUES (?, ?, ?);`
 	UpdateConfigTable = `UPDATE Config SET 
 		baseUrl = ?, 
 		gSheetTokenFile = ?, 
-		gSheetCredFile = ?, 
-		gSheetId = ?;`
+		gSheetCredFile = ?;`
 	EnsureConfigRow = `INSERT INTO Config (
 					baseUrl, 
 					gSheetTokenFile, 
-					gSheetCredFile, 
-					gSheetId)
+					gSheetCredFile)
 					SELECT '', '', '', '' WHERE NOT EXISTS (SELECT 1 FROM Config);`
 )
 
 type Config struct {
-	BaseUrl            string `json:"baseUrl"`
-	GSheetTokenFile    string `json:"gSheetTokenFile"`
-	GSheetCredFile     string `json:"gSheetCredFile"`
-	GSheetModeracionId string `json:"gSheetModeracionId"`
+	BaseUrl         string `json:"baseUrl"`
+	GSheetTokenFile string `json:"gSheetTokenFile"`
+	GSheetCredFile  string `json:"gSheetCredFile"`
 }
 
 type ConfigApi struct {
@@ -63,7 +57,7 @@ func (api *ConfigApi) CreateInitialConfigTable() error {
 
 	configTable, err := api.GetAllConfig()
 	if len(configTable) == 0 {
-		_, err = api.Store.Conn.Exec(InsertConfigTable, ForumBaseUrl, "token.json", "client_secret.json", GSheetModerationId)
+		_, err = api.Store.Conn.Exec(InsertConfigTable, ForumBaseUrl, "token.json", "client_secret.json")
 		if err != nil {
 			return err
 		}
@@ -78,7 +72,7 @@ func (api *ConfigApi) GetConfig() (Config, error) {
 	defer rows.Close()
 	var c Config
 	for rows.Next() {
-		err = rows.Scan(&c.BaseUrl, &c.GSheetTokenFile, &c.GSheetCredFile, &c.GSheetModeracionId)
+		err = rows.Scan(&c.BaseUrl, &c.GSheetTokenFile, &c.GSheetCredFile)
 	}
 	if err != nil {
 		return Config{}, err
@@ -87,7 +81,7 @@ func (api *ConfigApi) GetConfig() (Config, error) {
 }
 
 func (api *ConfigApi) InsertConfig(c Config) (Config, error) {
-	_, err := api.Store.Conn.Exec(UpdateConfigTable, c.BaseUrl, c.GSheetTokenFile, c.GSheetCredFile, c.GSheetModeracionId)
+	_, err := api.Store.Conn.Exec(UpdateConfigTable, c.BaseUrl, c.GSheetTokenFile, c.GSheetCredFile)
 	if err != nil {
 		return Config{}, err
 	}
@@ -100,7 +94,7 @@ func (api *ConfigApi) GetAllConfig() ([]Config, error) {
 	defer rows.Close()
 	var configs []Config
 	for rows.Next() {
-		err = rows.Scan(&api.Config.BaseUrl, &api.Config.GSheetTokenFile, &api.Config.GSheetCredFile, &api.Config.GSheetModeracionId)
+		err = rows.Scan(&api.Config.BaseUrl, &api.Config.GSheetTokenFile, &api.Config.GSheetCredFile)
 		configs = append(configs, api.Config)
 	}
 	return configs, nil
