@@ -9,6 +9,8 @@ import (
 	"io"
 	"io/ioutil"
 	mylogger "localdev/dobby-server/internal/pkg/logger"
+	"net"
+	"strconv"
 
 	"log"
 	"net/http"
@@ -299,4 +301,13 @@ func GetElapsedTime(elapsedTime time.Duration) string {
 	minutes := int(elapsedTime.Minutes()) - int(elapsedTime.Hours())*60
 
 	return fmt.Sprintf("%dh %dm", hours, minutes)
+}
+
+func IsPortInUse(port int) bool {
+	conn, err := net.Listen("tcp", ":"+strconv.Itoa(port))
+	if err != nil {
+		return true
+	}
+	_ = conn.Close()
+	return false
 }
