@@ -17,7 +17,8 @@ import (
 )
 
 const (
-	Port = "8080"
+	Port               = "8080"
+	TecnomagiaSubforum = "f132-tecnomagia"
 )
 
 func main() {

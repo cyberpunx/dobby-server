@@ -19,6 +19,7 @@ const (
 	Moderator = "Moderator"
 	Other     = "Moderator"
 
+	StatusUnknown                Status = "Unknown"
 	StatusSuccess                Status = "Success"
 	StatusFailButMightSucceed    Status = "FailButMightSucceed"
 	StatusFail                   Status = "Fail"
@@ -252,6 +253,24 @@ func removeOtherPostsFromThread(player1 PotionsUser, player2 PotionsUser, modera
 
 	return threadWithoutOthers
 }
+func GetWaitingStatus(role string) Status {
+	switch role {
+	case Player1:
+		return StatusWaitingPlayer2
+	case Player2:
+		return StatusWaitingPlayer1
+	}
+	return StatusUnknown
+}
+func ConsumeDayOff(daysOff *[]gsheet.DayOff, playerName string, lastPostTime, dateLimit, postCreatedTime time.Time, timeThreshold time.Duration) bool {
+	// check for player day off on google sheet and if it's within the time limit
+	playerDayOff := gsheet.FindDayOffForPLayerBetweenDates(daysOff, playerName, lastPostTime, dateLimit)
+	// check again considering the extra hours of day off
+	if playerDayOff != nil && util.IsDateWithinTimeLimit(postCreatedTime, lastPostTime, timeThreshold+time.Hour*DayOffExtraHours) {
+		return true
+	}
+	return false
+}
 
 func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread parser.Thread, timeLimitHours, turnLimit int, forumDateTime time.Time, daysOff *[]gsheet.DayOff, playerBonus *[]gsheet.PlayerBonus) PotionClubReport {
 	timeThreshold := time.Duration(timeLimitHours) * time.Hour
@@ -305,11 +324,7 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 
 		if isPlayerFlag {
 			playerPostCount[postUser]++
-			if postRole == Player1 {
-				result.Status = StatusWaitingPlayer2
-			} else if postRole == Player2 {
-				result.Status = StatusWaitingPlayer1
-			}
+			result.Status = GetWaitingStatus(postRole)
 
 			//if post is edited, the potion fails automatically
 			if post.Edited != nil {
@@ -325,14 +340,7 @@ func PotionGetReportFromThread(forumDynamic dynamics.ForumDynamic, rawThread par
 			dateLimit := lastPostTime.Add(timeThreshold)
 			// if player post is out of time, check if the player used a day off
 			if !postOnTime {
-				// check for player day off on google sheet and if it's within the time limit
-				playerDayOff := gsheet.FindDayOffForPLayerBetweenDates(daysOff, postPlayer.Name, lastPostTime, dateLimit)
-				if playerDayOff != nil {
-					// check again considering the extra hours of day off
-					if util.IsDateWithinTimeLimit(*post.Created, lastPostTime, timeThreshold+time.Hour*DayOffExtraHours) {
-						dayOffUsed = true
-					}
-				}
+				dayOffUsed = ConsumeDayOff(daysOff, postPlayer.Name, lastPostTime, dateLimit, *post.Created, timeThreshold)
 			}
 
 			postDiceValue := 0
