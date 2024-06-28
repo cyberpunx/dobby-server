@@ -20,10 +20,16 @@ import (
 )
 
 const (
-	SheetRangeDaysOff     = "Permisos Pociones!A269:B"
-	SheetRangePlayerBonus = "Logros Pociones!A2:B"
-	SheetRangeLogins      = "Logins!A2:B"
-	LogSheetId            = "1JpvrhEFvrasUnL6qDma86uqzyIfAj8Cra5QM60Us4Jo"
+	SheetIdModeration            = "13CCYZ4veljB6ItPNHdvxvClBZJaC1w-QMkq-H5btR74"
+	SheetPotionsRangeDaysOff     = "Permisos Pociones!A269:B"
+	SheetPotionsRangePlayerBonus = "Logros Pociones!A2:B"
+
+	SheetIdCreationChamber               = "11ts40QG3Bf-909uuzS_ayC5i09YfX5gP_ExWExSiuCY"
+	SheetCreationChamberRangeDaysOff     = "Permisos!A50:B"
+	SheetCreationChamberRangePlayerBonus = "Permisos!C1:D2"
+
+	SheetIdLogs      = "1JpvrhEFvrasUnL6qDma86uqzyIfAj8Cra5QM60Us4Jo"
+	SheetRangeLogins = "Logins!A2:B"
 )
 
 func getTokenFromWeb(config *oauth2.Config) *oauth2.Token {

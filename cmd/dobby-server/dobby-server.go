@@ -14,10 +14,12 @@ import (
 	mylogger "localdev/dobby-server/internal/pkg/logger"
 	"localdev/dobby-server/internal/pkg/util"
 	"os"
+	"strconv"
 )
 
 const (
-	Port = "8080"
+	Port               = 8080
+	TecnomagiaSubforum = "f132-tecnomagia"
 )
 
 func main() {
@@ -90,7 +92,22 @@ func main() {
 	app.Use(session.Middleware(sessions.NewCookieStore([]byte(sessionKey))))
 
 	handler.SetupRoutes(app, &configTable, store)
-	err = app.Start(":" + serverPort)
+
+	port := Port
+	for {
+		util.LongPrintlnPrintln("Server starting at: http://localhost:" + strconv.Itoa(port))
+		err := app.Start(":" + strconv.Itoa(port))
+		if err != nil {
+			if util.IsPortInUse(port) {
+				util.LongPrintlnPrintln("Port " + strconv.Itoa(port) + " in use, trying next port...")
+				port++
+			} else {
+				util.LongPrintlnPrintln("Failed to start server: %v", err)
+			}
+		} else {
+			break
+		}
+	}
 
 	util.Panic(err)
 }

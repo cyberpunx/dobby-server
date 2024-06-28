@@ -121,8 +121,8 @@ func (o *Tool) processPotionsSubforum(forumDynamic dynamics.ForumDynamic, subfor
 
 func (o *Tool) processPotionsThread(forumDynamic dynamics.ForumDynamic, thread parser.Thread, timeLimit, turnLimit int) potion.PotionClubReport {
 	var report potion.PotionClubReport
-	daysOff := o.getGoogleSheetPotionsDayOff()
-	playerBonus := o.getGoogleSheetPotionsBonus()
+	daysOff := o.getGoogleSheetPotionsDayOff(forumDynamic)
+	playerBonus := o.getGoogleSheetPotionsBonus(forumDynamic)
 	report = potion.PotionGetReportFromThread(forumDynamic, thread, timeLimit, turnLimit, o.ForumDateTime, daysOff, playerBonus)
 	return report
 }
@@ -188,15 +188,38 @@ func (o *Tool) processChronoMainThread(chronoMainThread parser.Thread, hrTool *T
 	util.LongPrintlnPrintln("=== Chronology Thread End === \n")
 }
 
-func (o *Tool) getGoogleSheetPotionsDayOff() *[]gsheet2.DayOff {
-	rows, err := gsheet2.ReadSheetData(o.SheetService, o.Config.GSheetModeracionId, gsheet2.SheetRangeDaysOff)
+func (o *Tool) getGoogleSheetPotionsDayOff(forumDynamic dynamics.ForumDynamic) *[]gsheet2.DayOff {
+	var sheetId, sheetRange string
+	switch forumDynamic {
+	case dynamics.DynamicPotion:
+		sheetId = gsheet2.SheetIdModeration
+		sheetRange = gsheet2.SheetPotionsRangeDaysOff
+	case dynamics.DynamicCreationChamber:
+		sheetId = gsheet2.SheetIdCreationChamber
+		sheetRange = gsheet2.SheetCreationChamberRangeDaysOff
+	default:
+		util.Panic(fmt.Errorf("Invalid forum dynamic: %s", forumDynamic))
+	}
+	rows, err := gsheet2.ReadSheetData(o.SheetService, sheetId, sheetRange)
 	util.Panic(err)
 	daysOff := gsheet2.ParseDayOff(rows)
 	return &daysOff
 }
 
-func (o *Tool) getGoogleSheetPotionsBonus() *[]gsheet2.PlayerBonus {
-	rows, err := gsheet2.ReadSheetData(o.SheetService, o.Config.GSheetModeracionId, gsheet2.SheetRangePlayerBonus)
+func (o *Tool) getGoogleSheetPotionsBonus(forumDynamic dynamics.ForumDynamic) *[]gsheet2.PlayerBonus {
+	var sheetId, sheetRange string
+	switch forumDynamic {
+	case dynamics.DynamicPotion:
+		sheetId = gsheet2.SheetIdModeration
+		sheetRange = gsheet2.SheetPotionsRangePlayerBonus
+	case dynamics.DynamicCreationChamber:
+		sheetId = gsheet2.SheetIdCreationChamber
+		sheetRange = gsheet2.SheetCreationChamberRangePlayerBonus
+	default:
+		util.Panic(fmt.Errorf("Invalid forum dynamic: %s", forumDynamic))
+	}
+
+	rows, err := gsheet2.ReadSheetData(o.SheetService, sheetId, sheetRange)
 	util.Panic(err)
 	playerBonus := gsheet2.ParsePlayerBonus(rows)
 	return &playerBonus

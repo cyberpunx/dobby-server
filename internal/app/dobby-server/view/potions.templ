@@ -71,6 +71,8 @@ templ PotionReportView(i int, r potion.PotionClubReport, t tool.Tool){
             </tr>
             <tr class="odd" style="color: var(--ds-color6)">
                 <td>
+                    <span class={GetStatusColor(r)}><b>Turno:</b> {GetCurrentTurn(r)}</span>
+                    <span class={GetStatusColor(r)} style="margin-left: 5px; margin-right: 5px">|</span>
                     <span class={GetStatusColor(r)}><b>Tiempo transcurrido:</b> {GetElapsedTime(r)}</span>
                     <span class={GetStatusColor(r)} style="margin-left: 5px; margin-right: 5px">|</span>
                     <span class={GetStatusColor(r)}><b>Puntaje:</b> {GetScore(r)}</span>
@@ -122,14 +124,18 @@ templ PotionTurns(turns []potion.PotionClubTurn){
     </table>
 }
 
+func GetCurrentTurn(r potion.PotionClubReport) string {
+    lastTurn := r.Turns[len(r.Turns)-1]
+    currTurn := strconv.Itoa(lastTurn.Number)
+    turnLimit := strconv.Itoa(r.Potion.TurnLimit)
+    return fmt.Sprintf("%s/%s", currTurn, turnLimit)
+}
+
 func GetElapsedTime(r potion.PotionClubReport) string {
     elapsedTime := r.ElapsedTime
     hours := int(elapsedTime.Hours())
     minutes := int(elapsedTime.Minutes()) - int(elapsedTime.Hours())*60
 
-    if  r.Status == potion.StatusWaitingPlayer1OnDayOff || r.Status == potion.StatusWaitingPlayer2OnDayOff {
-        return fmt.Sprint("%dh %dm (Permiso)", hours, minutes)
-    }
     return fmt.Sprintf("%dh %dm", hours, minutes)
 }
 
@@ -150,6 +156,14 @@ func GetStatus(r potion.PotionClubReport) string {
     case potion.StatusSuccess:
         return "Éxito"
     case potion.StatusFail:
+        switch r.Score.FailureReason{
+        case potion.FailBecauseOfTime:
+            return "Fallo (Tiempo Excedido)"
+        case potion.FailBecauseOfScore:
+             return "Fallo (Puntos Insuficientes)"
+         case potion.FailBecauseOfEditedDice:
+              return "Fallo (Edición de Dados)"
+        }
         return "Fallo"
     case potion.StatusFailButMightSucceed:
         return "Exito (con puntos de Mod)"
