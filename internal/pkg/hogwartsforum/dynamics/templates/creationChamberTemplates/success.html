@@ -2,25 +2,27 @@
 [center][img]https://i.imgur.com/UgirI1p.png[/img][/center]
 
 [center][size=16][u][b]RESULTADO:[/b][/u][/size]
-[b]Puntos de dados:[/b] - puntos
-[b]Puntos de Penalización:[/b] - puntos
-[b]Puntos de moderador:[/b] - puntos
-[b]Puntos de logros:[/b] - puntos
-[b]Puntos totales:[/b] - puntos
-[b]Puntos requeridos:[/b] - puntos
+[b]Puntos de dados:[/b] {{.DiceScoreSum}}
+[b]Puntos de Penalización:[/b] {{.ModeratorMalus}}
+[b]Puntos de moderador:[/b] {{.ModeratorBonus}}
+[b]Puntos de logros:[/b] {{.PlayersTotalBonus}}
+[b]Puntos totales:[/b] {{.TotalScore}}
+[b]Puntos requeridos:[/b] {{.TargetScore}}
 
 
-[size=24]¡FELICIDADES JUGADOR 1 & JUGADOR 2![/size]
+[size=24]¡FELICIDADES {{.Player1}} & {{.Player2}}![/size]
 <Imagen de Moderación />
 
 <Item de Hechizo o Poción aquí />[/center]
 
-[spoiler="Premios"][b]@ :[/b]
-Item de Hechizo/Poción aquí
-+ 300 galeones
-+300 Casa
+[spoiler="Premios"]
+[b]@"{{.Player1}}" :[/b]
+<Item de Hechizo o Poción aquí />
++ 300 Galeones
++ 300 Puntos para {{.Player1House}}
 
-[b]@ :[/b]
-Item de Hechizo/Poción aquí
-+ 300 galeones
-+ 300 Casa[/spoiler]
+[b]@"{{.Player2}}":[/b]
+<Item de Hechizo o Poción aquí />
++ 300 Galeones
++ 300 Puntos para {{.Player2House}}
+[/spoiler]
