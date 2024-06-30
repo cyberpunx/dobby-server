@@ -5,17 +5,20 @@ import (
 )
 
 type UserSession struct {
-	IsLoggedIn       bool       `json:"isLoggedIn"`
-	Username         *string    `json:"username"`
-	Initials         *string    `json:"initials"`
-	LoginDatetime    *time.Time `json:"datetime"`
-	UserDateFormat   *string    `json:"userDateFormat"`
-	IsCorrectDateFmt bool       `json:"isCorrectDateFmt"`
-	User             *User
-	Permissions      []Permission
-	PostSecret1      *string
-	PostSecret2      *string
-	ForumCookies     []CookieEntry
+	IsLoggedIn              bool       `json:"isLoggedIn"`
+	Username                *string    `json:"username"`
+	Initials                *string    `json:"initials"`
+	LoginDatetime           *time.Time `json:"datetime"`
+	UserDateFormat          *string    `json:"userDateFormat"`
+	IsCorrectDateFmt        bool       `json:"isCorrectDateFmt"`
+	IsCorrectTimeZone       bool       `json:"isCorrectTimeZone"`
+	IsCorrectTimeFmtAndZone bool       `json:"isCorrectTimeFmtAndZone"`
+	User                    *User
+	Permissions             []Permission
+	PostSecret1             *string
+	PostSecret2             *string
+	ForumCookies            []CookieEntry
+	UserDateTime            *time.Time
 }
 
 type CookieEntry struct {

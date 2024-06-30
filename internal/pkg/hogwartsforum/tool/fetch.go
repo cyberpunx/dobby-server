@@ -64,7 +64,7 @@ func LoginAndGetCookies(user, pass string) (*http.Client, *LoginResponse) {
 	var loginResponse LoginResponse
 	isLoginCorrect, msg := parser.IsLoginCorrect(string(body))
 	if !isLoginCorrect {
-		util.LongPrintlnPrintln("ERROR: Usuario y/o Contraseña Incorrectos")
+		util.LongPrintlnPrintln("LOGIN ERROR: " + msg)
 		loginResponse = LoginResponse{
 			Success:  util.PBool(false),
 			Messaage: &msg,
@@ -319,4 +319,26 @@ func (o *Tool) GetPostSecrets() (string, string, error) {
 	}
 
 	return secret1, secret2, nil
+}
+
+func (o *Tool) GetUserTimezone() *time.Location {
+	util.LongPrintlnPrintln("Getting User Timezone: ")
+	baseDomain := o.Config.BaseUrl
+	pageUrl := baseDomain + "/profile?mode=editprofile&page_profil=preferences"
+
+	req, err := http.NewRequest("GET", pageUrl, nil)
+	util.Panic(err)
+
+	resp, err := o.Client.Do(req)
+	util.Panic(err)
+	defer resp.Body.Close()
+	util.PrintResponseStatus(resp.Status)
+
+	body, err := ioutil.ReadAll(resp.Body)
+	util.Panic(err)
+
+	selectedTimezoneStr := parser.GetUserTimezone(string(body))
+	timezone := util.ExtractTimezone(selectedTimezoneStr)
+	currentTime := time.Now().In(timezone)
+	return currentTime.Location()
 }

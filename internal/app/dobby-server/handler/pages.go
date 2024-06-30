@@ -35,7 +35,7 @@ func (p PagesHandler) HandleTimeCheck(c echo.Context) error {
 	fmt.Println("Thread URL: ", threadUrl)
 	//Sanitize the threadUrl
 
-	elapsedTime := p.h.Tool.CheckThreadElapsedTime(threadUrl)
-	timecheckMsg := "Tiempo desde el último post: " + util.GetElapsedTime(elapsedTime)
+	elapsedTime := p.h.Tool.CheckThreadElapsedTime(threadUrl, p.h.Tool.ForumDateTime)
+	timecheckMsg := "Tiempo desde el último post: " + util.GetElapsedTimeHHMMFormat(elapsedTime)
 	return render(c, view.TimeCheckMsg(timecheckMsg))
 }

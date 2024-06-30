@@ -319,11 +319,11 @@ func (o *Tool) GetNewPotionMessage(forumDynamic dynamics.ForumDynamic, player1, 
 	return ""
 }
 
-func (o *Tool) CheckThreadElapsedTime(threadUrl string) time.Duration {
+func (o *Tool) CheckThreadElapsedTime(threadUrl string, currentDateTime time.Time) time.Duration {
 	threadHtml := o.GetThread(threadUrl)
 	thread := o.ParseThread(threadHtml)
 	lastPost := thread.Posts[len(thread.Posts)-1]
 	postTime := *lastPost.Created
-	elapsedTime := o.ForumDateTime.Sub(postTime)
+	elapsedTime := currentDateTime.Sub(postTime)
 	return elapsedTime
 }
