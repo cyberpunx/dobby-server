@@ -79,7 +79,7 @@ templ PotionReportView(i int, r potion.PotionClubReport, t tool.Tool){
                 </td>
                 <td>
                     <span class={GetStatusColor(r)}><b>Estado:</b> {GetStatus(r)}</span>
-                    if r.Status == potion.StatusSuccess || r.Status == potion.StatusFail {
+                    if r.Status == potion.StatusSuccess || r.Status == potion.StatusFail || r.Status == potion.StatusFailButMightSucceed{
                         <span style="float: inline-end">
                             @ModerateButton(r.Score.ModMessage)
                         </span>
