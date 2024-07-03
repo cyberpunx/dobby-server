@@ -524,6 +524,33 @@ func GetPostSecrets(html string) (string, string) {
 	}
 }
 
+func GetUserTimezone(html string) string {
+	reader := strings.NewReader(html)
+	doc, err := goquery.NewDocumentFromReader(reader)
+	if err != nil {
+		util.LongPrintlnPrintln("Error:", err)
+	}
+
+	var selectedOptionValue string
+	var selectedOptionText string
+	//find the <select name="timezone"> element
+	doc.Find("select[name='timezone']").Each(func(i int, s *goquery.Selection) {
+
+		//gets value of selected
+		selectedOptionValue = s.Find("option[selected]").AttrOr("value", "")
+		fmt.Println("selectedOptionValue:", selectedOptionValue)
+		//gets text of selected
+		selectedOptionText = s.Find("option[selected]").Text()
+		fmt.Println("selectedOptionText:", selectedOptionText)
+
+	})
+
+	result := selectedOptionValue + "|" + selectedOptionText
+	fmt.Println("Result timezone:", result)
+
+	return result
+}
+
 func IsPostSuccessful(html string) (bool, string) {
 	searchString := "<p>Tu mensaje ha sido publicado con éxito"
 

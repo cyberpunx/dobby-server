@@ -43,6 +43,8 @@ func (l LoginHandler) HandleProcessLoginForm(c echo.Context) error {
 		l.h.UserSession.Permissions = user.GetUserPermissions()
 		l.h.UserSession.UserDateFormat = util.PStr("19/4/2024, 06:51")
 		l.h.UserSession.IsCorrectDateFmt = true
+		l.h.UserSession.IsCorrectTimeZone = true
+		l.h.UserSession.IsCorrectTimeFmtAndZone = true
 		l.h.UserSession.Username = &username
 		l.h.UserSession.Initials = nil
 		l.h.UserSession.LoginDatetime = nil
@@ -153,4 +155,9 @@ func (l LoginHandler) SetUserSession(user *model.User, initials *string, loginDa
 	l.h.UserSession.Initials = initials
 	l.h.UserSession.LoginDatetime = loginDateTime
 	l.h.UserSession.IsLoggedIn = true
+	userTz := l.h.Tool.GetUserTimezone()
+	userDateTime := time.Now().In(userTz)
+	l.h.UserSession.UserDateTime = &userDateTime
+	l.h.UserSession.IsCorrectTimeZone = util.IsUserTimeZoneCorrect(userTz)
+	l.h.UserSession.IsCorrectTimeFmtAndZone = l.h.UserSession.IsCorrectDateFmt && l.h.UserSession.IsCorrectTimeZone
 }

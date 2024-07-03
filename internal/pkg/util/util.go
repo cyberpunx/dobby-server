@@ -262,6 +262,11 @@ func parseDate(dateStr string) (time.Time, error) {
 	return time.Time{}, fmt.Errorf("formato de fecha no reconocido: %s", dateStr)
 }
 
+func IsUserTimeZoneCorrect(timezone *time.Location) bool {
+	// correct timezone is America/Mexico_City
+	return timezone.String() == "America/Mexico_City"
+}
+
 func IsUserDateFormatCorrect(userDateFormat string, forumDateTime time.Time) bool {
 	var timeStr, dateStr string
 	var parts []string // Para almacenar partes divididas de la cadena.
@@ -296,7 +301,7 @@ func GenerateRandomKey(length int) (string, error) {
 	return hex.EncodeToString(bytes), nil
 }
 
-func GetElapsedTime(elapsedTime time.Duration) string {
+func GetElapsedTimeHHMMFormat(elapsedTime time.Duration) string {
 	hours := int(elapsedTime.Hours())
 	minutes := int(elapsedTime.Minutes()) - int(elapsedTime.Hours())*60
 
@@ -310,4 +315,13 @@ func IsPortInUse(port int) bool {
 	}
 	_ = conn.Close()
 	return false
+}
+
+// ExtractTimezone input format = "America/Mexico_City|Mexico_City (UTC -06:00) 12:12"
+func ExtractTimezone(input string) *time.Location {
+	firstPart := strings.Split(input, "|")[0]
+	loc, err := time.LoadLocation(firstPart)
+	Panic(err)
+
+	return loc
 }

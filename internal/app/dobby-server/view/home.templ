@@ -49,6 +49,25 @@ templ Home(u model.UserSession, t tool.Tool, title, msg string, announcementList
                   </div>
                 </div>
             }
+            if u.IsCorrectTimeZone {
+                <div class="toast text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                  <div class="d-flex">
+                    <div class="toast-body center-text">
+                      <span>La zona horaria configurada en tu cuenta del foro es correcta: [ <b>{u.UserDateTime.Location().String()}</b> ] </span>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                  </div>
+                </div>
+            }else{
+                <div class="toast text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                 <div class="d-flex">
+                    <div class="toast-body center-text">
+                      <span>La zona horaria configurada en tu cuenta del foro es incorrecto: [ <b>{u.UserDateTime.Location().String()}</b> ] </span>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                  </div>
+                </div>
+            }
         </div>
         <div class="alert alert-dark alert-dismissible fade show" role="alert">
             <span class="text-warning"><i class="fa fa-exclamation-triangle"></i></span>
@@ -63,6 +82,17 @@ templ Home(u model.UserSession, t tool.Tool, title, msg string, announcementList
                 <p>Dírigete a las <a style="color: var(--ds-color6); text-decoration: none" href="https://www.hogwartsrol.com/profile?mode=editprofile&page_profil=preferences">preferencias de tu cuenta</a>, selecciona el formato correcto y vuelve a iniciar sesión en <span style="color: var(--dobby-pink)"><b>Dobby</b></span>.</p>
                 <a href="assets/img/dateFormat.png" target="_blank">
                     <img style="border: var(--ds-color3); border-style: outset; width: 25%" src="assets/img/dateFormat.png"/>
+                </a>
+
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+        if !u.IsCorrectTimeZone {
+            <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                <span>La zona horaria configurada en tu cuenta del foro es incorrecta: [ <b class="danger">{u.UserDateTime.Location().String()}</b> ] ️</span>
+                <p>Dírigete a las <a style="color: var(--ds-color6); text-decoration: none" href="https://www.hogwartsrol.com/profile?mode=editprofile&page_profil=preferences">preferencias de tu cuenta</a>, selecciona <b>Mexico_City</b> y vuelve a iniciar sesión en <span style="color: var(--dobby-pink)"><b>Dobby</b></span>.</p>
+                <a href="assets/img/timezone.png" target="_blank">
+                    <img style="border: var(--ds-color3); border-style: outset; width: 25%" src="assets/img/timezone.png"/>
                 </a>
 
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
