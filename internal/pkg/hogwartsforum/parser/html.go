@@ -688,3 +688,291 @@ func PostGetChessLinks(html string) []string {
 
 	return filteredLinks
 }
+
+type Profile struct {
+	Username                   string
+	Galeones                   string
+	Mensajes                   string
+	Ataque                     string
+	Defensa                    string
+	Edad                       string
+	Bando                      string
+	Patronus                   string
+	Sangre                     string
+	Casa                       string
+	Inventario1                string
+	Inventario2                string
+	RazaInventory              Inventory
+	HechizosInventory          Inventory
+	HabilidadesInventory       Inventory
+	HabilidadesDeRazaInventory Inventory
+	PocionesInventory          Inventory
+	IngredientesInventory      Inventory
+	OtrosInventory             Inventory
+	LogrosInventory            Inventory
+}
+
+func ProfileGetProfile(html string) Profile {
+	//create a map <string, string> to store the user profile
+	var profile Profile
+
+	reader := strings.NewReader(html)
+	doc, err := goquery.NewDocumentFromReader(reader)
+	if err != nil {
+		util.LongPrintlnPrintln("Error:", err)
+	}
+
+	doc.Find("h1.page-title").Each(func(i int, s *goquery.Selection) {
+		// Get the text inside the <strong> tag
+		username := s.Find("strong").Text()
+		profile.Username = strings.TrimSpace(username)
+	})
+
+	doc.Find("dl#field_id-13").Each(func(i int, s *goquery.Selection) {
+		profileField := s.Find("div.field_uneditable").Text()
+		profile.Galeones = strings.TrimSpace(profileField)
+	})
+
+	doc.Find("dl#field_id-6").Each(func(i int, s *goquery.Selection) {
+		profileField := s.Find("div.field_uneditable").Text()
+		profile.Mensajes = strings.TrimSpace(profileField)
+	})
+
+	doc.Find("dl#field_id9").Each(func(i int, s *goquery.Selection) {
+		profileField := s.Find("div.field_uneditable").Text()
+		profile.Ataque = strings.TrimSpace(profileField)
+	})
+
+	doc.Find("dl#field_id10").Each(func(i int, s *goquery.Selection) {
+		profileField := s.Find("div.field_uneditable").Text()
+		profile.Defensa = strings.TrimSpace(profileField)
+	})
+
+	doc.Find("dl#field_id3").Each(func(i int, s *goquery.Selection) {
+		profileField := s.Find("div.field_uneditable").Text()
+		profile.Edad = strings.TrimSpace(profileField)
+	})
+
+	doc.Find("dl#field_id7").Each(func(i int, s *goquery.Selection) {
+		profileField := s.Find("div.field_uneditable").Text()
+		profile.Bando = strings.TrimSpace(profileField)
+	})
+
+	doc.Find("dl#field_id-11").Each(func(i int, s *goquery.Selection) {
+		profileField := s.Find("div.field_uneditable").Text()
+		profile.Patronus = strings.TrimSpace(profileField)
+	})
+
+	doc.Find("dl#field_id1").Each(func(i int, s *goquery.Selection) {
+		profileField := s.Find("div.field_uneditable").Text()
+		profile.Sangre = strings.TrimSpace(profileField)
+	})
+
+	doc.Find("dl#field_id6").Each(func(i int, s *goquery.Selection) {
+		title, exists := s.Find("div.field_uneditable img").Attr("title")
+		if exists {
+			profile.Casa = strings.TrimSpace(title)
+		} else {
+			profile.Casa = "ERROR"
+		}
+	})
+
+	doc.Find("dl#field_id-20").Each(func(i int, s *goquery.Selection) {
+		profileField, error := s.Find("div.field_uneditable").Html()
+		util.Panic(error)
+		profile.Inventario1 = htmlpkg.UnescapeString(profileField)
+	})
+
+	doc.Find("dl#field_id11").Each(func(i int, s *goquery.Selection) {
+		profileField, error := s.Find("div.field_uneditable").Html()
+		util.Panic(error)
+		profile.Inventario2 = htmlpkg.UnescapeString(profileField)
+	})
+
+	profile.RazaInventory, profile.HechizosInventory, profile.HabilidadesInventory, profile.HabilidadesDeRazaInventory = ExtractItemsBySectionOne(profile.Inventario1)
+	profile.PocionesInventory, profile.IngredientesInventory, profile.OtrosInventory, profile.LogrosInventory = ExtractItemsBySectionTwo(profile.Inventario2)
+
+	return profile
+
+}
+
+type Inventory struct {
+	Name  string
+	Items []Item
+}
+
+type Item struct {
+	Name     string
+	Type     string
+	ImageUrl string
+}
+
+func ExtractItemsBySectionOne(htmlStr string) (Inventory, Inventory, Inventory, Inventory) {
+	// Initialize empty sections for each category
+	sections := [][]Item{
+		{}, // RAZA (sections[0])
+		{}, // HECHIZOS (sections[1])
+		{}, // HABILIDADES (sections[2])
+		{}, // HABILIDADES DE RAZA (sections[3])
+	}
+
+	var currentSectionType string
+	var currentSection []Item
+
+	// Parse the HTML string
+	reader := strings.NewReader(htmlStr)
+	doc, _ := goquery.NewDocumentFromReader(reader)
+
+	// Iterate over the HTML structure
+	doc.Find("strong > i > *").Each(func(i int, s *goquery.Selection) {
+		// Check if this is a <div> that starts a new section
+		if s.Is("div") {
+			// If there's a current section being processed, add it to the sections array
+			if len(currentSection) > 0 {
+				// Assign currentSection to the appropriate section index based on the currentSectionType
+				if currentSectionType == "RAZA" {
+					sections[0] = currentSection
+				} else if currentSectionType == "HECHIZOS" {
+					sections[1] = currentSection
+				} else if currentSectionType == "HABILIDADES" {
+					sections[2] = currentSection
+				} else if strings.HasPrefix(currentSectionType, "HABILIDADES DE") {
+					sections[3] = currentSection
+				}
+
+				currentSection = []Item{} // Start a new section
+			}
+			// Set the type of the current section (e.g., "RAZA", "HECHIZOS")
+			currentSectionType = strings.TrimSpace(s.Find("center").Text())
+		} else if s.Is("img") {
+			// If it's an <img>, create an Item and add it to the current section
+			src, _ := s.Attr("src")
+			title, _ := s.Attr("title")
+			item := Item{
+				Name:     title,
+				Type:     currentSectionType,
+				ImageUrl: src,
+			}
+			currentSection = append(currentSection, item)
+		}
+	})
+
+	// Assign the last section if it has elements
+	if len(currentSection) > 0 {
+		switch currentSectionType {
+		case "RAZA":
+			sections[0] = currentSection
+		case "HECHIZOS":
+			sections[1] = currentSection
+		case "HABILIDADES":
+			sections[2] = currentSection
+		case "HABILIDADES DE RAZA":
+			sections[3] = currentSection
+		}
+	}
+
+	// Create Inventory structs for each section
+	razaInventory := Inventory{
+		Name:  "RAZA",
+		Items: sections[0],
+	}
+	hechizosInventory := Inventory{
+		Name:  "HECHIZOS",
+		Items: sections[1],
+	}
+	habilidadesInventory := Inventory{
+		Name:  "HABILIDADES",
+		Items: sections[2],
+	}
+	habilidadesDeRazaInventory := Inventory{
+		Name:  "HABILIDADES DE RAZA",
+		Items: sections[3],
+	}
+
+	return razaInventory, hechizosInventory, habilidadesInventory, habilidadesDeRazaInventory
+}
+
+func ExtractItemsBySectionTwo(htmlStr string) (Inventory, Inventory, Inventory, Inventory) {
+	// Initialize empty sections for each category
+	sections := [][]Item{
+		{}, // POCIONES (sections[0])
+		{}, // INGREDIENTES RITUALES (sections[1])
+		{}, // OTROS (sections[2])
+		{}, // LOGROS (sections[3])
+	}
+
+	var currentSectionType string
+	var currentSection []Item
+
+	// Parse the HTML string
+	reader := strings.NewReader(htmlStr)
+	doc, _ := goquery.NewDocumentFromReader(reader)
+
+	// Iterate over the HTML structure
+	doc.Find("strong > i > *").Each(func(i int, s *goquery.Selection) {
+		// Check if this is a <div> that starts a new section
+		if s.Is("div") {
+			// If there's a current section being processed, add it to the sections array
+			if len(currentSection) > 0 {
+				// Assign currentSection to the appropriate section index based on the currentSectionType
+				switch currentSectionType {
+				case "POCIONES":
+					sections[0] = currentSection
+				case "INGREDIENTES RITUALES":
+					sections[1] = currentSection
+				case "OTROS":
+					sections[2] = currentSection
+				case "LOGROS":
+					sections[3] = currentSection
+				}
+				currentSection = []Item{} // Start a new section
+			}
+			// Set the type of the current section (e.g., "RAZA", "HECHIZOS")
+			currentSectionType = strings.TrimSpace(s.Find("center").Text())
+		} else if s.Is("img") {
+			// If it's an <img>, create an Item and add it to the current section
+			src, _ := s.Attr("src")
+			title, _ := s.Attr("title")
+			item := Item{
+				Name:     title,
+				Type:     currentSectionType,
+				ImageUrl: src,
+			}
+			currentSection = append(currentSection, item)
+		}
+	})
+
+	// Assign the last section if it has elements
+	if len(currentSection) > 0 {
+		switch currentSectionType {
+		case "POCIONES":
+			sections[0] = currentSection
+		case "INGREDIENTES RITUALES":
+			sections[1] = currentSection
+		case "OTROS":
+			sections[2] = currentSection
+		case "LOGROS":
+			sections[3] = currentSection
+		}
+	}
+
+	// Create Inventory structs for each section
+	pocionesInventory := Inventory{
+		Name:  "POCIONES",
+		Items: sections[0],
+	}
+	ingredientesInventory := Inventory{
+		Name:  "INGREDIENTES RITUALES",
+		Items: sections[1],
+	}
+	otrosInventory := Inventory{
+		Name:  "OTROS",
+		Items: sections[2],
+	}
+	logrosDeRazaInventory := Inventory{
+		Name:  "LOGROS",
+		Items: sections[3],
+	}
+
+	return pocionesInventory, ingredientesInventory, otrosInventory, logrosDeRazaInventory
+}

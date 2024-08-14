@@ -273,6 +273,30 @@ func (o *Tool) GetThread(threadUrl string) string {
 	return string(body)
 }
 
+func (o *Tool) GetUserProfile(profileUrl string) string {
+	util.LongPrintlnPrintln("Getting User Profile: " + profileUrl)
+
+	baseDomain := o.Config.BaseUrl
+
+	_, err := url.ParseRequestURI(profileUrl)
+	if err != nil || !strings.HasPrefix(profileUrl, baseDomain) {
+		profileUrl = baseDomain + profileUrl
+	}
+
+	req, err := http.NewRequest("GET", profileUrl, nil)
+	util.Panic(err)
+
+	resp, err := o.Client.Do(req)
+	util.Panic(err)
+	defer resp.Body.Close()
+	util.PrintResponseStatus(resp.Status)
+
+	body, err := ioutil.ReadAll(resp.Body)
+	util.Panic(err)
+
+	return string(body)
+}
+
 func (o *Tool) getThreadByViewTopic(threadId, postId string) string {
 	util.LongPrintlnPrintln("Getting Thread viewtopic: " + threadId)
 
