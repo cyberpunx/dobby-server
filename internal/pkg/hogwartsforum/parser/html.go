@@ -1134,7 +1134,7 @@ func CreateCategoriesFromDescriptions(htmlStr string) []ShopCategory {
 
 			parts := strings.Split(itemHtml, "<img")
 			for _, part := range parts {
-				fmt.Println(part)
+				//fmt.Println(part)
 				part = formatText(part)
 				if part == "" {
 					continue
@@ -1158,6 +1158,7 @@ func CreateCategoriesFromDescriptions(htmlStr string) []ShopCategory {
 				shopItem.Name = strings.TrimSpace(itemName)
 				shopItem.ImgUrl = strings.TrimSpace(imgUrl)
 				shopItem.Description = strings.TrimSpace(description)
+				shopItem.Category = category.Name
 
 				if shopItem.Name != "aquí" {
 					category.Items = append(category.Items, shopItem)

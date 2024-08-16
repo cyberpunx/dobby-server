@@ -325,3 +325,12 @@ func ExtractTimezone(input string) *time.Location {
 
 	return loc
 }
+
+func Contains(list []string, name string) bool {
+	for _, n := range list {
+		if n == name {
+			return true
+		}
+	}
+	return false
+}

@@ -10,6 +10,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -69,7 +70,7 @@ func main() {
 	util.Panic(err)
 	descripcionesHtmlStr := string(descripcionesContents)
 	categories := parser.CreateCategoriesFromDescriptions(descripcionesHtmlStr)
-	fmt.Println(fmt.Sprintf("%s\n", util.MarshalJsonPretty(categories)))
+	//fmt.Println(fmt.Sprintf("%s\n", util.MarshalJsonPretty(categories)))
 
 	//array with inputs
 	inputs := []string{costelloInput, habilidadesInput, hechizosInput, negociosInput, objetosInput}
@@ -80,21 +81,291 @@ func main() {
 		util.Panic(err)
 		shopHtmlStr := string(shopContents)
 
-		shops := parser.ParseShop(shopHtmlStr, Shop, categories)
+		categories = parser.ParseShop(shopHtmlStr, Shop, categories)
 		//fmt.Println(fmt.Sprintf("%s\n", util.MarshalJsonPretty(shops)))
 		for _, cat := range categories {
 			err = generateUrlList(cat)
 			util.Panic(err)
 		}
 
-		for _, shop := range shops {
-			err = processImages(&shop)
+		for _, cat := range categories {
+			err = processImages(&cat)
 			util.Panic(err)
 		}
-
-		//fmt.Println(fmt.Sprintf("%s\n", util.MarshalJsonPretty(shops)))
 	}
 
+	fmt.Println(fmt.Sprintf("%s\n", util.MarshalJsonPretty(categories)))
+
+	var noShopItems []parser.ShopItem
+
+	for i, _ := range categories {
+		cat := &categories[i]
+		for j, _ := range cat.Items {
+			item := &cat.Items[j]
+
+			switch item.Category {
+			case "Generales":
+				item.Shop = "Objetos"
+			case "Armas Blancas":
+				item.Shop = "Objetos"
+			case "Criaturas":
+				item.Shop = "Objetos"
+			case "Estudiantes":
+				item.Shop = "Objetos"
+			case "Hogwarts":
+				item.Shop = "Objetos"
+			case "Ingredientes de Rituales":
+				item.Shop = "Objetos"
+			case "Ministerio":
+				item.Shop = "Objetos"
+			case "Mortífagos":
+				item.Shop = "Objetos"
+			case "Pociones":
+				item.Shop = "Objetos"
+			case "Propiedades":
+				item.Shop = "Objetos"
+			case "Quidditch":
+				item.Shop = "Objetos"
+			case "Transporte Mágico":
+				item.Shop = "Objetos"
+			case "San Mungo":
+				item.Shop = "Objetos"
+			case "Autorizaciones":
+				item.Shop = "Objetos"
+			case "Premios Misiones":
+				item.Shop = "Objetos"
+			case "Premios Expediciones":
+				item.Shop = "Objetos"
+			case "Premios Nimbus":
+				item.Shop = "Objetos"
+			case "Premios Situaciones":
+				item.Shop = "Objetos"
+			case "Mini-tramas":
+				item.Shop = "Objetos"
+			case "San Duende":
+				item.Shop = "Objetos"
+			case "Hechizos Básicos":
+				item.Shop = "Hechizos"
+			case "Hechizos de Sanación":
+				item.Shop = "Hechizos"
+			case "Hechizos de Ataque":
+				item.Shop = "Hechizos"
+			case "Hechizos de Defensa":
+				item.Shop = "Hechizos"
+			case "Hechizos de Ataque y Defensa":
+				item.Shop = "Hechizos"
+			case "Hechizos Aurores":
+				item.Shop = "Hechizos"
+			case "Hechizos Mortífagos":
+				item.Shop = "Hechizos"
+			case "Maleficios":
+				item.Shop = "Hechizos"
+			case "Habilidades Adquiribles":
+				item.Shop = "Habilidades"
+			case "Habilidades de Licántropos":
+				item.Shop = "Habilidades"
+			case "Habilidades de Semigigantes":
+				item.Shop = "Habilidades"
+			case "Habilidades Sirenas":
+				item.Shop = "Habilidades"
+			case "Habilidades de Vampiros":
+				item.Shop = "Habilidades"
+			case "Habilidades de Veela":
+				item.Shop = "Habilidades"
+			case "Habilidades de Híbridos Innatas":
+				item.Shop = "Habilidades"
+			case "Habilidades de Humanos":
+				item.Shop = "Habilidades"
+			case "Arcana High Bar":
+				item.Shop = "Costello"
+			case "Borgin & Burkes":
+				item.Shop = "Costello"
+			case "El Nox":
+				item.Shop = "Costello"
+			case "Mortem Gemma":
+				item.Shop = "Costello"
+			case "Portafolio":
+				item.Shop = "Costello"
+			case "Aquí te tengo tu cariñito":
+				item.Shop = "Negocios"
+			case "Báthory Square Garden":
+				item.Shop = "Negocios"
+			case "Botica Slug & Jiggers":
+				item.Shop = "Negocios"
+			case "Chez Winnie":
+				item.Shop = "Negocios"
+			case "Danceteria Rolling Hall":
+				item.Shop = "Negocios"
+			case "El Lux":
+				item.Shop = "Negocios"
+			case "FLEUR":
+				item.Shop = "Negocios"
+			case "Flourish & Blotts":
+				item.Shop = "Negocios"
+			case "Luxxuria":
+				item.Shop = "Negocios"
+			case "Moonlight Shadow Planetary":
+				item.Shop = "Negocios"
+			case "Mystic Momentum":
+				item.Shop = "Negocios"
+			case "Nym's Treasure":
+				item.Shop = "Negocios"
+			case "Peonie's Ribbon":
+				item.Shop = "Negocios"
+			case "Plants & Seeds":
+				item.Shop = "Negocios"
+			case "Ragnarok":
+				item.Shop = "Negocios"
+			case "Rose":
+				item.Shop = "Negocios"
+			case "Royal Vauxhall Tavern":
+				item.Shop = "Negocios"
+			case "Sacred Lotus":
+				item.Shop = "Negocios"
+			case "Saint Ellis Hospital":
+				item.Shop = "Negocios"
+			case "Sortilegios Weasley":
+				item.Shop = "Negocios"
+			case "Tierra y Cristal":
+				item.Shop = "Negocios"
+			case "Vinos Zabini":
+				item.Shop = "Negocios"
+			case "Wizarding World Curse":
+				item.Shop = "Negocios"
+			}
+
+			if item.Shop == "" {
+				noShopItems = append(noShopItems, *item)
+			}
+
+			if len(noShopItems) > 0 {
+				fmt.Println("!!! Items sin tienda:")
+				fmt.Println(fmt.Sprintf("%s\n", util.MarshalJsonPretty(noShopItems)))
+			}
+		}
+	}
+
+	queries := generateSqlQuery(categories)
+	fmt.Println(queries)
+}
+
+type smf_stshop_items struct {
+	name             string
+	image            string
+	description      string
+	price            string
+	stock            string
+	module           string
+	info1            string
+	info2            string
+	info3            string
+	info4            string
+	input_needed     string
+	can_use_item     string
+	delete_after_use string
+	catid            string
+	status           string
+	itemlimit        string
+}
+
+func generateSqlQuery(categories []parser.ShopCategory) string {
+	catList := map[string]int{
+		"Objetos - Generales":                           1,
+		"Objetos - Armas Blancas":                       2,
+		"Objetos - Criaturas":                           3,
+		"Objetos - Estudiantes":                         4,
+		"Objetos - Hogwarts":                            5,
+		"Objetos - Ingredientes de Rituales":            6,
+		"Objetos - Ministerio":                          7,
+		"Objetos - Mortífagos":                          8,
+		"Objetos - Pociones":                            9,
+		"Objetos - Propiedades":                         10,
+		"Objetos - Quidditch":                           11,
+		"Objetos - Transporte Mágico":                   12,
+		"Objetos - San Mungo":                           13,
+		"Objetos - Autorizaciones":                      14,
+		"Objetos - Premios Misiones":                    15,
+		"Objetos - Premios Expediciones":                16,
+		"Objetos - Premios Nimbus":                      17,
+		"Objetos - Premios Situaciones":                 18,
+		"Objetos - Mini-tramas":                         19,
+		"Objetos - San Duende":                          20,
+		"Hechizos - Hechizos Básicos":                   21,
+		"Hechizos - Hechizos de Sanación":               22,
+		"Hechizos - Hechizos de Ataque":                 23,
+		"Hechizos - Hechizos de Defensa":                24,
+		"Hechizos - Hechizos de Ataque y Defensa":       25,
+		"Hechizos - Hechizos Aurores":                   26,
+		"Hechizos - Hechizos Mortífagos":                27,
+		"Hechizos - Maleficios":                         28,
+		"Habilidades - Habilidades Adquiribles":         29,
+		"Habilidades - Habilidades de Licántropos":      30,
+		"Habilidades - Habilidades de Semigigantes":     31,
+		"Habilidades - Habilidades Sirenas":             32,
+		"Habilidades - Habilidades de Vampiros":         33,
+		"Habilidades - Habilidades de Veela":            34,
+		"Habilidades - Habilidades de Híbridos Innatas": 35,
+		"Habilidades - Habilidades de Humanos":          36,
+		"Costello - Arcana High Bar":                    37,
+		"Costello - Borgin & Burkes":                    38,
+		"Costello - El Nox":                             39,
+		"Costello - Mortem Gemma":                       40,
+		"Costello - Portafolio":                         41,
+		"Negocios - Aquí te tengo tu cariñito":          42,
+		"Negocios - Báthory Square Garden":              43,
+		"Negocios - Botica Slug & Jiggers":              44,
+		"Negocios - Chez Winnie":                        45,
+		"Negocios - Danceteria Rolling Hall":            46,
+		"Negocios - El Lux":                             47,
+		"Negocios - FLEUR":                              48,
+		"Negocios - Flourish & Blotts":                  49,
+		"Negocios - Luxxuria":                           50,
+		"Negocios - Moonlight Shadow Planetary":         51,
+		"Negocios - Mystic Momentum":                    52,
+		"Negocios - Nym's Treasure":                     53,
+		"Negocios - Peonie's Ribbon":                    54,
+		"Negocios - Plants & Seeds":                     55,
+		"Negocios - Ragnarok":                           56,
+		"Negocios - Rose":                               57,
+		"Negocios - Royal Vauxhall Tavern":              58,
+		"Negocios - Sacred Lotus":                       59,
+		"Negocios - Saint Ellis Hospital":               60,
+		"Negocios - Sortilegios Weasley":                61,
+		"Negocios - Tierra y Cristal":                   62,
+		"Negocios - Vinos Zabini":                       63,
+		"Negocios - Wizarding World Curse":              64,
+	}
+	sql := ""
+
+	for _, cat := range categories {
+
+		for _, item := range cat.Items {
+			name := item.Name
+			image := "migrated/" + item.Filename
+			description := item.Description
+			price := item.Price
+			stock := "999"
+			if price == "" {
+				stock = "0"
+			}
+			module := "0"
+			info1 := "0"
+			info2 := "0"
+			info3 := "0"
+			info4 := "0"
+			input_needed := "0"
+			can_use_item := "0"
+			delete_after_use := "0"
+			catid := strconv.Itoa(catList[item.Shop+" - "+item.Category])
+			status := "0"
+			itemlimit := "0"
+			query := fmt.Sprintf("INSERT INTO `smf_stshop_items` (`name`, `image`, `description`, `price`, `stock`, `module`, `info1`, `info2`, `info3`, `info4`, `input_needed`, `can_use_item`, `delete_after_use`, `catid`, `status`, `itemlimit`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');", name, image, description, price, stock, module, info1, info2, info3, info4, input_needed, can_use_item, delete_after_use, catid, status, itemlimit)
+			sql += query + "\n"
+		}
+
+	}
+
+	return sql
 }
 
 func generateUrlList(category parser.ShopCategory) error {
@@ -117,7 +388,7 @@ func generateUrlList(category parser.ShopCategory) error {
 		}
 	}
 
-	fmt.Printf(category.Name+": Archivo %s generado exitosamente.\n", fileName)
+	//fmt.Printf(category.Name+": Archivo %s generado exitosamente.\n", fileName)
 	return nil
 }
 
