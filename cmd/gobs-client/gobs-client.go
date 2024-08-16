@@ -20,6 +20,12 @@ const (
 	gobsSubject     = "<gobs>"
 	gobsFile        = "gobs.txt"
 	spamControlWait = 11
+
+	costelloHtmlStore    = "costello.html"
+	habilidadesHtmlStore = "habilidades.html"
+	hechizosHtmlStore    = "hechizos.html"
+	negociosHtmlStore    = "negocios.html"
+	objetosHtmlStore     = "objetos.html"
 )
 
 type session struct {

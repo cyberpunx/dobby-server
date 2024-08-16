@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"errors"
 	"fmt"
 	"github.com/PuerkitoBio/goquery"
 	htmlpkg "html"
@@ -975,4 +976,267 @@ func ExtractItemsBySectionTwo(htmlStr string) (Inventory, Inventory, Inventory, 
 	}
 
 	return pocionesInventory, ingredientesInventory, otrosInventory, logrosDeRazaInventory
+}
+
+type ShopCategory struct {
+	Name  string
+	Items []ShopItem
+}
+type ShopItem struct {
+	Name        string
+	ImgUrl      string
+	NewImgUrl   string
+	Price       string
+	Description string
+	Shop        string
+	Category    string
+	Filename    string
+}
+
+func ParseShop(htmlStr string, shopName string, listCategories []ShopCategory) []ShopCategory {
+	doc, err := goquery.NewDocumentFromReader(strings.NewReader(htmlStr))
+	util.Panic(err)
+
+	//var categories []ShopCategory
+
+	// Regular expression to remove special characters
+	re := regexp.MustCompile(`[^\w+]`)
+
+	// Iterate over each category
+	doc.Find("ul.tabs li span").Each(func(i int, s *goquery.Selection) {
+		//categoryName := s.Text()
+		//category := ShopCategory{Name: shopName + " - " + categoryName, Items: []ShopItem{}}
+
+		// Find corresponding items in the tab content
+		doc.Find("ul.tab__content li").Eq(i).Find("figure").Each(func(j int, f *goquery.Selection) {
+			itemName := f.Find("span.i_n").Text()
+			itemImgUrl, _ := f.Find("img").Attr("src")
+			itemPrice := f.Find("span.nbprix").Text()
+
+			// Replace spaces with '+' and remove special characters
+			newImgUrl := strings.Trim(itemName, " ")
+			newImgUrl = strings.ReplaceAll(newImgUrl, "á", "a")
+			newImgUrl = strings.ReplaceAll(newImgUrl, "é", "e")
+			newImgUrl = strings.ReplaceAll(newImgUrl, "í", "i")
+			newImgUrl = strings.ReplaceAll(newImgUrl, "ó", "o")
+			newImgUrl = strings.ReplaceAll(newImgUrl, "ú", "u")
+			newImgUrl = strings.ReplaceAll(newImgUrl, " ", "+")
+			newImgUrl = re.ReplaceAllString(newImgUrl, "")
+
+			for i := range listCategories {
+				cat := &listCategories[i]
+
+				for j := range cat.Items {
+					item := &cat.Items[j]
+
+					if item.Name == strings.Trim(itemName, " ") {
+						item.NewImgUrl = newImgUrl
+						item.Price = itemPrice
+						item.Shop = shopName
+						item.Category = cat.Name
+						item.ImgUrl = itemImgUrl
+					}
+				}
+			}
+
+			/*
+				item := ShopItem{
+					Name:      itemName,
+					ImgUrl:    itemImgUrl,
+					NewImgUrl: newImgUrl,
+					Price:     itemPrice,
+					Shop:      shopName,
+					Category:  categoryName,
+				}
+				category.Items = append(category.Items, item)
+			*/
+		})
+
+		//categories = append(categories, category)
+	})
+
+	return listCategories
+}
+
+// FindDescription busca la descripción de un ítem específico en el HTML proporcionado.
+func findDescription(descripcionesHtml string, itemName string) string {
+	// Cargar el HTML en goquery
+	doc, err := goquery.NewDocumentFromReader(strings.NewReader(descripcionesHtml))
+	if err != nil {
+		fmt.Println("Error al parsear el HTML:", err)
+		return ""
+	}
+
+	// Buscar el ítem por nombre
+	var descriptionBlock string
+	doc.Find("div.spoiler_content").Each(func(i int, s *goquery.Selection) {
+		s.Find("strong").Each(func(j int, s *goquery.Selection) {
+			if s.Text() == itemName {
+				descriptionBlock = s.Text() + " " + s.Parent().Text()
+				// Eliminar el nombre del ítem del texto completo para obtener solo la descripción
+				descriptionBlock = strings.Replace(descriptionBlock, itemName, "", 1)
+				descriptionBlock = strings.TrimSpace(descriptionBlock)
+			}
+		})
+	})
+
+	//remove al \n from the descriptionBlock
+	descriptionBlock = strings.ReplaceAll(descriptionBlock, "\n", "")
+	descriptionBlock = strings.ReplaceAll(descriptionBlock, "\t", "")
+	descriptionBlock = formatText(descriptionBlock)
+
+	//split descriptionBlock by "•" and get the first part
+	descriptionParts := strings.Split(descriptionBlock, "•")
+
+	if len(descriptionParts) < 1 {
+		fmt.Println("Error al obtener la descripción del ítem:", itemName)
+	}
+
+	description := ""
+	for _, part := range descriptionParts {
+		if strings.Contains(part, itemName) {
+			description = part
+			description = strings.Replace(description, itemName, "", 1)
+			description = strings.TrimSpace(description)
+			break
+		}
+	}
+
+	return description
+}
+
+// formatText formatea el texto para eliminar múltiples espacios y caracteres no deseados.
+func formatText(input string) string {
+	re := regexp.MustCompile(`\s+`)
+	//formattedText := re.ReplaceAllString(strings.TrimSpace(strings.ReplaceAll(input, "•", "")), " ")
+	formattedText := re.ReplaceAllString(strings.TrimSpace(input), " ")
+
+	return formattedText
+}
+
+func CreateCategoriesFromDescriptions(htmlStr string) []ShopCategory {
+	doc, err := goquery.NewDocumentFromReader(strings.NewReader(htmlStr))
+	util.Panic(err)
+
+	var categories []ShopCategory
+
+	// Iterar sobre cada categoría
+	doc.Find("dl.codebox.spoiler").Each(func(i int, s *goquery.Selection) {
+		var category ShopCategory
+
+		// Obtener el nombre de la categoría
+		category.Name = s.Find("dt.spoiler_title").Text()
+
+		// Iterar sobre cada ítem dentro de la categoría
+		s.Find("div.spoiler_content").Each(func(j int, item *goquery.Selection) {
+			itemHtml, err := item.Html()
+			util.Panic(err)
+
+			parts := strings.Split(itemHtml, "<img")
+			for _, part := range parts {
+				fmt.Println(part)
+				part = formatText(part)
+				if part == "" {
+					continue
+				}
+				if part == "<br/>" {
+					continue
+				}
+
+				if !strings.Contains(part, "strong") || !strings.Contains(part, "br") || !strings.Contains(part, "img") {
+					continue
+				}
+
+				var shopItem ShopItem
+				itemName, err := ExtractStrongText(part)
+				util.Panic(err)
+				imgUrl, err := ExtractImageURL(part)
+				util.Panic(err)
+				description, err := ExtractBrText(part)
+				util.Panic(err)
+
+				shopItem.Name = strings.TrimSpace(itemName)
+				shopItem.ImgUrl = strings.TrimSpace(imgUrl)
+				shopItem.Description = strings.TrimSpace(description)
+
+				if shopItem.Name != "aquí" {
+					category.Items = append(category.Items, shopItem)
+				}
+			}
+		})
+
+		categories = append(categories, category)
+	})
+
+	return categories
+}
+
+func ExtractStrongText(input string) (string, error) {
+	startTag := "<strong>"
+	endTag := "</strong>"
+
+	// Buscar el índice del inicio de la etiqueta <strong>
+	startIndex := strings.Index(input, startTag)
+	if startIndex == -1 {
+		return "", errors.New("no se encontró la etiqueta de inicio <strong> en " + input)
+	}
+
+	// Ajustar el índice para empezar justo después de <strong>
+	startIndex += len(startTag)
+
+	// Buscar el índice del final de la etiqueta </strong> después del <strong>
+	endIndex := strings.Index(input[startIndex:], endTag)
+	if endIndex == -1 {
+		return "", errors.New("no se encontró la etiqueta de cierre </strong>" + input)
+	}
+
+	// Extraer el texto entre las etiquetas <strong> y </strong>
+	text := input[startIndex : startIndex+endIndex]
+	return text, nil
+}
+
+func ExtractBrText(input string) (string, error) {
+	startTag := "<br/>"
+	endTag := "<br/>"
+
+	// Buscar el índice del inicio de la etiqueta <strong>
+	startIndex := strings.Index(input, startTag)
+	if startIndex == -1 {
+		return "", errors.New("no se encontró la etiqueta de inicio <br/> en " + input)
+	}
+
+	// Ajustar el índice para empezar justo después de <strong>
+	startIndex += len(startTag)
+
+	// Buscar el índice del final de la etiqueta </strong> después del <strong>
+	endIndex := strings.Index(input[startIndex:], endTag)
+	if endIndex == -1 {
+		return "", errors.New("no se encontró la etiqueta de cierre <br/> en " + input)
+	}
+
+	// Extraer el texto entre las etiquetas <strong> y </strong>
+	text := input[startIndex : startIndex+endIndex]
+	return text, nil
+}
+
+func ExtractImageURL(input string) (string, error) {
+	// La cadena que buscamos dentro del input es `src="`
+	srcPrefix := `src="`
+	startIndex := strings.Index(input, srcPrefix)
+	if startIndex == -1 {
+		return "", errors.New("no se encontró la cadena 'src=\"'")
+	}
+
+	// Ajustar el índice para que apunte al inicio de la URL
+	startIndex += len(srcPrefix)
+
+	// Buscar el índice del final de la URL, que está delimitado por `"`
+	endIndex := strings.Index(input[startIndex:], `"`)
+	if endIndex == -1 {
+		return "", errors.New("no se encontró el final de la URL (delimitado por comillas)")
+	}
+
+	// Extraer la URL de la imagen
+	url := input[startIndex : startIndex+endIndex]
+	return url, nil
 }
