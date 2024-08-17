@@ -1032,8 +1032,8 @@ func ParseShop(htmlStr string, shopName string, listCategories []ShopCategory) [
 					if item.Name == strings.Trim(itemName, " ") {
 						item.NewImgUrl = newImgUrl
 						item.Price = itemPrice
-						item.Shop = shopName
-						item.Category = cat.Name
+						//item.Shop = shopName
+						//item.Category = cat.Name
 						item.ImgUrl = itemImgUrl
 					}
 				}
@@ -1119,6 +1119,8 @@ func CreateCategoriesFromDescriptions(htmlStr string) []ShopCategory {
 	util.Panic(err)
 
 	var categories []ShopCategory
+	var images []string
+	var names []string
 
 	// Iterar sobre cada categoría
 	doc.Find("dl.codebox.spoiler").Each(func(i int, s *goquery.Selection) {
@@ -1159,6 +1161,150 @@ func CreateCategoriesFromDescriptions(htmlStr string) []ShopCategory {
 				shopItem.ImgUrl = strings.TrimSpace(imgUrl)
 				shopItem.Description = strings.TrimSpace(description)
 				shopItem.Category = category.Name
+
+				switch shopItem.Category {
+				case "Generales":
+					shopItem.Shop = "Objetos"
+				case "Armas Blancas":
+					shopItem.Shop = "Objetos"
+				case "Criaturas":
+					shopItem.Shop = "Objetos"
+				case "Estudiantes":
+					shopItem.Shop = "Objetos"
+				case "Hogwarts":
+					shopItem.Shop = "Objetos"
+				case "Ingredientes de Rituales":
+					shopItem.Shop = "Objetos"
+				case "Ministerio":
+					shopItem.Shop = "Objetos"
+				case "Mortífagos":
+					shopItem.Shop = "Objetos"
+				case "Pociones":
+					shopItem.Shop = "Objetos"
+				case "Propiedades":
+					shopItem.Shop = "Objetos"
+				case "Quidditch":
+					shopItem.Shop = "Objetos"
+				case "Transporte Mágico":
+					shopItem.Shop = "Objetos"
+				case "San Mungo":
+					shopItem.Shop = "Objetos"
+				case "Autorizaciones":
+					shopItem.Shop = "Objetos"
+				case "Premios Misiones":
+					shopItem.Shop = "Objetos"
+				case "Premios Expediciones":
+					shopItem.Shop = "Objetos"
+				case "Premios Nimbus":
+					shopItem.Shop = "Objetos"
+				case "Premios Situaciones":
+					shopItem.Shop = "Objetos"
+				case "Mini-tramas":
+					shopItem.Shop = "Objetos"
+				case "San Duende":
+					shopItem.Shop = "Objetos"
+				case "Hechizos Básicos":
+					shopItem.Shop = "Hechizos"
+				case "Hechizos de Sanación":
+					shopItem.Shop = "Hechizos"
+				case "Hechizos de Ataque":
+					shopItem.Shop = "Hechizos"
+				case "Hechizos de Defensa":
+					shopItem.Shop = "Hechizos"
+				case "Hechizos de Ataque y Defensa":
+					shopItem.Shop = "Hechizos"
+				case "Hechizos Aurores":
+					shopItem.Shop = "Hechizos"
+				case "Hechizos Mortífagos":
+					shopItem.Shop = "Hechizos"
+				case "Maleficios":
+					shopItem.Shop = "Hechizos"
+				case "Habilidades Adquiribles":
+					shopItem.Shop = "Habilidades"
+				case "Habilidades de Licántropos":
+					shopItem.Shop = "Habilidades"
+				case "Habilidades de Semigigantes":
+					shopItem.Shop = "Habilidades"
+				case "Habilidades Sirenas":
+					shopItem.Shop = "Habilidades"
+				case "Habilidades de Vampiros":
+					shopItem.Shop = "Habilidades"
+				case "Habilidades de Veela":
+					shopItem.Shop = "Habilidades"
+				case "Habilidades de Híbridos Innatas":
+					shopItem.Shop = "Habilidades"
+				case "Habilidades de Humanos":
+					shopItem.Shop = "Habilidades"
+				case "Arcana High Bar":
+					shopItem.Shop = "Costello"
+				case "Borgin & Burkes":
+					shopItem.Shop = "Costello"
+				case "El Nox":
+					shopItem.Shop = "Costello"
+				case "Mortem Gemma":
+					shopItem.Shop = "Costello"
+				case "Portafolio":
+					shopItem.Shop = "Costello"
+				case "Aquí te tengo tu cariñito":
+					shopItem.Shop = "Negocios"
+				case "Báthory Square Garden":
+					shopItem.Shop = "Negocios"
+				case "Botica Slug & Jiggers":
+					shopItem.Shop = "Negocios"
+				case "Chez Winnie":
+					shopItem.Shop = "Negocios"
+				case "Danceteria Rolling Hall":
+					shopItem.Shop = "Negocios"
+				case "El Lux":
+					shopItem.Shop = "Negocios"
+				case "FLEUR":
+					shopItem.Shop = "Negocios"
+				case "Flourish & Blotts":
+					shopItem.Shop = "Negocios"
+				case "Luxxuria":
+					shopItem.Shop = "Negocios"
+				case "Moonlight Shadow Planetary":
+					shopItem.Shop = "Negocios"
+				case "Mystic Momentum":
+					shopItem.Shop = "Negocios"
+				case "Nym's Treasure":
+					shopItem.Shop = "Negocios"
+				case "Peonie's Ribbon":
+					shopItem.Shop = "Negocios"
+				case "Plants & Seeds":
+					shopItem.Shop = "Negocios"
+				case "Ragnarok":
+					shopItem.Shop = "Negocios"
+				case "Rose":
+					shopItem.Shop = "Negocios"
+				case "Royal Vauxhall Tavern":
+					shopItem.Shop = "Negocios"
+				case "Sacred Lotus":
+					shopItem.Shop = "Negocios"
+				case "Saint Ellis Hospital":
+					shopItem.Shop = "Negocios"
+				case "Sortilegios Weasley":
+					shopItem.Shop = "Negocios"
+				case "Tierra y Cristal":
+					shopItem.Shop = "Negocios"
+				case "Vinos Zabini":
+					shopItem.Shop = "Negocios"
+				case "Wizarding World Curse":
+					shopItem.Shop = "Negocios"
+				}
+
+				//insert image into images array if it is not already there
+				if !util.Contains(images, shopItem.ImgUrl) {
+					images = append(images, shopItem.ImgUrl)
+				} else {
+					fmt.Println(shopItem.Name+": Image already in array: ", shopItem.ImgUrl)
+				}
+				// insert name into names array if it is not already there
+				if !util.Contains(names, shopItem.Name) {
+					names = append(names, shopItem.Name)
+				} else {
+					fmt.Println(shopItem.Name + ": Name already in array")
+				}
 
 				if shopItem.Name != "aquí" {
 					category.Items = append(category.Items, shopItem)

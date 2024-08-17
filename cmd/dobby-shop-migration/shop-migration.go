@@ -83,10 +83,13 @@ func main() {
 
 		categories = parser.ParseShop(shopHtmlStr, Shop, categories)
 		//fmt.Println(fmt.Sprintf("%s\n", util.MarshalJsonPretty(shops)))
-		for _, cat := range categories {
-			err = generateUrlList(cat)
-			util.Panic(err)
-		}
+		/*
+			for _, cat := range categories {
+				err = generateUrlList(cat)
+				util.Panic(err)
+			}
+
+		*/
 
 		for _, cat := range categories {
 			err = processImages(&cat)
@@ -94,159 +97,168 @@ func main() {
 		}
 	}
 
-	fmt.Println(fmt.Sprintf("%s\n", util.MarshalJsonPretty(categories)))
+	//fmt.Println(fmt.Sprintf("%s\n", util.MarshalJsonPretty(categories)))
 
-	var noShopItems []parser.ShopItem
+	/*
+		var noShopItems []parser.ShopItem
+		for i, _ := range categories {
+			cat := &categories[i]
+			for j, _ := range cat.Items {
+				item := &cat.Items[j]
 
-	for i, _ := range categories {
-		cat := &categories[i]
-		for j, _ := range cat.Items {
-			item := &cat.Items[j]
 
-			switch item.Category {
-			case "Generales":
-				item.Shop = "Objetos"
-			case "Armas Blancas":
-				item.Shop = "Objetos"
-			case "Criaturas":
-				item.Shop = "Objetos"
-			case "Estudiantes":
-				item.Shop = "Objetos"
-			case "Hogwarts":
-				item.Shop = "Objetos"
-			case "Ingredientes de Rituales":
-				item.Shop = "Objetos"
-			case "Ministerio":
-				item.Shop = "Objetos"
-			case "Mortífagos":
-				item.Shop = "Objetos"
-			case "Pociones":
-				item.Shop = "Objetos"
-			case "Propiedades":
-				item.Shop = "Objetos"
-			case "Quidditch":
-				item.Shop = "Objetos"
-			case "Transporte Mágico":
-				item.Shop = "Objetos"
-			case "San Mungo":
-				item.Shop = "Objetos"
-			case "Autorizaciones":
-				item.Shop = "Objetos"
-			case "Premios Misiones":
-				item.Shop = "Objetos"
-			case "Premios Expediciones":
-				item.Shop = "Objetos"
-			case "Premios Nimbus":
-				item.Shop = "Objetos"
-			case "Premios Situaciones":
-				item.Shop = "Objetos"
-			case "Mini-tramas":
-				item.Shop = "Objetos"
-			case "San Duende":
-				item.Shop = "Objetos"
-			case "Hechizos Básicos":
-				item.Shop = "Hechizos"
-			case "Hechizos de Sanación":
-				item.Shop = "Hechizos"
-			case "Hechizos de Ataque":
-				item.Shop = "Hechizos"
-			case "Hechizos de Defensa":
-				item.Shop = "Hechizos"
-			case "Hechizos de Ataque y Defensa":
-				item.Shop = "Hechizos"
-			case "Hechizos Aurores":
-				item.Shop = "Hechizos"
-			case "Hechizos Mortífagos":
-				item.Shop = "Hechizos"
-			case "Maleficios":
-				item.Shop = "Hechizos"
-			case "Habilidades Adquiribles":
-				item.Shop = "Habilidades"
-			case "Habilidades de Licántropos":
-				item.Shop = "Habilidades"
-			case "Habilidades de Semigigantes":
-				item.Shop = "Habilidades"
-			case "Habilidades Sirenas":
-				item.Shop = "Habilidades"
-			case "Habilidades de Vampiros":
-				item.Shop = "Habilidades"
-			case "Habilidades de Veela":
-				item.Shop = "Habilidades"
-			case "Habilidades de Híbridos Innatas":
-				item.Shop = "Habilidades"
-			case "Habilidades de Humanos":
-				item.Shop = "Habilidades"
-			case "Arcana High Bar":
-				item.Shop = "Costello"
-			case "Borgin & Burkes":
-				item.Shop = "Costello"
-			case "El Nox":
-				item.Shop = "Costello"
-			case "Mortem Gemma":
-				item.Shop = "Costello"
-			case "Portafolio":
-				item.Shop = "Costello"
-			case "Aquí te tengo tu cariñito":
-				item.Shop = "Negocios"
-			case "Báthory Square Garden":
-				item.Shop = "Negocios"
-			case "Botica Slug & Jiggers":
-				item.Shop = "Negocios"
-			case "Chez Winnie":
-				item.Shop = "Negocios"
-			case "Danceteria Rolling Hall":
-				item.Shop = "Negocios"
-			case "El Lux":
-				item.Shop = "Negocios"
-			case "FLEUR":
-				item.Shop = "Negocios"
-			case "Flourish & Blotts":
-				item.Shop = "Negocios"
-			case "Luxxuria":
-				item.Shop = "Negocios"
-			case "Moonlight Shadow Planetary":
-				item.Shop = "Negocios"
-			case "Mystic Momentum":
-				item.Shop = "Negocios"
-			case "Nym's Treasure":
-				item.Shop = "Negocios"
-			case "Peonie's Ribbon":
-				item.Shop = "Negocios"
-			case "Plants & Seeds":
-				item.Shop = "Negocios"
-			case "Ragnarok":
-				item.Shop = "Negocios"
-			case "Rose":
-				item.Shop = "Negocios"
-			case "Royal Vauxhall Tavern":
-				item.Shop = "Negocios"
-			case "Sacred Lotus":
-				item.Shop = "Negocios"
-			case "Saint Ellis Hospital":
-				item.Shop = "Negocios"
-			case "Sortilegios Weasley":
-				item.Shop = "Negocios"
-			case "Tierra y Cristal":
-				item.Shop = "Negocios"
-			case "Vinos Zabini":
-				item.Shop = "Negocios"
-			case "Wizarding World Curse":
-				item.Shop = "Negocios"
-			}
+				switch item.Category {
+				case "Generales":
+					item.Shop = "Objetos"
+				case "Armas Blancas":
+					item.Shop = "Objetos"
+				case "Criaturas":
+					item.Shop = "Objetos"
+				case "Estudiantes":
+					item.Shop = "Objetos"
+				case "Hogwarts":
+					item.Shop = "Objetos"
+				case "Ingredientes de Rituales":
+					item.Shop = "Objetos"
+				case "Ministerio":
+					item.Shop = "Objetos"
+				case "Mortífagos":
+					item.Shop = "Objetos"
+				case "Pociones":
+					item.Shop = "Objetos"
+				case "Propiedades":
+					item.Shop = "Objetos"
+				case "Quidditch":
+					item.Shop = "Objetos"
+				case "Transporte Mágico":
+					item.Shop = "Objetos"
+				case "San Mungo":
+					item.Shop = "Objetos"
+				case "Autorizaciones":
+					item.Shop = "Objetos"
+				case "Premios Misiones":
+					item.Shop = "Objetos"
+				case "Premios Expediciones":
+					item.Shop = "Objetos"
+				case "Premios Nimbus":
+					item.Shop = "Objetos"
+				case "Premios Situaciones":
+					item.Shop = "Objetos"
+				case "Mini-tramas":
+					item.Shop = "Objetos"
+				case "San Duende":
+					item.Shop = "Objetos"
+				case "Hechizos Básicos":
+					item.Shop = "Hechizos"
+				case "Hechizos de Sanación":
+					item.Shop = "Hechizos"
+				case "Hechizos de Ataque":
+					item.Shop = "Hechizos"
+				case "Hechizos de Defensa":
+					item.Shop = "Hechizos"
+				case "Hechizos de Ataque y Defensa":
+					item.Shop = "Hechizos"
+				case "Hechizos Aurores":
+					item.Shop = "Hechizos"
+				case "Hechizos Mortífagos":
+					item.Shop = "Hechizos"
+				case "Maleficios":
+					item.Shop = "Hechizos"
+				case "Habilidades Adquiribles":
+					item.Shop = "Habilidades"
+				case "Habilidades de Licántropos":
+					item.Shop = "Habilidades"
+				case "Habilidades de Semigigantes":
+					item.Shop = "Habilidades"
+				case "Habilidades Sirenas":
+					item.Shop = "Habilidades"
+				case "Habilidades de Vampiros":
+					item.Shop = "Habilidades"
+				case "Habilidades de Veela":
+					item.Shop = "Habilidades"
+				case "Habilidades de Híbridos Innatas":
+					item.Shop = "Habilidades"
+				case "Habilidades de Humanos":
+					item.Shop = "Habilidades"
+				case "Arcana High Bar":
+					item.Shop = "Costello"
+				case "Borgin & Burkes":
+					item.Shop = "Costello"
+				case "El Nox":
+					item.Shop = "Costello"
+				case "Mortem Gemma":
+					item.Shop = "Costello"
+				case "Portafolio":
+					item.Shop = "Costello"
+				case "Aquí te tengo tu cariñito":
+					item.Shop = "Negocios"
+				case "Báthory Square Garden":
+					item.Shop = "Negocios"
+				case "Botica Slug & Jiggers":
+					item.Shop = "Negocios"
+				case "Chez Winnie":
+					item.Shop = "Negocios"
+				case "Danceteria Rolling Hall":
+					item.Shop = "Negocios"
+				case "El Lux":
+					item.Shop = "Negocios"
+				case "FLEUR":
+					item.Shop = "Negocios"
+				case "Flourish & Blotts":
+					item.Shop = "Negocios"
+				case "Luxxuria":
+					item.Shop = "Negocios"
+				case "Moonlight Shadow Planetary":
+					item.Shop = "Negocios"
+				case "Mystic Momentum":
+					item.Shop = "Negocios"
+				case "Nym's Treasure":
+					item.Shop = "Negocios"
+				case "Peonie's Ribbon":
+					item.Shop = "Negocios"
+				case "Plants & Seeds":
+					item.Shop = "Negocios"
+				case "Ragnarok":
+					item.Shop = "Negocios"
+				case "Rose":
+					item.Shop = "Negocios"
+				case "Royal Vauxhall Tavern":
+					item.Shop = "Negocios"
+				case "Sacred Lotus":
+					item.Shop = "Negocios"
+				case "Saint Ellis Hospital":
+					item.Shop = "Negocios"
+				case "Sortilegios Weasley":
+					item.Shop = "Negocios"
+				case "Tierra y Cristal":
+					item.Shop = "Negocios"
+				case "Vinos Zabini":
+					item.Shop = "Negocios"
+				case "Wizarding World Curse":
+					item.Shop = "Negocios"
+				}
 
-			if item.Shop == "" {
-				noShopItems = append(noShopItems, *item)
-			}
 
-			if len(noShopItems) > 0 {
-				fmt.Println("!!! Items sin tienda:")
-				fmt.Println(fmt.Sprintf("%s\n", util.MarshalJsonPretty(noShopItems)))
+
+				if item.Shop == "" {
+					noShopItems = append(noShopItems, *item)
+				}
+
+				if len(noShopItems) > 0 {
+					fmt.Println("!!! Items sin tienda:")
+					fmt.Println(fmt.Sprintf("%s\n", util.MarshalJsonPretty(noShopItems)))
+				}
 			}
 		}
-	}
+
+	*/
 
 	queries := generateSqlQuery(categories)
-	fmt.Println(queries)
+	//create query file
+	err = os.WriteFile("insert items.sql", []byte(queries), 0644)
+	util.Panic(err)
+
+	//fmt.Println(queries)
 }
 
 type smf_stshop_items struct {
@@ -444,18 +456,7 @@ func processImages(category *parser.ShopCategory) error {
 	// Directorio donde se encuentran las imágenes descargadas
 	picsDir := "./Pics"
 	// Directorio de destino para las imágenes copiadas
-	destDir := "./RenamedPics"
-
-	prefix := category.Name + "__"
-	prefix = strings.ReplaceAll(prefix, " ", "_")
-	prefix = strings.TrimSpace(prefix)
-	prefix = strings.ReplaceAll(prefix, "á", "a")
-	prefix = strings.ReplaceAll(prefix, "é", "e")
-	prefix = strings.ReplaceAll(prefix, "í", "i")
-	prefix = strings.ReplaceAll(prefix, "ó", "o")
-	prefix = strings.ReplaceAll(prefix, "ú", "u")
-	prefix = strings.ReplaceAll(prefix, " ", "+")
-	prefix = regexp.MustCompile("[^a-zA-Z0-9_+]+").ReplaceAllString(prefix, "")
+	destDir := "./migrated"
 
 	// Crear el directorio de destino si no existe
 	if _, err := os.Stat(destDir); os.IsNotExist(err) {
@@ -498,11 +499,47 @@ func processImages(category *parser.ShopCategory) error {
 
 		// Verificar si el archivo existe en PICS
 		if _, err := os.Stat(originalFilePath); os.IsNotExist(err) {
-			failedItems = append(failedItems, originalFileName)
+			failedItems = append(failedItems, item.Name+" - "+originalFileName)
 			continue
 		}
 
 		// Crear el nuevo nombre de archivo usando NewImgUrl y manteniendo la extensión original
+		catName := item.Category + "__"
+		catName = strings.ReplaceAll(catName, " ", "_")
+		catName = strings.TrimSpace(catName)
+		catName = strings.ReplaceAll(catName, "á", "a")
+		catName = strings.ReplaceAll(catName, "é", "e")
+		catName = strings.ReplaceAll(catName, "í", "i")
+		catName = strings.ReplaceAll(catName, "ó", "o")
+		catName = strings.ReplaceAll(catName, "ú", "u")
+		catName = strings.ReplaceAll(catName, " ", "+")
+		catName = regexp.MustCompile("[^a-zA-Z0-9_+]+").ReplaceAllString(catName, "")
+
+		shopName := item.Shop + "__"
+		shopName = strings.ReplaceAll(shopName, " ", "_")
+		shopName = strings.TrimSpace(shopName)
+		shopName = strings.ReplaceAll(shopName, "á", "a")
+		shopName = strings.ReplaceAll(shopName, "é", "e")
+		shopName = strings.ReplaceAll(shopName, "í", "i")
+		shopName = strings.ReplaceAll(shopName, "ó", "o")
+		shopName = strings.ReplaceAll(shopName, "ú", "u")
+		shopName = strings.ReplaceAll(shopName, " ", "+")
+		shopName = regexp.MustCompile("[^a-zA-Z0-9_+]+").ReplaceAllString(shopName, "")
+
+		itemName := item.Name
+		itemName = strings.ReplaceAll(itemName, " ", "_")
+		itemName = strings.TrimSpace(itemName)
+		itemName = strings.ReplaceAll(itemName, "á", "a")
+		itemName = strings.ReplaceAll(itemName, "é", "e")
+		itemName = strings.ReplaceAll(itemName, "í", "i")
+		itemName = strings.ReplaceAll(itemName, "ó", "o")
+		itemName = strings.ReplaceAll(itemName, "ú", "u")
+		itemName = strings.ReplaceAll(itemName, " ", "+")
+		itemName = regexp.MustCompile("[^a-zA-Z0-9_+]+").ReplaceAllString(itemName, "")
+
+		prefix := shopName + "__" + catName + "__"
+
+		item.NewImgUrl = itemName
 		newFileName := prefix + item.NewImgUrl + extension
 		newFilePath := filepath.Join(destDir, newFileName)
 
@@ -519,28 +556,17 @@ func processImages(category *parser.ShopCategory) error {
 		processedCount++
 	}
 
-	// Abrir el archivo result.txt en modo append o crearlo si no existe
-	reportFile, err := os.OpenFile("result.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-	if err != nil {
-		return fmt.Errorf("no se pudo abrir o crear el archivo de reporte: %v", err)
-	}
-	defer reportFile.Close()
-
 	// Generar el contenido del reporte
-	reportContent := fmt.Sprintf(category.Name+" reporte final: %d de %d imágenes procesadas exitosamente.\n", processedCount, totalItems)
-	if len(failedItems) > 0 {
-		reportContent += "Imágenes que fallaron en ser procesadas:\n"
-		for _, failedItem := range failedItems {
-			reportContent += failedItem + "\n"
-		}
+
+	if processedCount != totalItems {
+		fmt.Println(fmt.Sprintf(category.Name+" %d de %d imágenes procesadas exitosamente.", processedCount, totalItems))
 	}
 
-	reportContent += "------------------------\n"
-
-	// Escribir el reporte en el archivo
-	_, err = reportFile.WriteString(reportContent)
-	if err != nil {
-		return fmt.Errorf("no se pudo escribir en el archivo de reporte: %v", err)
+	if len(failedItems) > 0 {
+		fmt.Println("Imágenes que fallaron en ser procesadas:")
+		for _, failedItem := range failedItems {
+			fmt.Println("\t" + failedItem)
+		}
 	}
 
 	return nil
