@@ -799,10 +799,10 @@ func ProfileGetProfile(html string) Profile {
 
 type Inventory struct {
 	Name  string
-	Items []Item
+	Items []ParsedItem
 }
 
-type Item struct {
+type ParsedItem struct {
 	Name     string
 	Type     string
 	ImageUrl string
@@ -810,7 +810,7 @@ type Item struct {
 
 func ExtractItemsBySectionOne(htmlStr string) (Inventory, Inventory, Inventory, Inventory) {
 	// Initialize empty sections for each category
-	sections := [][]Item{
+	sections := [][]ParsedItem{
 		{}, // RAZA (sections[0])
 		{}, // HECHIZOS (sections[1])
 		{}, // HABILIDADES (sections[2])
@@ -818,7 +818,7 @@ func ExtractItemsBySectionOne(htmlStr string) (Inventory, Inventory, Inventory, 
 	}
 
 	var currentSectionType string
-	var currentSection []Item
+	var currentSection []ParsedItem
 
 	// Parse the HTML string
 	reader := strings.NewReader(htmlStr)
@@ -841,16 +841,18 @@ func ExtractItemsBySectionOne(htmlStr string) (Inventory, Inventory, Inventory, 
 					sections[3] = currentSection
 				}
 
-				currentSection = []Item{} // Start a new section
+				currentSection = []ParsedItem{} // Start a new section
 			}
 			// Set the type of the current section (e.g., "RAZA", "HECHIZOS")
 			currentSectionType = strings.TrimSpace(s.Find("center").Text())
 		} else if s.Is("img") {
-			// If it's an <img>, create an Item and add it to the current section
+			// If it's an <img>, create an ParsedItem and add it to the current section
 			src, _ := s.Attr("src")
 			title, _ := s.Attr("title")
-			item := Item{
-				Name:     title,
+			//replace   with space in the title
+			title = strings.ReplaceAll(title, " ", " ")
+			item := ParsedItem{
+				Name:     strings.TrimSpace(title),
 				Type:     currentSectionType,
 				ImageUrl: src,
 			}
@@ -895,7 +897,7 @@ func ExtractItemsBySectionOne(htmlStr string) (Inventory, Inventory, Inventory, 
 
 func ExtractItemsBySectionTwo(htmlStr string) (Inventory, Inventory, Inventory, Inventory) {
 	// Initialize empty sections for each category
-	sections := [][]Item{
+	sections := [][]ParsedItem{
 		{}, // POCIONES (sections[0])
 		{}, // INGREDIENTES RITUALES (sections[1])
 		{}, // OTROS (sections[2])
@@ -903,7 +905,7 @@ func ExtractItemsBySectionTwo(htmlStr string) (Inventory, Inventory, Inventory, 
 	}
 
 	var currentSectionType string
-	var currentSection []Item
+	var currentSection []ParsedItem
 
 	// Parse the HTML string
 	reader := strings.NewReader(htmlStr)
@@ -926,16 +928,19 @@ func ExtractItemsBySectionTwo(htmlStr string) (Inventory, Inventory, Inventory, 
 				case "LOGROS":
 					sections[3] = currentSection
 				}
-				currentSection = []Item{} // Start a new section
+				currentSection = []ParsedItem{} // Start a new section
 			}
 			// Set the type of the current section (e.g., "RAZA", "HECHIZOS")
 			currentSectionType = strings.TrimSpace(s.Find("center").Text())
 		} else if s.Is("img") {
-			// If it's an <img>, create an Item and add it to the current section
+			// If it's an <img>, create an ParsedItem and add it to the current section
 			src, _ := s.Attr("src")
 			title, _ := s.Attr("title")
-			item := Item{
-				Name:     title,
+
+			//replace   with space in the title
+			title = strings.ReplaceAll(title, " ", " ")
+			item := ParsedItem{
+				Name:     strings.TrimSpace(title),
 				Type:     currentSectionType,
 				ImageUrl: src,
 			}

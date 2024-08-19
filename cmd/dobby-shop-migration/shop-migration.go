@@ -18,7 +18,6 @@ import (
 const (
 	loginUsername = "Desarrollo"
 	loginPassword = "programación2055"
-	inputCsvFile  = "testUser.csv"
 	csvDelimiter  = ','
 
 	costelloInput     = "Costello"
@@ -27,6 +26,11 @@ const (
 	negociosInput     = "Negocios"
 	objetosInput      = "Objetos"
 	descricionesInput = "descripciones.html"
+
+	outputDir      = "output"
+	imageOutputDir = outputDir + "/migrated"
+	sqlOutputFile  = outputDir + "/insert items.sql"
+	csvOutputFile  = outputDir + "/items.csv"
 )
 
 var Shop = ""
@@ -255,7 +259,7 @@ func main() {
 
 	queries := generateSqlQuery(categories)
 	//create query file
-	err = os.WriteFile("insert items.sql", []byte(queries), 0644)
+	err = os.WriteFile(sqlOutputFile, []byte(queries), 0644)
 	util.Panic(err)
 
 	//fmt.Println(queries)
@@ -278,6 +282,7 @@ type smf_stshop_items struct {
 	catid            string
 	status           string
 	itemlimit        string
+	imgurUrl         string
 }
 
 func generateSqlQuery(categories []parser.ShopCategory) string {
@@ -348,12 +353,13 @@ func generateSqlQuery(categories []parser.ShopCategory) string {
 		"Negocios - Wizarding World Curse":              64,
 	}
 	sql := ""
+	scvLines := "name|imgurUrl\n"
 
 	for _, cat := range categories {
 
 		for _, item := range cat.Items {
 			name := item.Name
-			image := "migrated/" + item.Filename
+			image := imageOutputDir + "/" + item.Filename
 			description := item.Description
 			price := item.Price
 			stock := "999"
@@ -371,11 +377,40 @@ func generateSqlQuery(categories []parser.ShopCategory) string {
 			catid := strconv.Itoa(catList[item.Shop+" - "+item.Category])
 			status := "0"
 			itemlimit := "0"
+
+			//ARREGLO MASCARAS DE MORTIFAGOS
+			switch item.Name {
+			case "Máscaras 1":
+				name = "Máscara de Mortífago 1"
+			case "Máscaras 2":
+				name = "Máscara de Mortífago 2"
+			case "Máscaras 3":
+				name = "Máscara de Mortífago 3"
+			case "Máscaras 4":
+				name = "Máscara de Mortífago 4"
+			case "Máscaras 5":
+				name = "Máscara de Mortífago 5"
+			case "Máscaras 6":
+				name = "Máscara de Mortífago 6"
+			case "Máscaras 7":
+				name = "Máscara de Mortífago 7"
+			case "Máscaras 8":
+				name = "Máscara de Mortífago 8"
+			case "Máscaras 9":
+				name = "Máscara de Mortífago 9"
+			case "Máscaras 10":
+				name = "Máscara de Mortífago 10"
+			}
+
 			query := fmt.Sprintf("INSERT INTO `smf_stshop_items` (`name`, `image`, `description`, `price`, `stock`, `module`, `info1`, `info2`, `info3`, `info4`, `input_needed`, `can_use_item`, `delete_after_use`, `catid`, `status`, `itemlimit`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');", name, image, description, price, stock, module, info1, info2, info3, info4, input_needed, can_use_item, delete_after_use, catid, status, itemlimit)
 			sql += query + "\n"
+			scvLines += fmt.Sprintf("%s|%s\n", name, item.ImgUrl)
 		}
 
 	}
+	//writes csv file
+	err := os.WriteFile(csvOutputFile, []byte(scvLines), 0644)
+	util.Panic(err)
 
 	return sql
 }
@@ -456,7 +491,7 @@ func processImages(category *parser.ShopCategory) error {
 	// Directorio donde se encuentran las imágenes descargadas
 	picsDir := "./Pics"
 	// Directorio de destino para las imágenes copiadas
-	destDir := "./migrated"
+	destDir := "./" + imageOutputDir
 
 	// Crear el directorio de destino si no existe
 	if _, err := os.Stat(destDir); os.IsNotExist(err) {
