@@ -459,24 +459,34 @@ func generateSqlQuery(categories []parser.ShopCategory) string {
 			switch item.Name {
 			case "Máscaras 1":
 				name = "Máscara de Mortífago 1"
+				image = "migrated/Objetos____Mortifagos____Mascaras_1.png"
 			case "Máscaras 2":
 				name = "Máscara de Mortífago 2"
+				image = "migrated/Objetos____Mortifagos____Mascaras_2.png"
 			case "Máscaras 3":
 				name = "Máscara de Mortífago 3"
+				image = "migrated/Objetos____Mortifagos____Mascaras_3.png"
 			case "Máscaras 4":
 				name = "Máscara de Mortífago 4"
+				image = "migrated/Objetos____Mortifagos____Mascaras_4.png"
 			case "Máscaras 5":
 				name = "Máscara de Mortífago 5"
+				image = "migrated/Objetos____Mortifagos____Mascaras_5.png"
 			case "Máscaras 6":
 				name = "Máscara de Mortífago 6"
+				image = "migrated/Objetos____Mortifagos____Mascaras_6.png"
 			case "Máscaras 7":
 				name = "Máscara de Mortífago 7"
+				image = "migrated/Objetos____Mortifagos____Mascaras_7.png"
 			case "Máscaras 8":
 				name = "Máscara de Mortífago 8"
+				image = "migrated/Objetos____Mortifagos____Mascaras_8.png"
 			case "Máscaras 9":
 				name = "Máscara de Mortífago 9"
+				image = "migrated/Objetos____Mortifagos____Mascaras_9.png"
 			case "Máscaras 10":
 				name = "Máscara de Mortífago 10"
+				image = "migrated/Objetos____Mortifagos____Mascaras_10.png"
 			}
 
 			query := fmt.Sprintf("INSERT INTO `smf_stshop_items` (`name`, `image`, `description`, `price`, `stock`, `module`, `info1`, `info2`, `info3`, `info4`, `input_needed`, `can_use_item`, `delete_after_use`, `catid`, `status`, `itemlimit`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');", name, image, description, price, stock, module, info1, info2, info3, info4, input_needed, can_use_item, delete_after_use, catid, status, itemlimit)
@@ -654,6 +664,49 @@ func processImages(category *parser.ShopCategory) error {
 		item.NewImgUrl = itemName
 		newFileName := prefix + item.NewImgUrl + extension
 		newFilePath := filepath.Join(destDir, newFileName)
+
+		switch item.Name {
+		case "Máscaras 1":
+			item.Name = "Máscara de Mortífago 1"
+			newFileName = "Objetos____Mortifagos____Mascaras_1.png"
+			originalFilePath = filepath.Join(picsDir, "Objetos____Mortifagos____Mascaras_1.png")
+		case "Máscaras 2":
+			item.Name = "Máscara de Mortífago 2"
+			newFileName = "Objetos____Mortifagos____Mascaras_2.png"
+			originalFilePath = filepath.Join(picsDir, "Objetos____Mortifagos____Mascaras_2.png")
+		case "Máscaras 3":
+			item.Name = "Máscara de Mortífago 3"
+			newFileName = "Objetos____Mortifagos____Mascaras_3.png"
+			originalFilePath = filepath.Join(picsDir, "Objetos____Mortifagos____Mascaras_3.png")
+		case "Máscaras 4":
+			item.Name = "Máscara de Mortífago 4"
+			newFileName = "Objetos____Mortifagos____Mascaras_4.png"
+			originalFilePath = filepath.Join(picsDir, "Objetos____Mortifagos____Mascaras_4.png")
+		case "Máscaras 5":
+			item.Name = "Máscara de Mortífago 5"
+			newFileName = "Objetos____Mortifagos____Mascaras_5.png"
+			originalFilePath = filepath.Join(picsDir, "Objetos____Mortifagos____Mascaras_5.png")
+		case "Máscaras 6":
+			item.Name = "Máscara de Mortífago 6"
+			newFileName = "Objetos____Mortifagos____Mascaras_6.png"
+			originalFilePath = filepath.Join(picsDir, "Objetos____Mortifagos____Mascaras_6.png")
+		case "Máscaras 7":
+			item.Name = "Máscara de Mortífago 7"
+			newFileName = "Objetos____Mortifagos____Mascaras_7.png"
+			originalFilePath = filepath.Join(picsDir, "Objetos____Mortifagos____Mascaras_7.png")
+		case "Máscaras 8":
+			item.Name = "Máscara de Mortífago 8"
+			newFileName = "Objetos____Mortifagos____Mascaras_8.png"
+			originalFilePath = filepath.Join(picsDir, "Objetos____Mortifagos____Mascaras_8.png")
+		case "Máscaras 9":
+			item.Name = "Máscara de Mortífago 9"
+			newFileName = "Objetos____Mortifagos____Mascaras_9.png"
+			originalFilePath = filepath.Join(picsDir, "Objetos____Mortifagos____Mascaras_9.png")
+		case "Máscaras 10":
+			item.Name = "Máscara de Mortífago 10"
+			newFileName = "Objetos____Mortifagos____Mascaras_10.png"
+			originalFilePath = filepath.Join(picsDir, "Objetos____Mortifagos____Mascaras_10.png")
+		}
 
 		item.Filename = newFileName
 

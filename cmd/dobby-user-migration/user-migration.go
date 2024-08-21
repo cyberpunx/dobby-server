@@ -511,20 +511,22 @@ func PairItemsToUsers(migratedUsers []MigratedUser, items *[]Item) {
 }
 
 func CreateItems(itemListToCreate []parser.ParsedItem, username string) {
-	total_Lines := "<!-- " + username + " -->\n\n"
+	total_Lines := "<!-- " + username + " -->\n"
+	total_Lines += "<div class=\"spoiler_content\">\n\n"
 	for _, itemToCreate := range itemListToCreate {
 		imgurUrl := itemToCreate.ImageUrl
 		name := itemToCreate.Name
 
-		descLine := `<div class="spoiler_content"><img src="{url}"/>• <strong>{Nombre}</strong><br />{descripcion}<br /></div>`
+		descLine := "\t<img src=\"{url}\"/>\n\t• <strong>{Nombre}</strong><br />{descripcion}<br />"
 		descLine = strings.ReplaceAll(descLine, "{url}", imgurUrl)
 		descLine = strings.ReplaceAll(descLine, "{Nombre}", name)
 		descLine = strings.ReplaceAll(descLine, "{descripcion}", "(insertar descripción)")
 		total_Lines += descLine + "\n\n"
 	}
+	total_Lines += "</div>\n\n"
 
 	//append to file if exists
-	f, err := os.OpenFile("items_to_insert.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	f, err := os.OpenFile("items_to_insert.html", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	//append total_Lines to file
 	_, err = f.WriteString(total_Lines)
 
