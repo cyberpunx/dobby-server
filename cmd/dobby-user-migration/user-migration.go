@@ -464,6 +464,10 @@ func PairUsersBasedOnUsername(oldUsers []OldForumUser, newUsers []NewForumUser) 
 }
 
 func SearchItemByName(itemName string, items []Item) *Item {
+	//remove consecutive spaces from itemName
+	itemName = strings.Join(strings.Fields(itemName), " ")
+	//trim spaces from itemName
+	itemName = strings.TrimSpace(itemName)
 	for _, item := range items {
 		if strings.ToLower(item.name) == strings.ToLower(itemName) {
 			return &item
@@ -497,7 +501,7 @@ func PairItemsToUsers(migratedUsers []MigratedUser, items *[]Item) {
 
 		if len(notFoundItems) > 0 {
 			CreateItems(notFoundItems, migratedUser.Username)
-			fmt.Println("Items para insertar: ", len(notFoundItems))
+			fmt.Println(migratedUser.Username+" items para insertar: ", len(notFoundItems))
 		}
 
 		migratedUser.NewForumUser.Items = &foundItems
@@ -507,24 +511,23 @@ func PairItemsToUsers(migratedUsers []MigratedUser, items *[]Item) {
 }
 
 func CreateItems(itemListToCreate []parser.ParsedItem, username string) {
-	fmt.Println("Imgur images to download:")
-
-	total_Lines := ""
+	total_Lines := "<!-- " + username + " -->\n\n"
 	for _, itemToCreate := range itemListToCreate {
-		fmt.Println(itemToCreate.ImageUrl)
+		imgurUrl := itemToCreate.ImageUrl
+		name := itemToCreate.Name
 
-		descLine := `<div class="spoiler_content" style="display: none; content-visibility: visible; overflow: hidden;" hidden="until-found">
-            			<img src="{url}" class="tooltip tooltipstered" />
-            			• <strong>{Nombre}</strong><br />{descripcion}<br />
-        			</div>`
-		descLine = strings.ReplaceAll(descLine, "{url}", itemToCreate.ImageUrl)
-		descLine = strings.ReplaceAll(descLine, "{Nombre}", itemToCreate.Name)
+		descLine := `<div class="spoiler_content"><img src="{url}"/>• <strong>{Nombre}</strong><br />{descripcion}<br /></div>`
+		descLine = strings.ReplaceAll(descLine, "{url}", imgurUrl)
+		descLine = strings.ReplaceAll(descLine, "{Nombre}", name)
 		descLine = strings.ReplaceAll(descLine, "{descripcion}", "(insertar descripción)")
 		total_Lines += descLine + "\n\n"
 	}
-	fmt.Println("-------------------------")
 
-	err := os.WriteFile("add_items__"+username+".txt", []byte(total_Lines), 0644)
+	//append to file if exists
+	f, err := os.OpenFile("items_to_insert.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	//append total_Lines to file
+	_, err = f.WriteString(total_Lines)
+
 	util.Panic(err)
 }
 

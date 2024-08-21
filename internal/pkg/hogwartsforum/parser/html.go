@@ -1240,6 +1240,12 @@ func CreateCategoriesFromDescriptions(htmlStr string) []ShopCategory {
 					shopItem.Shop = "Habilidades"
 				case "Habilidades de Humanos":
 					shopItem.Shop = "Habilidades"
+				case "Habilidades Adquiridas":
+					shopItem.Shop = "Habilidades"
+				case "Habilidades Innatas":
+					shopItem.Shop = "Habilidades"
+				case "Razas":
+					shopItem.Shop = "Razas"
 				case "Arcana High Bar":
 					shopItem.Shop = "Costello"
 				case "Borgin & Burkes":
@@ -1296,6 +1302,52 @@ func CreateCategoriesFromDescriptions(htmlStr string) []ShopCategory {
 					shopItem.Shop = "Negocios"
 				case "Wizarding World Curse":
 					shopItem.Shop = "Negocios"
+				case "Logros de Colaborador del Mes":
+					shopItem.Shop = "Logros"
+				case "Logros de Personaje del Mes":
+					shopItem.Shop = "Logros"
+				case "Logros de Awards":
+					shopItem.Shop = "Logros"
+				case "Logros de Duelos":
+					shopItem.Shop = "Logros"
+				case "Logros de Misiones":
+					shopItem.Shop = "Logros"
+				case "Logros de Expediciones":
+					shopItem.Shop = "Logros"
+				case "Logros de Pociones":
+					shopItem.Shop = "Logros"
+				case "Logros de Nimbus":
+					shopItem.Shop = "Logros"
+				case "Logros de Situaciones":
+					shopItem.Shop = "Logros"
+				case "Logros de Cámara de Creación Mágica":
+					shopItem.Shop = "Logros"
+				case "Logros de Rituales":
+					shopItem.Shop = "Logros"
+				case "Logros de San Mungo":
+					shopItem.Shop = "Logros"
+				case "Logros de Costello":
+					shopItem.Shop = "Logros"
+				case "Logros de Colección de Cromos":
+					shopItem.Shop = "Logros"
+				case "Logros de Top Posteadores":
+					shopItem.Shop = "Logros"
+				case "Logros de Empleo":
+					shopItem.Shop = "Logros"
+				case "Logros de Hall of Fame":
+					shopItem.Shop = "Logros"
+				case "Logros de Torneo de Duelos":
+					shopItem.Shop = "Logros"
+				case "Logros de Torneo de Pociones":
+					shopItem.Shop = "Logros"
+				case "Logros de Torneo de Quidditch Libre":
+					shopItem.Shop = "Logros"
+				case "Logros de Desafío Hogwarts":
+					shopItem.Shop = "Logros"
+				case "Logros de Mortífagos":
+					shopItem.Shop = "Logros"
+				case "Logros de Aurores":
+					shopItem.Shop = "Logros"
 				}
 
 				//insert image into images array if it is not already there

@@ -111,135 +111,187 @@ func main() {
 				item := &cat.Items[j]
 
 
-				switch item.Category {
+				switch shopItem.Category {
 				case "Generales":
-					item.Shop = "Objetos"
+					shopItem.Shop = "Objetos"
 				case "Armas Blancas":
-					item.Shop = "Objetos"
+					shopItem.Shop = "Objetos"
 				case "Criaturas":
-					item.Shop = "Objetos"
+					shopItem.Shop = "Objetos"
 				case "Estudiantes":
-					item.Shop = "Objetos"
+					shopItem.Shop = "Objetos"
 				case "Hogwarts":
-					item.Shop = "Objetos"
+					shopItem.Shop = "Objetos"
 				case "Ingredientes de Rituales":
-					item.Shop = "Objetos"
+					shopItem.Shop = "Objetos"
 				case "Ministerio":
-					item.Shop = "Objetos"
+					shopItem.Shop = "Objetos"
 				case "Mortífagos":
-					item.Shop = "Objetos"
+					shopItem.Shop = "Objetos"
 				case "Pociones":
-					item.Shop = "Objetos"
+					shopItem.Shop = "Objetos"
 				case "Propiedades":
-					item.Shop = "Objetos"
+					shopItem.Shop = "Objetos"
 				case "Quidditch":
-					item.Shop = "Objetos"
+					shopItem.Shop = "Objetos"
 				case "Transporte Mágico":
-					item.Shop = "Objetos"
+					shopItem.Shop = "Objetos"
 				case "San Mungo":
-					item.Shop = "Objetos"
+					shopItem.Shop = "Objetos"
 				case "Autorizaciones":
-					item.Shop = "Objetos"
+					shopItem.Shop = "Objetos"
 				case "Premios Misiones":
-					item.Shop = "Objetos"
+					shopItem.Shop = "Objetos"
 				case "Premios Expediciones":
-					item.Shop = "Objetos"
+					shopItem.Shop = "Objetos"
 				case "Premios Nimbus":
-					item.Shop = "Objetos"
+					shopItem.Shop = "Objetos"
 				case "Premios Situaciones":
-					item.Shop = "Objetos"
+					shopItem.Shop = "Objetos"
 				case "Mini-tramas":
-					item.Shop = "Objetos"
+					shopItem.Shop = "Objetos"
 				case "San Duende":
-					item.Shop = "Objetos"
+					shopItem.Shop = "Objetos"
 				case "Hechizos Básicos":
-					item.Shop = "Hechizos"
+					shopItem.Shop = "Hechizos"
 				case "Hechizos de Sanación":
-					item.Shop = "Hechizos"
+					shopItem.Shop = "Hechizos"
 				case "Hechizos de Ataque":
-					item.Shop = "Hechizos"
+					shopItem.Shop = "Hechizos"
 				case "Hechizos de Defensa":
-					item.Shop = "Hechizos"
+					shopItem.Shop = "Hechizos"
 				case "Hechizos de Ataque y Defensa":
-					item.Shop = "Hechizos"
+					shopItem.Shop = "Hechizos"
 				case "Hechizos Aurores":
-					item.Shop = "Hechizos"
+					shopItem.Shop = "Hechizos"
 				case "Hechizos Mortífagos":
-					item.Shop = "Hechizos"
+					shopItem.Shop = "Hechizos"
 				case "Maleficios":
-					item.Shop = "Hechizos"
+					shopItem.Shop = "Hechizos"
 				case "Habilidades Adquiribles":
-					item.Shop = "Habilidades"
+					shopItem.Shop = "Habilidades"
 				case "Habilidades de Licántropos":
-					item.Shop = "Habilidades"
+					shopItem.Shop = "Habilidades"
 				case "Habilidades de Semigigantes":
-					item.Shop = "Habilidades"
+					shopItem.Shop = "Habilidades"
 				case "Habilidades Sirenas":
-					item.Shop = "Habilidades"
+					shopItem.Shop = "Habilidades"
 				case "Habilidades de Vampiros":
-					item.Shop = "Habilidades"
+					shopItem.Shop = "Habilidades"
 				case "Habilidades de Veela":
-					item.Shop = "Habilidades"
+					shopItem.Shop = "Habilidades"
 				case "Habilidades de Híbridos Innatas":
-					item.Shop = "Habilidades"
+					shopItem.Shop = "Habilidades"
 				case "Habilidades de Humanos":
-					item.Shop = "Habilidades"
+					shopItem.Shop = "Habilidades"
+				case "Habilidades Adquiridas":
+					shopItem.Shop = "Habilidades"
+				case "Habilidades Innatas":
+					shopItem.Shop = "Habilidades"
+				case "Razas":
+					shopItem.Shop = "Razas"
 				case "Arcana High Bar":
-					item.Shop = "Costello"
+					shopItem.Shop = "Costello"
 				case "Borgin & Burkes":
-					item.Shop = "Costello"
+					shopItem.Shop = "Costello"
 				case "El Nox":
-					item.Shop = "Costello"
+					shopItem.Shop = "Costello"
 				case "Mortem Gemma":
-					item.Shop = "Costello"
+					shopItem.Shop = "Costello"
 				case "Portafolio":
-					item.Shop = "Costello"
+					shopItem.Shop = "Costello"
 				case "Aquí te tengo tu cariñito":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "Báthory Square Garden":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "Botica Slug & Jiggers":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "Chez Winnie":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "Danceteria Rolling Hall":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "El Lux":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "FLEUR":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "Flourish & Blotts":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "Luxxuria":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "Moonlight Shadow Planetary":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "Mystic Momentum":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "Nym's Treasure":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "Peonie's Ribbon":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "Plants & Seeds":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "Ragnarok":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "Rose":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "Royal Vauxhall Tavern":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "Sacred Lotus":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "Saint Ellis Hospital":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "Sortilegios Weasley":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "Tierra y Cristal":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "Vinos Zabini":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
 				case "Wizarding World Curse":
-					item.Shop = "Negocios"
+					shopItem.Shop = "Negocios"
+				case "Logros de Colaborador del Mes":
+					shopItem.Shop = "Logros"
+				case "Logros de Personaje del Mes":
+					shopItem.Shop = "Logros"
+				case "Logros de Awards":
+					shopItem.Shop = "Logros"
+				case "Logros de Duelos":
+					shopItem.Shop = "Logros"
+				case "Logros de Misiones":
+					shopItem.Shop = "Logros"
+				case "Logros de Expediciones":
+					shopItem.Shop = "Logros"
+				case "Logros de Pociones":
+					shopItem.Shop = "Logros"
+				case "Logros de Nimbus":
+					shopItem.Shop = "Logros"
+				case "Logros de Situaciones":
+					shopItem.Shop = "Logros"
+				case "Logros de Cámara de Creación Mágica":
+					shopItem.Shop = "Logros"
+				case "Logros de Rituales":
+					shopItem.Shop = "Logros"
+				case "Logros de San Mungo":
+					shopItem.Shop = "Logros"
+				case "Logros de Costello":
+					shopItem.Shop = "Logros"
+				case "Logros de Colección de Cromos":
+					shopItem.Shop = "Logros"
+				case "Logros de Top Posteadores":
+					shopItem.Shop = "Logros"
+				case "Logros de Empleo":
+					shopItem.Shop = "Logros"
+				case "Logros de Hall of Fame":
+					shopItem.Shop = "Logros"
+				case "Logros de Torneo de Duelos":
+					shopItem.Shop = "Logros"
+				case "Logros de Torneo de Pociones":
+					shopItem.Shop = "Logros"
+				case "Logros de Torneo de Quidditch Libre":
+					shopItem.Shop = "Logros"
+				case "Logros de Desafío Hogwarts":
+					shopItem.Shop = "Logros"
+				case "Logros de Mortífagos":
+					shopItem.Shop = "Logros"
+				case "Logros de Aurores":
+					shopItem.Shop = "Logros"
 				}
 
 
@@ -315,42 +367,67 @@ func generateSqlQuery(categories []parser.ShopCategory) string {
 		"Hechizos - Hechizos Aurores":                   26,
 		"Hechizos - Hechizos Mortífagos":                27,
 		"Hechizos - Maleficios":                         28,
-		"Habilidades - Habilidades Adquiribles":         29,
-		"Habilidades - Habilidades de Licántropos":      30,
-		"Habilidades - Habilidades de Semigigantes":     31,
-		"Habilidades - Habilidades Sirenas":             32,
-		"Habilidades - Habilidades de Vampiros":         33,
-		"Habilidades - Habilidades de Veela":            34,
-		"Habilidades - Habilidades de Híbridos Innatas": 35,
-		"Habilidades - Habilidades de Humanos":          36,
-		"Costello - Arcana High Bar":                    37,
-		"Costello - Borgin & Burkes":                    38,
-		"Costello - El Nox":                             39,
-		"Costello - Mortem Gemma":                       40,
-		"Costello - Portafolio":                         41,
-		"Negocios - Aquí te tengo tu cariñito":          42,
-		"Negocios - Báthory Square Garden":              43,
-		"Negocios - Botica Slug & Jiggers":              44,
-		"Negocios - Chez Winnie":                        45,
-		"Negocios - Danceteria Rolling Hall":            46,
-		"Negocios - El Lux":                             47,
-		"Negocios - FLEUR":                              48,
-		"Negocios - Flourish & Blotts":                  49,
-		"Negocios - Luxxuria":                           50,
-		"Negocios - Moonlight Shadow Planetary":         51,
-		"Negocios - Mystic Momentum":                    52,
-		"Negocios - Nym's Treasure":                     53,
-		"Negocios - Peonie's Ribbon":                    54,
-		"Negocios - Plants & Seeds":                     55,
-		"Negocios - Ragnarok":                           56,
-		"Negocios - Rose":                               57,
-		"Negocios - Royal Vauxhall Tavern":              58,
-		"Negocios - Sacred Lotus":                       59,
-		"Negocios - Saint Ellis Hospital":               60,
-		"Negocios - Sortilegios Weasley":                61,
-		"Negocios - Tierra y Cristal":                   62,
-		"Negocios - Vinos Zabini":                       63,
-		"Negocios - Wizarding World Curse":              64,
+		"Razas - Razas":                                 29,
+		"Habilidades - Habilidades Innatas":             30,
+		"Habilidades - Habilidades Adquiribles":         31,
+		"Habilidades - Habilidades de Licántropos":      32,
+		"Habilidades - Habilidades de Semigigantes":     33,
+		"Habilidades - Habilidades Sirenas":             34,
+		"Habilidades - Habilidades de Vampiros":         35,
+		"Habilidades - Habilidades de Veela":            36,
+		"Habilidades - Habilidades de Híbridos Innatas": 37,
+		"Habilidades - Habilidades de Humanos":          38,
+		"Costello - Arcana High Bar":                    39,
+		"Costello - Borgin & Burkes":                    40,
+		"Costello - El Nox":                             41,
+		"Costello - Mortem Gemma":                       42,
+		"Costello - Portafolio":                         43,
+		"Negocios - Aquí te tengo tu cariñito":          44,
+		"Negocios - Báthory Square Garden":              45,
+		"Negocios - Botica Slug & Jiggers":              46,
+		"Negocios - Chez Winnie":                        47,
+		"Negocios - Danceteria Rolling Hall":            48,
+		"Negocios - El Lux":                             49,
+		"Negocios - FLEUR":                              50,
+		"Negocios - Flourish & Blotts":                  51,
+		"Negocios - Luxxuria":                           52,
+		"Negocios - Moonlight Shadow Planetary":         53,
+		"Negocios - Mystic Momentum":                    54,
+		"Negocios - Nym's Treasure":                     55,
+		"Negocios - Peonie's Ribbon":                    56,
+		"Negocios - Plants & Seeds":                     57,
+		"Negocios - Ragnarok":                           58,
+		"Negocios - Rose":                               59,
+		"Negocios - Royal Vauxhall Tavern":              60,
+		"Negocios - Sacred Lotus":                       61,
+		"Negocios - Saint Ellis Hospital":               62,
+		"Negocios - Sortilegios Weasley":                63,
+		"Negocios - Tierra y Cristal":                   64,
+		"Negocios - Vinos Zabini":                       65,
+		"Negocios - Wizarding World Curse":              66,
+		"Logros - Logros de Colaborador del Mes":        67,
+		"Logros - Logros de Personaje del Mes":          68,
+		"Logros - Logros de Awards":                     69,
+		"Logros - Logros de Duelos":                     70,
+		"Logros - Logros de Misiones":                   71,
+		"Logros - Logros de Expediciones":               72,
+		"Logros - Logros de Pociones":                   73,
+		"Logros - Logros de Nimbus":                     74,
+		"Logros - Logros de Situaciones":                75,
+		"Logros - Logros de Cámara de Creación Mágica":  76,
+		"Logros - Logros de Rituales":                   77,
+		"Logros - Logros de San Mungo":                  78,
+		"Logros - Logros de Costello":                   79,
+		"Logros - Logros de Colección de Cromos":        80,
+		"Logros - Logros de Top Posteadores":            81,
+		"Logros - Logros de Empleo":                     82,
+		"Logros - Logros de Hall of Fame":               83,
+		"Logros - Logros de Torneo de Duelos":           84,
+		"Logros - Logros de Torneo de Pociones":         85,
+		"Logros - Logros de Torneo de Quidditch Libre":  86,
+		"Logros - Logros de Desafío Hogwarts":           87,
+		"Logros - Logros de Mortífagos":                 88,
+		"Logros - Logros de Aurores":                    89,
 	}
 	sql := ""
 	scvLines := "name|imgurUrl\n"
@@ -359,7 +436,7 @@ func generateSqlQuery(categories []parser.ShopCategory) string {
 
 		for _, item := range cat.Items {
 			name := item.Name
-			image := imageOutputDir + "/" + item.Filename
+			image := "migrated/" + item.Filename
 			description := item.Description
 			price := item.Price
 			stock := "999"
