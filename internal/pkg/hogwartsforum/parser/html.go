@@ -1005,7 +1005,7 @@ func ParseShop(htmlStr string, shopName string, listCategories []ShopCategory) [
 	//var categories []ShopCategory
 
 	// Regular expression to remove special characters
-	re := regexp.MustCompile(`[^\w+]`)
+	//re := regexp.MustCompile(`[^\w+]`)
 
 	// Iterate over each category
 	doc.Find("ul.tabs li span").Each(func(i int, s *goquery.Selection) {
@@ -1019,14 +1019,14 @@ func ParseShop(htmlStr string, shopName string, listCategories []ShopCategory) [
 			itemPrice := f.Find("span.nbprix").Text()
 
 			// Replace spaces with '+' and remove special characters
-			newImgUrl := strings.Trim(itemName, " ")
-			newImgUrl = strings.ReplaceAll(newImgUrl, "á", "a")
-			newImgUrl = strings.ReplaceAll(newImgUrl, "é", "e")
-			newImgUrl = strings.ReplaceAll(newImgUrl, "í", "i")
-			newImgUrl = strings.ReplaceAll(newImgUrl, "ó", "o")
-			newImgUrl = strings.ReplaceAll(newImgUrl, "ú", "u")
-			newImgUrl = strings.ReplaceAll(newImgUrl, " ", "+")
-			newImgUrl = re.ReplaceAllString(newImgUrl, "")
+			//newImgUrl := strings.Trim(itemName, " ")
+			//newImgUrl = strings.ReplaceAll(newImgUrl, "á", "a")
+			//newImgUrl = strings.ReplaceAll(newImgUrl, "é", "e")
+			//newImgUrl = strings.ReplaceAll(newImgUrl, "í", "i")
+			//newImgUrl = strings.ReplaceAll(newImgUrl, "ó", "o")
+			//newImgUrl = strings.ReplaceAll(newImgUrl, "ú", "u")
+			//newImgUrl = strings.ReplaceAll(newImgUrl, " ", "+")
+			//newImgUrl = re.ReplaceAllString(newImgUrl, "")
 
 			for i := range listCategories {
 				cat := &listCategories[i]
@@ -1035,7 +1035,7 @@ func ParseShop(htmlStr string, shopName string, listCategories []ShopCategory) [
 					item := &cat.Items[j]
 
 					if item.Name == strings.Trim(itemName, " ") {
-						item.NewImgUrl = newImgUrl
+						//item.NewImgUrl = newImgUrl
 						item.Price = itemPrice
 						//item.Shop = shopName
 						//item.Category = cat.Name
@@ -1167,6 +1167,7 @@ func CreateCategoriesFromDescriptions(htmlStr string) []ShopCategory {
 				shopItem.Description = strings.TrimSpace(description)
 				shopItem.Category = category.Name
 
+				// ASSIGN SUPERCATEGORY TO SHOPITEM
 				switch shopItem.Category {
 				case "Generales":
 					shopItem.Shop = "Objetos"
@@ -1348,6 +1349,8 @@ func CreateCategoriesFromDescriptions(htmlStr string) []ShopCategory {
 					shopItem.Shop = "Logros"
 				case "Logros de Aurores":
 					shopItem.Shop = "Logros"
+				case "EXTASIS":
+					shopItem.Shop = "Objetos"
 				}
 
 				//insert image into images array if it is not already there

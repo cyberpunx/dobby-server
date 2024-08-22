@@ -3,6 +3,7 @@ INSERT INTO `smf_stshop_categories` (`name`, `image`, `description`) VALUES
 ('Objetos - Armas Blancas', 'blank.gif', ''),
 ('Objetos - Criaturas', 'blank.gif', ''),
 ('Objetos - Estudiantes', 'blank.gif', ''),
+('Objetos - EXTASIS', 'blank.gif', ''),
 ('Objetos - Hogwarts', 'blank.gif', ''),
 ('Objetos - Ingredientes de Rituales', 'blank.gif', ''),
 ('Objetos - Ministerio', 'blank.gif', ''),

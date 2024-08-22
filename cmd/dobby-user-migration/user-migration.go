@@ -16,7 +16,7 @@ import (
 const (
 	loginUsername              = "Desarrollo"
 	loginPassword              = "programación2055"
-	UsersToMigrateFromOldForum = "testUser.csv"
+	UsersToMigrateFromOldForum = "users.csv"
 	ItemTableOnNewForum        = "smf_stshop_items.csv"
 	ItemUrlsCsv                = "items.csv"
 	MemberTableOnNewForum      = "smf_members.csv"
@@ -486,6 +486,8 @@ func SearchItemByImguUrl(imgurUrl string, items []Item) *Item {
 }
 
 func PairItemsToUsers(migratedUsers []MigratedUser, items *[]Item) {
+	totalNotFounditems := 0
+
 	for _, migratedUser := range migratedUsers {
 		var foundItems []Item
 		var notFoundItems []parser.ParsedItem
@@ -506,8 +508,9 @@ func PairItemsToUsers(migratedUsers []MigratedUser, items *[]Item) {
 
 		migratedUser.NewForumUser.Items = &foundItems
 		migratedUser.NewForumUser.NotFoundItems = notFoundItems
-
+		totalNotFounditems += len(notFoundItems)
 	}
+	fmt.Println("Total de items no encontrados: ", totalNotFounditems)
 }
 
 func CreateItems(itemListToCreate []parser.ParsedItem, username string) {

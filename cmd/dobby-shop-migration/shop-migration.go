@@ -1,6 +1,8 @@
 package main
 
 import (
+	"bufio"
+	"encoding/csv"
 	"fmt"
 	"io"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/parser"
@@ -26,6 +28,7 @@ const (
 	negociosInput     = "Negocios"
 	objetosInput      = "Objetos"
 	descricionesInput = "descripciones.html"
+	categoriasInput   = "smf_stshop_categories.csv"
 
 	outputDir      = "output"
 	imageOutputDir = outputDir + "/migrated"
@@ -45,31 +48,7 @@ type config struct {
 }
 
 func main() {
-	// FORUM LOGIN
-	/*
-		s := &session{}
-		var o *tool.Tool
-		serverConfig := model.Config{
-			BaseUrl:         "https://www.hogwartsrol.com/",
-			GSheetTokenFile: "",
-			GSheetCredFile:  "",
-		}
-		client, loginResponse := tool.LoginAndGetCookies(loginUsername, loginPassword)
-		if !*loginResponse.Success {
-			fmt.Println("Usuario y/o Contraseña incorrectos")
-		} else {
-			o = tool.NewTool(&serverConfig, client, nil, nil)
-			secret1, secret2, err := o.GetPostSecrets()
-			if err != nil {
-				fmt.Println("Es posible que el usuario no tenga permisos en el foro / error al obtener secretos")
-			}
-			o.PostSecret1 = &secret1
-			o.PostSecret2 = &secret2
-		}
-		s.Conf.BaseUrl = serverConfig.BaseUrl
-		s.Tool = o
 
-	*/
 	descripcionesContents, err := os.ReadFile(descricionesInput)
 	util.Panic(err)
 	descripcionesHtmlStr := string(descripcionesContents)
@@ -84,230 +63,14 @@ func main() {
 		shopContents, err := os.ReadFile(Shop + ".html")
 		util.Panic(err)
 		shopHtmlStr := string(shopContents)
-
+		//get prices from shop
 		categories = parser.ParseShop(shopHtmlStr, Shop, categories)
-		//fmt.Println(fmt.Sprintf("%s\n", util.MarshalJsonPretty(shops)))
-		/*
-			for _, cat := range categories {
-				err = generateUrlList(cat)
-				util.Panic(err)
-			}
-
-		*/
 
 		for _, cat := range categories {
 			err = processImages(&cat)
 			util.Panic(err)
 		}
 	}
-
-	//fmt.Println(fmt.Sprintf("%s\n", util.MarshalJsonPretty(categories)))
-
-	/*
-		var noShopItems []parser.ShopItem
-		for i, _ := range categories {
-			cat := &categories[i]
-			for j, _ := range cat.Items {
-				item := &cat.Items[j]
-
-
-				switch shopItem.Category {
-				case "Generales":
-					shopItem.Shop = "Objetos"
-				case "Armas Blancas":
-					shopItem.Shop = "Objetos"
-				case "Criaturas":
-					shopItem.Shop = "Objetos"
-				case "Estudiantes":
-					shopItem.Shop = "Objetos"
-				case "Hogwarts":
-					shopItem.Shop = "Objetos"
-				case "Ingredientes de Rituales":
-					shopItem.Shop = "Objetos"
-				case "Ministerio":
-					shopItem.Shop = "Objetos"
-				case "Mortífagos":
-					shopItem.Shop = "Objetos"
-				case "Pociones":
-					shopItem.Shop = "Objetos"
-				case "Propiedades":
-					shopItem.Shop = "Objetos"
-				case "Quidditch":
-					shopItem.Shop = "Objetos"
-				case "Transporte Mágico":
-					shopItem.Shop = "Objetos"
-				case "San Mungo":
-					shopItem.Shop = "Objetos"
-				case "Autorizaciones":
-					shopItem.Shop = "Objetos"
-				case "Premios Misiones":
-					shopItem.Shop = "Objetos"
-				case "Premios Expediciones":
-					shopItem.Shop = "Objetos"
-				case "Premios Nimbus":
-					shopItem.Shop = "Objetos"
-				case "Premios Situaciones":
-					shopItem.Shop = "Objetos"
-				case "Mini-tramas":
-					shopItem.Shop = "Objetos"
-				case "San Duende":
-					shopItem.Shop = "Objetos"
-				case "Hechizos Básicos":
-					shopItem.Shop = "Hechizos"
-				case "Hechizos de Sanación":
-					shopItem.Shop = "Hechizos"
-				case "Hechizos de Ataque":
-					shopItem.Shop = "Hechizos"
-				case "Hechizos de Defensa":
-					shopItem.Shop = "Hechizos"
-				case "Hechizos de Ataque y Defensa":
-					shopItem.Shop = "Hechizos"
-				case "Hechizos Aurores":
-					shopItem.Shop = "Hechizos"
-				case "Hechizos Mortífagos":
-					shopItem.Shop = "Hechizos"
-				case "Maleficios":
-					shopItem.Shop = "Hechizos"
-				case "Habilidades Adquiribles":
-					shopItem.Shop = "Habilidades"
-				case "Habilidades de Licántropos":
-					shopItem.Shop = "Habilidades"
-				case "Habilidades de Semigigantes":
-					shopItem.Shop = "Habilidades"
-				case "Habilidades Sirenas":
-					shopItem.Shop = "Habilidades"
-				case "Habilidades de Vampiros":
-					shopItem.Shop = "Habilidades"
-				case "Habilidades de Veela":
-					shopItem.Shop = "Habilidades"
-				case "Habilidades de Híbridos Innatas":
-					shopItem.Shop = "Habilidades"
-				case "Habilidades de Humanos":
-					shopItem.Shop = "Habilidades"
-				case "Habilidades Adquiridas":
-					shopItem.Shop = "Habilidades"
-				case "Habilidades Innatas":
-					shopItem.Shop = "Habilidades"
-				case "Razas":
-					shopItem.Shop = "Razas"
-				case "Arcana High Bar":
-					shopItem.Shop = "Costello"
-				case "Borgin & Burkes":
-					shopItem.Shop = "Costello"
-				case "El Nox":
-					shopItem.Shop = "Costello"
-				case "Mortem Gemma":
-					shopItem.Shop = "Costello"
-				case "Portafolio":
-					shopItem.Shop = "Costello"
-				case "Aquí te tengo tu cariñito":
-					shopItem.Shop = "Negocios"
-				case "Báthory Square Garden":
-					shopItem.Shop = "Negocios"
-				case "Botica Slug & Jiggers":
-					shopItem.Shop = "Negocios"
-				case "Chez Winnie":
-					shopItem.Shop = "Negocios"
-				case "Danceteria Rolling Hall":
-					shopItem.Shop = "Negocios"
-				case "El Lux":
-					shopItem.Shop = "Negocios"
-				case "FLEUR":
-					shopItem.Shop = "Negocios"
-				case "Flourish & Blotts":
-					shopItem.Shop = "Negocios"
-				case "Luxxuria":
-					shopItem.Shop = "Negocios"
-				case "Moonlight Shadow Planetary":
-					shopItem.Shop = "Negocios"
-				case "Mystic Momentum":
-					shopItem.Shop = "Negocios"
-				case "Nym's Treasure":
-					shopItem.Shop = "Negocios"
-				case "Peonie's Ribbon":
-					shopItem.Shop = "Negocios"
-				case "Plants & Seeds":
-					shopItem.Shop = "Negocios"
-				case "Ragnarok":
-					shopItem.Shop = "Negocios"
-				case "Rose":
-					shopItem.Shop = "Negocios"
-				case "Royal Vauxhall Tavern":
-					shopItem.Shop = "Negocios"
-				case "Sacred Lotus":
-					shopItem.Shop = "Negocios"
-				case "Saint Ellis Hospital":
-					shopItem.Shop = "Negocios"
-				case "Sortilegios Weasley":
-					shopItem.Shop = "Negocios"
-				case "Tierra y Cristal":
-					shopItem.Shop = "Negocios"
-				case "Vinos Zabini":
-					shopItem.Shop = "Negocios"
-				case "Wizarding World Curse":
-					shopItem.Shop = "Negocios"
-				case "Logros de Colaborador del Mes":
-					shopItem.Shop = "Logros"
-				case "Logros de Personaje del Mes":
-					shopItem.Shop = "Logros"
-				case "Logros de Awards":
-					shopItem.Shop = "Logros"
-				case "Logros de Duelos":
-					shopItem.Shop = "Logros"
-				case "Logros de Misiones":
-					shopItem.Shop = "Logros"
-				case "Logros de Expediciones":
-					shopItem.Shop = "Logros"
-				case "Logros de Pociones":
-					shopItem.Shop = "Logros"
-				case "Logros de Nimbus":
-					shopItem.Shop = "Logros"
-				case "Logros de Situaciones":
-					shopItem.Shop = "Logros"
-				case "Logros de Cámara de Creación Mágica":
-					shopItem.Shop = "Logros"
-				case "Logros de Rituales":
-					shopItem.Shop = "Logros"
-				case "Logros de San Mungo":
-					shopItem.Shop = "Logros"
-				case "Logros de Costello":
-					shopItem.Shop = "Logros"
-				case "Logros de Colección de Cromos":
-					shopItem.Shop = "Logros"
-				case "Logros de Top Posteadores":
-					shopItem.Shop = "Logros"
-				case "Logros de Empleo":
-					shopItem.Shop = "Logros"
-				case "Logros de Hall of Fame":
-					shopItem.Shop = "Logros"
-				case "Logros de Torneo de Duelos":
-					shopItem.Shop = "Logros"
-				case "Logros de Torneo de Pociones":
-					shopItem.Shop = "Logros"
-				case "Logros de Torneo de Quidditch Libre":
-					shopItem.Shop = "Logros"
-				case "Logros de Desafío Hogwarts":
-					shopItem.Shop = "Logros"
-				case "Logros de Mortífagos":
-					shopItem.Shop = "Logros"
-				case "Logros de Aurores":
-					shopItem.Shop = "Logros"
-				}
-
-
-
-				if item.Shop == "" {
-					noShopItems = append(noShopItems, *item)
-				}
-
-				if len(noShopItems) > 0 {
-					fmt.Println("!!! Items sin tienda:")
-					fmt.Println(fmt.Sprintf("%s\n", util.MarshalJsonPretty(noShopItems)))
-				}
-			}
-		}
-
-	*/
 
 	queries := generateSqlQuery(categories)
 	//create query file
@@ -337,98 +100,47 @@ type smf_stshop_items struct {
 	imgurUrl         string
 }
 
-func generateSqlQuery(categories []parser.ShopCategory) string {
-	catList := map[string]int{
-		"Objetos - Generales":                           1,
-		"Objetos - Armas Blancas":                       2,
-		"Objetos - Criaturas":                           3,
-		"Objetos - Estudiantes":                         4,
-		"Objetos - Hogwarts":                            5,
-		"Objetos - Ingredientes de Rituales":            6,
-		"Objetos - Ministerio":                          7,
-		"Objetos - Mortífagos":                          8,
-		"Objetos - Pociones":                            9,
-		"Objetos - Propiedades":                         10,
-		"Objetos - Quidditch":                           11,
-		"Objetos - Transporte Mágico":                   12,
-		"Objetos - San Mungo":                           13,
-		"Objetos - Autorizaciones":                      14,
-		"Objetos - Premios Misiones":                    15,
-		"Objetos - Premios Expediciones":                16,
-		"Objetos - Premios Nimbus":                      17,
-		"Objetos - Premios Situaciones":                 18,
-		"Objetos - Mini-tramas":                         19,
-		"Objetos - San Duende":                          20,
-		"Hechizos - Hechizos Básicos":                   21,
-		"Hechizos - Hechizos de Sanación":               22,
-		"Hechizos - Hechizos de Ataque":                 23,
-		"Hechizos - Hechizos de Defensa":                24,
-		"Hechizos - Hechizos de Ataque y Defensa":       25,
-		"Hechizos - Hechizos Aurores":                   26,
-		"Hechizos - Hechizos Mortífagos":                27,
-		"Hechizos - Maleficios":                         28,
-		"Razas - Razas":                                 29,
-		"Habilidades - Habilidades Innatas":             30,
-		"Habilidades - Habilidades Adquiribles":         31,
-		"Habilidades - Habilidades de Licántropos":      32,
-		"Habilidades - Habilidades de Semigigantes":     33,
-		"Habilidades - Habilidades Sirenas":             34,
-		"Habilidades - Habilidades de Vampiros":         35,
-		"Habilidades - Habilidades de Veela":            36,
-		"Habilidades - Habilidades de Híbridos Innatas": 37,
-		"Habilidades - Habilidades de Humanos":          38,
-		"Costello - Arcana High Bar":                    39,
-		"Costello - Borgin & Burkes":                    40,
-		"Costello - El Nox":                             41,
-		"Costello - Mortem Gemma":                       42,
-		"Costello - Portafolio":                         43,
-		"Negocios - Aquí te tengo tu cariñito":          44,
-		"Negocios - Báthory Square Garden":              45,
-		"Negocios - Botica Slug & Jiggers":              46,
-		"Negocios - Chez Winnie":                        47,
-		"Negocios - Danceteria Rolling Hall":            48,
-		"Negocios - El Lux":                             49,
-		"Negocios - FLEUR":                              50,
-		"Negocios - Flourish & Blotts":                  51,
-		"Negocios - Luxxuria":                           52,
-		"Negocios - Moonlight Shadow Planetary":         53,
-		"Negocios - Mystic Momentum":                    54,
-		"Negocios - Nym's Treasure":                     55,
-		"Negocios - Peonie's Ribbon":                    56,
-		"Negocios - Plants & Seeds":                     57,
-		"Negocios - Ragnarok":                           58,
-		"Negocios - Rose":                               59,
-		"Negocios - Royal Vauxhall Tavern":              60,
-		"Negocios - Sacred Lotus":                       61,
-		"Negocios - Saint Ellis Hospital":               62,
-		"Negocios - Sortilegios Weasley":                63,
-		"Negocios - Tierra y Cristal":                   64,
-		"Negocios - Vinos Zabini":                       65,
-		"Negocios - Wizarding World Curse":              66,
-		"Logros - Logros de Colaborador del Mes":        67,
-		"Logros - Logros de Personaje del Mes":          68,
-		"Logros - Logros de Awards":                     69,
-		"Logros - Logros de Duelos":                     70,
-		"Logros - Logros de Misiones":                   71,
-		"Logros - Logros de Expediciones":               72,
-		"Logros - Logros de Pociones":                   73,
-		"Logros - Logros de Nimbus":                     74,
-		"Logros - Logros de Situaciones":                75,
-		"Logros - Logros de Cámara de Creación Mágica":  76,
-		"Logros - Logros de Rituales":                   77,
-		"Logros - Logros de San Mungo":                  78,
-		"Logros - Logros de Costello":                   79,
-		"Logros - Logros de Colección de Cromos":        80,
-		"Logros - Logros de Top Posteadores":            81,
-		"Logros - Logros de Empleo":                     82,
-		"Logros - Logros de Hall of Fame":               83,
-		"Logros - Logros de Torneo de Duelos":           84,
-		"Logros - Logros de Torneo de Pociones":         85,
-		"Logros - Logros de Torneo de Quidditch Libre":  86,
-		"Logros - Logros de Desafío Hogwarts":           87,
-		"Logros - Logros de Mortífagos":                 88,
-		"Logros - Logros de Aurores":                    89,
+func readCategoriesFromCsv() map[string]int {
+	csvFile, err := os.Open(categoriasInput)
+	util.Panic(err)
+	defer csvFile.Close()
+
+	csvReader := csv.NewReader(bufio.NewReader(csvFile))
+	csvReader.Comma = csvDelimiter
+	csvReader.LazyQuotes = true
+
+	categories := make(map[string]int)
+
+	for {
+		record, err := csvReader.Read()
+		if err == io.EOF {
+			break
+		}
+		//if first line, skip
+		if record[0] == "catid" {
+			continue
+		}
+		util.Panic(err)
+		catid := record[0]
+		//remove quotes
+		catid = strings.ReplaceAll(catid, "\"", "")
+		catid = strings.TrimSpace(catid)
+		id, err := strconv.Atoi(catid)
+		util.Panic(err)
+
+		catName := record[1]
+		//remove quotes
+		catName = strings.ReplaceAll(catName, "\"", "")
+		catName = strings.TrimSpace(catName)
+
+		categories[catName] = id
 	}
+
+	return categories
+}
+
+func generateSqlQuery(categories []parser.ShopCategory) string {
+	catList := readCategoriesFromCsv()
 	sql := ""
 	scvLines := "name|imgurUrl\n"
 
@@ -452,6 +164,9 @@ func generateSqlQuery(categories []parser.ShopCategory) string {
 			can_use_item := "0"
 			delete_after_use := "0"
 			catid := strconv.Itoa(catList[item.Shop+" - "+item.Category])
+			if catid == "0" {
+				fmt.Println("Categoria no encontrada: " + item.Shop + " - " + item.Category)
+			}
 			status := "0"
 			itemlimit := "0"
 
