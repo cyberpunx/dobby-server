@@ -27,7 +27,7 @@ const (
 	hechizosInput     = "Hechizos"
 	negociosInput     = "Negocios"
 	objetosInput      = "Objetos"
-	descricionesInput = "descripciones.html"
+	descricionesInput = "descripciones.txt"
 	categoriasInput   = "smf_stshop_categories.csv"
 
 	outputDir      = "output"
@@ -170,40 +170,6 @@ func generateSqlQuery(categories []parser.ShopCategory) string {
 			status := "0"
 			itemlimit := "0"
 
-			//ARREGLO MASCARAS DE MORTIFAGOS
-			switch item.Name {
-			case "Máscaras 1":
-				name = "Máscara de Mortífago 1"
-				image = "migrated/Objetos____Mortifagos____Mascaras_1.png"
-			case "Máscaras 2":
-				name = "Máscara de Mortífago 2"
-				image = "migrated/Objetos____Mortifagos____Mascaras_2.png"
-			case "Máscaras 3":
-				name = "Máscara de Mortífago 3"
-				image = "migrated/Objetos____Mortifagos____Mascaras_3.png"
-			case "Máscaras 4":
-				name = "Máscara de Mortífago 4"
-				image = "migrated/Objetos____Mortifagos____Mascaras_4.png"
-			case "Máscaras 5":
-				name = "Máscara de Mortífago 5"
-				image = "migrated/Objetos____Mortifagos____Mascaras_5.png"
-			case "Máscaras 6":
-				name = "Máscara de Mortífago 6"
-				image = "migrated/Objetos____Mortifagos____Mascaras_6.png"
-			case "Máscaras 7":
-				name = "Máscara de Mortífago 7"
-				image = "migrated/Objetos____Mortifagos____Mascaras_7.png"
-			case "Máscaras 8":
-				name = "Máscara de Mortífago 8"
-				image = "migrated/Objetos____Mortifagos____Mascaras_8.png"
-			case "Máscaras 9":
-				name = "Máscara de Mortífago 9"
-				image = "migrated/Objetos____Mortifagos____Mascaras_9.png"
-			case "Máscaras 10":
-				name = "Máscara de Mortífago 10"
-				image = "migrated/Objetos____Mortifagos____Mascaras_10.png"
-			}
-
 			query := fmt.Sprintf("INSERT INTO `smf_stshop_items` (`name`, `image`, `description`, `price`, `stock`, `module`, `info1`, `info2`, `info3`, `info4`, `input_needed`, `can_use_item`, `delete_after_use`, `catid`, `status`, `itemlimit`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');", name, image, description, price, stock, module, info1, info2, info3, info4, input_needed, can_use_item, delete_after_use, catid, status, itemlimit)
 			sql += query + "\n"
 			scvLines += fmt.Sprintf("%s|%s\n", name, item.ImgUrl)
@@ -315,13 +281,6 @@ func processImages(category *parser.ShopCategory) error {
 		parts := strings.Split(item.ImgUrl, "/")
 		originalFileName := parts[len(parts)-1]
 		extension := filepath.Ext(originalFileName)
-
-		if extension == ".gif" {
-			extension = ".mp4"
-			//remove extension from originalFileName
-			originalFileName = strings.TrimSuffix(originalFileName, filepath.Ext(originalFileName))
-			originalFileName = originalFileName + extension
-		}
 
 		originalFileName = strings.TrimSpace(originalFileName)
 		originalFileName = strings.ReplaceAll(originalFileName, "á", "a")

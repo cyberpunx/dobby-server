@@ -5,11 +5,14 @@ import (
 	"encoding/csv"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"localdev/dobby-server/internal/app/dobby-server/model"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/parser"
 	"localdev/dobby-server/internal/pkg/hogwartsforum/tool"
 	"localdev/dobby-server/internal/pkg/util"
 	"os"
+	"regexp"
+	"sort"
 	"strings"
 )
 
@@ -464,6 +467,53 @@ func PairUsersBasedOnUsername(oldUsers []OldForumUser, newUsers []NewForumUser) 
 }
 
 func SearchItemByName(itemName string, items []Item) *Item {
+	//Catch some badly written itemNames
+	if itemName == "Solución Encongedora" {
+		itemName = "Solución Encogedora"
+	}
+	if strings.HasPrefix(itemName, "Autorización Premium") {
+		itemName = "Autorización Premium"
+	}
+	if strings.HasPrefix(itemName, "Autorización Luxury") {
+		itemName = "Autorización Luxury"
+	}
+	if strings.HasPrefix(itemName, "Autorización Standard") {
+		itemName = "Autorización Standard"
+	}
+	if strings.HasPrefix(itemName, "PJ del Mes") {
+		itemName = "PJ del Mes"
+	}
+	if itemName == "Máscara 1" {
+		itemName = "Máscara de Mortífago 1"
+	}
+	if itemName == "Máscara 2" {
+		itemName = "Máscara de Mortífago 2"
+	}
+	if itemName == "Máscara 3" {
+		itemName = "Máscara de Mortífago 3"
+	}
+	if itemName == "Máscara 4" {
+		itemName = "Máscara de Mortífago 4"
+	}
+	if itemName == "Máscara 5" {
+		itemName = "Máscara de Mortífago 5"
+	}
+	if itemName == "Máscara 6" {
+		itemName = "Máscara de Mortífago 6"
+	}
+	if itemName == "Máscara 7" {
+		itemName = "Máscara de Mortífago 7"
+	}
+	if itemName == "Máscara 8" {
+		itemName = "Máscara de Mortífago 8"
+	}
+	if itemName == "Máscara 9" {
+		itemName = "Máscara de Mortífago 9"
+	}
+	if itemName == "Máscara 10" {
+		itemName = "Máscara de Mortífago 10"
+	}
+
 	//remove consecutive spaces from itemName
 	itemName = strings.Join(strings.Fields(itemName), " ")
 	//trim spaces from itemName
@@ -486,31 +536,103 @@ func SearchItemByImguUrl(imgurUrl string, items []Item) *Item {
 }
 
 func PairItemsToUsers(migratedUsers []MigratedUser, items *[]Item) {
-	totalNotFounditems := 0
+	var totalFoundItems []Item
+	var totalNotFoundItems []parser.ParsedItem
 
 	for _, migratedUser := range migratedUsers {
-		var foundItems []Item
-		var notFoundItems []parser.ParsedItem
+		var userFoundItems []Item
+		var userNotFoundItems []parser.ParsedItem
 
 		for _, oldItem := range migratedUser.OldForumUser.TotalItems {
 			foundItem := SearchItem(oldItem, *items)
 			if foundItem != nil {
-				foundItems = append(foundItems, *foundItem)
+				userFoundItems = append(userFoundItems, *foundItem)
 			} else {
-				notFoundItems = append(notFoundItems, oldItem)
+				userNotFoundItems = append(userNotFoundItems, oldItem)
 			}
 		}
 
-		if len(notFoundItems) > 0 {
-			CreateItems(notFoundItems, migratedUser.Username)
-			fmt.Println(migratedUser.Username+" items para insertar: ", len(notFoundItems))
+		if len(userNotFoundItems) > 0 {
+			CreateItems(userNotFoundItems, migratedUser.Username)
+			fmt.Println(migratedUser.Username+" items para insertar: ", len(userNotFoundItems))
 		}
 
-		migratedUser.NewForumUser.Items = &foundItems
-		migratedUser.NewForumUser.NotFoundItems = notFoundItems
-		totalNotFounditems += len(notFoundItems)
+		migratedUser.NewForumUser.Items = &userFoundItems
+		migratedUser.NewForumUser.NotFoundItems = userNotFoundItems
+
+		totalFoundItems = append(totalFoundItems, userFoundItems...)
+		totalNotFoundItems = append(totalNotFoundItems, userNotFoundItems...)
 	}
-	fmt.Println("Total de items no encontrados: ", totalNotFounditems)
+
+	//itemsToInsertIntoDatabase are the totalNotFoundItems without the duplicates
+	//an item is a duplicate if the item Name and the item ImageUrl are the same
+	var itemsToInsertIntoDatabase []parser.ParsedItem
+
+	for _, item := range totalNotFoundItems {
+		isDuplicate := false
+		for _, itemToInsert := range itemsToInsertIntoDatabase {
+			if item.Name == itemToInsert.Name && item.ImageUrl == itemToInsert.ImageUrl {
+				isDuplicate = true
+				break
+			}
+		}
+		if !isDuplicate {
+			itemsToInsertIntoDatabase = append(itemsToInsertIntoDatabase, item)
+		}
+	}
+
+	fmt.Println("Total de items encontrados: ", len(totalFoundItems))
+	fmt.Println("Total de items no encontrados: ", len(totalNotFoundItems))
+	fmt.Println("Total de items a insertar en la base de datos: ", len(itemsToInsertIntoDatabase))
+
+	//Create SQL quety to insert items into database
+	CreateItems(itemsToInsertIntoDatabase, "ITEMS-SIN-CATEGORIA")
+
+	ReadReport()
+}
+
+func ReadReport() {
+	data, err := ioutil.ReadFile("items_to_insert.html")
+	if err != nil {
+		fmt.Println("Error al leer el archivo:", err)
+		os.Exit(1)
+	}
+
+	// Convierte el contenido a string
+	content := string(data)
+	re := regexp.MustCompile(`<strong>(.*?)<\/strong>`)
+	matches := re.FindAllStringSubmatch(content, -1)
+
+	// Mapa para contar las ocurrencias
+	counts := make(map[string]int)
+
+	// Itera sobre los matches y cuenta las ocurrencias
+	for _, match := range matches {
+		item := strings.TrimSpace(match[1])
+		counts[item]++
+	}
+
+	// Convertir el mapa a un slice de pares (item, count)
+	type kv struct {
+		Key   string
+		Value int
+	}
+
+	var sortedItems []kv
+	for k, v := range counts {
+		sortedItems = append(sortedItems, kv{k, v})
+	}
+
+	// Ordenar el slice por el valor (count) de mayor a menor
+	sort.Slice(sortedItems, func(i, j int) bool {
+		return sortedItems[i].Value > sortedItems[j].Value
+	})
+
+	// Imprimir los resultados ordenados
+	for _, kv := range sortedItems {
+		fmt.Printf("%s: %d\n", kv.Key, kv.Value)
+	}
+
 }
 
 func CreateItems(itemListToCreate []parser.ParsedItem, username string) {
@@ -519,6 +641,15 @@ func CreateItems(itemListToCreate []parser.ParsedItem, username string) {
 	for _, itemToCreate := range itemListToCreate {
 		imgurUrl := itemToCreate.ImageUrl
 		name := itemToCreate.Name
+
+		if name == "" {
+			fmt.Println("Nombre vacío: ")
+			continue
+		}
+		if imgurUrl == "" {
+			fmt.Println("Url de imagen vacía")
+			continue
+		}
 
 		descLine := "\t<img src=\"{url}\"/>\n\t• <strong>{Nombre}</strong><br />{descripcion}<br />"
 		descLine = strings.ReplaceAll(descLine, "{url}", imgurUrl)

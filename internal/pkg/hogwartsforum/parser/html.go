@@ -1015,7 +1015,7 @@ func ParseShop(htmlStr string, shopName string, listCategories []ShopCategory) [
 		// Find corresponding items in the tab content
 		doc.Find("ul.tab__content li").Eq(i).Find("figure").Each(func(j int, f *goquery.Selection) {
 			itemName := f.Find("span.i_n").Text()
-			itemImgUrl, _ := f.Find("img").Attr("src")
+			//itemImgUrl, _ := f.Find("img").Attr("src")
 			itemPrice := f.Find("span.nbprix").Text()
 
 			// Replace spaces with '+' and remove special characters
@@ -1039,7 +1039,7 @@ func ParseShop(htmlStr string, shopName string, listCategories []ShopCategory) [
 						item.Price = itemPrice
 						//item.Shop = shopName
 						//item.Category = cat.Name
-						item.ImgUrl = itemImgUrl
+						//item.ImgUrl = itemImgUrl
 					}
 				}
 			}
@@ -1168,190 +1168,7 @@ func CreateCategoriesFromDescriptions(htmlStr string) []ShopCategory {
 				shopItem.Category = category.Name
 
 				// ASSIGN SUPERCATEGORY TO SHOPITEM
-				switch shopItem.Category {
-				case "Generales":
-					shopItem.Shop = "Objetos"
-				case "Armas Blancas":
-					shopItem.Shop = "Objetos"
-				case "Criaturas":
-					shopItem.Shop = "Objetos"
-				case "Estudiantes":
-					shopItem.Shop = "Objetos"
-				case "Hogwarts":
-					shopItem.Shop = "Objetos"
-				case "Ingredientes de Rituales":
-					shopItem.Shop = "Objetos"
-				case "Ministerio":
-					shopItem.Shop = "Objetos"
-				case "Mortífagos":
-					shopItem.Shop = "Objetos"
-				case "Pociones":
-					shopItem.Shop = "Objetos"
-				case "Propiedades":
-					shopItem.Shop = "Objetos"
-				case "Quidditch":
-					shopItem.Shop = "Objetos"
-				case "Transporte Mágico":
-					shopItem.Shop = "Objetos"
-				case "San Mungo":
-					shopItem.Shop = "Objetos"
-				case "Autorizaciones":
-					shopItem.Shop = "Objetos"
-				case "Premios Misiones":
-					shopItem.Shop = "Objetos"
-				case "Premios Expediciones":
-					shopItem.Shop = "Objetos"
-				case "Premios Nimbus":
-					shopItem.Shop = "Objetos"
-				case "Premios Situaciones":
-					shopItem.Shop = "Objetos"
-				case "Mini-tramas":
-					shopItem.Shop = "Objetos"
-				case "San Duende":
-					shopItem.Shop = "Objetos"
-				case "Hechizos Básicos":
-					shopItem.Shop = "Hechizos"
-				case "Hechizos de Sanación":
-					shopItem.Shop = "Hechizos"
-				case "Hechizos de Ataque":
-					shopItem.Shop = "Hechizos"
-				case "Hechizos de Defensa":
-					shopItem.Shop = "Hechizos"
-				case "Hechizos de Ataque y Defensa":
-					shopItem.Shop = "Hechizos"
-				case "Hechizos Aurores":
-					shopItem.Shop = "Hechizos"
-				case "Hechizos Mortífagos":
-					shopItem.Shop = "Hechizos"
-				case "Maleficios":
-					shopItem.Shop = "Hechizos"
-				case "Habilidades Adquiribles":
-					shopItem.Shop = "Habilidades"
-				case "Habilidades de Licántropos":
-					shopItem.Shop = "Habilidades"
-				case "Habilidades de Semigigantes":
-					shopItem.Shop = "Habilidades"
-				case "Habilidades Sirenas":
-					shopItem.Shop = "Habilidades"
-				case "Habilidades de Vampiros":
-					shopItem.Shop = "Habilidades"
-				case "Habilidades de Veela":
-					shopItem.Shop = "Habilidades"
-				case "Habilidades de Híbridos Innatas":
-					shopItem.Shop = "Habilidades"
-				case "Habilidades de Humanos":
-					shopItem.Shop = "Habilidades"
-				case "Habilidades Adquiridas":
-					shopItem.Shop = "Habilidades"
-				case "Habilidades Innatas":
-					shopItem.Shop = "Habilidades"
-				case "Razas":
-					shopItem.Shop = "Razas"
-				case "Arcana High Bar":
-					shopItem.Shop = "Costello"
-				case "Borgin & Burkes":
-					shopItem.Shop = "Costello"
-				case "El Nox":
-					shopItem.Shop = "Costello"
-				case "Mortem Gemma":
-					shopItem.Shop = "Costello"
-				case "Portafolio":
-					shopItem.Shop = "Costello"
-				case "Aquí te tengo tu cariñito":
-					shopItem.Shop = "Negocios"
-				case "Báthory Square Garden":
-					shopItem.Shop = "Negocios"
-				case "Botica Slug & Jiggers":
-					shopItem.Shop = "Negocios"
-				case "Chez Winnie":
-					shopItem.Shop = "Negocios"
-				case "Danceteria Rolling Hall":
-					shopItem.Shop = "Negocios"
-				case "El Lux":
-					shopItem.Shop = "Negocios"
-				case "FLEUR":
-					shopItem.Shop = "Negocios"
-				case "Flourish & Blotts":
-					shopItem.Shop = "Negocios"
-				case "Luxxuria":
-					shopItem.Shop = "Negocios"
-				case "Moonlight Shadow Planetary":
-					shopItem.Shop = "Negocios"
-				case "Mystic Momentum":
-					shopItem.Shop = "Negocios"
-				case "Nym's Treasure":
-					shopItem.Shop = "Negocios"
-				case "Peonie's Ribbon":
-					shopItem.Shop = "Negocios"
-				case "Plants & Seeds":
-					shopItem.Shop = "Negocios"
-				case "Ragnarok":
-					shopItem.Shop = "Negocios"
-				case "Rose":
-					shopItem.Shop = "Negocios"
-				case "Royal Vauxhall Tavern":
-					shopItem.Shop = "Negocios"
-				case "Sacred Lotus":
-					shopItem.Shop = "Negocios"
-				case "Saint Ellis Hospital":
-					shopItem.Shop = "Negocios"
-				case "Sortilegios Weasley":
-					shopItem.Shop = "Negocios"
-				case "Tierra y Cristal":
-					shopItem.Shop = "Negocios"
-				case "Vinos Zabini":
-					shopItem.Shop = "Negocios"
-				case "Wizarding World Curse":
-					shopItem.Shop = "Negocios"
-				case "Logros de Colaborador del Mes":
-					shopItem.Shop = "Logros"
-				case "Logros de Personaje del Mes":
-					shopItem.Shop = "Logros"
-				case "Logros de Awards":
-					shopItem.Shop = "Logros"
-				case "Logros de Duelos":
-					shopItem.Shop = "Logros"
-				case "Logros de Misiones":
-					shopItem.Shop = "Logros"
-				case "Logros de Expediciones":
-					shopItem.Shop = "Logros"
-				case "Logros de Pociones":
-					shopItem.Shop = "Logros"
-				case "Logros de Nimbus":
-					shopItem.Shop = "Logros"
-				case "Logros de Situaciones":
-					shopItem.Shop = "Logros"
-				case "Logros de Cámara de Creación Mágica":
-					shopItem.Shop = "Logros"
-				case "Logros de Rituales":
-					shopItem.Shop = "Logros"
-				case "Logros de San Mungo":
-					shopItem.Shop = "Logros"
-				case "Logros de Costello":
-					shopItem.Shop = "Logros"
-				case "Logros de Colección de Cromos":
-					shopItem.Shop = "Logros"
-				case "Logros de Top Posteadores":
-					shopItem.Shop = "Logros"
-				case "Logros de Empleo":
-					shopItem.Shop = "Logros"
-				case "Logros de Hall of Fame":
-					shopItem.Shop = "Logros"
-				case "Logros de Torneo de Duelos":
-					shopItem.Shop = "Logros"
-				case "Logros de Torneo de Pociones":
-					shopItem.Shop = "Logros"
-				case "Logros de Torneo de Quidditch Libre":
-					shopItem.Shop = "Logros"
-				case "Logros de Desafío Hogwarts":
-					shopItem.Shop = "Logros"
-				case "Logros de Mortífagos":
-					shopItem.Shop = "Logros"
-				case "Logros de Aurores":
-					shopItem.Shop = "Logros"
-				case "EXTASIS":
-					shopItem.Shop = "Objetos"
-				}
+				shopItem.Shop = AssignShopToCategory(shopItem.Category)
 
 				//insert image into images array if it is not already there
 				if !util.Contains(images, shopItem.ImgUrl) {
@@ -1446,4 +1263,194 @@ func ExtractImageURL(input string) (string, error) {
 	// Extraer la URL de la imagen
 	url := input[startIndex : startIndex+endIndex]
 	return url, nil
+}
+
+func AssignShopToCategory(category string) string {
+	switch category {
+	case "Generales":
+		return "Objetos"
+	case "Armas Blancas":
+		return "Objetos"
+	case "Criaturas":
+		return "Objetos"
+	case "Estudiantes":
+		return "Objetos"
+	case "Hogwarts":
+		return "Objetos"
+	case "Ingredientes de Rituales":
+		return "Objetos"
+	case "Ministerio":
+		return "Objetos"
+	case "Mortífagos":
+		return "Objetos"
+	case "Pociones":
+		return "Objetos"
+	case "Propiedades":
+		return "Objetos"
+	case "Quidditch":
+		return "Objetos"
+	case "Transporte Mágico":
+		return "Objetos"
+	case "San Mungo":
+		return "Objetos"
+	case "Autorizaciones":
+		return "Objetos"
+	case "Premios Misiones":
+		return "Objetos"
+	case "Premios Expediciones":
+		return "Objetos"
+	case "Premios Nimbus":
+		return "Objetos"
+	case "Premios Situaciones":
+		return "Objetos"
+	case "Minitramas":
+		return "Objetos"
+	case "San Duende":
+		return "Objetos"
+	case "Items Únicos":
+		return "Objetos"
+	case "Eventos":
+		return "Objetos"
+	case "Hechizos Básicos":
+		return "Hechizos"
+	case "Hechizos de Sanación":
+		return "Hechizos"
+	case "Hechizos de Ataque":
+		return "Hechizos"
+	case "Hechizos de Defensa":
+		return "Hechizos"
+	case "Hechizos de Ataque y Defensa":
+		return "Hechizos"
+	case "Hechizos Aurores":
+		return "Hechizos"
+	case "Hechizos Mortífagos":
+		return "Hechizos"
+	case "Maleficios":
+		return "Hechizos"
+	case "Habilidades Adquiribles":
+		return "Habilidades"
+	case "Habilidades de Licántropos":
+		return "Habilidades"
+	case "Habilidades de Semigigantes":
+		return "Habilidades"
+	case "Habilidades Sirenas":
+		return "Habilidades"
+	case "Habilidades de Vampiros":
+		return "Habilidades"
+	case "Habilidades de Veela":
+		return "Habilidades"
+	case "Habilidades de Híbridos Innatas":
+		return "Habilidades"
+	case "Habilidades de Humanos":
+		return "Habilidades"
+	case "Habilidades Adquiridas":
+		return "Habilidades"
+	case "Habilidades Innatas":
+		return "Habilidades"
+	case "Razas":
+		return "Razas"
+	case "Arcana High Bar":
+		return "Costello"
+	case "Borgin & Burkes":
+		return "Costello"
+	case "El Nox":
+		return "Costello"
+	case "Mortem Gemma":
+		return "Costello"
+	case "Portafolio":
+		return "Costello"
+	case "Aquí te tengo tu cariñito":
+		return "Negocios"
+	case "Báthory Square Garden":
+		return "Negocios"
+	case "Botica Slug & Jiggers":
+		return "Negocios"
+	case "Chez Winnie":
+		return "Negocios"
+	case "Danceteria Rolling Hall":
+		return "Negocios"
+	case "El Lux":
+		return "Negocios"
+	case "FLEUR":
+		return "Negocios"
+	case "Flourish & Blotts":
+		return "Negocios"
+	case "Luxxuria":
+		return "Negocios"
+	case "Moonlight Shadow Planetary":
+		return "Negocios"
+	case "Mystic Momentum":
+		return "Negocios"
+	case "Nym's Treasure":
+		return "Negocios"
+	case "Peonie's Ribbon":
+		return "Negocios"
+	case "Plants & Seeds":
+		return "Negocios"
+	case "Ragnarok":
+		return "Negocios"
+	case "Rose":
+		return "Negocios"
+	case "Royal Vauxhall Tavern":
+		return "Negocios"
+	case "Sacred Lotus":
+		return "Negocios"
+	case "Saint Ellis Hospital":
+		return "Negocios"
+	case "Sortilegios Weasley":
+		return "Negocios"
+	case "Tierra y Cristal":
+		return "Negocios"
+	case "Vinos Zabini":
+		return "Negocios"
+	case "Wizarding World Curse":
+		return "Negocios"
+	case "Leprechaun's Pinch":
+		return "Negocios"
+	case "Cupid's Paradise":
+		return "Negocios"
+	case "Premios":
+		return "Logros"
+	case "Logros de Duelos":
+		return "Logros"
+	case "Logros de Misiones":
+		return "Logros"
+	case "Logros de Expediciones":
+		return "Logros"
+	case "Logros de Pociones":
+		return "Logros"
+	case "Logros de Nimbus":
+		return "Logros"
+	case "Logros de Situaciones":
+		return "Logros"
+	case "Logros de Cámara de Creación Mágica":
+		return "Logros"
+	case "Logros de Rituales":
+		return "Logros"
+	case "Logros de San Mungo":
+		return "Logros"
+	case "Logros de Costello":
+		return "Logros"
+	case "Logros de Colección de Cromos":
+		return "Logros"
+	case "Logros de Top Posteadores":
+		return "Logros"
+	case "Logros de Empleo":
+		return "Logros"
+	case "Logros de Torneo de Duelos":
+		return "Logros"
+	case "Logros de Torneo de Pociones":
+		return "Logros"
+	case "Logros de Torneo de Quidditch Libre":
+		return "Logros"
+	case "Logros de Desafío Hogwarts":
+		return "Logros"
+	case "Logros de Mortífagos":
+		return "Logros"
+	case "Logros de Aurores":
+		return "Logros"
+	case "EXTASIS":
+		return "Objetos"
+	}
+	return "SIN CATEGORIA"
 }
