@@ -1195,6 +1195,33 @@ func CreateCategoriesFromDescriptions(htmlStr string) []ShopCategory {
 	return categories
 }
 
+func RemoveATag(input string) string {
+	startTag := "<a"
+	endTag := "</a>"
+
+	for {
+		// Encuentra el índice de inicio del tag <a
+		startIdx := strings.Index(input, startTag)
+		if startIdx == -1 {
+			break
+		}
+
+		// Encuentra el índice de cierre del tag </a>
+		endIdx := strings.Index(input, endTag)
+		if endIdx == -1 {
+			break
+		}
+
+		// Encuentra el índice final del tag </a> incluyendo su longitud
+		endIdx += len(endTag)
+
+		// Remueve el tag <a> y su contenido
+		input = input[:startIdx] + input[endIdx:]
+	}
+
+	return input
+}
+
 func ExtractStrongText(input string) (string, error) {
 	startTag := "<strong>"
 	endTag := "</strong>"
@@ -1443,7 +1470,11 @@ func AssignShopToCategory(category string) string {
 		return "Logros"
 	case "Logros de Torneo de Quidditch Libre":
 		return "Logros"
+	case "Logros de Torneo de Quidditch":
+		return "Logros"
 	case "Logros de Desafío Hogwarts":
+		return "Logros"
+	case "Logros de Torneo de Campeones":
 		return "Logros"
 	case "Logros de Mortífagos":
 		return "Logros"

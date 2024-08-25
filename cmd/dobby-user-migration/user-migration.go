@@ -19,7 +19,7 @@ import (
 const (
 	loginUsername              = "Desarrollo"
 	loginPassword              = "programación2055"
-	UsersToMigrateFromOldForum = "users.csv"
+	UsersToMigrateFromOldForum = "testUser.csv"
 	ItemTableOnNewForum        = "smf_stshop_items.csv"
 	ItemUrlsCsv                = "items.csv"
 	MemberTableOnNewForum      = "smf_members.csv"
@@ -483,6 +483,12 @@ func SearchItemByName(itemName string, items []Item) *Item {
 	if strings.HasPrefix(itemName, "PJ del Mes") {
 		itemName = "PJ del Mes"
 	}
+	if strings.HasPrefix(itemName, "Award") {
+		itemName = "Award"
+	}
+	if itemName == "Maté un Personaje" {
+		itemName = "Maté a un Personaje"
+	}
 	if itemName == "Máscara 1" {
 		itemName = "Máscara de Mortífago 1"
 	}
@@ -512,6 +518,9 @@ func SearchItemByName(itemName string, items []Item) *Item {
 	}
 	if itemName == "Máscara 10" {
 		itemName = "Máscara de Mortífago 10"
+	}
+	if itemName == "Lechuza Maori" {
+		itemName = "Lechuza Maorí"
 	}
 
 	//remove consecutive spaces from itemName
@@ -562,6 +571,10 @@ func PairItemsToUsers(migratedUsers []MigratedUser, items *[]Item) {
 
 		totalFoundItems = append(totalFoundItems, userFoundItems...)
 		totalNotFoundItems = append(totalNotFoundItems, userNotFoundItems...)
+
+		migratedUser.NewForumUser.InventoryRows = CreateInventoryRows(userFoundItems, migratedUser.NewForumUser.Id)
+		WriteInventoryQuery(*migratedUser.NewForumUser.InventoryRows, migratedUser.Username)
+
 	}
 
 	//itemsToInsertIntoDatabase are the totalNotFoundItems without the duplicates
@@ -589,6 +602,45 @@ func PairItemsToUsers(migratedUsers []MigratedUser, items *[]Item) {
 	CreateItems(itemsToInsertIntoDatabase, "ITEMS-SIN-CATEGORIA")
 
 	ReadReport()
+}
+
+func WriteInventoryQuery(rows []smf_shop_inventory_row, username string) {
+	sqlQuery := ""
+	sqlQuery += "-- " + username + "\n"
+	for _, row := range rows {
+		userId := row.userid
+		itemId := row.itemid
+		trading := row.trading
+		tradecost := row.tradecost
+		date := row.date
+		tradedate := row.tradedate
+		fav := row.fav
+		sqlQuery += fmt.Sprintf("INSERT INTO `smf_stshop_inventory` (`userid`, `itemid`, `trading`, `tradecost`, `date`, `tradedate`, `fav`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s');", userId, itemId, trading, tradecost, date, tradedate, fav)
+		sqlQuery += "\n"
+	}
+	sqlQuery += "\n\n"
+
+	//append to file if exists
+	f, err := os.OpenFile("insert inventory", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	//append total_Lines to file
+	_, err = f.WriteString(sqlQuery)
+	util.Panic(err)
+}
+
+func CreateInventoryRows(items []Item, userId string) *[]smf_shop_inventory_row {
+	var inventoryRows []smf_shop_inventory_row
+	for _, item := range items {
+		inventoryRows = append(inventoryRows, smf_shop_inventory_row{
+			userid:    userId,
+			itemid:    item.Itemid,
+			trading:   "0",
+			tradecost: "0",
+			date:      "0",
+			tradedate: "0",
+			fav:       "0",
+		})
+	}
+	return &inventoryRows
 }
 
 func ReadReport() {
@@ -654,7 +706,7 @@ func CreateItems(itemListToCreate []parser.ParsedItem, username string) {
 		descLine := "\t<img src=\"{url}\"/>\n\t• <strong>{Nombre}</strong><br />{descripcion}<br />"
 		descLine = strings.ReplaceAll(descLine, "{url}", imgurUrl)
 		descLine = strings.ReplaceAll(descLine, "{Nombre}", name)
-		descLine = strings.ReplaceAll(descLine, "{descripcion}", "(insertar descripción)")
+		descLine = strings.ReplaceAll(descLine, "{descripcion}", "")
 		total_Lines += descLine + "\n\n"
 	}
 	total_Lines += "</div>\n\n"

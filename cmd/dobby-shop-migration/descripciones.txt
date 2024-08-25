@@ -367,7 +367,7 @@
       <img src="https://i.imgur.com/rGBASpA.jpg"/>
       • <strong>Lechuza Común</strong><br />Estas inteligentes criaturas llevan siglos siendo entrenadas para llevar cartas de un mago a otro.<br />
       <img src="https://i.imgur.com/gbKlKMk.jpg"/>
-      • <strong>Lechuza Maori</strong><br />Estas inteligentes criaturas llevan siglos siendo entrenadas para llevar cartas de un mago a otro.<br />
+      • <strong>Lechuza Maorí</strong><br />Estas inteligentes criaturas llevan siglos siendo entrenadas para llevar cartas de un mago a otro.<br />
       <img src="https://i.imgur.com/aJGTrlG.jpg"/>
       • <strong>Lechuza Nevada</strong><br />Estas inteligentes criaturas llevan siglos siendo entrenadas para llevar cartas de un mago a otro.<br />
       <img src="https://i.imgur.com/iX9gtIo.jpg"/>
@@ -818,43 +818,43 @@
       <img src="https://i.imgur.com/h7d4LsH.png"/>
       • <strong>Guantes Resistencia</strong><br />
       Los guantes de resistencia te ayudarán a mantenerte con más energía durante más tiempo, pero no es eterno. <br />
-      <img src="https://i.imgur.com/Objetos____Mortifagos____Mascaras_1.png"/>
+      <img src="https://i.imgur.com/Objetos____Mortifagos____Mascaras1.png"/>
       • <strong>Máscara de Mortífago 1</strong><br />
       Tu máscara de mortífago, altera tu voz y oculta tu rostro. ¡Elige tu diseño favorito! Estas mascaras protegen la identidad del usuario. Esta encantada para que no pueda ser quitada más que por su propietario o en el Wizengamot o
       Azkaban por detención de un auror.<br />
-      <img src="https://i.imgur.com/Objetos____Mortifagos____Mascaras_2.png"/>
+      <img src="https://i.imgur.com/Objetos____Mortifagos____Mascaras2.png"/>
       • <strong>Máscara de Mortífago 2</strong><br />
       Tu máscara de mortífago, altera tu voz y oculta tu rostro. ¡Elige tu diseño favorito! Estas mascaras protegen la identidad del usuario. Esta encantada para que no pueda ser quitada más que por su propietario o en el Wizengamot o
       Azkaban por detención de un auror.<br />
-      <img src="https://i.imgur.com/Objetos____Mortifagos____Mascaras_3.png"/>
+      <img src="https://i.imgur.com/Objetos____Mortifagos____Mascaras3.png"/>
       • <strong>Máscara de Mortífago 3</strong><br />
       Tu máscara de mortífago, altera tu voz y oculta tu rostro. ¡Elige tu diseño favorito! Estas mascaras protegen la identidad del usuario. Esta encantada para que no pueda ser quitada más que por su propietario o en el Wizengamot o
       Azkaban por detención de un auror.<br />
-      <img src="https://i.imgur.com/Objetos____Mortifagos____Mascaras_4.png"/>
+      <img src="https://i.imgur.com/Objetos____Mortifagos____Mascaras4.png"/>
       • <strong>Máscara de Mortífago 4</strong><br />
       Tu máscara de mortífago, altera tu voz y oculta tu rostro. ¡Elige tu diseño favorito! Estas mascaras protegen la identidad del usuario. Esta encantada para que no pueda ser quitada más que por su propietario o en el Wizengamot o
       Azkaban por detención de un auror.<br />
-      <img src="https://i.imgur.com/Objetos____Mortifagos____Mascaras_5.png"/>
+      <img src="https://i.imgur.com/Objetos____Mortifagos____Mascaras5.png"/>
       • <strong>Máscara de Mortífago 5</strong><br />
       Tu máscara de mortífago, altera tu voz y oculta tu rostro. ¡Elige tu diseño favorito! Estas mascaras protegen la identidad del usuario. Esta encantada para que no pueda ser quitada más que por su propietario o en el Wizengamot o
       Azkaban por detención de un auror.<br />
-      <img src="https://i.imgur.com/Objetos____Mortifagos____Mascaras_6.png"/>
+      <img src="https://i.imgur.com/Objetos____Mortifagos____Mascaras6.png"/>
       • <strong>Máscara de Mortífago 6</strong><br />
       Tu máscara de mortífago, altera tu voz y oculta tu rostro. ¡Elige tu diseño favorito! Estas mascaras protegen la identidad del usuario. Esta encantada para que no pueda ser quitada más que por su propietario o en el Wizengamot o
       Azkaban por detención de un auror.<br />
-      <img src="https://i.imgur.com/Objetos____Mortifagos____Mascaras_7.png"/>
+      <img src="https://i.imgur.com/Objetos____Mortifagos____Mascaras7.png"/>
       • <strong>Máscara de Mortífago 7</strong><br />
       Tu máscara de mortífago, altera tu voz y oculta tu rostro. ¡Elige tu diseño favorito! Estas mascaras protegen la identidad del usuario. Esta encantada para que no pueda ser quitada más que por su propietario o en el Wizengamot o
       Azkaban por detención de un auror.<br />
-      <img src="https://i.imgur.com/Objetos____Mortifagos____Mascaras_8.png"/>
+      <img src="https://i.imgur.com/Objetos____Mortifagos____Mascaras8.png"/>
       • <strong>Máscara de Mortífago 8</strong><br />
       Tu máscara de mortífago, altera tu voz y oculta tu rostro. ¡Elige tu diseño favorito! Estas mascaras protegen la identidad del usuario. Esta encantada para que no pueda ser quitada más que por su propietario o en el Wizengamot o
       Azkaban por detención de un auror.<br />
-      <img src="https://i.imgur.com/Objetos____Mortifagos____Mascaras_9.png"/>
+      <img src="https://i.imgur.com/Objetos____Mortifagos____Mascaras9.png"/>
       • <strong>Máscara de Mortífago 9</strong><br />
       Tu máscara de mortífago, altera tu voz y oculta tu rostro. ¡Elige tu diseño favorito! Estas mascaras protegen la identidad del usuario. Esta encantada para que no pueda ser quitada más que por su propietario o en el Wizengamot o
       Azkaban por detención de un auror.<br />
-      <img src="https://i.imgur.com/Objetos____Mortifagos____Mascaras_10.png"/>
+      <img src="https://i.imgur.com/Objetos____Mortifagos____Mascaras10.png"/>
       • <strong>Máscara de Mortífago 10</strong><br />
       Tu máscara de mortífago, altera tu voz y oculta tu rostro. ¡Elige tu diseño favorito! Estas mascaras protegen la identidad del usuario. Esta encantada para que no pueda ser quitada más que por su propietario o en el Wizengamot o
       Azkaban por detención de un auror.<br />
@@ -890,8 +890,7 @@
       Antídoto contra el envenenamiento producido por comer alihosty.<br />
       <img src="https://i.imgur.com/LptZlUT.png"/>
       • <strong>Antídoto para la invisibilidad</strong><br />
-      Antídoto para contrarrestar los efectos secundarios de la poción de invisibilidad mal realizada. Creación
-      <a href="https://www.hogwartsrol.com/t70644-creacion-magica-antidoto-para-la-invisibilidad-lucas-whilemina"><strong>aquí.</strong><br /></a><br />
+      Antídoto para contrarrestar los efectos secundarios de la poción de invisibilidad mal realizada. <br />
       <img src="https://i.imgur.com/eAgj3GA.png"/>
       • <strong>Bezoar</strong><br />
       Antídoto para la mayoría de las pociones. Si se ingiere rápidamente, puede salvar la vida de quien esté envenenado<br />
@@ -899,8 +898,7 @@
       • <strong>Bloody Howl</strong><br />
       Al beberla alivia, aunque no cura los síntomas de la licantropía y el vampirismo. Minimiza el frenesí (reduce la necesidad de consumir carne cruda) en licántropos y la sed de sangre en vampiros. El efecto no es permanente y
       varía dependiendo del estado anímico, físico y el control que el individuo que la bebe tenga sobre sus habilidades. Como efecto secundario, disminuye en el individuo que la consuma la capacidad regenerativa y las
-      habilidades físicas (velocidad, sentidos aumentados, etcétera). Al consumirla en grandes cantidades resulta venenosa. Creación
-      <a href="https://www.hogwartsrol.com/t24552-creacion-magica-evanora-le-fay-esthia-whitesoul">aquí</a><br />
+      habilidades físicas (velocidad, sentidos aumentados, etcétera). Al consumirla en grandes cantidades resulta venenosa. <br />
       <img src="https://i.imgur.com/YHbpTZb.png"/>
       • <strong>Brebaje Parlanchín</strong><br />
       Poción que causa que el bebedor pierda temporalmente la capacidad de controlar las palabras que pronuncia, haciendo que hable sin sentido.<br />
@@ -918,15 +916,13 @@
       Paraliza temporalmente a las Doxys.<br />
       <img src="https://i.imgur.com/ATM1ppK.png"/>
       • <strong>Elíxir de Adelgazamiento</strong><br />
-      Poción que rebaja el grosor del cuerpo del mago o bruja propiciando la pérdida de los kilos de más. Su duración es temporal. Creación
-      <a href="https://www.hogwartsrol.com/t78169-creacion-magica-elixir-de-adelgazamiento-perseo-eferon">aquí</a><br />
+      Poción que rebaja el grosor del cuerpo del mago o bruja propiciando la pérdida de los kilos de más. Su duración es temporal. <br />
       <img src="https://i.imgur.com/qigGa6E.png"/>
       • <strong>Elixir para inducir Euforia</strong><br />
       Induce felicidad irracional en el bebedor<br />
       <img src="https://i.imgur.com/KoHfhkb.png"/>
       • <strong>Elixir Térmico</strong><br />
-      Disolución que permite al usuario detectar la temperatura de todo ser que lo rodee, pudiendo percatarse e identificar los cambios en estos. Creación
-      <a href="https://www.hogwartsrol.com/t28596-creacion-magica-elixir-termico-cassandra-blair-y-dante-nott">aquí</a><br />
+      Disolución que permite al usuario detectar la temperatura de todo ser que lo rodee, pudiendo percatarse e identificar los cambios en estos. <br />
       <img src="https://i.imgur.com/CQSs7AL.png"/>
       • <strong>Embellecedora</strong><br />
       Poción que quita espinillas de la cara.<br />
@@ -938,7 +934,7 @@
       Poción para calmar dolor, se usa para sanar desparticiones durante las apariciones<br />
       <img src="https://i.imgur.com/86aDgEA.png"/>
       • <strong>Esencia de Locura</strong><br />
-      Causa una mala toma de decisiones en el bebedor. Creación <a href="https://www.hogwartsrol.com/t61098-creacion-magica-esencia-de-locura-perseo-david#323318">aquí</a><br />
+      Causa una mala toma de decisiones en el bebedor. <br />
       <img src="https://i.imgur.com/TPPuHVj.png"/>] • <strong>Escencia de Murtlap</strong><br />
       Solución de tentáculos de Murtlap pasterizados y escabechados, posee un color amarillo. Alivia el dolor y cicatriza heridas abiertas.<br />
       <img src="https://i.imgur.com/o54Rv3c.png"/>
@@ -956,23 +952,22 @@
       <img src="https://i.imgur.com/9vamtXb.png"/>
       • <strong>Filtro de Revelación</strong><br />
       Filtro que al aplicarlo a una muestra de sangre, cambia de color ante la presencia de toxinas que sean nocivas para la persona que se está testeando. Sean de naturaleza animal o vegetal. No neutraliza los efectos de las toxinas,
-      solo lo identifica cambiando de color.. Creación <a href="https://www.hogwartsrol.com/t71541-creacion-magica-filtro-de-revelacion-lucas-whilemina">aquí</a><br />
+      solo lo identifica cambiando de color.. <br />
       <img src="https://i.imgur.com/MMR2GXO.png"/>
       • <strong>Filtro Luminiscente</strong><br />
       Ungüento que aplicado sobre la piel humana o en la superficie de los objetos provoca que ésta emita luz como si fuera un pequeño sol. Útil para no tener que usar lumos en espacios oscuros, exploraciones o enfrentarse al lazo del
-      diablo... Creación <a href="https://www.hogwartsrol.com/t73800-creacion-magica-filtro-luminiscente-zachary-amelie">aquí</a><br />
+      diablo... <br />
       <img src="https://i.imgur.com/rYz7NgQ.png"/>
       • <strong>Filtro Lunae Lumen</strong><br />
-      Solución que aplicada sobre la superficie de un objeto permite que éste reaccione de manera luminiscente únicamente ante el contacto de un rayo de la luna sobre él... Creación
-      <a href="https://www.hogwartsrol.com/t74866-creacion-magica-filtro-lunae-lumen-perseo-cormac">aquí</a><br />
+      Solución que aplicada sobre la superficie de un objeto permite que éste reaccione de manera luminiscente únicamente ante el contacto de un rayo de la luna sobre él... <br />
       <img src="https://i.imgur.com/tBtDedB.png"/>
       • <strong>Grasp of Death</strong><br />
       Esta poción permite volver a ver los últimos recuerdos de un muerto. Para su utilización se deben tirar 5 gotas sobre la frente del cadáver. Luego de 5 minutos saldrá una estela de memoria que debe ser colocada de
-      inmediato en un pensadero. Creación <a href="https://www.hogwartsrol.com/t10128-winnifred-golthim-william-a-ellis-camara-de-la-creacion-pocion">aquí</a><br />
+      inmediato en un pensadero. <br />
       <img src="https://i.imgur.com/LX7bvLT.png"/>
       • <strong>Magi Energos</strong><br />
       Brebaje compuesto por ingredientes mágicos que realzan y reaccionan a la proteína de la maginina en magos y brujas, haciendo que los efectos de el dardo antimagia de los muggles desaparezca, reactivando la magia al instante..
-      Creación <a href="https://www.hogwartsrol.com/t30297-creacion-magica-magi-energos-andre-m-scorpius-m">aquí</a><br />
+      <br />
       <img src="https://i.imgur.com/1kEPEYJ.png"/>
       • <strong>Multijugos</strong><br />
       Transforma a la persona (humano o híbrido) que la bebe en aquella otra en la cual desea convertirse, es necesario algo de esa persona en la que se se desea transformar, por ejemplo, un cabello. Tiene un sabor distinto para cada
@@ -1000,10 +995,10 @@
       Es una poción que se usa para calmar a una persona después de haber sufrido un shock, trauma o arrebato emocional.<br />
       <img src="https://i.imgur.com/AiZ9Fi5.png"/>
       • <strong>Poción de Concepción Acelerada</strong><br />
-      Esta poción permite que un embarazo sea más rápido. Para más detalles revisar: <a href="https://www.hogwartsrol.com/t1062-004-embarazos">Sistema de Embarazos</a><br />
+      Esta poción permite que un embarazo sea más rápido.<br />
       <img src="https://i.imgur.com/B0tY1Kd.png"/>
       • <strong>Poción de Crecimiento Acelerado</strong><br />
-      Esta poción permite que un infante menor a 11 años crezca más rápido. Para más detalles revisar: <a href="https://www.hogwartsrol.com/t1062-004-embarazos">Sistema de Embarazos</a><br />
+      Esta poción permite que un infante menor a 11 años crezca más rápido.<br />
       <img src="https://i.imgur.com/lfgDzmp.png"/>
       • <strong>Poción de Despertares</strong><br />
       También conocida como Poción de Ojos Abiertos. Despierta a quien esté drogado o haya sufrido un golpe en la cabeza. Evita que quien la beba caiga dormido.<br />
@@ -1012,7 +1007,7 @@
       <img src="https://i.imgur.com/20u3gxv.png"/>
       • <strong>Poción de Invisibilidad</strong><br />
       Como su nombre lo dice, le concede a quien la bebe la posibilidad de hacerse invisible ante ojos humanos o dispositivos electrónicos, por dos horas. Mal hecha puede causar vómitos y dejar invisible a la persona hasta que tome el
-      antídoto para revertir la situación. Creación <a href="https://www.hogwartsrol.com/t57370-creacion-magica-pocion-de-invisibilidad-daniel-whilemina">aquí</a><br />
+      antídoto para revertir la situación. <br />
       <img src="https://i.imgur.com/ldkNgXk.png"/>
       • <strong>Poción de la Memoria</strong><br />
       Mejora la memoria del bebedor.<br />
@@ -1021,14 +1016,13 @@
       Induce risa en el bebedor.<br />
       <img src="https://i.imgur.com/j5RMXtV.png"/>
       • <strong>Poción de Odio</strong><br />
-      Muestra a quien la bebe los peores rasgos y hábitos de una persona en particular, desalentándola a crear una relación con ella. Contrapocion de la amortentia. Creación
-      <a href="https://www.hogwartsrol.com/t71652-creacion-magica-pocion-de-odio-magnus-eferon">aquí</a><br />
+      Muestra a quien la bebe los peores rasgos y hábitos de una persona en particular, desalentándola a crear una relación con ella. Contrapocion de la amortentia. <br />
       <img src="https://i.imgur.com/qsTMBQd.png"/>
       • <strong>Poción del Olvido</strong><br />
       Hace olvidar cualquier cosa. Más potente que el encantamiento desmemorizante.<br />
       <img src="https://i.imgur.com/8Qn6dfz.png"/>
       • <strong>Poción de Rejugosidad</strong><br />
-      Poción que permite revivir a una flor marchita con simplemente seis gotas de la misma. Creación <a href="https://www.hogwartsrol.com/t70645-creacion-magica-pocion-de-rejugosidad-perseo-david"><strong>aquí</strong><br /></a><br />
+      Poción que permite revivir a una flor marchita con simplemente seis gotas de la misma. <br />
       <img src="https://i.imgur.com/XhwsIN1.png"/>
       • <strong>Poción Desinfladora</strong><br />
       Se usa para desinflar partes del cuerpo que se han hinchado por un hechizo.<br />
@@ -1052,15 +1046,13 @@
       Devuelve la vista al bebedor luego de una maldición.<br />
       <img src="https://i.imgur.com/c6dDa9j.png"/>
       • <strong>Poción para el Dolor de Estómago</strong><br />
-      Se utiliza para calmar indigestiones, nauseas, vómitos y diarrea. Ya sea por comilonas, enfermedades muggle (virus/bacteria) o de naturaleza mágica estomacal. Creación
-      <a href="https://www.hogwartsrol.com/t35925-creacion-magica-pocion-contra-el-mal-de-estomago-morgan-trelawney-sebastian-sharrow">aquí</a><br />
+      Se utiliza para calmar indigestiones, nauseas, vómitos y diarrea. Ya sea por comilonas, enfermedades muggle (virus/bacteria) o de naturaleza mágica estomacal. <br />
       <img src="https://i.imgur.com/DZvv4Az.png"/>
       • <strong>Poción Pimentónica</strong><br />
       Poción que cura resfriados y gripes, sale humo de la cabeza de quien la toma. Inventada por Glover Hipworth.<br />
       <img src="https://i.imgur.com/MFIJhwp.png"/>
       • <strong>Poción Protectora contra el Frío</strong><br />
-      Poción que se usa para estabilizar la temperatura corporal al hallarse en ambientes muy fríos. Cuando se bebe, se puede sentir como la temperatura corporal aumenta, produciendo incluso cierto calor. Creación
-      <a href="https://www.hogwartsrol.com/t57544-creacion-magica-pocion-protectora-contra-el-frio-linette-eferon">aquí</a><br />
+      Poción que se usa para estabilizar la temperatura corporal al hallarse en ambientes muy fríos. Cuando se bebe, se puede sentir como la temperatura corporal aumenta, produciendo incluso cierto calor. <br />
       <img src="https://i.imgur.com/dx4Dh3y.png"/>
       • <strong>Poción Protectora contra las Llamas</strong><br />
       Protege al bebedor del fuego.<br />
@@ -1075,26 +1067,23 @@
       Altera la voz del bebedor.<br />
       <img src="https://i.imgur.com/L4yLeG6.png"/>
       • <strong>Poción Weedosoros</strong><br />
-      La poción causa convulsiones y deshidratación. No causa ningún tipo de dolor físico. Creación <a href="https://www.hogwartsrol.com/t68085-creacion-magica-weedosoros-magnus-leah">aquí.</a><br />
+      La poción causa convulsiones y deshidratación. No causa ningún tipo de dolor físico. <br />
       <img src="https://i.imgur.com/HxagyYw.jpg"/>
       • <strong>Poción Wiggenweld</strong><br />
       Remedio para el Filtro de los Muertos.<br />
       <img src="https://i.imgur.com/xg5jIlT.png"/>
       • <strong>Potio Augendae Cellulae</strong><br />
-      Poción para potenciar la regeneración de tejidos estructurales blandos (músculos, tendones, la grasa, los vasos sanguíneos, los nervios, etc.). No sirve para órganos, ni huesos. Creación
-      <a href="https://www.hogwartsrol.com/t43754-creacion-magica-potio-augendae-cellulae-scorpius-william">aquí</a><br />
+      Poción para potenciar la regeneración de tejidos estructurales blandos (músculos, tendones, la grasa, los vasos sanguíneos, los nervios, etc.). No sirve para órganos, ni huesos. <br />
       <img src="https://i.imgur.com/ncSDxCk.png"/>
       • <strong>Potio Sedatio</strong><br />
-      Poción calmante instantánea ingerida, que actúa como morfina y hace de soporte al hechizo Vulnera Sanetum. Creación
-      <a href="https://www.hogwartsrol.com/t41754-creacion-magica-potio-sedatio-eferon-esthia">aquí</a><br />
+      Poción calmante instantánea ingerida, que actúa como morfina y hace de soporte al hechizo Vulnera Sanetum. <br />
       <img src="https://i.imgur.com/0UBT4ee.png"/>
       • <strong>Potio Sine Somnia</strong><br />
       Poción que ayuda a conciliar el sueño y evitar las pesadillas a toda costa. Si se han tenido pesadillas frecuentemente debido a sucesos traumáticos u similares está poción te lleva a un sueño profundo en las cuales estas no
-      aparecerán.. Creación <a href="https://www.hogwartsrol.com/t51355-creacion-magica-potio-sine-somnia-galene-proudmoore-olivia-mclaggen">aquí</a><br />
+      aparecerán.. <br />
       <img src="https://i.imgur.com/wDvP7Vr.png"/>
       • <strong>Potio Venenum Decipit</strong><br />
-      Poción que permite disfrazar el sabor del veneno que se ingiera para que así no lo note el paladar durante un periodo de dos horas. Creación
-      <a href="https://www.hogwartsrol.com/t100026-camara-de-la-creacion-magica-potio-venenum-decipit-perseo-arikel">aquí</a><br />
+      Poción que permite disfrazar el sabor del veneno que se ingiera para que así no lo note el paladar durante un periodo de dos horas. <br />
       <img src="https://i.imgur.com/5ZeZ8vd.jpg"/>
       • <strong>Pus de Bulbotubérculo</strong><br />
       Cuando se usa correctamente, es una excelente cura para el acné.<br />
@@ -1106,14 +1095,13 @@
       Es una poción que hace que todo lo que toca crezca de tamaño.<br />
       <img src="https://i.imgur.com/bIPaLqc.png"/>
       • <strong>Solución de Celebridad</strong><br />
-      Concede al que la bebe simpatía y afabilidad para caer bien a la gente. Creación <a href="https://www.hogwartsrol.com/t77317-creacion-magica-solucion-de-celebridad-perseo-kyle">aquí</a><br />
+      Concede al que la bebe simpatía y afabilidad para caer bien a la gente. <br />
       <img src="https://i.imgur.com/nO9UMLH.png"/>
       • <strong>Solución Encogedora</strong><br />
       Hace disminuir el tamaño de las cosas.<br />
       <img src="https://i.imgur.com/PRT9aDS.jpg"/>
       • <strong>Tenebris Prowler</strong><br />
-      Neutraliza el aroma de cualquier criatura mágica. Elimina el aroma o el gusto de la sangre de quien lo ingiere y se transforma en una sangre de gusto normal Creación
-      <a href="https://www.hogwartsrol.com/t36273-creacion-magica-tenebris-prowler-neah-c-campbell-ilhan-k-matheson">aquí</a><br />
+      Neutraliza el aroma de cualquier criatura mágica. Elimina el aroma o el gusto de la sangre de quien lo ingiere y se transforma en una sangre de gusto normal <br />
       <img src="https://i.imgur.com/4NSR4J9.jpg"/>
       • <strong>Ungüento para Heridas</strong><br />
       Se aplica para limpiar las heridas abiertas, sale espuma al echarse sobre la piel.<br />
@@ -1122,8 +1110,7 @@
       Pasta naranja usada para curar quemaduras, escuece.<br />
       <img src="https://i.imgur.com/O7Phydt.png"/>
       • <strong>Vampyris Revelio</strong><br />
-      Revela la naturaleza vampirica de un individuo (bajo acuerdo con el user), mostrando sus auténticos colmillos y el color genuino de sus ojos. Creación<br />
-      <a href="https://www.hogwartsrol.com/t44977-creacion-magica-vampyrys-revelio-magnus-trish">aquí</a><br />
+      Revela la naturaleza vampirica de un individuo (bajo acuerdo con el user), mostrando sus auténticos colmillos y el color genuino de sus ojos. <br />
       <img src="https://i.imgur.com/29AFHVA.png"/>
       • <strong>Veritaserum</strong><br />
       Hace que quien lo beba diga la verdad. Es extraordinariamente potente. Su uso está controlado por el ministerio.<br />
@@ -1287,11 +1274,10 @@
       <img src="https://i.imgur.com/M3Bpp6Y.png"/>
       • <strong>Autorización de Trasladores</strong><br />Esta autorización la obtienes cuando te va bien en el Examen de Trasladores<br />
       <img src="https://i.imgur.com/Jgas5oA.png"/>
-      • <strong>Autorización de Aparición</strong><br />
-      Esta autorización la obtienes cuando te va bien en el <a href="https://www.hogwartsrol.com/t49467-examen-de-aparicion">Examen de Aparición</a><br />. Demuestra que puedes aparecerte con éxito.<br />
+      • <strong>Autorización de Aparición</strong><br /><br />
       <img src="https://i.imgur.com/qZ0xKOY.png"/>
       • <strong>Autorización de Magia No Verbal</strong><br />
-      Este permiso demuestra que aprendiste a realizar hechizos sin hablar. Se obtiene realizando el <a href="https://www.hogwartsrol.com/t49466-examen-de-magia-no-verbal">Examen de Magia No Verbal</a><br />
+      Este permiso demuestra que aprendiste a realizar hechizos sin hablar.<br />
       <img src="https://i.imgur.com/Igc9yJo.png"/>
       • <strong>Autorización Standard</strong><br />
       Con este permiso, podrás comenzar en el mundo de los negocios.<br />
@@ -1991,8 +1977,7 @@
       Es el conjuro de una variación más fuerte del encantamiento de apertura. Sirve para el Fermaportus.<br />
       <img src="https://i.imgur.com/sscTC9V.jpg"/>
       • <strong>Animagus Revelio</strong><br />
-      Dirigido hacia la criatura bajo sospecha, revela la forma original del animago con efecto inmediato. Creación
-      <a href="https://www.hogwartsrol.com/t36489-creacion-magica-animagus-revelio-morgan-fairchild-thomas-kinnaird">aquí</a><br />
+      Dirigido hacia la criatura bajo sospecha, revela la forma original del animago con efecto inmediato. <br />
       <img src="https://i.imgur.com/8AJ3HJx.png"/>
       • <strong>Anti-Aparición</strong><br />
       Impide la Aparición en un área determinada.<br />
@@ -2013,30 +1998,28 @@
       Este encantamiento permite simular un clima atmosférico al interior de una edificación. <br />
       <img src="https://i.imgur.com/dzmCmYd.png"/>
       • <strong>Aureum Filum</strong><br />
-      Invoca una madeja de hilo dorado que se desenrolla y guía al mago hacia la salida de algún lugar o una ubicación específica que no puede hallar. No funciona en lugares protegidos o sellados con magia. Creación
-      <a href="https://www.hogwartsrol.com/t70583p10-creacion-magica-aureum-filum-ludovico-wilhelmine">aquí</a><br />
+      Invoca una madeja de hilo dorado que se desenrolla y guía al mago hacia la salida de algún lugar o una ubicación específica que no puede hallar. No funciona en lugares protegidos o sellados con magia. <br />
       <img src="https://i.imgur.com/eAOCGPr.png"/>
       • <strong>Avifors</strong><br />
       Este hechizo de transformación convierte los objetos inanimados en aves.<br />
       <img src="https://i.imgur.com/xBM25MH.png"/>
       • <strong>Bauleo</strong><br />
-      Hechizo para empacar baúles, bolsos y maletas de manera organizada y eficiente. Creación <a href="https://www.hogwartsrol.com/t55743-creacion-magica-bauleo-paolo-blanc">aquí</a><br />
+      Hechizo para empacar baúles, bolsos y maletas de manera organizada y eficiente. <br />
       <img src="https://i.imgur.com/RH06d1B.png"/> • <strong>Calvorio</strong><br />
-      Hechizo de la calvicie, hace caer el pelo de la víctima dejándola calva por un período corto de tiempo. Creación <a href="https://www.hogwartsrol.com/t68839-creacion-magica-calvorio-atwood-ottis">aquí</a>.<br />
+      Hechizo de la calvicie, hace caer el pelo de la víctima dejándola calva por un período corto de tiempo.<br />
       <img src="https://i.imgur.com/ezq2TR2.png"/>
       • <strong>Cave Inimicum</strong><br />
       Este hechizo de protección se puede usar en un área para mantener alejados a los enemigos.<br />
       <img src="https://i.imgur.com/OlCKfCd.png"/>
       • <strong>Clavus</strong><br />
-      Crea y lanza un set de agujas, alfileres, clavos y otros similares objetos punzantes para uso básico y cotidiano como colocar anuncios, colgar cuadros, entre otros. Creación
-      <a href="https://www.hogwartsrol.com/t88081-creacion-magica-clavus-jin-vernon#458624">aquí</a><br />
+      Crea y lanza un set de agujas, alfileres, clavos y otros similares objetos punzantes para uso básico y cotidiano como colocar anuncios, colgar cuadros, entre otros. <br />
       <img src="https://i.imgur.com/4O7w9KC.png"/>
       • <strong>Colloportus</strong><br />
       Es un hechizo que se utiliza para bloquear o sellar puertas de modo que no se pueden abrir manualmente. Puede ser burlado por Alohomora.<br />
       <img src="https://i.imgur.com/1WXgBBX.png"/>
       • <strong>Colovaria</strong><br />
       Encantamiento que se usa para cambiar el color del objetivo al color que uno desee, puede aplicarse en personas, animales y objetos. En personas y animales el efecto dura 60 minutos, en objetos inanimados es por tiempo
-      indefinido o hasta que se vuelva a lanzar el hechizo. Creación <a href="https://www.hogwartsrol.com/t60491-creacion-magica-colovaria-jin-julieta">aquí</a>.</strong><br />
+      indefinido o hasta que se vuelva a lanzar el hechizo. </strong><br />
       <img src="https://i.imgur.com/7FLgUGo.png"/>
       • <strong>Confractus Praesidium</strong><br />
       Este hechizo produce un potente rayo blanco azulado desde la punta de la varita que permite romper escudos mágicos que protegen áreas.<br />
@@ -2047,8 +2030,7 @@
       •<strong> Corporis Mutatio</strong><br />
       Permite por 24 horas realizar una doble transformación de los involucrados, haciendo que luzcan físicamente igual a la persona de con quien realizaron el hechizo; para realizar el hechizo ambas personas deben tomarse con la mano
       no dominante, juntar sus frentes y conjurar el hechizo apuntando a la cabeza del otro, para anularlo deben realizar el hechizo nuevamente o esperar el tiempo de duración. El hechizo cambia únicamente los aspectos físicos, sin
-      incluir accesorios, ropa o detalles no corporales, para poder realizar el hechizo ambos deben poseerlo en sus respectivos inventarios. Solo funciona en humanos e híbridos. Creación
-      <a href="https://www.hogwartsrol.com/t40443-creacion-magica-corporis-mutatio-elliot-hale#210434">aquí</a><br />
+      incluir accesorios, ropa o detalles no corporales, para poder realizar el hechizo ambos deben poseerlo en sus respectivos inventarios. Solo funciona en humanos e híbridos. <br />
       <img src="https://i.imgur.com/x6dDVpp.png"/>
       • <strong>Criminalis in Ruinam</strong><br />
       Este encantamiento defensivo genera una cascada de agua mágica que cancela todos los encantamientos y maldiciones que toca.<br />
@@ -2060,33 +2042,30 @@
       Este encantamiento es usado para desintegrar o desaparecer ciertas cosas, como la sombra del último hechizo usado con la varita.<br />
       <img src="https://i.imgur.com/A9yDPTa.png"/>
       • <strong>Dementia</strong><br />
-      Hechizo que induce a una pesadilla y muestra así los peores miedos y sentimientos negativos de una persona mientras se encuentra dormida. De usarse de manera repetitiva puede terminar volviéndola loca, Creación
-      <a href="https://www.hogwartsrol.com/t53170-creacion-magica-dementia-magnus-morgan">aquí</a><br />
+      Hechizo que induce a una pesadilla y muestra así los peores miedos y sentimientos negativos de una persona mientras se encuentra dormida. De usarse de manera repetitiva puede terminar volviéndola loca, <br />
       <img src="https://i.imgur.com/fUsMo9I.png"/>
       • <strong>Desilusionador</strong><br />
       Oculta un objetivo, mimetizándolo con el entorno, puede ser un ser vivo o no.<br />
       <img src="https://i.imgur.com/bvBzVIN.png"/>
       • <strong>Duro</strong><br />
-      Encantamiento endurecedor que permite convertir los objetos inanimados en piedra o formar una capa de roca sobre su superficie. Creación
-      <a href="https://www.hogwartsrol.com/t72720-creacion-magica-duro-lucas-kyle">aquí.</a><br />
+      Encantamiento endurecedor que permite convertir los objetos inanimados en piedra o formar una capa de roca sobre su superficie. <br />
       <img src="https://i.imgur.com/BMQ4TzT.png"/>
       • <strong>Erectus</strong><br />
-      Este hechizo permite enderezar objetos, y es ideal para armar carpas y toldos. Creación <a href="https://www.hogwartsrol.com/t59783-creacion-magica-erectus-lancelot-nael">aquí</a><br />
+      Este hechizo permite enderezar objetos, y es ideal para armar carpas y toldos.<br />
       <img src="https://i.imgur.com/PLmRMnm.png"/>
       • <strong>Evocador</strong><br />
       Se emplea para hacer aparecer algo. Es más difícil que un hechizo desvanecedor.<br />
       <img src="https://i.imgur.com/kcjVsnD.png"/>
       • <strong>Exsugendo Poculum</strong><br />
       Hechizo que lanzado sobre uno mismo u otra persona provoca la aparición de ventosas en las extremidades, otorgando la posibilidad de trepar paredes. El efecto solo dura una hora y permite hacerlo en alturas no superiores a siete
-      metros.. Creación <a href="https://www.hogwartsrol.com/t76256-creacion-magica-exsugendo-poculum-atwood-darius">aquí</a><br />
+      metros.. <br />
       <img src="https://i.imgur.com/tQiUB7R.png"/>
       • <strong>Extensión Indetectable</strong><br />
       Encantamiento de complicada realización, que permite aumentar la capacidad de objetos como bolsos, sin que además esto influya notablemente en el peso.<br />
       <img src="https://i.imgur.com/4SvdSsN.png"/>
       • <strong>Extracción de Memoria</strong><br />
       Hechizo que requiere basta concentración para realizarse, se usa para extraer recuerdos únicos y específicos de la propia mente y colocarlos en un pensadero o un matraz para almacenarlos o si se desea volver a ver el recuerdo.
-      Para ello se debe realizar la floritura y colocar la punta de la varita a la altura de la sien mientras se recita el hechizo, posteriormente se debe retirar la varita con cuidado extrayendo el recuerdo en cuestión. Creación
-      <a href="https://www.hogwartsrol.com/t52537-creacion-magica-hechizo-de-extraccion-de-memoria-elliot-atlas">aquí</a><br />
+      Para ello se debe realizar la floritura y colocar la punta de la varita a la altura de la sien mientras se recita el hechizo, posteriormente se debe retirar la varita con cuidado extrayendo el recuerdo en cuestión. <br />
       <img src="https://i.imgur.com/wY6Ghs4.png"/>
       • <strong>Fermaportus</strong><br />
       Cierra o sella una puerta mágicamente. No puede ser burlado por Alohomora.<br />
@@ -2099,8 +2078,7 @@
       confiado a otros.<br />
       <img src="https://i.imgur.com/UerSTLg.png"/>
       • <strong>Finestra</strong><br />
-      Conjuro que rompe el cristal de una ventana objetivo y lo vuelve polvo, permitiendo caminar por encima sin que las piezas rotas puedan hacer daño. Creación
-      <a href="hhttps://www.hogwartsrol.com/t74402-creacion-magica-finestra-jin-eferon#390780">aquí</a><br />
+      Conjuro que rompe el cristal de una ventana objetivo y lo vuelve polvo, permitiendo caminar por encima sin que las piezas rotas puedan hacer daño. <br />
       <img src="https://i.imgur.com/2BxWQ2a.png"/>
       • <strong>Finite Incantatem</strong><br />
       Finaliza los efectos de encantamientos o hechizos. También puede ser utilizado como <i>Finite</i>.<br />
@@ -2119,11 +2097,10 @@
       <img src="https://i.imgur.com/vkn51Qk.png"/>
       • <strong>Hallucinatio Locorum</strong><br />
       Permite crear la ilusión sobre un lugar en específico, haciéndolo lucir completamente diferente, estos lugares pueden ser interiores o exteriores, el alcance visual es de 200 metros aparentemente (no se modifica el espacio
-      disponible). Creación <a href="https://www.hogwartsrol.com/t44173-creacion-magica-hallucinatio-locorum-eileen-david#230995">aquí</a><br />
+      disponible). <br />
       <img src="https://i.imgur.com/hPYjCah.png"/>
       • <strong>Herbivicus</strong><br />
-      Encantamiento que provoca el crecimiento de las plantas, es más lento cuando se utiliza en árboles o algún otra planta de gran tamaño. Aplica también para las plantas que florezcan. Creación
-      <a href="https://www.hogwartsrol.com/t48802p10-creacion-magica-herbivicus-violet-lillie">aquí</a><br />
+      Encantamiento que provoca el crecimiento de las plantas, es más lento cuando se utiliza en árboles o algún otra planta de gran tamaño. Aplica también para las plantas que florezcan. <br />
       <img src="https://i.imgur.com/l5yk8fB.png"/>
       • <strong>Homenum Revelio</strong><br />
       Detecta presencia humana. Sirve, por ejemplo, para descubrir a quienes usaban capa de invisibilidad.<br />
@@ -2133,23 +2110,20 @@
       humana. Este proceso no cura ni elimina ninguna condición de raza, solo fuerza a los mencionados anteriormente a abandonar su forma salvaje después de ser utilizada.<br />
       <img src="https://i.imgur.com/sVt1OxA.png"/>
       • <strong>Illegibilus</strong><br />
-      Este hechizo vuelve ilegible un texto específico distorsionando las letras o borrándolas. Usado para confundir y esconder información que no desea ser revelada.. Creación
-      <a href="https://www.hogwartsrol.com/t81797-creacion-magica-illegibilus-jin-darius#431607">aquí</a><br />
+      Este hechizo vuelve ilegible un texto específico distorsionando las letras o borrándolas. Usado para confundir y esconder información que no desea ser revelada.. <br />
       <img src="https://i.imgur.com/lsU9IQx.png"/>
       • <strong>Impervius</strong><br />
       Este encantamiento hace impermeable al objetivo contra líquidos -como el agua de lluvia- y permite repeler en menor medida algunos objetos sólidos.<br />
       <img src="https://i.imgur.com/f0tqOw5.png"/>
       • <strong>Induere Dedicationis</strong><br />
       Encanta la ropa normal usada por el mago para que, en caso de que cambie de forma, ésta se funda con el cuerpo y no se rompa. Al regresar a su forma homínida conservará la ropa a la que se le haya aplicado el hechizo. Ideal para
-      animagos, licántropos, veelas y sirenas. Creación <a href="https://www.hogwartsrol.com/t81704-creacion-magica-induere-dedicationis-morgan-whilemina">aquí</a><br />
+      animagos, licántropos, veelas y sirenas. <br />
       <img src="https://i.imgur.com/4c2Jn17.png"/>
       • <strong>Induere Vestem</strong><br />
-      Convierte la indumentaria que lleves en ese momento en la que tu estés pensando. Requiere concentración. También puedes cambiar la ropa de otros. (muy útil para una fiesta de disfraces) Creación
-      <a href="https://www.hogwartsrol.com/t28501-creacion-magica-induere-vestem-alexander-e-claire-b">aquí</a><br />
+      Convierte la indumentaria que lleves en ese momento en la que tu estés pensando. Requiere concentración. También puedes cambiar la ropa de otros. (muy útil para una fiesta de disfraces) <br />
       <img src="https://i.imgur.com/fIc6bYF.png"/>
       • <strong>Inpulsa Hauriendum</strong><br />
-      Encanta el calzado del portador, sin cambiar sus propiedades físicas, para adaptarlo a todo tipo de superficies sin que haya dificultad al paso. Creación
-      <a href="https://www.hogwartsrol.com/t99317p10-camara-de-la-creacion-magica-inpulsa-hauriendum-neria-julieta">Aquí</a><br />
+      Encanta el calzado del portador, sin cambiar sus propiedades físicas, para adaptarlo a todo tipo de superficies sin que haya dificultad al paso. <br />
       <img src="https://i.imgur.com/9RbByHO.png"/>
       • <strong>Juramento Inquebrantable</strong><br />
       Es necesario un enlace. El procedimiento es el siguiente:<br />
@@ -2168,22 +2142,19 @@
       Este hechizo encanta los platos sucios para que se laven a sí mismos.<br />
       <img src="https://i.imgur.com/J06Xbx6.png"/>
       • <strong>Lectio Astral</strong><br />
-      Encanta los ojos del portador para poder leer a una velocidad vertiginosa cualquier soporte cuyo contenido esté en la lengua que el mago domine con fluidez o que esté familiarizado con ella. Creación
-      <a href="https://www.hogwartsrol.com/t81703-creacion-magica-lectio-astral-neria-adelheid">Aquí</a><br />
+      Encanta los ojos del portador para poder leer a una velocidad vertiginosa cualquier soporte cuyo contenido esté en la lengua que el mago domine con fluidez o que esté familiarizado con ella. <br />
       <img src="https://i.imgur.com/ro44qS7.png"/>
       • <strong>Legeremens</strong><br />
       Este hechizo permite usar la Legeremancia, el arte de penetrar en la mente de su objetivo.<br />
       <img src="https://i.imgur.com/qmfG6cN.png"/>
       • <strong>Lingua Transfere</strong><br />
-      Hechizo a partir del cual la varita emite ondas de color azul otorgando a su usuario la capacidad de poder comunicarse, durante máximo una hora, en lenguas que el mago desconoce. Creación
-      <a href="https://www.hogwartsrol.com/t60809-creacion-magica-lingua-transfere-edmond-fae#321594">aquí</a><br />
+      Hechizo a partir del cual la varita emite ondas de color azul otorgando a su usuario la capacidad de poder comunicarse, durante máximo una hora, en lenguas que el mago desconoce. <br />
       <img src="https://i.imgur.com/1vA3ct0.png"/>
       • <strong>Locomotor</strong><br />
       Hechizo que sirve para guiar y colocar ciertos objetos sobre alguna superficie de forma ordenada, cumpliendo por si solos dicho cometido sin supervisión del mago. Su fórmula sería [Locomotor + Nombre del objeto en Latín]
-      Creación <a href="https://www.hogwartsrol.com/t49102-creacion-magica-locomotor-kyle-shiloh">aquí</a><br />
+      <br />
       <img src="https://i.imgur.com/vNofW3N.png"/> • <strong>Ludit</strong><br />
-      Encantamiento para hacer que cualquier instrumento toque solo. Para hacerlo, es necesario que el usuario conozca perfectamente la canción o tenga una partitura de la misma para que el instrumento la intérprete. Creación
-      <a href="https://www.hogwartsrol.com/t101450-camara-de-la-creacion-magica-ludit-willow-cheryl#528486">Aquí</a><br />
+      Encantamiento para hacer que cualquier instrumento toque solo. Para hacerlo, es necesario que el usuario conozca perfectamente la canción o tenga una partitura de la misma para que el instrumento la intérprete. <br />
       <img src="https://i.imgur.com/szFq4DS.png"/>
       • <strong>Lumos</strong><br />
       Este encantamiento alumbra el extremo de la varita, dando luz en medio de la oscuridad. Se invoca con la palabra <i>Lumos</i> y se apaga con la palabra <i>Nox</i>.<br />
@@ -2204,11 +2175,10 @@
       <img src="https://i.imgur.com/tJ9Odgs.png"/>
       • <strong>Mutatio</strong><br />
       Hechizo que en combinación con un hechizo elemental (fuego, aire, agua, tierra o electricidad) se moldee en formas de animales/objetos a la voluntad del usuario. El hechizo no aumenta la potencia del hechizo, es solo estético y
-      debe de ser recitado antes del hechizo ofensivo. Ej. Mutatio Incendio. Creación <a href="https://www.hogwartsrol.com/t58413-creacion-magica-mutatio-thomas-olivia">aquí</a><br />
+      debe de ser recitado antes del hechizo ofensivo. Ej. Mutatio Incendio. <br />
       <img src="https://i.imgur.com/YG85EyC.png"/>
       • <strong>Nox</strong><br />
-      Encantamiento que permite a su usuario extinguir la luz producida por su propia varita o de objetos luminosos como lámparas, velas y linternas. Creación
-      <a href="https://www.hogwartsrol.com/t68492-creacion-magica-nox-daniel-whilemina">aquí</a><br />
+      Encantamiento que permite a su usuario extinguir la luz producida por su propia varita o de objetos luminosos como lámparas, velas y linternas. <br />
       <img src="https://i.imgur.com/DBKCGrM.png"/>
       • <strong>Nullo Subintro</strong><br />
       Es un embrujo que se puede colocar en un lugar para evitar robos.<br />
@@ -2219,15 +2189,13 @@
       Este hechizo permite usar la Oclumancia, que impide que con la Legeremancia ingresen en tu mente.<br />
       <img src="https://i.imgur.com/ZBljR3f.png"/>
       • <strong>Pacto Cibum</strong><br />
-      Hechizo que permite comprimir cualquier comida al tamaño, textura y forma de una barra energética, manteniendo su sabor original y propiedades, además de hacerla mas duradera y transportable. Creación
-      <a href="https://www.hogwartsrol.com/t72633-creacion-magica-pacto-cibum-elliot-odiseo">aquí</a><br />
+      Hechizo que permite comprimir cualquier comida al tamaño, textura y forma de una barra energética, manteniendo su sabor original y propiedades, además de hacerla mas duradera y transportable. <br />
       <img src="https://i.imgur.com/TDivLrL.png"/>
       • <strong>Partis Temporus</strong><br />
-      Este hechizo puede utilizarse para crear un camino entre algún elemento, como el fuego, o para abrir una brecha en alguna superficie mágica. Creación
-      <a href="https://www.hogwartsrol.com/t55757-creacion-magica-partis-temporus-holden-lancelot">aquí</a><br />
+      Este hechizo puede utilizarse para crear un camino entre algún elemento, como el fuego, o para abrir una brecha en alguna superficie mágica. <br />
       <img src="https://i.imgur.com/tayMzOK.png"/>
       • <strong>Piscifors</strong><br />
-      Este hechizo de transformación convierte al objetivo en un pez. Creación <a href="https://www.hogwartsrol.com/t59414-camara-de-la-creacion-magica-piscifors-perseo-katsaros-lancelot-prewett">aquí</a><br />
+      Este hechizo de transformación convierte al objetivo en un pez. <br />
       <img src="https://i.imgur.com/sY8ullA.png"/>
       • <strong>Point Me</strong><br />
       Hace actuar a la varita como una brújula, apuntando hacia el norte.<br />
@@ -2240,7 +2208,7 @@
       <img src="https://i.imgur.com/UOgJy00.png"/>
       • <strong>Proiectarum Mentis</strong><br />
       Expresión holográfica que tan solo muestra una imagen sacada de manera directa del pensamiento del mago o bruja, la cual no puede interactuar con el entorno que le rodea de manera explícita, es decir, no puede ser utilizado para
-      infringir daño o protegerse. Creación <a href="https://www.hogwartsrol.com/t30971p10-creacion-magica-proiectarum-mentis-ginevra-prewett-y-maisie-hill">aquí</a><br />
+      infringir daño o protegerse. <br />
       <img src="https://i.imgur.com/X2P4Mqr.png"/>
       • <strong>Quietus</strong><br />
       Este encantamiento disminuye el volumen de la voz de quien lo usa. Es el contrahechizo del encantamiento Sonorus.<br />
@@ -2248,7 +2216,7 @@
       • <strong>Quarere Sonus</strong><br />
       Hechizo capaz de detectar el sonido de pasos, voces irreconocibles y ruidos en un perímetro de 200 metros a la redonda del mago. Se conjura presionando con la punta de la varita en la palma de la mano, produciendo una chispa en
       la misma que a su vez dibujará un pentagrama musical donde aparecerán las presencias que se desplacen a modo de notas. Requiere gran concentración, por lo que es imposible de realizar con cualquier otro hechizo de manera
-      conjunta. Creación <a href="https://www.hogwartsrol.com/t59180-creacion-magica-quarere-sonus-nael-darius">aquí</a><br />
+      conjunta. <br />
       <img src="https://i.imgur.com/OhuhNBr.png"/>
       • <strong>Relashio</strong><br />
       Este embrujo obliga a un objeto o ser vivo a soltar a otro.<br />
@@ -2256,8 +2224,7 @@
       • <strong>Reparo</strong><br />
       Este encantamiento repara un objeto roto o destruido, dejándolo como nuevo.<br />
       <img src="https://i.imgur.com/66jsH7A.jpg"/> • <strong>Repelo Animalia</strong><br />
-      Evita que entren criaturas mágicas con intenciones agresivas al área. El repelo animalia permite alejar a los animales mágicos de la zona que se encanta. No afecta criaturas XXXX. Creación
-      <a href="https://www.hogwartsrol.com/t35299-creacion-magica-repelo-animalia-morgan-trelawney-dante-nott">aquí</a><br />
+      Evita que entren criaturas mágicas con intenciones agresivas al área. El repelo animalia permite alejar a los animales mágicos de la zona que se encanta. No afecta criaturas XXXX. <br />
       <img src="https://i.imgur.com/85kc6hI.png"/>
       • <strong>Repelo Muggletum</strong><br />
       Este encantamiento permite alejar a los muggles de la zona que se encanta. Cuando se acercan al lugar encantado, los muggles recuerdan que tienen que hacer otra cosa y se van<br />
@@ -2266,8 +2233,7 @@
       Este encantamiento se coloca en todos los magos y brujas menores de edad para detectar el uso de la magia a su alrededor y controlar los usos inadecuados, especialmente frente a un muggle.<br />
       <img src="https://i.imgur.com/VA6r6wB.png"/>
       • <strong>Restituet cibum</strong><br />
-      Hechizo que devuelve la textura y sabor a una comida transcurridas ya varias horas desde su preparación inicial como si volviera a estar recién hecha, siempre y cuando no esté en mal estado. Creación
-      <a href="https://www.hogwartsrol.com/t41762-creacion-magica-restituet-cibum-paolo-blanc">aquí</a><br />
+      Hechizo que devuelve la textura y sabor a una comida transcurridas ya varias horas desde su preparación inicial como si volviera a estar recién hecha, siempre y cuando no esté en mal estado. <br />
       <img src="https://i.imgur.com/RCY2nVO.png"/>
       • <strong>Riddikulus</strong><br />
       Este encantamiento obliga a un boggart a adoptar una forma graciosa para quien lo realiza.<br />
@@ -2277,17 +2243,14 @@
       <img src="https://i.imgur.com/DWx0vSA.png"/>
       • <strong>Sanguis Foedus</strong><br />
       Unión mágica entre dos o más sujetos que tras compartir sangre común, quedan sujetos a un trato de vinculación tras utilizar para ello un objeto para albergar la sangre de libre elección que es inmune ante encantamientos
-      convencionales. Funciona de manera similar a un Juramento inquebrantable, solo que es más difícil de romper ya que el objeto reaccionará cuando considere que dicho pacto está en peligro. Creación
-      <a href="https://www.hogwartsrol.com/t49384-creacion-magica-sanguis-foedus-ginevra-maisie#258405">aquí</a>.</strong><br />
+      convencionales. Funciona de manera similar a un Juramento inquebrantable, solo que es más difícil de romper ya que el objeto reaccionará cuando considere que dicho pacto está en peligro.</strong><br />
       <img src="https://i.imgur.com/fJbj8Fr.png"/>
       • <strong>Sanitatis Mentis</strong><br />
       Es un hechizo que es capaz de reconstruir o recuperar parcialmente un recuerdo que haya sido alterado mediante magia o habilidad mágica. El recuerdo no será completamente exacto pero sí podremos ver gran parte de él a pesar que
-      se hayan visto modificado y/o borrado de alguna manera. <i>Solo podrá ser utilizado con un acuerdo previo.</i> Creación
-      <a href="https://www.hogwartsrol.com/t31646p10-creacion-magica-sanitatem-mentis-elya-c-william-e">aquí</a><br />
+      se hayan visto modificado y/o borrado de alguna manera. <i>Solo podrá ser utilizado con un acuerdo previo.</i><br />
       <img src="https://i.imgur.com/YwNtZmT.png"/>
       • <strong>Sartrix</strong><br />
-      Hechizo utilizado para zurcir, tejer, coser, hilar y remendar todo tipo de telas y poder crear o reparar prendas. Creación
-      <a href="https://www.hogwartsrol.com/t77385-creacion-magica-sartrix-jin-giffard#407830">aquí</a><br />
+      Hechizo utilizado para zurcir, tejer, coser, hilar y remendar todo tipo de telas y poder crear o reparar prendas. <br />
       <img src="https://i.imgur.com/abCSZSK.png"/>
       • <strong>Scintilla</strong><br />
       Lanza chispas de colores (el color lo decide el que lo convoca) sirve para hacer señales de luces.<br />
@@ -2302,33 +2265,29 @@
       Amplifica la voz como un megáfono.<br />
       <img src="https://i.imgur.com/QiJylLN.png"/>
       • <strong>Spongyfus</strong><br />
-      Es un encantamiento que vuelve los objetos más flexibles, haciéndolos como la goma y elásticos. Creación <a href="https://www.hogwartsrol.com/t61021-creacion-magica-spongyfus-lancelot-nael">aquí</a><br />
+      Es un encantamiento que vuelve los objetos más flexibles, haciéndolos como la goma y elásticos. <br />
       <img src="https://i.imgur.com/WpAnV0L.png"/>
       • <strong>Tempus</strong><br />
       Conjura un reloj mágico aereo que dice la hora del lugar donde el que lanza el hechizo se encuentra.<br />
       <img src="https://i.imgur.com/5TQAAVR.png"/>
       • <strong>Tergeo</strong><br />
-      Es un hechizo neutral que se usa para aspirar cualquier sustancia líquida, como sangre, polvo o grasa, fuera del objetivo hasta lograr que quede limpio.
-      <a href="https://www.hogwartsrol.com/t55025-creacion-magica-tergeo-atwood-frank">Creación.</a><br />
+      Es un hechizo neutral que se usa para aspirar cualquier sustancia líquida, como sangre, polvo o grasa, fuera del objetivo hasta lograr que quede limpio.<br />
       <img src="https://i.imgur.com/W6PGPFI.png"/>
       • <strong>Transire Locus</strong><br />
       Por medio de este conjuro, el invocador abre un portal desde su locación hacia un destino que conozca y visualice, y el cual mantiene abierto mientras se concentre y hasta que lo atraviese él mismo. Serviría para movilizar
-      personas y cosas que no se pueden aparecer ni ocupar trasladores o red flu (como enfermos delicados en camilla, equipo de hospital, bebés, etc). Creación
-      <a href="https://www.hogwartsrol.com/t81875p10-creacion-magica-transire-locus-william-scorpius#439073">aquí</a><br />
+      personas y cosas que no se pueden aparecer ni ocupar trasladores o red flu (como enfermos delicados en camilla, equipo de hospital, bebés, etc). <br />
       <img src="https://i.imgur.com/bZO98uC.png"/>
       • <strong>Umbrae Pulsus</strong><br />
-      Hechizo que modifica el aura personal del objetivo para dejar a la persona con profunda tristeza y melancolía. Creación
-      <a href="https://www.hogwartsrol.com/t95471p10-camara-de-la-creacion-magica-umbrae-pulsus-giffard-mordred#504202">aquí</a><br />
+      Hechizo que modifica el aura personal del objetivo para dejar a la persona con profunda tristeza y melancolía. <br />
       <img src="https://i.imgur.com/NteiM37.png"/>
       • <strong>Veraberto</strong><br />
       Encantamiento que transforma animales en copas de cristal.<br />
       <img src="https://i.imgur.com/mpj73fb.png"/>
       • <strong>Vínculo Familiar</strong><br />
-      Hechizo que crea un fuerte vínculo con una hada a través de un juramento. Creación <a href="https://www.hogwartsrol.com/t20534-creacion-magica-jimmy-goldstein-ethan-abrahamsen">aquí</a><br />
+      Hechizo que crea un fuerte vínculo con una hada a través de un juramento. <br />
       <img src="https://i.imgur.com/fJlGACS.jpg"/>
       • <strong>Vínculo Familiar Avanzado</strong><br />
-      Hechizo que fortalece y mejora el fuerte vínculo con la hada ya vinculada, a través de una serie de juramentos. Creación
-      <a href="https://www.hogwartsrol.com/t31999p10-creacion-magica-vinculo-familiar-avanzado-james-goldstein-y-charlotte-beckett">aquí</a><br />
+      Hechizo que fortalece y mejora el fuerte vínculo con la hada ya vinculada, a través de una serie de juramentos. <br />
     </div>
   </dd>
 </dl>
@@ -2340,7 +2299,7 @@
       <img src="https://i.imgur.com/UOVByCT.png"/>
       • <strong>Acus Acuta</strong><br />
       Invoca una "aguja" azul que funciona de la misma manera que una convencional, generando un pequeño ducto que atraviesa la piel o músculos sin causar ningún tipo de dolor al pinchar. Puede utilizarse tanto para inyectar como para
-      sacar sangre, conectando el ducto mágico con un emisor/receptor de fluidos. Creación <a href="https://www.hogwartsrol.com/t93416-camara-de-la-creacion-magica-acus-acuta-derek-lillie">Aquí</a><br />
+      sacar sangre, conectando el ducto mágico con un emisor/receptor de fluidos. <br />
       <img src="https://i.imgur.com/Iw9DZw1.png"/>
       • <strong>Anapneo</strong><br />
       se utiliza para despejar las vías respiratorias en el caso de un asfixie.<br />
@@ -2354,7 +2313,7 @@
       <img src="https://i.imgur.com/cHNIxNA.png"/>
       • <strong>Celum Praesidium</strong><br />
       Con un movimiento circular en el aire, este hechizo crea ondas que detectan toxinas dañinas en un rango de 50 metros a la redonda, las elimina y purifica el aire para evitar su transmisión. Tiene una duración de hasta 30
-      minutos. Creación <a href="https://www.hogwartsrol.com/t77375p10-creacion-magica-celum-praesidium-julieta-alphonse#417142">Aquí</a><br />
+      minutos. <br />
       <img src="https://i.imgur.com/9HhLynb.png"/>
       • <strong>Corporalis Sanitatis</strong><br />
       Este hechizo permite tener un registro del estado de la sangre del objetivo lo que puede llegar a determinar todos los valores básicos de un hemograma completo.<br />
@@ -2385,34 +2344,32 @@
       Para componer pequeñas fracturas menores de manera rápida y eficaz. Pero su uso sin experiencia podría provocar la desaparición de un hueso o algún componente óseo.<br />
       <img src="https://i.imgur.com/GfdwICA.png"/>
       • <strong>Febris Imperium</strong><br />
-      Regula gradualmente la temperatura corporal en estados febriles. Es un hechizo acumulativo, se debe efectuar una vez cada hora durante cuatro horas para que sea efectivo. Creación
-      <a href="https://www.hogwartsrol.com/t68150-creacion-magica-febris-imperium-atwood-olivia">aquí</a><br />
+      Regula gradualmente la temperatura corporal en estados febriles. Es un hechizo acumulativo, se debe efectuar una vez cada hora durante cuatro horas para que sea efectivo. <br />
       <img src="https://i.imgur.com/8bL8YG0.jpg"/>
       • <strong>Ferula</strong><br />
       Sirve para entablillar al herido en caso de que se haya roto un hueso.<br />
       <img src="https://imgur.com/RaIuB0j.png"/>
       • <strong>Fractio</strong><br />
       Hechizo que cura o restablece huesos malformados o aquellos afectados por diversas enfermedades, fracturándolos de forma seca e indolora. Se ha de utilizar en conjunto con otros hechizos de sanación para culminar el proceso con
-      éxito. Creación <a href="https://www.hogwartsrol.com/t72663-creacion-magica-fractio-giffard-logan">aqui</a><br />
+      éxito. <br />
       <img src="https://i.imgur.com/quqbjPL.png"/>
       • <strong>Hemo Dialium</strong><br />
       Se trata de un hechizo que elimina las toxinas de la sangre cuando un órgano está fallando (como el riñón o el hígado). Sirve también para purificarla en caso de intoxicación severa. Es un hechizo acumulativo, se debe recitar
-      una vez cada hora durante cuatro horas para que la sangre sea filtrada total y eficazmente. No cura la causa de la intoxicación, tan sólo filtra la sangre. Creación
-      <a href="https://www.hogwartsrol.com/t23860-creacion-magica-isolda-carrow-emett-blacwood">aquí</a><br />
+      una vez cada hora durante cuatro horas para que la sangre sea filtrada total y eficazmente. No cura la causa de la intoxicación, tan sólo filtra la sangre. <br />
       <img src="https://i.imgur.com/mDOERGO.jpg"/>
       • <strong>Kemaio</strong><br />
       Produce Alcohol Etílico, de color rojo fuerte, que sirve para desinfectar la herida.<br />
       <img src="https://i.imgur.com/ZbBB2G4.png"/>
       • <strong>Latidum Sonorus</strong><br />
       La varita debe apuntar al órgano que se quiere escuchar, ocasionando que funcione como un amplificador, pudiendo identificar el sonido del latido del corazón, el sonido de los pulmones o bien, del estómago o intestinos.
-      Creación <a href="https://www.hogwartsrol.com/t60394-creacion-magica-latidum-sonorus-lillie-jonathan">aquí</a><br />
+      <br />
       <img src="https://i.imgur.com/DM7mxSt.jpg"/>
       • <strong>Mulamontoletus</strong><br />
       Genera Muletas. Éstas vienen como pequeños bastones de madera, los cuales agitándolos se expanden y pasan a tomar la forma de las muletas normales, están encantadas para hacer que se muevan por el mago.<br />
       <img src="https://i.imgur.com/2eF8Uan.jpg"/>
       • <strong>Oculi Refectionem</strong><br />
       Reconstruye la cuenca ocular completamente y el globo ocular cuando este presenta daños. el hechizo solo sirve para reconstruir un solo ojo por hechizo, además requiere de drenado mágico constante mientras se realiza. Hechizo
-      efectivo 100% al final del proceso, pero con efectos secundarios. Creación <a href="https://www.hogwartsrol.com/t31835-creacion-magica-oculi-refectionem-ekaterina-romanova-y-byron-rosier">aquí</a><br />
+      efectivo 100% al final del proceso, pero con efectos secundarios. <br />
       <br />
       <img src="https://i.imgur.com/iubf9nm.png"/>
       • <strong>Oculus</strong><br />
@@ -2423,8 +2380,7 @@
       Se utiliza para colocar los huesos en la posición adecuada para después soldarlos<br />
       <img src="https://i.imgur.com/VVACoCa.png"/>
       • <strong>Puer Visibilis</strong><br />
-      El hechizo podrá realizar copias exactas, de una parte del cuerpo humano. Dichas copias podrán ser guardadas para su uso sin que el paciente esté presente. Creación
-      <a href="https://www.hogwartsrol.com/t22962-creacion-magica-elya-campbell-william-ellis">aquí</a><br />
+      El hechizo podrá realizar copias exactas, de una parte del cuerpo humano. Dichas copias podrán ser guardadas para su uso sin que el paciente esté presente. <br />
       <img src="https://i.imgur.com/kOxtIkD.png"/>
       • <strong>Remolotum</strong><br />
       Extrae elementos contundentes que se encuentran en el interior de la herida como suciedad o partículas de vidrio grandes. Generalmente se utiliza luego del Kemaio.<br />
@@ -2433,18 +2389,18 @@
       Hechizo que repara temporalmente las fracturas de la psique del individuo gracias a pequeñas ondas, restaurando la integridad mental y emocional dañada por sentimientos negativos (On rol)<br />
       <img src="https://i.imgur.com/RweKtXZ.png"/> • <strong>Repeciare</strong><br />
       Hechizo para reconstruir y darle forma a tejidos estructurales blandos (piel, músculos, tendones, la grasa, los vasos sanguíneos, los nervios, etc.). No sirve para órganos, ni huesos. Se usa en conjunto con las pociones
-      pertinentes. Creación <a href="https://www.hogwartsrol.com/t49981p10-creacion-magica-repeciare-scorpius-william">aquí</a><br />
+      pertinentes. <br />
       <img src="https://i.imgur.com/ZNLU8Fx.png"/>
       • <strong>Revisus Arterius</strong><br />
       Permite aparecer ante los ojos del mago un mapa detallado de cada vena, arteria y vasos sanguíneos del cuerpo de la persona a examinar, otorgando además la capacidad de detectar trombos y obstrucciones dentro del sistema
-      circulatorio. Creación <a href="https://www.hogwartsrol.com/t39643-creacion-magica-revisus-arterius-william-morgan">aquí</a><br />
+      circulatorio. <br />
       <img src="https://i.imgur.com/Olxzabe.png"/>
       • <strong>Thermometrum</strong><br />
       Este hechizo permite saber la temperatura corporal de una persona. (A tener en cuenta que un licántropo suele tener valores más elevados que la media y los vampiros menores a la misma).<br />
       <img src="https://i.imgur.com/DzliQ15.png"/>
       • <strong>Tourniquet</strong><br />
       Encantamiento que genera una banda de goma, que se envuelve con firmeza alrededor de una pierna o un brazo para impedir el flujo de sangre hacia ese miembro durante un tiempo. Se puede usar como apoyo para extraer sangre o para
-      que una herida deje de sangrar. Utilizado como medida de primeros auxilios para evitar hemorragias. Creación <a href="https://www.hogwartsrol.com/t73612-creacion-magica-tourniquet-daniel-darya">aquí</a><br />
+      que una herida deje de sangrar. Utilizado como medida de primeros auxilios para evitar hemorragias.<br />
       <br />
       <img src="https://i.imgur.com/KrbDnqV.png"/>
       • <strong>Vulnera Sanetum</strong><br />
@@ -2471,16 +2427,13 @@
       Este encantamiento permite calentar el agua y hacerla hervir. No invoca el agua. Con un buen control sirve para hacer té.<br />
       <img src="https://i.imgur.com/9ZQiOQ4.png"/>
       • <strong>Calidum Metallum</strong><br />
-      Hechizo de ilusión que hace creer a la persona que todo objeto de metal que porte encima le quema. Dicho efecto termina si la persona se despoja de él Creación
-      <a href="https://www.hogwartsrol.com/t59179-creacion-magica-calidum-metallum-whilemina-kyle">aquí</a><br />
+      Hechizo de ilusión que hace creer a la persona que todo objeto de metal que porte encima le quema. Dicho efecto termina si la persona se despoja de él <br />
       <img src="https://i.imgur.com/0b0xzm2.png"/>
       • <strong>Caligine strangulatus</strong><br />
-      Una densa niebla de gas asfixiante sale de la varita, envuelve y obstruye las vías respiratorias del objetivo en un radio no mayor de 20 metros cuadrados. Creación
-      <a href="https://www.hogwartsrol.com/t46546-creacion-magica-caligine-strangulatus-magnus-mordred">aquí</a><br />
+      Una densa niebla de gas asfixiante sale de la varita, envuelve y obstruye las vías respiratorias del objetivo en un radio no mayor de 20 metros cuadrados. <br />
       <img src="https://i.imgur.com/GZ9w4GW.png"/>
       • <strong>Carnivine</strong><br />
-      Del suelo brota una planta carnívora que expulsa una toxina en forma de gas denso color verde en dirección al contrincante, su efecto produce quemaduras en la piel del objetivo. Creación
-      <a href="https://www.hogwartsrol.com/t59976-creacion-magica-carnivine-lillie-jonathan">aquí</a><br />
+      Del suelo brota una planta carnívora que expulsa una toxina en forma de gas denso color verde en dirección al contrincante, su efecto produce quemaduras en la piel del objetivo. <br />
       <img src="https://i.imgur.com/Y3jlfnC.png"/>
       • <strong>Confringo</strong><br />
       Esta maldición hace explotar cualquier cosa que golpee. Puede ser muy peligrosa e incluso letal si es usada sin responsabilidad.<br />
@@ -2499,8 +2452,7 @@
       <br />
       <img src="https://i.imgur.com/MGPaJz4.png"/>
       • <strong>Electrica Sagitta</strong><br />
-      Genera una lluvia de flechas que descienden desde el cielo en búsqueda de su víctima con el objetivo de que cada flecha produzca una descarga eléctrica tras el impacto. Creación
-      <a href="https://www.hogwartsrol.com/t45547-creacion-magica-electrica-saggita-ginevra-maisie">aquí</a><br />
+      Genera una lluvia de flechas que descienden desde el cielo en búsqueda de su víctima con el objetivo de que cada flecha produzca una descarga eléctrica tras el impacto. <br />
       <img src="https://i.imgur.com/1dEe1K6.png"/>
       • <strong>Expelliarmus</strong><br />
       Este encantamiento permite quitar de las manos los objetos que sostenga su víctima. Es útil en los duelos para desarmar al oponente y quitarle su varita.<br />
@@ -2509,8 +2461,7 @@
       Empuja bruscamente por los aires a un objeto o una persona.<br />
       <img src="https://i.imgur.com/LmIMUnl.png"/>
       • <strong>Fulgur Pluvia</strong><br />
-      Dispara un rayo azul-blanco con la punta de la varita creando una lluvia de chispas similar a relámpagos, electrocutando de ser efectivo. Creación
-      <a href="https://www.hogwartsrol.com/t55876-creacion-magica-fulgur-pluvia-olivia-thomas">aquí</a>.</strong><br />
+      Dispara un rayo azul-blanco con la punta de la varita creando una lluvia de chispas similar a relámpagos, electrocutando de ser efectivo. .</strong><br />
       <img src="https://i.imgur.com/3Ojzm6c.png"/>
       • <strong>Funem Ignis</strong><br />
       Este hechizo conjura una cuerda hecha de fuego, que se puede usar de forma similar a una cuerda normal. Aunque quema a su paso.<br />
@@ -2519,26 +2470,23 @@
       Causa forúnculos sobre su víctima.<br />
       <img src="https://i.imgur.com/WV1TT3G.png"/>
       • <strong>Glacies Terram</strong><br />
-      Utilizando la humedad y partículas de agua en el ambiente, se crea una capa de hielo en el suelo o bajo los pies con el propósito de que el oponente resbale y caiga. Creación
-      <a href="https://www.hogwartsrol.com/t50192-creacion-magica-glacialis-terram-uzalf-linette#262373"> Aquí</a><br />
+      Utilizando la humedad y partículas de agua en el ambiente, se crea una capa de hielo en el suelo o bajo los pies con el propósito de que el oponente resbale y caiga. <br />
       <img src="https://i.imgur.com/DQ4J8CI.png"/>
       • <strong>Herba in Aures</strong><br />
       Este hechizo hace que crezcan puerros de las orejas de la víctima.<br />
       <img src="https://i.imgur.com/WIkPEy2.png"/>
       • <strong>Herbifors</strong><br />
-      Hechizo de transformación que es usado para sacar flores, margaritas, por todo el cuerpo de la víctima.Creación
-      <a href="https://www.hogwartsrol.com/t58522p10-creacion-magica-herbifors-violet-luca">aquí</a><br />
+      Hechizo de transformación que es usado para sacar flores, margaritas, por todo el cuerpo de la víctima.<br />
       <img src="https://i.imgur.com/2PBzO0x.png"/>
       • <strong>Ignem Secans</strong><br />
-      Cuchillas encendidas con fuego azul que al ser lanzadas causan cortes ardientes en la piel de aquel o aquellos contra quienes se utilice. Creación
-      <a href="https://www.hogwartsrol.com/t48461-creacion-magica-ignem-secans-morgan-magnus"> Aquí</a><br />
+      Cuchillas encendidas con fuego azul que al ser lanzadas causan cortes ardientes en la piel de aquel o aquellos contra quienes se utilice. <br />
       <img src="https://i.imgur.com/OpKVW6z.png"/>
       • <strong>Immobulus</strong><br />
       Inmoviliza seres vivos y paraliza aparatos electrónicos.<br />
       <img src="https://i.imgur.com/84wGZaA.jpg"/>
       • <strong>Immutatus</strong><br />
       Neblina cuyo efecto consiste en provocar que el contrincante padezca alucinaciones visuales o auditivas de sus pesadillas, pueden ser desde sus miedos más profundos a sensaciones de angustia prolongadas. La neblina solo se
-      extiende a una distancia de 10 metros a la redonda. Creación <a href="https://www.hogwartsrol.com/t53756-creacion-magica-immutatus-david-julieta">Aquí</a><br />
+      extiende a una distancia de 10 metros a la redonda. <br />
       <img src="https://i.imgur.com/6dWqicn.png"/>
       • <strong>Impedimenta</strong><br />
       Impide el movimiento de su víctima, paralizándolo temporalmente.<br />
@@ -2547,22 +2495,21 @@
       Invoca unas cuerdas gruesas que salen disparadas desde la punta de la varita, atando fuertemente a su objetivo.<br />
       <img src="https://i.imgur.com/15WT5dF.png"/>
       • <strong>Incendio Duo</strong><br />
-      Variación más fuerte del encantamiento Incendio, se diferencia en que conjura llamas de color verde y llega a temperaturas extremas en un abrir y cerrar de ojos. Creación
-      <a href="https://www.hogwartsrol.com/t47669-creacion-magica-incendio-duo-olivia-catherine"> Aquí</a><br />
+      Variación más fuerte del encantamiento Incendio, se diferencia en que conjura llamas de color verde y llega a temperaturas extremas en un abrir y cerrar de ojos. <br />
       <img src="https://i.imgur.com/rD7Xih4.png"/>
       • <strong>Inflatus</strong><br />
       Este embrujo infla a su víctima de forma similar a un globo.<br />
       <img src="https://i.imgur.com/9oTO09d.png"/>
       • <strong>Levicorpus</strong><br />
-      Deja colgando a la víctima por el tobillo, en medio del aire, como si un gancho invisible la estuviera sosteniendo. Creación <a href="https://www.hogwartsrol.com/t45306-creacion-magica-levicorpus-perseo-astrid">aqui</a>.
+      Deja colgando a la víctima por el tobillo, en medio del aire, como si un gancho invisible la estuviera sosteniendo.
       <br />
       <img src="https://i.imgur.com/tH8zGhg.png"/> • <strong>Magnam Symphoniam</strong><br />
       Se crea una partitura en el aire, a través del cual, con toques de la varita se lanzan notas musicales a modo de proyectiles que al impactar producen ruido. Si tocan a una persona, retumbará en sus oídos y le generará sordera
-      temporal. Creación <a href="https://www.hogwartsrol.com/t60396-creacion-magica-magnam-symphoniam-linette-darius">aqui</a>.<br />
+      temporal.<br />
       <img src="https://i.imgur.com/ySH6SYN.png"/>
       • <strong>Melavis</strong><br />
       Hace que al objetivo le salgan plumas y un pico en el rostro, como a un ave, el hechizo dura unos cuantos minutos, la víctima puede hablar con el pico, la transformación se efectúa en la parte superior del cuerpo, del pecho
-      hacia arriba. Creación <a href="https://www.hogwartsrol.com/t42965-creacion-magica-melavis-david-larissa">aqui</a>.<br />
+      hacia arriba.<br />
       <img src="https://i.imgur.com/cOOp0Fy.png"/>
       • <strong>Mocomurciélagos</strong><br />
       Este hechizo hace que los mocos de la víctima tomen forma de murciélagos y la ataquen por un tiempo.<br />
@@ -2571,12 +2518,10 @@
       Puede usarse para obligar a seres vivos conjurados o a ciertos objetos a atacar a una víctima.<br />
       <img src="https://i.imgur.com/4xSGliy.png"/>
       • <strong>Orchideus</strong><br />
-      Conjura una nube de pétalos de flores que vuelan en círculos sobre la cabeza del oponente con el objetivo de desestabilizarlo y tapar por unos momentos la visión de la escena. Puede provocar ciertos síntomas de alergia. Creación
-      <a href="https://www.hogwartsrol.com/t40175-creacion-magica-orchideus-ginevra-maisie">aquí</a><br />
+      Conjura una nube de pétalos de flores que vuelan en círculos sobre la cabeza del oponente con el objetivo de desestabilizarlo y tapar por unos momentos la visión de la escena. Puede provocar ciertos síntomas de alergia.<br />
       <img src="https://i.imgur.com/vJG3TdQ.png"/>
       • <strong>Ossio Dispersimus</strong><br />
-      Hechizo usado para quitar los huesos de la parte del cuerpo señalada de forma temporal. Los huesos desaparecerán, haciendo que la parte del cuerpo afectada (como un brazo) tenga una sensación de goma. Creación
-      <a href="https://www.hogwartsrol.com/t53546p10-creacion-magica-ossio-dispersimus-elliot-calixte#292315">aquí</a><br />
+      Hechizo usado para quitar los huesos de la parte del cuerpo señalada de forma temporal. Los huesos desaparecerán, haciendo que la parte del cuerpo afectada (como un brazo) tenga una sensación de goma.<br />
       <img src="https://i.imgur.com/YgJiRJH.png"/>
       • <strong>Palalingua</strong><br />
       Pega la lengua de su víctima a su paladar, impidiéndole hablar por unos instantes.<br />
@@ -2588,10 +2533,9 @@
       Anima las estatuas de un lugar determinado, haciendo que obedezcan las órdenes del lanzador del hechizo.<br />
       <img src="https://i.imgur.com/FggnPdt.png"/>
       • <strong>Polypus</strong><br />
-      De la varita sale una manada de pulpos dispuestos a pegarse al cuerpo de tu contrincante. Creación <a href="https://www.hogwartsrol.com/t44431-creacion-magica-polypus-atwood-liv#232537"><strong>aquí</strong><br /></a>.<br />
+      De la varita sale una manada de pulpos dispuestos a pegarse al cuerpo de tu contrincante.<br />
       <img src="https://i.imgur.com/avsVHO3.png"/> • <strong>Radicatus</strong><br />
-      Este encantamiento trasformador convierte las piernas de la víctima en múltiples raíces leñosas que se agarran al suelo. Creación
-      <a href="https://www.hogwartsrol.com/t60735-creacion-magica-radicatus-violet-ottis#321142">aqui</a>.<br />
+      Este encantamiento trasformador convierte las piernas de la víctima en múltiples raíces leñosas que se agarran al suelo.<br />
       <img src="https://i.imgur.com/E9PIA2G.png"/>
       •<strong> Rictumsempra</strong><br />
       Genera cosquillas en su víctima.<br />
@@ -2600,8 +2544,7 @@
       Anima objetos (árboles, esqueletos, ropa, etc.) para que se muevan como criaturas. Tiene corta duración.<br />
       <img src="https://i.imgur.com/qFAspiJ.png"/>
       • <strong>Rosae Diaboli</strong><br />
-      Conjura una docena de rosas rojas que se dirigen hacia su objetivo, si el objetivo toca las espinas de las rosas es envenenado hasta perder los cinco sentidos por un turno. Creación
-      <a href="https://www.hogwartsrol.com/t57186-creacion-magica-rosae-diaboli-violet-lucas">aquí</a><br />
+      Conjura una docena de rosas rojas que se dirigen hacia su objetivo, si el objetivo toca las espinas de las rosas es envenenado hasta perder los cinco sentidos por un turno. <br />
       <img src="https://i.imgur.com/nzVzQ3a.png"/>
       • <strong>Rugiet</strong><br />
       Es un hechizo que emite un potente y gigantesco rugido desde la punta de la varita.<br />
@@ -2610,45 +2553,39 @@
       Este hechizo dispara varios chorros de chispas desde la varita al mismo tiempo, lo que permite golpear a la vez a varios enemigos que estén muy cerca entre sí.<br />
       <img src="https://i.imgur.com/M6X3Xbf.png"/>
       • <strong>Sciogliersi</strong><br />
-      Funde el metal y lo transforma en una masa grisácea que se adhiere a la superficie con el que mantenga contacto. Creación
-      <a href="https://www.hogwartsrol.com/t22351-creacion-magica-nicholas-di-alessandro-michael-freeman">aquí</a><br />
+      Funde el metal y lo transforma en una masa grisácea que se adhiere a la superficie con el que mantenga contacto.<br />
       <img src="https://i.imgur.com/kCLFgkd.png"/>
       • <strong>Sentire Frigus</strong><br />
-      Genera en la persona afectada una falsa sensación de frío que provoca temblores, la impresión de tener algunas extremidades congeladas y exhalar vaho. Creación
-      <a href="https://www.hogwartsrol.com/t59387-creacion-magica-sentire-frigus-linette-eferon">aquí</a><br />
+      Genera en la persona afectada una falsa sensación de frío que provoca temblores, la impresión de tener algunas extremidades congeladas y exhalar vaho. <br />
       <img src="https://i.imgur.com/yoPUXCl.png"/>
       • <strong>Serpensortia</strong><br />
       Hace aparecer a una serpiente de la varita.<br />
       <img src="https://i.imgur.com/ERjtGX9.jpg"/>
       • <strong>Spharea Bombarda</strong><br />
-      Esfera de energía que contiene la fuerza equivalente a 6 bombardas, una vez conecta con el objetivo ésta se activa provocando la explosión. Creación
-      <a href="https://www.hogwartsrol.com/t36272-creacion-magica-sphaera-bombarda-erine-adler-david-lyon">aquí</a><br />
+      Esfera de energía que contiene la fuerza equivalente a 6 bombardas, una vez conecta con el objetivo ésta se activa provocando la explosión.<br />
       <img src="https://i.imgur.com/PbaRTNp.png"/>
       • <strong>Spherical electricae</strong><br />
       Crea una esfera de electricidad que crece según la concentración de quien lo invoca, al cabo de unos segundos viaja en rumbo de colisión contra el atacado, soltando una fuerte descarga que deja quemaduras de diversa
-      consideración sobre la piel.Creación <a href="https://www.hogwartsrol.com/t43913-creacion-magica-spherical-electricae-morgan-magnus">aquí</a><br />
+      consideración sobre la piel.<br />
       <img src="https://i.imgur.com/mVIVuLy.png"/>
       • <strong>Steleus</strong><br />
       Este hechizo hace estornudar sin control a su víctima.<br />
       <img src="https://i.imgur.com/ESiGIl0.png"/>
       • <strong>Syrtes</strong><br />
-      Hechizo que transforma el suelo bajo los pies del oponente en arenas movedizas hundiéndolo ligeramente.. Creación <a href="https://www.hogwartsrol.com/t61075-creacion-magica-syrtes-magnus-morgan"> Aquí</a><br />.
+      Hechizo que transforma el suelo bajo los pies del oponente en arenas movedizas hundiéndolo ligeramente.<br />.
       <br />
       <img src="https://i.imgur.com/O7cQIIH.png"/>
       • <strong>Terramotus</strong><br />
       Origina un temblor en la tierra.<br />
       <img src="https://i.imgur.com/pNDRi7r.png"/>
       • <strong>Tragababosas</strong><br />
-      Es un maleficio que hace que la víctima comience a eructar babosas y babas, provocando efecto inmediato de palidez en la piel y vómito gelatinoso. Creación
-      <a href="https://www.hogwartsrol.com/t60913-creacion-magica-tragababosas-daniel-dorian"> Aquí</a><br />
+      Es un maleficio que hace que la víctima comience a eructar babosas y babas, provocando efecto inmediato de palidez en la piel y vómito gelatinoso. <br />
       <img src="https://i.imgur.com/1TfpWY1.png"/>
       • <strong>Verecundia Mementum</strong><br />
-      Hechizo con sonido de un latigazo invisible que hace revivir a tu oponente el recuerdo más humillante que tenga, consiguiendo así que pierda la concentración unos segundos. Debes apuntar a la cabeza para un efecto óptimo.
-      Creación <a href="https://www.hogwartsrol.com/t56803p10-creacion-magica-verecundia-mementum-giffard-alex"> Aquí</a><br />
+      Hechizo con sonido de un latigazo invisible que hace revivir a tu oponente el recuerdo más humillante que tenga, consiguiendo así que pierda la concentración unos segundos. Debes apuntar a la cabeza para un efecto óptimo.<br />
       <img src="https://i.imgur.com/wGQU1so.png"/>
       • <strong>Vestigia Umbrae</strong><br />
-      Un rayo sale disparado para golpear al objetivo y ser lanzado contra una pared cercana siendo succionado y aprisionado en ella, quedando como una "estampa" sobre ella. Creación
-      <a href="https://www.hogwartsrol.com/t61074-creacion-magica-vestigia-umbrae-thomas-atanas"> Aquí</a><br />
+      Un rayo sale disparado para golpear al objetivo y ser lanzado contra una pared cercana siendo succionado y aprisionado en ella, quedando como una "estampa" sobre ella. <br />
       <img src="https://i.imgur.com/8iALk4a.png"/>
       • <strong>Vi Inpulsa</strong><br />
       Es un encantamiento usado para invocar una onda de choque omnidireccional que aturde a todos los oponentes en un radio pequeño.<br />
@@ -2662,33 +2599,30 @@
       <br />
       <img src="https://i.imgur.com/WVBNMiE.png"/>
       • <strong>Anisoptera Praesidium</strong><br />
-      Conjura un enjambre de libélulas azules que batiendo sus alas a gran velocidad generan un brillo índigo en el aire, que protege al conjurador del impacto.. Creación
-      <a href="https://www.hogwartsrol.com/t91116-camara-de-la-creacion-magica-anisoptera-praesidium-vernon-jin#470888"> aquí</a><br />
+      Conjura un enjambre de libélulas azules que batiendo sus alas a gran velocidad generan un brillo índigo en el aire, que protege al conjurador del impacto.<br />
       <img src="https://i.imgur.com/SKsuAWf.png"/>
       • <strong>Aracne Praesidium</strong><br />
-      Una telaraña eléctrica sale de la varita y se expande ocultando al invocador tras ella para absorber el hechizo del oponente y acto seguido desintegrarse. Creación
-      <a href="https://www.hogwartsrol.com/t78799-creacion-magica-aracne-praesidium-giffard-perseo"> aquí</a><br />
+      Una telaraña eléctrica sale de la varita y se expande ocultando al invocador tras ella para absorber el hechizo del oponente y acto seguido desintegrarse. <br />
       <img src="https://i.imgur.com/zIp3PQj.png"/>
       • <strong>Canticum Eihwaz</strong><br />
       El mago realiza el trazo correcto de la runa de Eihwaz con su varita, una vez trazada esta se proyecta múltiples veces formando un pequeño muro rúnico delante del conjurador que es capaz de desvanecer cualquier hechizo que lo
-      atraviese. Creación <a href="https://www.hogwartsrol.com/t68532-creacion-magica-canticum-eihwaz-thomas-olivia"> aquí</a><br />
+      atraviese.<br />
       <img src="https://i.imgur.com/4uFQ6N9.png"/>
       • <strong>Casco Burbuja</strong><br />
       Crea una burbuja protectora alrededor de la cabeza que permite respirar aire puro. Es útil para mantener la respiración bajo el agua.<br />
       <img src="https://i.imgur.com/QVcfaqW.png"/>
       • <strong>Clypeus Cosmicus</strong><br />
-      La varita genera un espiral de polvo cósmico que gira alrededor del mago a gran velocidad, protegiéndolo de los hechizos que sus enemigos le lancen. Creación
-      <a href="https://www.hogwartsrol.com/t69327-creacion-magica-clypeus-cosmicus-oliver-taylor">aquí</a><br />
+      La varita genera un espiral de polvo cósmico que gira alrededor del mago a gran velocidad, protegiéndolo de los hechizos que sus enemigos le lancen. <br />
       <img src="https://i.imgur.com/k69doks.png"/>
       • <strong>Cogitationis</strong><br />
-      Crea un espejo que absorbe el ataque contrario. No rebotará. Creación <a href="https://www.hogwartsrol.com/t52535p10-creacion-magica-cogitationis-logan-alaric">aquí</a><br />
+      Crea un espejo que absorbe el ataque contrario. No rebotará. <br />
       <img src="https://i.imgur.com/FFvfKew.png"/>
       • <strong>Corali Obice</strong><br />
       Genera una barrera ovalada formada por decenas de corales multicolor sobre el conjurador. Gracias al grosor de dicha barrera, lo protege de los hechizos del adversario. Una vez cumple su cometido, se deshace como espuma de mar.
-      Creación <a href="https://www.hogwartsrol.com/t87296-creacion-magica-corali-obice-icarus-mordred#454914">aquí</a><br />
+      <br />
       <img src="https://i.imgur.com/pgYUaNP.png"/>
       • <strong>Demeter Praesidium</strong><br />Crea varias espigas de trigo de gran altura que protegen al invocador ocultándole con ellas y bateando el hechizo ofensivo, esparciendo sus semillas una vez que se produce el impacto.
-      Creación <a href="https://www.hogwartsrol.com/t88048-creacion-magica-demeter-praesidium-perseo-giffard#458468"> aquí</a><br />
+      <br />
       <img src="https://i.imgur.com/94JHMJ9.png"/>
       • <strong>Emancipare</strong><br />
       Este encantamiento permite liberar las ataduras de un objetivo.<br />
@@ -2697,97 +2631,85 @@
       Este antiguo y difícil encantamiento materializa los pensamientos felices en un guardián mágico que puede proteger contra la magia más oscura. Puede usarse para repeler dementores y lethifolds, y también para enviar mensajes a
       otras personas.<br />
       <img src="https://i.imgur.com/JKowniT.png"/> • <strong>Flora Praesidium</strong><br />
-      Crea una bóveda de lianas con flores que encierra al invocador para protegerle, recibiendo en su lugar el impacto de cualquier hechizo de ataque. Posterior al impacto la bóveda se desintegra en forma de polen. Creación
-      <a href="https://www.hogwartsrol.com/t73734-creacion-magica-flora-praesidium-perseo-darius">aquí</a><br />
+      Crea una bóveda de lianas con flores que encierra al invocador para protegerle, recibiendo en su lugar el impacto de cualquier hechizo de ataque. Posterior al impacto la bóveda se desintegra en forma de polen. <br />
       <img src="https://i.imgur.com/fPuMYJq.png"/>
       • <strong>Flumen Florum</strong><br />
-      Aparece una flor gigante(a elección) sin tallo frente al lanzador cuya gran corola absorbe el ataque enemigo. En caso de ser una defensa exitosa, la flor desaparece volviéndose cientos de pequeños pétalos. Creación
-      <a href="https://www.hogwartsrol.com/t76410-creacion-magica-flumem-florum-magnus-morgan">aquí</a><br />
+      Aparece una flor gigante(a elección) sin tallo frente al lanzador cuya gran corola absorbe el ataque enemigo. En caso de ser una defensa exitosa, la flor desaparece volviéndose cientos de pequeños pétalos. <br />
       <img src="https://i.imgur.com/GoABpZY.png"/>
       • <strong>Foggeo</strong><br />
       Hechizo que provoca una nube de niebla mágica que paraliza y devora en su interior la magia de hechizos de elementos impidiendo que el ataque llegue a su destino. Es una niebla inofensiva que no afecta a los magos y cuyo
-      alcance máximo son tres o cuatro metros desde el lugar de lanzamiento, la cual desaparecer tras un turno. Creación
-      <a href="https://www.hogwartsrol.com/t70207-creacion-magica-foggeo-giffard-chuck">aquí</a><br />
+      alcance máximo son tres o cuatro metros desde el lugar de lanzamiento, la cual desaparecer tras un turno. <br />
       <img src="https://i.imgur.com/2aXcsot.png"/>
       • <strong>Galaxia Explosio</strong><br />
-      Crea una pequeña corriente de energía de colores que gira como si fuese una galaxia la cual se posiciona entre el hechizo y el conjurador absorbiendo el ataque, explotando en polvo de estrellas después. Creación
-      <a href="https://www.hogwartsrol.com/t80644-creacion-magica-galaxia-explosio-whilemina-morgan">aquí</a><br />
+      Crea una pequeña corriente de energía de colores que gira como si fuese una galaxia la cual se posiciona entre el hechizo y el conjurador absorbiendo el ataque, explotando en polvo de estrellas después. <br />
       <img src="https://i.imgur.com/hHtv6Gu.png"/>
       • <strong>Hephaestus Praesidium</strong><br />
       Hechizo que invoca unos barrotes de lava desde el suelo que se levantan alrededor del invocador a modo de jaula con el objetivo de detener hechizos ofensivos gracias a su altísima temperatura. En cuanto estos impactan, se
-      derrumba dejando escoria (impureza de hornos metalúrgicos). Creación <a href="https://www.hogwartsrol.com/t86813-creacion-magica-hefesto-praesidium-giffard-perseo">aquí</a><br />
+      derrumba dejando escoria (impureza de hornos metalúrgicos). <br />
       <img src="https://i.imgur.com/B6qJLUD.png"/>
       • <strong>Hidrocorpus</strong><br />
       Genera una armadura de agua sobre tu cuerpo con la finalidad de protegerte de ataques ígneos si un mago muy poderoso lo conjura bien puede tapar el fuego maligno.<br />
       <img src="https://i.imgur.com/pZOzJ1G.png"/>
       • <strong>Liberacorpus</strong><br />
-      Contrahechizo para detener exclusivamente el efecto de Levicorpus evitando quedar suspendido del aire o soltando a la víctima de sus ataduras invisibles. Creación
-      <a href="https://www.hogwartsrol.com/t54837-creacion-magica-liberacorpus-perseo-julieta#287599">aquí</a><br />
+      Contrahechizo para detener exclusivamente el efecto de Levicorpus evitando quedar suspendido del aire o soltando a la víctima de sus ataduras invisibles. <br />
       <img src="https://i.imgur.com/lvSSNJ2.png"/>
       • <strong>Lotos Germen</strong><br />
       En los pies del conjurador aparece el botón de una flor de loto, los pétalos del loto, que son manifestados en color rosado y traslucido con pequeños destellos dorados, aumentarán su tamaño y se cerrarán para cubrir al
-      personaje de cualquier hechizo lanzado en su dirección. Creación <a href="https://www.hogwartsrol.com/t78109p10-creacion-magica-lotos-germen-olivia-lillie#417141">Aquí</a><br />
+      personaje de cualquier hechizo lanzado en su dirección. <br />
       <img src="https://i.imgur.com/QSLV3VS.png"/>
       • <strong>Luminum Defensio</strong><br />
-      Una cortina de aurora boreal que se aparece frente a quien la conjura para absorber hechizos, si es exitosa brilla más fuerte. Creación
-      <a href="https://www.hogwartsrol.com/t55044-creacion-magica-luminum-defensio-kaira-kyle">aquí</a><br />
+      Una cortina de aurora boreal que se aparece frente a quien la conjura para absorber hechizos, si es exitosa brilla más fuerte. <br />
       <img src="https://i.imgur.com/MYfCiBu.png"/>
       • <strong>Luto Obice</strong><br />
       Elevando cantidades de agua y tierra del suelo se crea un lodo denso que permite al conjugador realizar figuras geométricas delante de sí mismo para protegerlo de ataques. Después del impacto, el lodo se disolverá en la tierra
-      durando solo un turno. Creación <a href="https://www.hogwartsrol.com/t86837-creacion-magica-luto-obice-jin-vernon#452852">aquí</a><br />
+      durando solo un turno. <br />
       <img src="https://i.imgur.com/c8pjPVA.jpg"/>
       • <strong>Marvel Scale</strong><br />
-      Recubre con una capa fina de escamas resistentes a la magia a quien lo conjura o en quien se conjura. Creación
-      <a href="https://www.hogwartsrol.com/t36435-creacion-magica-marvel-scale-elliot-lestrange-caelum-lestrange">aquí</a>.</strong><br />
+      Recubre con una capa fina de escamas resistentes a la magia a quien lo conjura o en quien se conjura.<br />
       <img src="https://i.imgur.com/6nl823W.png"/>
       • <strong>Metallum Scutum</strong><br />
       Por medio de una floritura circular apuntando al piso, los metales de la tierra salen del mismo para formar un escudo de metal que defiende al usuario. Cada ataque que recibe le hace una mella hasta que se deshaga en pedazos.
-      Creación <a href="https://www.hogwartsrol.com/t72897-creacion-magica-metallum-scutum-morgan-whilemina">aquí</a>.</strong><br />
+      <br />
       <img src="https://i.imgur.com/f0Q14jt.png"/>
       • <strong>Mjolnir Scutum</strong><br />
       Materializa una proyección de martillo que girará rápidamente sobre si mismo a modo de hélice cargada de electricidad para proteger a su invocador de cualquier hechizo, canalizando la energía del ofensivo que reciba.
-      <a href="https://www.hogwartsrol.com/t71891-creacion-magica-mjolnir-scutum-perseo-landon">aquí</a>.</strong><br />
+      <br />
       <img src="https://i.imgur.com/b96XcB0.png"/>
       • <strong>Molliare</strong><br />
       Este encantamiento crea un efecto invisible de suavidad en las superficies en que es usado.<br />
       <img src="https://i.imgur.com/TKBCFQK.png"/>
       • <strong>Murus Latrunculorum</strong><br />
-      De la varita se conjura una pieza de ajedrez con forma de caballo del mismo tamaño de su conjurador que al sujetarse de este marchará de forma rápida, saltando o galopando para esquivar el hechizo contrario. Creación
-      <a href="https://www.hogwartsrol.com/t83067-creacion-magica-murus-latrunculorum-caius-jin#438421">aquí</a><br />
+      De la varita se conjura una pieza de ajedrez con forma de caballo del mismo tamaño de su conjurador que al sujetarse de este marchará de forma rápida, saltando o galopando para esquivar el hechizo contrario.<br />
       <img src="https://i.imgur.com/fXQTgQI.png"/>
       • <strong>Neptune Praesidium</strong><br />
       Hechizo defensivo que crea esferas de agua que orbitan alrededor del invocador para protegerle de los ataques. Una vez que impacta un hechizo ofensivo en ellas, estallan como pompas de jabón.
-      <a href="https://www.hogwartsrol.com/t81542-creacion-magica-neptune-praesidum-giffard-perseo">aquí</a>.</strong><br />
+      <br />
       <img src="https://i.imgur.com/062Os8K.png"/>
       • <strong>Petra Scutum</strong><br />
       Invoca polvo de cuarzo marrón que al solidificarse forma un escudo en forma de rombo capaz de proteger de ataques de agua y aire.
-      <a href="https://www.hogwartsrol.com/t70536-creacion-magica-petra-scutum-atwood-darius">aquí</a>.</strong><br />
+      <br />
       <img src="https://i.imgur.com/syCUnAL.png"/>
       • <strong>Pharaonis Praesidium</strong><br />
-      Conjura una máscara mortuoria egipcia que se sitúa delante de su invocador para protegerle y en cuanto recibe el impacto de un hechizo ofensivo explota en polvo de arena del desierto. Creación
-      <a href="https://www.hogwartsrol.com/t90121-creacion-magica-pharaonis-praesidium-perseo-lancelot">aquí</a><br />
+      Conjura una máscara mortuoria egipcia que se sitúa delante de su invocador para protegerle y en cuanto recibe el impacto de un hechizo ofensivo explota en polvo de arena del desierto. <br />
       <img src="https://i.imgur.com/x2pSE7i.png"/>
       • <strong>Phoenix Praesidium</strong><br />
-      Se conjura un ave fénix con las partículas metálicas del suelo que protegerá a su invocador volando hacia el hechizo ofensivo para tragárselo e implosionar en una nube de chispas metalúrgicas una vez que lo haya hecho. Creación
-      <a href="https://www.hogwartsrol.com/t91878-camara-de-la-creacion-magica-phoenix-praesidium-giffard-chuck">aquí</a><br />
+      Se conjura un ave fénix con las partículas metálicas del suelo que protegerá a su invocador volando hacia el hechizo ofensivo para tragárselo e implosionar en una nube de chispas metalúrgicas una vez que lo haya hecho. <br />
       <img src="https://i.imgur.com/c6yQL0p.png"/>
       • <strong>Protego</strong><br />
       Este encantamiento genera una barrera invisible que permite bloquear y desviar hechizos enemigos y ataques físicos.<br />
       <img src="https://i.imgur.com/LINFe7t.png"/>
       • <strong>Regiumbra</strong><br />
-      Invoca las sombras de la cercanía y crea una esfera tridimensional que se expande como escudo alrededor del que lo conjura y absorbe los ataques. Creación
-      <a href="https://www.hogwartsrol.com/t70844-creacion-magica-regiumbra-styx-eva">aquí</a><br />
+      Invoca las sombras de la cercanía y crea una esfera tridimensional que se expande como escudo alrededor del que lo conjura y absorbe los ataques. <br />
       <img src="https://i.imgur.com/VaVhje6.png"/>
       • <strong>Scutum Ferro</strong><br />
-      Genera una armadura de acero temporal capaz de proteger de ataques con armas blancas, hechizos elementales o causantes de ilusiones. Creación
-      <a href="https://www.hogwartsrol.com/t70643-creacion-magica-scutum-ferro-julieta-alphonse">aquí</a><br />
+      Genera una armadura de acero temporal capaz de proteger de ataques con armas blancas, hechizos elementales o causantes de ilusiones.
+      <br />
       <img src="https://i.imgur.com/S7IdRjw.png"/>
       • <strong>Spharea Defensus</strong><br />
       Este hechizo produce una contención mágica en forma de esfera que encierra a un ser vivo para protegerle.<br />
       <img src="https://i.imgur.com/pbuHp8l.png"/>
       • <strong>Unguibus Crepitus</strong><br />
-      Conjura dos grandes garras de energía frente al mago, que chocan entre sí bloqueando cualquier hechizo que intente pasar a través de ellas. Creación
-      <a href="https://www.hogwartsrol.com/t90606-creacion-magica-unguibus-crepitus-neria-adelheid"> aquí</a><br />
+      Conjura dos grandes garras de energía frente al mago, que chocan entre sí bloqueando cualquier hechizo que intente pasar a través de ellas.<br />
     </div>
   </dd>
 </dl>
@@ -2798,8 +2720,7 @@
       <br />
       <img src="https://i.imgur.com/p8Hoc48.png"/>
       • <strong>Aegis Ingrata</strong><br />
-      Despliega una descarga eléctrica que se eleva varios metros generando rayos que impactan en el terreno entre invocador y el objetivo, hechizo de ataque y defensa. Creación
-      <a href="https://www.hogwartsrol.com/t38228p10-creacion-magica-aegis-ingrata-elliot-lestrange-hale-westbrook">aquí</a><br />
+      Despliega una descarga eléctrica que se eleva varios metros generando rayos que impactan en el terreno entre invocador y el objetivo, hechizo de ataque y defensa. <br />
       <img src="https://i.imgur.com/KbKbLYs.png"/>
       • <strong>Aguamenti</strong><br />
       Este encantamiento genera un chorro de agua desde la punta de la varita.<br />
@@ -2809,12 +2730,11 @@
       <img src="https://i.imgur.com/7DKKxiO.png"/>
       • <strong>Angelus Praesidium</strong><br />
       Invoca diamantes del subsuelo formando un ángel brillante, en modo de ataque el ángel golpeara al contrincante con su puño radiante. En modo defensivo, las alas del ángel envolverán al invocador para protegerlo de los hechizos
-      contrarios. Creación <a href="https://www.hogwartsrol.com/t93755-camara-de-la-creacion-magica-angelus-praesidium-jin-vernon#486386">aquí</a><br />
+      contrarios. <br />
       <img src="https://i.imgur.com/z5hPa9S.png"/>
       • <strong>Animatum Lignum</strong><br />
       Este hechizo permite al conjurador invocar un árbol viviente de dos metros, capaz de arrastrarse libremente mediante sus raíces. Como modo de ataque, llega rápidamente a su objetivo e inclinándose lanza golpes con sus ramas con
-      la intención de dañar y generar cortes y rasguños. En modo defensa, usa sus ramas para crear una capa gruesa y atrapar los hechizos de los contrincantes, dejando caer varias hojas al suelo. Creación
-      <a href="https://www.hogwartsrol.com/t103200-camara-de-la-creacion-magica-animatum-lignum-ivar-cheryl">aquí</a><br />
+      la intención de dañar y generar cortes y rasguños. En modo defensa, usa sus ramas para crear una capa gruesa y atrapar los hechizos de los contrincantes, dejando caer varias hojas al suelo. <br />
       <img src="https://i.imgur.com/yDvsUfO.png"/>
       • <strong>Aphrodite Praesidium</strong><br />
       Conjura un grupo de mariposas tornasol que envuelven a sus oponentes llenándolos en una lluvia de polvo alucinógeno que provocará que su visión perciba todo de forma psicodélica y con colores vibrantes como un caleidoscopio. En
@@ -2822,7 +2742,7 @@
       <img src="https://i.imgur.com/GWCLeFJ.png"/>
       • <strong>Apolo Praesidium</strong><br />
       De la varita surgen serpientes de fuego que en modo ataque se enroscan en una extremidad del contrincante produciendo quemaduras. En modo defensa surge un basilisco de fuego que rodea al invocador y tras recibir el impacto del
-      hechizo enemigo desaparece tras un fogonazo. Creación <a href="https://www.hogwartsrol.com/t97525-camara-de-la-creacion-magica-apolo-praesidium-perseo-magnus">aquí</a>.<br />
+      hechizo enemigo desaparece tras un fogonazo.<br />
       <img src="https://i.imgur.com/wkcHpPY.png"/>
       • <strong>Aqua Eructo</strong><br />
       Este encantamiento genera un potente chorro de agua de la punta de la varita, que puede extinguir llamas o hacer daños a criaturas de fuego.<br />
@@ -2843,7 +2763,6 @@
       • <strong>Cactos Spinae</strong><br />
       Hechizo que invoca un gran cactus que lanza varias espinas medianas llegando de forma expansiva al oponente, el contacto de las espinas provoca mucha urticaria por todo el cuerpo. Como defensa, el cactus hace crecer frutos de
       gran tamaño que absorberán los hechizos contrarios para luego secarse y desaparecer.<br />
-      Creación <a href="https://www.hogwartsrol.com/t96953-camara-de-la-creacion-magica-cactos-spinae-vernon-jin">Aquí</a>.<br />
       <img src="https://i.imgur.com/mnXSlxh.png"/>
       • <strong>Cantis</strong><br />
       Este embrujo obliga a las personas y objetos a cantar.<br />
@@ -2852,16 +2771,14 @@
       Este encantamiento crea una cuerda mágica desde la punta de la varita, que permite tirar objetos lejanos hacia el lanzador, o jalar al usuario hacia el objeto en que se usa el hechizo.<br />
       <img src="https://i.imgur.com/6S3wUS8.png"/>
       • <strong>Cyclone</strong><br />
-      Sopla en espiral ciclónica de manera ascendente que gira a gran velocidad entre ambos duelistas, puede usarse también de defensa atrapando al hechizo en sus corrientes de aire. Creación
-      <a href="https://www.hogwartsrol.com/t37656-creacion-magica-cyclone-ginevra-prewett-maisie-hill">aquí</a><br />
+      Sopla en espiral ciclónica de manera ascendente que gira a gran velocidad entre ambos duelistas, puede usarse también de defensa atrapando al hechizo en sus corrientes de aire.<br />
       <img src="https://i.imgur.com/QTow67V.png"/>
       • <strong>Defodio</strong><br />
       Cava en la tierra y la roca.<br />
       <img src="https://i.imgur.com/vq2qt4O.png"/>
       • <strong>Diabolus Lasso</strong><br />
       Del suelo aparecen ramas del lazo de diablo. Estas pueden rodear al contrincante e inmovilizarlo para luego apretarlo (ataque). Puede generarse un muro viviente que protege a quien lo castea (defensa). El lazo del diablo
-      tiene predilección por atacar blancos en movimiento, y es muy sensible a la luz y el fuego. Creación
-      <a href="https://www.hogwartsrol.com/t38420p10-creacion-magica-diabolus-lasso-violet-longbottom-morgan-trelawney">aquí</a><br />
+      tiene predilección por atacar blancos en movimiento, y es muy sensible a la luz y el fuego.<br />
       <img src="https://i.imgur.com/cePG6hP.png"/>
       • <strong>Diffindo</strong><br />
       Rompe o corta parcialmente ciertos objetos. También puede generar cortes dolorosos en los seres vivos.<br />
@@ -2870,8 +2787,7 @@
       Este embrujo encierra a su víctima en una burbuja gigante.<br />
       <img src="https://i.imgur.com/OnXy3mu.png"/>
       • <strong>Ecto Cantatio</strong><br />
-      Conjura gotas de ectoplasma contra el enemigo lanzándolas en forma de arco que se puede usar de ataque o creando una barrera con esas gotas de forma defensiva. Creación
-      <a href="https://www.hogwartsrol.com/t51660-creacion-magica-ecto-cantatio-larissa-magnus#270124">aquí</a><br />
+      Conjura gotas de ectoplasma contra el enemigo lanzándolas en forma de arco que se puede usar de ataque o creando una barrera con esas gotas de forma defensiva.<br />
       <img src="https://i.imgur.com/L5TGFre.png"/>
       • <strong>Engorgio</strong><br />
       Este encantamiento permite aumentar el tamaño de un objeto o animal<br />
@@ -2883,19 +2799,17 @@
       Repele cosas. Si se le agrega Arania al hechizo repele arañas.<br />
       <img src="https://i.imgur.com/Ck1vBEI.png"/>
       •<strong>Flipendo</strong><br />
-      Emite un estallido al lanzarse, el impacto se siente como un golpe y puede aturdir o derribar al oponente. También puede usarse para derribar un objeto o destruirlo si es frágil. Creación
-      <a href="https://www.hogwartsrol.com/t50823p10-creacion-magica-flipendo-blanc-f-highwind-holden-longbottom">aquí</a><br />
-      <img src="https://i.imgur.com/XBk9hG1.png"/>- •<strong>Frigidus Ventus</strong><br />
-      Hechizo que enfría y moviliza el aire a gran velocidad creando un tornado glaciar envolvente, formando pequeños diamantes de hielo, que impactan y dañan al contrincante. Creación
-      <a href="https://www.hogwartsrol.com/t55465-camara-de-creacion-magica-frigidus-ventus-logan-jin">aquí</a>.</strong><br />
+      Emite un estallido al lanzarse, el impacto se siente como un golpe y puede aturdir o derribar al oponente. También puede usarse para derribar un objeto o destruirlo si es frágil.<br />
+      <img src="https://i.imgur.com/XBk9hG1.png"/>
+      •<strong>Frigidus Ventus</strong><br />
+      Hechizo que enfría y moviliza el aire a gran velocidad creando un tornado glaciar envolvente, formando pequeños diamantes de hielo, que impactan y dañan al contrincante.
+      <br />
       <img src="https://i.imgur.com/8orlboI.png"/>
       • <strong>Gelata Praesidium</strong><br />
-      Hechizo que, en modo ataque, lanza una sustancia gelatinosa que al contacto da una sensación de ardor y dolor. En modo defensa, la sustancia gelatinosa forma un abanico protector que derretirá el hechizo contrario. Creación
-      <a href="https://www.hogwartsrol.com/t94251-camara-de-la-creacion-magica-gelata-praesidium-alex-amilie">aquí</a><br />
+      Hechizo que, en modo ataque, lanza una sustancia gelatinosa que al contacto da una sensación de ardor y dolor. En modo defensa, la sustancia gelatinosa forma un abanico protector que derretirá el hechizo contrario. <br />
       <img src="https://i.imgur.com/D2RJeAe.jpg"/>
       • <strong>Glacies Iaculat</strong><br />
-      La varita con el agua del ambiente, forma pequeñas esferas de hielo del tamaño de un balín o un poco más grandes para ser lanzadas con fuerza al contrincante, similar a las pistolas de aire con balines ó gotcha. Creación
-      <a href="https://www.hogwartsrol.com/t35150-creacion-magica-glacies-iaculat-seo-taeyeon-ganimedes-windhunter">aquí</a><br />
+      La varita con el agua del ambiente, forma pequeñas esferas de hielo del tamaño de un balín o un poco más grandes para ser lanzadas con fuerza al contrincante, similar a las pistolas de aire con balines ó gotcha.<br />
       <img src="https://i.imgur.com/q6e5RqZ.png"/>
       • <strong>Glacius</strong><br />
       Con este hechizo congelador, helarás el agua y apagarás fuegos.<br />
@@ -2909,68 +2823,60 @@
       <img src="https://i.imgur.com/RvwWspT.png"/>
       • <strong>Lapis Golem</strong><br />
       Hechizo que invoca un Golem de piedra que, como uso ofensivo, se abalanza contra su objetivo para abrazarlo y asfixiarlo con sus fuertes brazos rocosos. Como defensa, se interpone y sacrifica su cuerpo para proteger al
-      invocador, desapareciendo en polvo. Creación <a href="https://www.hogwartsrol.com/t98504-camara-de-la-creacion-magica-lapis-golem-ricardo-ivar">aquí</a><br />
+      invocador, desapareciendo en polvo.<br />
       <img src="https://i.imgur.com/woqoLlt.png"/>
       • <strong>Locomotor Mortis</strong><br />
       Pega las piernas de la víctima entre sí, impidiendo sus movimientos libremente.<br />
       <img src="https://i.imgur.com/wjnCTtK.png"/>
       • <strong>Lumos Solem</strong><br />
       Hechizo que produce un potente rayo de luz solar que se puede usar para dañar al oponente para cegarlo durante unos segundos si se conjura con fuerza, también se usa como contrahechizo para otros ataques producidos por plantas o
-      liberar a aquellos que se encuentren bajo los efectos de hechizos conformados por ausencia de luz. Creación
-      <a href="https://www.hogwartsrol.com/t40303-creacion-magica-lumos-solem-lancelot-olivia">aquí</a><br />
+      liberar a aquellos que se encuentren bajo los efectos de hechizos conformados por ausencia de luz.<br />
       <img src="https://i.imgur.com/ZP76QPG.png"/>
       • <strong>Melofors</strong><br />
       Este embrujo envuelve la cabeza de su víctima con una calabaza.<br />
       <img src="https://i.imgur.com/s6OHDWD.png"/>
       • <strong>Meteoro Balteus</strong><br />
       Crea pequeños asteroides que orbitan alrededor del contrincante para finalmente estallar, con el objetivo de que sus piedras le impacten y aturdan. En modo defensa, quien lo conjura logrará que los meteoros formen en conjunto un
-      escudo que le protegerá de cualquier ataque. Creación <a href="https://www.hogwartsrol.com/t59750-creacion-magica-meteoro-balteus-david-kaira">aquí</a><br />
+      escudo que le protegerá de cualquier ataque. <br />
       <img src="https://i.imgur.com/IPOsGpG.png"/>
       • <strong>Murcego</strong><br />
       Hechizo que conjura 4 murciélagos desde la varita. Los murciélagos pueden atacar al adversario a través de ondas sonoras aturdidoras capaces de afectar gravemente los tímpanos dejando al oponente adolorido y sin equilibrio para
-      defenderse. Como defensa, los murciélagos te cubren como escudo o sus ondas sonoras impactan con los hechizos opuestos. Creación
-      <a href="https://www.hogwartsrol.com/t59876-creacion-magica-murcego-serge-iara">aquí</a><br />
+      defenderse. Como defensa, los murciélagos te cubren como escudo o sus ondas sonoras impactan con los hechizos opuestos. <br />
       <img src="https://i.imgur.com/jai4EI4.png"/>
       • <strong>Nebula Aureo</strong><br />
       Este encantamiento genera una neblina dorada que invierte mágicamente la gravedad para quien se sitúe al interior del área en que se ubica.<br />
       <img src="https://i.imgur.com/ETbxGnn.png"/>
       • <strong>Pyrius iecit</strong><br />
-      Genera y dispara una bludger que perseguirá al objetivo pensado con la intención de golpearlo. Si cumpliera su objetivo, la bludger emitiría chispas y se desintegraría. Creación
-      <a href="https://www.hogwartsrol.com/t45467-creacion-magica-pyrius-iecit-suspiria-ludovico"><strong>aquí</strong><br /></a>.<br />
+      Genera y dispara una bludger que perseguirá al objetivo pensado con la intención de golpearlo. Si cumpliera su objetivo, la bludger emitiría chispas y se desintegraría. .<br />
       <img src="https://i.imgur.com/jQThKha.png"/>
       • <strong>Reducto</strong><br />
       Esta maldición destruye un objeto en pedazos, incluso volviéndolo polvo si es lo suficientemente poderoso. <br />
       <img src="https://i.imgur.com/oqLcZTj.png"/>
       • <strong>Scandere Snargaluff</strong><br />
       Hechizo que invoca dos plantas Snargaluff alrededor del contrincante, haciendo que sus enredaderas se entrelacen en las piernas y brazos del opuesto impidiendo que pueda atacar. Como defensa, las enredaderas encierran al
-      invocador para interceptar hechizos. Creación <a href="https://www.hogwartsrol.com/t92414-camara-de-la-creacion-magica-scandere-snargaluff-logan-jin">aquí</a><br />
+      invocador para interceptar hechizos. <br />
       <img src="https://i.imgur.com/8nVNheZ.png"/>
       • <strong>Scorpius Impetum</strong><br />
       De la punta de la varita emerge un haz de luz oscuro que pronto se transforma en la cola de un escorpión que intentará atacar al oponente para clavar su aguijón y liberar una toxina que le paralizaría durante unos dos
-      minutos. También servirá como defensa, pues dicha cola podrá desviar hechizos de ataque recibidos. Creación
-      <a href="https://www.hogwartsrol.com/t50132-creacion-magica-scorpius-impetum-ginevra-maisie"><strong>aquí</strong><br /></a>.<br />
+      minutos. También servirá como defensa, pues dicha cola podrá desviar hechizos de ataque recibidos. .<br />
       <img src="https://i.imgur.com/KI5ZfNA.png"/>
       • <strong>Sepulcrum Aureum</strong><br />
-      Hechizo que crea alrededor del objetivo un torrente de arena dorada, la cual se puede utilizar para asfixiar al objetivo o protegerle de ataques externos. Creación
-      <a href="https://www.hogwartsrol.com/t48332-creacion-magica-sepulcrum-aureum-elliot-elina#253090">aquí</a><br />
+      Hechizo que crea alrededor del objetivo un torrente de arena dorada, la cual se puede utilizar para asfixiar al objetivo o protegerle de ataques externos. <br />
       <img src="https://i.imgur.com/EMZPnPT.png"/>
       • <strong>Snitch Iecit</strong><br />
       Conjura un grupo de Snitch doradas que con sus aleteos constantes buscaran distraer al oponente. Como defensa, las Snitch doradas vuelan frente al invocador entrelazando sus alas para crear un circulo en movimiento que desviará
-      el ataque. Creación <a href="https://www.hogwartsrol.com/t92508-camara-de-la-creacion-magica-snitch-iecit-jin-logan"><strong>aquí</strong><br /></a>.<br />
+      el ataque.<br />
       <img src="https://i.imgur.com/zaNLdJ8.png"/>
       • <strong>Spharea Ignis</strong><br />
-      A su alrededor dibujara un circulo de fuego defensivo, que será más fuerte con cada segundo. Una vez termine su uso defensivo, culmina en ataque de llamarada cónica. Creación
-      <a href="https://www.hogwartsrol.com/t36490p10-creacion-magica-sphaera-ignis-taleh-keita-olivia-mclaggen">aquí</a><br />
+      A su alrededor dibujara un circulo de fuego defensivo, que será más fuerte con cada segundo. Una vez termine su uso defensivo, culmina en ataque de llamarada cónica.<br />
       <img src="https://i.imgur.com/mwvh0rv.png"/>
       • <strong>Sphinx Praesidium</strong><br />
       Crea una esfinge de arena que protege al invocador poniéndose delante de él y rugiendo levantando una pequeña tormenta de arena que bloquea los hechizos. En modo ofensivo, ataca al oponente usando sus garras de arena para
-      aprisionar a su oponente contra el suelo antes de estallar en una explosión de arena. Creación
-      <a href="https://www.hogwartsrol.com/t102414-camara-de-la-creacion-magica-sphinx-praesidium-cheryl-willow">aquí</a><br />
+      aprisionar a su oponente contra el suelo antes de estallar en una explosión de arena. <br />
       <img src="https://i.imgur.com/zjXFOfk.png"/>
       • <strong>Stella Rumpitur</strong><br />
       En modo de ataque de la varita salen dos pequeñas bolas de energía que simulan dos estrellas que colisionan y crean una onda de energía que se expande alcanzando al contrincante tirándolo y aturdiéndolo en el camino. En modo
-      defensivo esas dos estrellas chocan contra el hechizo contrario y explotan en el espacio entre los dos personajes para no terminar su recorrido. Creación
-      <a href="https://www.hogwartsrol.com/t57840-creacion-magica-stella-rumpitur-david-kaira">aquí</a>.</strong><br />
+      defensivo esas dos estrellas chocan contra el hechizo contrario y explotan en el espacio entre los dos personajes para no terminar su recorrido. <br />
       <img src="https://i.imgur.com/ksr6vXr.png"/>
       • <strong>Suffocante</strong><br />
       Este hechizo permite encantar la túnica del usuario para hacer que se estire en varias tiras y atrape a la víctima por sus extremidades. También puede ser usado para apretar el cuello de la víctima, asfixiándola en el proceso.
@@ -2981,7 +2887,7 @@
       <img src="https://i.imgur.com/KpynwwX.png"/>
       • <strong>Terribilis Vortex</strong><br />
       Hechizo que permite generar un vórtice mágico con fuerza gravitatoria que atrae lo que este a su alcance para luego lanzarlo contra el oponente haciéndole daño, además de afectarlo por la presión atmosférica reducida. Como
-      defensa puede absorber hechizos que sean lanzados en su dirección. Creación <a href="https://www.hogwartsrol.com/t57369-creacion-magica-terribilis-vortex-elliot-elina">aquí</a>.</strong><br />
+      defensa puede absorber hechizos que sean lanzados en su dirección.<br />
       <img src="https://i.imgur.com/kUQZMuG.png"/>
       • <strong>Ventus</strong><br />
       Este embrujo dispara una ráfaga de viento en espiral de la punta de la varita.<br />
@@ -5760,6 +5666,22 @@
 </dl>
 
 <dl class="codebox spoiler">
+  <dt class="spoiler_title">Logros de Torneo de Campeones</dt>
+  <dd>
+    <div class="spoiler_content">
+    <img src="https://i.imgur.com/LpsoTdm.png"/>
+    • <strong>1º Puesto Torneo de Campeones</strong><br /><br />
+
+    <img src="https://i.imgur.com/MUJy6E3.png"/>
+     • <strong>2º Puesto Torneo de Campeones</strong><br /><br />
+
+     <img src="https://i.imgur.com/1WX4Glm.png"/>
+    • <strong>3º Puesto Torneo de Campeones</strong><br /><br />
+    </div>
+  </dd>
+</dl>
+
+<dl class="codebox spoiler">
   <dt class="spoiler_title">Logros de Torneo de Pociones</dt>
   <dd>
     <div class="spoiler_content">
@@ -5785,6 +5707,16 @@
     • <strong>2º Puesto Torneo de Quidditch Libre</strong><br />Cada tanto el foro organiza un Torneo de Quidditch, si tu equipo quedó en segundo lugar, obtienes este hermoso premio.<br />
     <img src="https://i.imgur.com/ecPvJTm.png"/>
     • <strong>3º Puesto Torneo de Quidditch Libre</strong><br />Cada tanto el foro organiza un Torneo de Quidditch, si tu equipo quedó entre los tres primeros, obtienes este premio.<br />
+    </div>
+  </dd>
+</dl>
+
+<dl class="codebox spoiler">
+  <dt class="spoiler_title">Logros de Torneo de Quidditch</dt>
+  <dd>
+    <div class="spoiler_content">
+    <img src="https://i.imgur.com/7U9p9sx.png"/>
+    • <strong>1º Puesto Torneo de Quidditch</strong><br /><br />
     </div>
   </dd>
 </dl>
@@ -6405,6 +6337,402 @@
 
     <img src="https://i.imgur.com/WbAcq1P.png"/>
     • <strong>Canoa Mystic Momentum</strong><br /><br />
+
+    <img src="https://i.imgur.com/M65jjrx.png"/>
+    	• <strong>Apolo</strong><br /><br />
+
+    	<img src="https://i.imgur.com/0wuwNxV.jpg"/>
+    	• <strong>Musa</strong><br /><br />
+
+    	<img src="https://i.imgur.com/vgFbIaw.png"/>
+    	• <strong>Arjona</strong><br /><br />
+
+    	<img src="https://i.imgur.com/pKmQM1u.png"/>
+    	• <strong>Anton</strong><br /><br />
+
+    	<img src="https://i.imgur.com/wY1HC7u.png"/>
+    	• <strong>Colette</strong><br /><br />
+
+    	<img src="https://i.imgur.com/M65jjrx.png"/>
+    	• <strong>Aurora</strong><br /><br />
+
+    	<img src="https://i.imgur.com/YBlFiUg.png"/>
+    	• <strong>Remy</strong><br /><br />
+
+    	<img src="https://i.imgur.com/M65jjrx.png"/>
+    	• <strong>Rhino</strong><br /><br />
+
+    	<img src="https://i.imgur.com/Ch35t99.png"/>
+    	• <strong>Timón</strong><br /><br />
+
+    	<img src="https://i.imgur.com/LxSwCB3.png"/>
+    	• <strong>Prehenderat Praesidium</strong><br /><br />
+
+    	<img src="https://i.imgur.com/3S0ZaEJ.jpg"/>
+    	• <strong>Clau</strong><br /><br />
+
+    	<img src="https://i.imgur.com/jP5l64l.png"/>
+    	• <strong>Spectra</strong><br /><br />
+
+    	<img src="https://i.imgur.com/GqlINjT.png"/>
+    	• <strong>Apollo</strong><br /><br />
+
+    	<img src="https://i.imgur.com/BHAyJOl.jpg"/>
+    	• <strong>Flame</strong><br /><br />
+
+    	<img src="https://i.imgur.com/VG7SuYZ.png"/>
+    	• <strong>Fluffy</strong><br /><br />
+
+    	<img src="https://i.imgur.com/YBlFiUg.png"/>
+    	• <strong>Gylden</strong><br /><br />
+
+    	<img src="https://i.imgur.com/60lRFtu.jpg"/>
+    	• <strong>Loki</strong><br /><br />
+
+    	<img src="https://i.imgur.com/8F0fRnh.png"/>
+    	• <strong>Ivy</strong><br /><br />
+
+    	<img src="https://i.imgur.com/4RbUqwa.jpg"/>
+    	• <strong>Chocorrol</strong><br /><br />
+
+    	<img src="https://i.imgur.com/kxYZ6N8.png"/>
+    	• <strong>Hermes</strong><br /><br />
+
+    	<img src="https://i.imgur.com/BHAyJOl.jpg"/>
+    	• <strong>Ruchbah</strong><br /><br />
+
+    	<img src="https://i.imgur.com/M9nsRXp.png"/>
+    	• <strong>Caph</strong><br /><br />
+
+    	<img src="https://i.imgur.com/60lRFtu.jpg"/>
+    	• <strong>Cih</strong><br /><br />
+
+    	<img src="https://i.imgur.com/YBlFiUg.png"/>
+    	• <strong>Schedar</strong><br /><br />
+
+    	<img src="https://i.imgur.com/ROaDqOx.jpg"/>
+    	• <strong>Ingrediente</strong><br /><br />
+
+    	<img src="https://i.imgur.com/LcHwvCX.png"/>
+    	• <strong>Hellión</strong><br /><br />
+
+    	<img src="https://i.imgur.com/A1aXWlW.png"/>
+    	• <strong>Mal acechador</strong><br /><br />
+
+    	<img src="https://i.imgur.com/YBlFiUg.png"/>
+    	• <strong>Apolo</strong><br /><br />
+
+    	<img src="https://i.imgur.com/IEiLX08.png"/>
+    	• <strong>Frey</strong><br /><br />
+
+    	<img src="https://i.imgur.com/vgFbIaw.png"/>
+    	• <strong>Panzón</strong><br /><br />
+
+    	<img src="https://i.imgur.com/BHAyJOl.jpg"/>
+    	• <strong>Bruno</strong><br /><br />
+
+    	<img src="https://i.imgur.com/9Xp5zJq.png"/>
+    	• <strong>Vermax</strong><br /><br />
+
+    	<img src="https://i.imgur.com/wY1HC7u.png"/>
+    	• <strong>Suavito II</strong><br /><br />
+
+    	<img src="https://i.imgur.com/1OuVJto.gif"/>
+    	• <strong>Mansión Black</strong><br /><br />
+
+    	<img src="https://i.imgur.com/oZLXdTM.png"/>
+    	• <strong>Fiffy</strong><br /><br />
+
+    	<img src="https://i.imgur.com/LcHwvCX.png"/>
+    	• <strong>Palito</strong><br /><br />
+
+    	<img src="https://i.imgur.com/Vmm06Br.jpg"/>
+    	• <strong>Pistacho</strong><br /><br />
+
+    	<img src="https://i.imgur.com/jsKQPkb.jpg""/>
+    	• <strong>Tenebris</strong><br /><br />
+
+    	<img src="https://i.imgur.com/sJVrjZV.png"/>
+    	• <strong>Spharea</strong><br /><br />
+
+    	<img src="https://imgur.com/ZYLlj8h.png"/>
+    	• <strong>Snorkel</strong><br /><br />
+
+    	<img src="https://i.imgur.com/4RbUqwa.jpg"/>
+    	• <strong>Presidente Miau</strong><br /><br />
+
+    	<img src="https://i.imgur.com/HXhui5o.jpg"/>
+    	• <strong>113 Baker Street</strong><br /><br />
+
+    	<img src="https://i.imgur.com/kxYZ6N8.png"/>
+    	• <strong>Nevermore</strong><br /><br />
+
+    	<img src="https://i.imgur.com/vgFbIaw.png"/>
+    	• <strong>Arrax</strong><br /><br />
+
+    	<img src="https://i.imgur.com/jP5l64l.png"/>
+    	• <strong>Astaroth</strong><br /><br />
+
+    	<img src="https://i.imgur.com/4RbUqwa.jpg"/>
+    	• <strong>Azazel</strong><br /><br />
+
+    	<img src="https://i.imgur.com/LxSwCB3.png"/>
+    	• <strong>Prehenderat Praesidium +3</strong><br /><br />
+
+    	<img src="https://i.imgur.com/BHAyJOl.jpg"/>
+    	• <strong>Evigt</strong><br /><br />
+
+    	<img src="https://i.imgur.com/vgFbIaw.png"/>
+    	• <strong>Rhaegar</strong><br /><br />
+
+    	<img src="https://i.imgur.com/7Yvrq5P.png"/>
+    	• <strong>Dismal</strong><br /><br />
+
+    	<img src="https://i.imgur.com/0GA42GQ.png"/>
+    	• <strong>Noch'</strong><br /><br />
+
+    	<img src="https://i.imgur.com/YBlFiUg.png"/>
+    	• <strong>Gordi</strong><br /><br />
+
+    	<img src="https://i.imgur.com/3isjVa4.png"/>
+    	• <strong>Morgana</strong><br /><br />
+
+    	<img src="https://i.imgur.com/xygLuea.png"/>
+    	• <strong>Tedd</strong><br /><br />
+
+    	<img src="https://i.imgur.com/HXhui5o.jpg"/>
+    	• <strong>Kensington Royal View Penthouse</strong><br /><br />
+
+    	<img src="https://i.imgur.com/vSMc04P.png"/>
+    	• <strong>Wizarding World Curse</strong><br /><br />
+
+    	<img src="https://i.imgur.com/kxYZ6N8.png"/>
+    	• <strong>Draven</strong><br /><br />
+
+    	<img src="https://i.imgur.com/YBlFiUg.png"/>
+    	• <strong>Nevaeh (Escarbato)</strong><br /><br />
+
+    	<img src="https://i.imgur.com/WjbaHiM.png"/>
+    	• <strong>Aeneas (Hipocampo)</strong><br /><br />
+
+    	<img src="https://i.imgur.com/ROaDqOx.jpg"/>
+    	• <strong>Mab</strong><br /><br />
+
+    	<img src="https://i.imgur.com/A1aXWlW.png"/>
+    	• <strong>Onyx</strong><br /><br />
+
+    	<img src="https://i.imgur.com/vdUJ1VY.png"/>
+    	• <strong>Sabik</strong><br /><br />
+
+    	<img src="https://i.imgur.com/vgFbIaw.png"/>
+    	• <strong>Spyro</strong><br /><br />
+
+    	<img src="https://i.imgur.com/jP5l64l.png"/>
+    	• <strong>Valiant</strong><br /><br />
+
+    	<img src="https://i.imgur.com/kxYZ6N8.png"/>
+    	• <strong>Dagda</strong><br /><br />
+
+    	<img src="https://i.imgur.com/vSMc04P.png"/>
+    	• <strong>Fleur (Local Amplio)</strong><br /><br />
+
+    	<img src="https://i.imgur.com/XJDYsrv.jpg"/>
+    	• <strong>Capturé un Mortifago</strong><br /><br />
+
+    	<img src="https://i.imgur.com/GqlINjT.png"/>
+    	• <strong>Godofredo</strong><br /><br />
+
+    	<img src="https://i.imgur.com/UbEQLPB.png"/>
+    	• <strong>Mr. Obelisk</strong><br /><br />
+
+    	<img src="https://i.imgur.com/8F0fRnh.png"/>
+    	• <strong>Ares</strong><br /><br />
+
+    	<img src="https://i.imgur.com/kxYZ6N8.png"/>
+    	• <strong>Hugin</strong><br /><br />
+
+    	<img src="https://i.imgur.com/ZCJB4of.png"/>
+    	• <strong>Princesa</strong><br /><br />
+
+    	<img src="https://i.imgur.com/Ol4w9e2.png"/>
+    	• <strong>Salazar</strong><br /><br />
+
+    	<img src="https://i.imgur.com/vSMc04P.png"/>
+    	• <strong>The Asylum</strong><br /><br />
+
+    	<img src="https://i.imgur.com/rIlX1BM.png"/>
+    	• <strong>Brimsley</strong><br /><br />
+
+    	<img src="https://i.imgur.com/smQ1bOd.png"/>
+    	• <strong>Reynolds</strong><br /><br />
+
+    	<img src="https://i.imgur.com/vSMc04P.png"/>
+    	• <strong>Flourish & Blotts</strong><br /><br />
+
+    	<img src="https://i.imgur.com/CyIWsGf.png"/>
+    	• <strong>Newton</strong><br /><br />
+
+    	<img src="https://i.imgur.com/yuf7RTM.png"/>
+    	• <strong>Bate"/</strong><br /><br />
+
+    	<img src="https://i.imgur.com/xzkemlX.jpg"/>
+    	• <strong>Sebastian</strong><br /><br />
+
+    	<img src="https://i.imgur.com/0J8HfSY.png"/>
+    	• <strong>Poción de Concepción Acelerada></strong><br /><br />
+
+    	<img src="https://i.imgur.com/BHAyJOl.jpg"/>
+    	• <strong>Elektra</strong><br /><br />
+
+    	<img src="https://i.imgur.com/jP5l64l.png"/>
+    	• <strong>Gizmo</strong><br /><br />
+
+    	<img src="https://i.imgur.com/ROaDqOx.jpg"/>
+    	• <strong>Nova (Lechuza)</strong><br /><br />
+
+    	<img src="https://i.imgur.com/kxYZ6N8.png"/>
+    	• <strong>Sharok</strong><br /><br />
+
+    	<img src="https://i.imgur.com/vSMc04P.png"/>
+    	• <strong>Vimue Dalerius Pub (Local Amplio)</strong><br /><br />
+
+    	<img src="https://i.imgur.com/vSMc04P.png"/>
+    	• <strong>Botica Slug & Jiggers</strong><br /><br />
+
+    	<img src="https://i.imgur.com/Vmm06Br.jpg"/>
+    	• <strong>Esquilo</strong><br /><br />
+
+    	<img src="https://i.imgur.com/0wuwNxV.jpg"/>
+    	• <strong>Eurípides</strong><br /><br />
+
+    	<img src="https://i.imgur.com/wY1HC7u.png"/>
+    	• <strong>Marichocho</strong><br /><br />
+
+    	<img src="https://i.imgur.com/O9aYTWy.png"/>
+    	• <strong>Pegaso</strong><br /><br />
+
+    	<img src="https://i.imgur.com/wY1HC7u.png"/>
+    	• <strong>Tambor</strong><br /><br />
+
+    	<img src="https://i.imgur.com/3isjVa4.png"/>
+    	• <strong>Nym</strong><br /><br />
+
+    	<img src="https://i.imgur.com/0GA42GQ.png"/>
+    	• <strong>Tobias</strong><br /><br />
+
+    	<img src="https://i.imgur.com/wY1HC7u.png"/>
+    	• <strong>Cena de Pascua</strong><br /><br />
+
+    	<img src="https://i.imgur.com/UbEQLPB.png"/>
+    	• <strong>Spark</strong><br /><br />
+
+    	<img src="https://i.imgur.com/wY1HC7u.png"/>
+    	• <strong>Deimos</strong><br /><br />
+
+    	<img src="https://i.imgur.com/wY1HC7u.png"/>
+    	• <strong>Fobos</strong><br /><br />
+
+    	<img src="https://i.imgur.com/kxYZ6N8.png"/>
+    	• <strong>Marte</strong><br /><br />
+
+    	<img src="https://i.imgur.com/vSMc04P.png"/>
+    	• <strong>Sacred Lotus</strong><br /><br />
+
+    	<img src="https://i.imgur.com/vgFbIaw.png"/>
+    	• <strong>Aether</strong><br /><br />
+
+    	<img src="https://i.imgur.com/BHAyJOl.jpg"/>
+    	• <strong>Chicken Nugget</strong><br /><br />
+
+    	<img src="https://i.imgur.com/jP5l64l.png"/>
+    	• <strong>Frosty</strong><br /><br />
+
+    	<img src="https://i.imgur.com/VG7SuYZ.png"/>
+    	• <strong>Milly</strong><br /><br />
+
+    	<img src="https://i.imgur.com/O9aYTWy.png"/>
+    	• <strong>Strawberry</strong><br /><br />
+
+    	<img src="https://i.imgur.com/oZLXdTM.png"/>
+    	• <strong>Tracy</strong><br /><br />
+
+    	<img src="https://i.imgur.com/VG7SuYZ.png"/>
+    	• <strong>Ted</strong><br /><br />
+
+    	<img src="https://i.imgur.com/smQ1bOd.png"/>
+    	• <strong>Robin</strong><br /><br />
+
+    	<img src="https://i.imgur.com/WSvBq9O.png"/>
+    	• <strong>Barney</strong><br /><br />
+
+    	<img src="https://i.imgur.com/rIlX1BM.png"/>
+    	• <strong>Lily</strong><br /><br />
+
+    	<img src="https://i.imgur.com/itRbrM0.png"/>
+    	• <strong>Marshall</strong><br /><br />
+
+    	<img src="https://i.imgur.com/GcFbhDg.png"/>
+    	• <strong>Watermelon</strong><br /><br />
+
+    	<img src="https://i.imgur.com/eIq1xg6.png"/>
+    	• <strong>2º Lugar Torneo de Duelos</strong><br /><br />
+
+    	<img src="https://i.imgur.com/BUw7g2M.png"/>
+    	• <strong>Brownie</strong><br /><br />
+
+    	<img src="https://i.imgur.com/YBlFiUg.png"/>
+    	• <strong>Tiberius</strong><br /><br />
+
+    	<img src="https://i.imgur.com/YBlFiUg.png"/>
+    	• <strong>Wolfgang</strong><br /><br />
+
+    	<img src="https://i.imgur.com/MmuSkCU.png"/>
+    	• <strong>Ares</strong><br /><br />
+
+    	<img src="https://i.imgur.com/Ch35t99.png"/>
+    	• <strong>Lycaios</strong><br /><br />
+
+    	<img src="https://i.imgur.com/XSMnwyM.jpg"/>
+    	• <strong>Felixsempra</strong><br /><br />
+
+    	<img src="https://i.imgur.com/piZFc6n.jpg"/>
+    	• <strong>Bucky</strong><br /><br />
+
+    	<img src="https://i.imgur.com/JIru3Ac.jpg"/>
+    	• <strong>River</strong><br /><br />
+
+    	<img src="https://i.imgur.com/8F0fRnh.png"/>
+    	• <strong>Lancelot</strong><br /><br />
+
+    	<img src="https://i.imgur.com/X9TfqmW.png"/>
+    	• <strong>Ritual Búsqueda mágica</strong><br /><br />
+
+    	<img src="https://i.imgur.com/wOyDwq8.jpg"/>
+    	• <strong>La enramada dorada (Casa)</strong><br /><br />
+
+    	<img src="https://i.imgur.com/RRVejed.png"/>
+    	• <strong>Faery's Cauldron</strong><br /><br />
+
+    	<img src="https://i.imgur.com/BZOTLi4.png"/>
+    	• <strong>Doncel (Aethonan)</strong><br /><br />
+
+    	<img src="https://i.imgur.com/GcFbhDg.png"/>
+    	• <strong>Arion</strong><br /><br />
+
+    	<img src="https://i.imgur.com/HXhui5o.jpg"/>
+    	• <strong>Ático Bennett (Departamento)</strong><br /><br />
+
+    	<img src="https://i.imgur.com/wOyDwq8.jpg"/>
+    	• <strong>Casona Bennett (Casa)</strong><br /><br />
+
+    	<img src="https://i.imgur.com/3isjVa4.png"/>
+    	• <strong>Zoxia</strong><br /><br />
+
+    	<img src="https://i.imgur.com/ROaDqOx.jpg"/>
+    	• <strong>Nilgis</strong><br /><br />
+
+    	<img src="https://i.imgur.com/jP5l64l.png"/>
+    	• <strong>Miguitas</strong><br /><br />
       
     </div>
   </dd>

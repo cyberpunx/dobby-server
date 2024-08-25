@@ -88,7 +88,9 @@ INSERT INTO `smf_stshop_categories` (`name`, `image`, `description`) VALUES
 ('Logros - Logros de Torneo de Duelos', 'blank.gif', ''),
 ('Logros - Logros de Torneo de Pociones', 'blank.gif', ''),
 ('Logros - Logros de Torneo de Quidditch Libre', 'blank.gif', ''),
+('Logros - Logros de Torneo de Quidditch', 'blank.gif', ''),
 ('Logros - Logros de Desafío Hogwarts', 'blank.gif', ''),
+('Logros - Logros de Torneo de Campeones', 'blank.gif', ''),
 ('Logros - Logros de Mortífagos', 'blank.gif', ''),
 ('Logros - Logros de Aurores', 'blank.gif', ''),
 ('SIN CATEGORIA - SIN CATEGORIA', 'blank.gif', '');
