@@ -13,17 +13,19 @@ import (
 	"os"
 	"regexp"
 	"sort"
+	"strconv"
 	"strings"
 )
 
 const (
 	loginUsername              = "Desarrollo"
 	loginPassword              = "programación2055"
-	UsersToMigrateFromOldForum = "testUser.csv"
-	ItemTableOnNewForum        = "smf_stshop_items.csv"
-	ItemUrlsCsv                = "items.csv"
-	MemberTableOnNewForum      = "smf_members.csv"
-	csvDelimiter               = ','
+	UsersToMigrateFromOldForum = "Datos de usuarios - Migrados HR.csv"
+	//UsersToMigrateFromOldForum = "TEST.csv"
+	ItemTableOnNewForum   = "smf_stshop_items.csv"
+	ItemUrlsCsv           = "items.csv"
+	MemberTableOnNewForum = "smf_members.csv"
+	csvDelimiter          = ','
 )
 
 type session struct {
@@ -60,6 +62,7 @@ type Item struct {
 
 type OldForumUser struct {
 	Id         string
+	HPHId      string
 	Username   string
 	Profile    parser.Profile
 	TotalItems []parser.ParsedItem
@@ -70,6 +73,7 @@ type NewForumUser struct {
 	Username      string
 	InventoryRows *[]smf_shop_inventory_row
 	MemberRow     *smf_members_row
+	CustomFields  *[]smf_themes
 	Items         *[]Item
 	NotFoundItems []parser.ParsedItem
 }
@@ -78,6 +82,13 @@ type MigratedUser struct {
 	Username     string
 	OldForumUser *OldForumUser
 	NewForumUser *NewForumUser
+}
+
+type smf_themes struct {
+	id_member string
+	id_theme  string
+	variable  string
+	value     string
 }
 
 type smf_shop_inventory_row struct {
@@ -159,7 +170,7 @@ func main() {
 	newUsers := LoadMembersFromCsv(MemberTableOnNewForum)
 
 	//PAIR USERS BASED ON USERNAME
-	migratedUsers := PairUsersBasedOnUsername(oldUsers, newUsers)
+	migratedUsers := PairUsersBasedOnCsvId(oldUsers, newUsers)
 	PairItemsToUsers(migratedUsers, itemList)
 
 }
@@ -175,6 +186,8 @@ func LoadOldForumUsersFromCsv(inputFile string, sessionLoggedIn *session) []OldF
 	processedLine := 0
 
 	var oldForumUsers []OldForumUser
+	//NEW MEMBERS
+	newMembers := LoadMembersFromCsv(MemberTableOnNewForum)
 
 	for {
 		line, err := reader.Read()
@@ -187,10 +200,15 @@ func LoadOldForumUsersFromCsv(inputFile string, sessionLoggedIn *session) []OldF
 		} else {
 			processedLine++
 			id := line[0]
+			idNewForum := line[1]
 			//GET USER INFO FROM FORUM
 			profileHtml := sessionLoggedIn.Tool.GetUserProfile(id)
 
 			profile := parser.ProfileGetProfile(profileHtml)
+			findMember := SearchMemberById(newMembers, idNewForum)
+			if profile.Username != findMember.Username {
+				fmt.Println(profile.Username + " - " + findMember.Username)
+			}
 
 			var totalItems []parser.ParsedItem
 			for _, item := range profile.RazaInventory.Items {
@@ -217,6 +235,18 @@ func LoadOldForumUsersFromCsv(inputFile string, sessionLoggedIn *session) []OldF
 			for _, item := range profile.LogrosInventory.Items {
 				totalItems = append(totalItems, item)
 			}
+			for _, item := range profile.RitualesInventory.Items {
+				totalItems = append(totalItems, item)
+			}
+			for _, item := range profile.MaleficiosInventory.Items {
+				totalItems = append(totalItems, item)
+			}
+			for _, item := range profile.HechizosAurorInventory.Items {
+				totalItems = append(totalItems, item)
+			}
+			for _, item := range profile.HechizosMortifagoInventory.Items {
+				totalItems = append(totalItems, item)
+			}
 
 			for _, item := range totalItems {
 				if strings.Contains(item.Name, " ") {
@@ -227,6 +257,7 @@ func LoadOldForumUsersFromCsv(inputFile string, sessionLoggedIn *session) []OldF
 			//CREATE OLD FORUM USER
 			oldForumUsers = append(oldForumUsers, OldForumUser{
 				Id:         id,
+				HPHId:      idNewForum,
 				Username:   profile.Username,
 				Profile:    profile,
 				TotalItems: totalItems,
@@ -362,6 +393,15 @@ func SearchItemUrlOnCsv(itemName string) string {
 	return "NOT FOUND"
 }
 
+func SearchMemberById(members []NewForumUser, id string) *NewForumUser {
+	for _, member := range members {
+		if member.Id == id {
+			return &member
+		}
+	}
+	return nil
+}
+
 func LoadMembersFromCsv(membersCsvFile string) []NewForumUser {
 	csvInputFile, err := os.Open(membersCsvFile)
 	util.Panic(err)
@@ -455,6 +495,24 @@ func PairUsersBasedOnUsername(oldUsers []OldForumUser, newUsers []NewForumUser) 
 	for _, oldUser := range oldUsers {
 		for _, newUser := range newUsers {
 			if oldUser.Username == newUser.Username {
+				fmt.Println(newUser.Id + " - " + oldUser.Id)
+				migratedUsers = append(migratedUsers, MigratedUser{
+					Username:     oldUser.Username,
+					OldForumUser: &oldUser,
+					NewForumUser: &newUser,
+				})
+			}
+		}
+	}
+	return migratedUsers
+}
+
+func PairUsersBasedOnCsvId(oldUsers []OldForumUser, newUsers []NewForumUser) []MigratedUser {
+	var migratedUsers []MigratedUser
+	for _, oldUser := range oldUsers {
+		for _, newUser := range newUsers {
+			if oldUser.HPHId == newUser.Id {
+				fmt.Println(newUser.Id + " - " + oldUser.Id)
 				migratedUsers = append(migratedUsers, MigratedUser{
 					Username:     oldUser.Username,
 					OldForumUser: &oldUser,
@@ -522,6 +580,39 @@ func SearchItemByName(itemName string, items []Item) *Item {
 	if itemName == "Lechuza Maori" {
 		itemName = "Lechuza Maorí"
 	}
+	if itemName == "Mimempha" {
+		itemName = "Mimempha +3"
+	}
+	if itemName == "Protego Totallum" {
+		itemName = "Protego Totallum +3"
+	}
+	if itemName == "Protego Totallum" {
+		itemName = "Protego Totallum +3"
+	}
+	if itemName == "Protego Totallum" {
+		itemName = "Protego Totallum +3"
+	}
+	if itemName == "Chrono Exsecutio" {
+		itemName = "Chrono Exsecutio +3"
+	}
+	if itemName == "Restex" {
+		itemName = "Restex +3"
+	}
+	if itemName == "Nebulae Catenis" {
+		itemName = "Nebulae Catenis +3"
+	}
+	if itemName == "Fortificum" {
+		itemName = "Fortificum  +3"
+	}
+	if itemName == "Moenia Crystalis" {
+		itemName = "Moenia Crystalis +3"
+	}
+	if itemName == "Chrono Exsecutio" {
+		itemName = "Chrono Exsecutio +3"
+	}
+	if itemName == "Inferi" {
+		itemName = "Inferi +3"
+	}
 
 	//remove consecutive spaces from itemName
 	itemName = strings.Join(strings.Fields(itemName), " ")
@@ -569,12 +660,29 @@ func PairItemsToUsers(migratedUsers []MigratedUser, items *[]Item) {
 		migratedUser.NewForumUser.Items = &userFoundItems
 		migratedUser.NewForumUser.NotFoundItems = userNotFoundItems
 
+		smfThemeRowAttack := smf_themes{
+			id_member: migratedUser.NewForumUser.Id,
+			id_theme:  "1",
+			variable:  "cust_ataque",
+			value:     migratedUser.OldForumUser.Profile.Ataque,
+		}
+
+		smfThemeRowDefense := smf_themes{
+			id_member: migratedUser.NewForumUser.Id,
+			id_theme:  "1",
+			variable:  "cust_defens",
+			value:     migratedUser.OldForumUser.Profile.Defensa,
+		}
+
+		migratedUser.NewForumUser.CustomFields = &[]smf_themes{smfThemeRowAttack, smfThemeRowDefense}
+
 		totalFoundItems = append(totalFoundItems, userFoundItems...)
 		totalNotFoundItems = append(totalNotFoundItems, userNotFoundItems...)
 
 		migratedUser.NewForumUser.InventoryRows = CreateInventoryRows(userFoundItems, migratedUser.NewForumUser.Id)
 		WriteInventoryQuery(*migratedUser.NewForumUser.InventoryRows, migratedUser.Username)
-
+		WriteUpdateMemberQuery(&migratedUser)
+		WriteUpdateThemesQuery(*migratedUser.NewForumUser.CustomFields, migratedUser.Username)
 	}
 
 	//itemsToInsertIntoDatabase are the totalNotFoundItems without the duplicates
@@ -601,7 +709,51 @@ func PairItemsToUsers(migratedUsers []MigratedUser, items *[]Item) {
 	//Create SQL quety to insert items into database
 	CreateItems(itemsToInsertIntoDatabase, "ITEMS-SIN-CATEGORIA")
 
-	ReadReport()
+	//ReadReport()
+}
+
+func WriteUpdateThemesQuery(customFields []smf_themes, username string) {
+	//update or insert into smf_themes, columns cust_attack and cust_defense
+	sqlQuery := ""
+	sqlQuery += "-- " + username + "\n"
+	for _, customField := range customFields {
+		sqlQuery += fmt.Sprintf("INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('%s', '%s', '%s', '%s') ON DUPLICATE KEY UPDATE `value` = '%s';", customField.id_member, customField.id_theme, customField.variable, customField.value, customField.value)
+	}
+	sqlQuery += "\n\n"
+
+	//append to file if exists
+	f, err := os.OpenFile("update themes", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	//append total_Lines to file
+	_, err = f.WriteString(sqlQuery)
+	util.Panic(err)
+}
+
+func WriteUpdateMemberQuery(user *MigratedUser) {
+	//update smf_members, columns shopMoney and posts onl
+	oldPosts, err := strconv.Atoi(user.OldForumUser.Profile.Mensajes)
+	util.Panic(err)
+	newPosts, err := strconv.Atoi(user.NewForumUser.MemberRow.posts)
+	util.Panic(err)
+
+	oldMoney, err := strconv.Atoi(user.OldForumUser.Profile.Galeones)
+	util.Panic(err)
+	newMoney, err := strconv.Atoi(user.NewForumUser.MemberRow.shopMoney)
+	util.Panic(err)
+
+	totalPosts := strconv.Itoa(oldPosts + newPosts)
+	totalMoney := strconv.Itoa(oldMoney + newMoney)
+
+	sqlQuery := ""
+	sqlQuery += "-- " + user.NewForumUser.MemberRow.member_name + "\n"
+	sqlQuery += fmt.Sprintf("UPDATE `smf_members` SET `shopMoney` = '%s', `posts` = '%s' WHERE `id_member` = '%s';", totalMoney, totalPosts, user.NewForumUser.Id)
+	sqlQuery += "\n\n"
+
+	//append to file if exists
+	f, err := os.OpenFile("update money and posts", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	//append total_Lines to file
+	_, err = f.WriteString(sqlQuery)
+	util.Panic(err)
+
 }
 
 func WriteInventoryQuery(rows []smf_shop_inventory_row, username string) {

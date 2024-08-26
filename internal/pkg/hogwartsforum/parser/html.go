@@ -711,6 +711,10 @@ type Profile struct {
 	IngredientesInventory      Inventory
 	OtrosInventory             Inventory
 	LogrosInventory            Inventory
+	RitualesInventory          Inventory
+	HechizosAurorInventory     Inventory
+	HechizosMortifagoInventory Inventory
+	MaleficiosInventory        Inventory
 }
 
 func ProfileGetProfile(html string) Profile {
@@ -790,7 +794,7 @@ func ProfileGetProfile(html string) Profile {
 		profile.Inventario2 = htmlpkg.UnescapeString(profileField)
 	})
 
-	profile.RazaInventory, profile.HechizosInventory, profile.HabilidadesInventory, profile.HabilidadesDeRazaInventory = ExtractItemsBySectionOne(profile.Inventario1)
+	profile.RazaInventory, profile.HechizosInventory, profile.HabilidadesInventory, profile.HabilidadesDeRazaInventory, profile.RitualesInventory, profile.MaleficiosInventory, profile.HechizosAurorInventory, profile.HechizosMortifagoInventory = ExtractItemsBySectionOne(profile.Inventario1)
 	profile.PocionesInventory, profile.IngredientesInventory, profile.OtrosInventory, profile.LogrosInventory = ExtractItemsBySectionTwo(profile.Inventario2)
 
 	return profile
@@ -808,13 +812,17 @@ type ParsedItem struct {
 	ImageUrl string
 }
 
-func ExtractItemsBySectionOne(htmlStr string) (Inventory, Inventory, Inventory, Inventory) {
+func ExtractItemsBySectionOne(htmlStr string) (Inventory, Inventory, Inventory, Inventory, Inventory, Inventory, Inventory, Inventory) {
 	// Initialize empty sections for each category
 	sections := [][]ParsedItem{
 		{}, // RAZA (sections[0])
 		{}, // HECHIZOS (sections[1])
 		{}, // HABILIDADES (sections[2])
 		{}, // HABILIDADES DE RAZA (sections[3])
+		{}, // RITUALES (sections[4])
+		{}, // MALEFICIOS (sections[5])
+		{}, // HECHIZOS DE AUROR (sections[6])
+		{}, // HECHIZOS DE MORTIFAGO (sections[7])
 	}
 
 	var currentSectionType string
@@ -839,6 +847,14 @@ func ExtractItemsBySectionOne(htmlStr string) (Inventory, Inventory, Inventory, 
 					sections[2] = currentSection
 				} else if strings.HasPrefix(currentSectionType, "HABILIDADES DE") {
 					sections[3] = currentSection
+				} else if currentSectionType == "RITUALES" {
+					sections[4] = currentSection
+				} else if currentSectionType == "MALEFICIOS" {
+					sections[5] = currentSection
+				} else if currentSectionType == "HECHIZOS AUROR" {
+					sections[6] = currentSection
+				} else if currentSectionType == "HECHIZOS MORTÍFAGO" {
+					sections[7] = currentSection
 				}
 
 				currentSection = []ParsedItem{} // Start a new section
@@ -871,6 +887,14 @@ func ExtractItemsBySectionOne(htmlStr string) (Inventory, Inventory, Inventory, 
 			sections[2] = currentSection
 		case "HABILIDADES DE RAZA":
 			sections[3] = currentSection
+		case "RITUALES":
+			sections[4] = currentSection
+		case "MALEFICIOS":
+			sections[5] = currentSection
+		case "HECHIZOS AUROR":
+			sections[6] = currentSection
+		case "HECHIZOS MORTÍFAGO":
+			sections[7] = currentSection
 		}
 	}
 
@@ -891,8 +915,24 @@ func ExtractItemsBySectionOne(htmlStr string) (Inventory, Inventory, Inventory, 
 		Name:  "HABILIDADES DE RAZA",
 		Items: sections[3],
 	}
+	ritualesInventory := Inventory{
+		Name:  "RITUALES",
+		Items: sections[4],
+	}
+	maleficiosInventory := Inventory{
+		Name:  "MALEFICIOS",
+		Items: sections[5],
+	}
+	hechizosAurorInventory := Inventory{
+		Name:  "HECHIZOS AUROR",
+		Items: sections[6],
+	}
+	hechizosMortifagoInventory := Inventory{
+		Name:  "HECHIZOS MORTÍFAGO",
+		Items: sections[7],
+	}
 
-	return razaInventory, hechizosInventory, habilidadesInventory, habilidadesDeRazaInventory
+	return razaInventory, hechizosInventory, habilidadesInventory, habilidadesDeRazaInventory, ritualesInventory, maleficiosInventory, hechizosAurorInventory, hechizosMortifagoInventory
 }
 
 func ExtractItemsBySectionTwo(htmlStr string) (Inventory, Inventory, Inventory, Inventory) {

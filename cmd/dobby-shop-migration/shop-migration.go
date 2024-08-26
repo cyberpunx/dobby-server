@@ -148,7 +148,7 @@ func generateSqlQuery(categories []parser.ShopCategory) string {
 
 		for _, item := range cat.Items {
 			name := item.Name
-			image := "migrated/" + item.Filename
+			image := item.Filename
 			description := item.Description
 			price := item.Price
 			stock := "999"
