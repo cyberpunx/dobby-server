@@ -1,0 +1,495 @@
+-- A. Hyde Lestrange
+UPDATE `smf_members` SET `shopMoney` = '5280', `posts` = '570' WHERE `id_member` = '72';
+
+-- A. Caelus Iacovone
+UPDATE `smf_members` SET `shopMoney` = '1770', `posts` = '55' WHERE `id_member` = '127';
+
+-- Cian Feehily
+UPDATE `smf_members` SET `shopMoney` = '19643', `posts` = '1012' WHERE `id_member` = '45';
+
+-- Adèle H. V. Gaunt
+UPDATE `smf_members` SET `shopMoney` = '2730', `posts` = '499' WHERE `id_member` = '52';
+
+-- Adrianne Anderson
+UPDATE `smf_members` SET `shopMoney` = '4790', `posts` = '507' WHERE `id_member` = '150';
+
+-- Aegis S. D. Lestrange
+UPDATE `smf_members` SET `shopMoney` = '2620', `posts` = '138' WHERE `id_member` = '117';
+
+-- Aiden Ward
+UPDATE `smf_members` SET `shopMoney` = '26815', `posts` = '1172' WHERE `id_member` = '112';
+
+-- Alan S. Feehily
+UPDATE `smf_members` SET `shopMoney` = '4842', `posts` = '1917' WHERE `id_member` = '71';
+
+-- Albus S. Potter
+UPDATE `smf_members` SET `shopMoney` = '1634', `posts` = '366' WHERE `id_member` = '175';
+
+-- Aleksandr I. Romanov
+UPDATE `smf_members` SET `shopMoney` = '16046', `posts` = '2194' WHERE `id_member` = '92';
+
+-- Alessandro Cabane
+UPDATE `smf_members` SET `shopMoney` = '3255', `posts` = '269' WHERE `id_member` = '145';
+
+-- Alex Selwyn
+UPDATE `smf_members` SET `shopMoney` = '6842', `posts` = '2256' WHERE `id_member` = '13';
+
+-- Alexandra Cabane
+UPDATE `smf_members` SET `shopMoney` = '17620', `posts` = '247' WHERE `id_member` = '143';
+
+-- Alexei Anderson
+UPDATE `smf_members` SET `shopMoney` = '11026', `posts` = '393' WHERE `id_member` = '138';
+
+-- Alice Loveheart
+UPDATE `smf_members` SET `shopMoney` = '6430', `posts` = '144' WHERE `id_member` = '128';
+
+-- Allen Österhagen
+UPDATE `smf_members` SET `shopMoney` = '1275', `posts` = '42' WHERE `id_member` = '146';
+
+-- Alya
+UPDATE `smf_members` SET `shopMoney` = '2260', `posts` = '101' WHERE `id_member` = '115';
+
+-- Amarie
+UPDATE `smf_members` SET `shopMoney` = '120', `posts` = '7' WHERE `id_member` = '176';
+
+-- Amelie Lacourt
+UPDATE `smf_members` SET `shopMoney` = '7170', `posts` = '764' WHERE `id_member` = '110';
+
+-- Amelie Rosier
+UPDATE `smf_members` SET `shopMoney` = '15130', `posts` = '2441' WHERE `id_member` = '6';
+
+-- Amynus
+UPDATE `smf_members` SET `shopMoney` = '110', `posts` = '6' WHERE `id_member` = '177';
+
+-- Archie Smith
+UPDATE `smf_members` SET `shopMoney` = '6835', `posts` = '840' WHERE `id_member` = '96';
+
+-- Ardan Richetti
+UPDATE `smf_members` SET `shopMoney` = '3100', `posts` = '144' WHERE `id_member` = '98';
+
+-- Ariadna Katsaros
+UPDATE `smf_members` SET `shopMoney` = '14633', `posts` = '995' WHERE `id_member` = '84';
+
+-- Arikel McDowell
+UPDATE `smf_members` SET `shopMoney` = '11372', `posts` = '1144' WHERE `id_member` = '113';
+
+-- Arthur Beckett
+UPDATE `smf_members` SET `shopMoney` = '6974', `posts` = '1060' WHERE `id_member` = '99';
+
+-- Chess
+UPDATE `smf_members` SET `shopMoney` = '2535', `posts` = '299' WHERE `id_member` = '40';
+
+-- Bastian
+UPDATE `smf_members` SET `shopMoney` = '100', `posts` = '5' WHERE `id_member` = '178';
+
+-- Bastian E. Weasley
+UPDATE `smf_members` SET `shopMoney` = '10672', `posts` = '1101' WHERE `id_member` = '90';
+
+-- Bythos Slughorn
+UPDATE `smf_members` SET `shopMoney` = '440', `posts` = '124' WHERE `id_member` = '104';
+
+-- Cadmus T. Windhunter
+UPDATE `smf_members` SET `shopMoney` = '1720', `posts` = '132' WHERE `id_member` = '166';
+
+-- Caius Black
+UPDATE `smf_members` SET `shopMoney` = '1597', `posts` = '2624' WHERE `id_member` = '136';
+
+-- Mai_Designs
+UPDATE `smf_members` SET `shopMoney` = '3673', `posts` = '2203' WHERE `id_member` = '11';
+
+-- Charles Wiggin
+UPDATE `smf_members` SET `shopMoney` = '2080', `posts` = '31' WHERE `id_member` = '137';
+
+-- Charlotte Beckett
+UPDATE `smf_members` SET `shopMoney` = '17907', `posts` = '1096' WHERE `id_member` = '95';
+
+-- Cheryl Edgewood
+UPDATE `smf_members` SET `shopMoney` = '5929', `posts` = '646' WHERE `id_member` = '12';
+
+-- Chuck Graham
+UPDATE `smf_members` SET `shopMoney` = '1740', `posts` = '685' WHERE `id_member` = '170';
+
+-- Clementine Flint
+UPDATE `smf_members` SET `shopMoney` = '7770', `posts` = '658' WHERE `id_member` = '78';
+
+-- Cormac ODonovan
+UPDATE `smf_members` SET `shopMoney` = '8782', `posts` = '230' WHERE `id_member` = '82';
+
+-- Darius Bozeman
+UPDATE `smf_members` SET `shopMoney` = '17270', `posts` = '3156' WHERE `id_member` = '20';
+
+-- Darius Steward
+UPDATE `smf_members` SET `shopMoney` = '17166', `posts` = '1312' WHERE `id_member` = '37';
+
+-- Darya Bleer
+UPDATE `smf_members` SET `shopMoney` = '3430', `posts` = '239' WHERE `id_member` = '126';
+
+-- David Lyon
+UPDATE `smf_members` SET `shopMoney` = '2483', `posts` = '2431' WHERE `id_member` = '144';
+
+-- Deimos H. Windhunter
+UPDATE `smf_members` SET `shopMoney` = '1970', `posts` = '347' WHERE `id_member` = '61';
+
+-- Delphini Riddle
+UPDATE `smf_members` SET `shopMoney` = '1020', `posts` = '284' WHERE `id_member` = '179';
+
+-- Derek Andreani
+UPDATE `smf_members` SET `shopMoney` = '27806', `posts` = '1091' WHERE `id_member` = '64';
+
+-- Dimitry
+UPDATE `smf_members` SET `shopMoney` = '110', `posts` = '6' WHERE `id_member` = '180';
+
+-- Dorothy Fisher
+UPDATE `smf_members` SET `shopMoney` = '5555', `posts` = '1582' WHERE `id_member` = '75';
+
+-- Duban Black
+UPDATE `smf_members` SET `shopMoney` = '14562', `posts` = '10346' WHERE `id_member` = '8';
+
+-- E. Skylar Lestrange
+UPDATE `smf_members` SET `shopMoney` = '3450', `posts` = '342' WHERE `id_member` = '87';
+
+-- Effy
+UPDATE `smf_members` SET `shopMoney` = '28517', `posts` = '7552' WHERE `id_member` = '35';
+
+-- Eileen Maskelyne
+UPDATE `smf_members` SET `shopMoney` = '9297', `posts` = '1725' WHERE `id_member` = '30';
+
+-- Elizabeth C. Sayre
+UPDATE `smf_members` SET `shopMoney` = '3871', `posts` = '149' WHERE `id_member` = '187';
+
+-- ur
+UPDATE `smf_members` SET `shopMoney` = '2380', `posts` = '138' WHERE `id_member` = '107';
+
+-- Eloise G. Woods
+UPDATE `smf_members` SET `shopMoney` = '7031', `posts` = '507' WHERE `id_member` = '50';
+
+-- Emily Wolf
+UPDATE `smf_members` SET `shopMoney` = '28506', `posts` = '2022' WHERE `id_member` = '118';
+
+-- Enzo Castellucci
+UPDATE `smf_members` SET `shopMoney` = '5905', `posts` = '504' WHERE `id_member` = '77';
+
+-- Erine Lyon
+UPDATE `smf_members` SET `shopMoney` = '13290', `posts` = '2259' WHERE `id_member` = '91';
+
+-- Eros Dimakos
+UPDATE `smf_members` SET `shopMoney` = '1783', `posts` = '136' WHERE `id_member` = '169';
+
+-- Eros Greyback
+UPDATE `smf_members` SET `shopMoney` = '2890', `posts` = '203' WHERE `id_member` = '93';
+
+-- Etienne L. McDowell
+UPDATE `smf_members` SET `shopMoney` = '5025', `posts` = '839' WHERE `id_member` = '73';
+
+-- Ekrizdis
+UPDATE `smf_members` SET `shopMoney` = '220', `posts` = '17' WHERE `id_member` = '181';
+
+-- Fae Dalarce
+UPDATE `smf_members` SET `shopMoney` = '4329', `posts` = '2904' WHERE `id_member` = '47';
+
+-- Gabriel M. Bane
+UPDATE `smf_members` SET `shopMoney` = '5850', `posts` = '727' WHERE `id_member` = '116';
+
+-- Gael Richetti
+UPDATE `smf_members` SET `shopMoney` = '5090', `posts` = '265' WHERE `id_member` = '27';
+
+-- Galahad N. Prewett
+UPDATE `smf_members` SET `shopMoney` = '20782', `posts` = '2114' WHERE `id_member` = '102';
+
+-- Ganimedes Windhunter
+UPDATE `smf_members` SET `shopMoney` = '1970', `posts` = '3296' WHERE `id_member` = '26';
+
+-- Gea V. Marai
+UPDATE `smf_members` SET `shopMoney` = '2812', `posts` = '386' WHERE `id_member` = '142';
+
+-- Gideon Katsaros
+UPDATE `smf_members` SET `shopMoney` = '1432', `posts` = '712' WHERE `id_member` = '149';
+
+-- Giffard A. Abbott
+UPDATE `smf_members` SET `shopMoney` = '61937', `posts` = '2831' WHERE `id_member` = '10';
+
+-- Gold Belinski
+UPDATE `smf_members` SET `shopMoney` = '4119', `posts` = '588' WHERE `id_member` = '134';
+
+-- Gwyndolin Belanger
+UPDATE `smf_members` SET `shopMoney` = '1210', `posts` = '153' WHERE `id_member` = '62';
+
+-- Henry Flint
+UPDATE `smf_members` SET `shopMoney` = '7364', `posts` = '1204' WHERE `id_member` = '54';
+
+-- Hikaru Muketaka
+UPDATE `smf_members` SET `shopMoney` = '7573', `posts` = '1600' WHERE `id_member` = '135';
+
+-- Hilda S. Nygärd
+UPDATE `smf_members` SET `shopMoney` = '2705', `posts` = '380' WHERE `id_member` = '101';
+
+-- Hunter D. McDowell
+UPDATE `smf_members` SET `shopMoney` = '10185', `posts` = '550' WHERE `id_member` = '120';
+
+-- Icarus Atwood
+UPDATE `smf_members` SET `shopMoney` = '35540', `posts` = '3503' WHERE `id_member` = '80';
+
+-- Illaoi Laveau
+UPDATE `smf_members` SET `shopMoney` = '1562', `posts` = '329' WHERE `id_member` = '148';
+
+-- Ira Ashehound
+UPDATE `smf_members` SET `shopMoney` = '3783', `posts` = '4219' WHERE `id_member` = '114';
+
+-- Iris Quigley
+UPDATE `smf_members` SET `shopMoney` = '1499', `posts` = '191' WHERE `id_member` = '188';
+
+-- Ivar Solheim
+UPDATE `smf_members` SET `shopMoney` = '11598', `posts` = '2128' WHERE `id_member` = '69';
+
+-- James Scamander
+UPDATE `smf_members` SET `shopMoney` = '3351', `posts` = '1342' WHERE `id_member` = '129';
+
+-- Jeonghwa Song
+UPDATE `smf_members` SET `shopMoney` = '1549', `posts` = '66' WHERE `id_member` = '103';
+
+-- Johanna Grindelwald
+UPDATE `smf_members` SET `shopMoney` = '2320', `posts` = '402' WHERE `id_member` = '151';
+
+-- John Reese
+UPDATE `smf_members` SET `shopMoney` = '530', `posts` = '5' WHERE `id_member` = '182';
+
+-- Jonathan Sunday
+UPDATE `smf_members` SET `shopMoney` = '4340', `posts` = '118' WHERE `id_member` = '70';
+
+-- Joseph White
+UPDATE `smf_members` SET `shopMoney` = '70', `posts` = '4' WHERE `id_member` = '183';
+
+-- Julian E. Defoe
+UPDATE `smf_members` SET `shopMoney` = '11330', `posts` = '494' WHERE `id_member` = '160';
+
+-- Julieta Richetti
+UPDATE `smf_members` SET `shopMoney` = '15665', `posts` = '1479' WHERE `id_member` = '81';
+
+-- Junniper R. Scamander
+UPDATE `smf_members` SET `shopMoney` = '5810', `posts` = '382' WHERE `id_member` = '57';
+
+-- Junseo Kleverk
+UPDATE `smf_members` SET `shopMoney` = '1170', `posts` = '408' WHERE `id_member` = '155';
+
+-- Khamila Andreani
+UPDATE `smf_members` SET `shopMoney` = '4965', `posts` = '259' WHERE `id_member` = '157';
+
+-- Kin A. Hattori
+UPDATE `smf_members` SET `shopMoney` = '1982', `posts` = '627' WHERE `id_member` = '153';
+
+-- Klaus Wolfskinder
+UPDATE `smf_members` SET `shopMoney` = '22488', `posts` = '2836' WHERE `id_member` = '53';
+
+-- Kris Avery
+UPDATE `smf_members` SET `shopMoney` = '7872', `posts` = '853' WHERE `id_member` = '173';
+
+-- L. Danae Dimou
+UPDATE `smf_members` SET `shopMoney` = '3066', `posts` = '780' WHERE `id_member` = '49';
+
+-- Larissa Wolf
+UPDATE `smf_members` SET `shopMoney` = '28345', `posts` = '4303' WHERE `id_member` = '14';
+
+-- Leah Nott
+UPDATE `smf_members` SET `shopMoney` = '5178', `posts` = '1402' WHERE `id_member` = '56';
+
+-- Leticia de RH
+UPDATE `smf_members` SET `shopMoney` = '48995', `posts` = '2751' WHERE `id_member` = '184';
+
+-- Lillie Windhunter
+UPDATE `smf_members` SET `shopMoney` = '57695', `posts` = '5439' WHERE `id_member` = '21';
+
+-- Lissandra Bane
+UPDATE `smf_members` SET `shopMoney` = '1540', `posts` = '245' WHERE `id_member` = '123';
+
+-- Logan Allen
+UPDATE `smf_members` SET `shopMoney` = '11466', `posts` = '2688' WHERE `id_member` = '63';
+
+-- Luca Cabane
+UPDATE `smf_members` SET `shopMoney` = '4860', `posts` = '138' WHERE `id_member` = '131';
+
+-- Lyrie D. Argent
+UPDATE `smf_members` SET `shopMoney` = '7135', `posts` = '481' WHERE `id_member` = '67';
+
+-- Mack Wyse
+UPDATE `smf_members` SET `shopMoney` = '7770', `posts` = '532' WHERE `id_member` = '132';
+
+-- Maddie B. Moore
+UPDATE `smf_members` SET `shopMoney` = '1610', `posts` = '17' WHERE `id_member` = '139';
+
+-- Madisson S. Howells
+UPDATE `smf_members` SET `shopMoney` = '3757', `posts` = '2239' WHERE `id_member` = '68';
+
+-- Magnus Greengrass
+UPDATE `smf_members` SET `shopMoney` = '3620', `posts` = '2490' WHERE `id_member` = '29';
+
+-- Marcus Marlowe
+UPDATE `smf_members` SET `shopMoney` = '46696', `posts` = '2431' WHERE `id_member` = '83';
+
+-- Meredith G. Marlowe
+UPDATE `smf_members` SET `shopMoney` = '14847', `posts` = '2068' WHERE `id_member` = '88';
+
+-- Merlín
+UPDATE `smf_members` SET `shopMoney` = '5460', `posts` = '328' WHERE `id_member` = '162';
+
+-- Miu Asahi
+UPDATE `smf_members` SET `shopMoney` = '5073', `posts` = '1035' WHERE `id_member` = '152';
+
+-- Noh Mi Rae
+UPDATE `smf_members` SET `shopMoney` = '1559', `posts` = '438' WHERE `id_member` = '154';
+
+-- Mordred le Fay
+UPDATE `smf_members` SET `shopMoney` = '10715', `posts` = '1459' WHERE `id_member` = '89';
+
+-- Morgan Fairchild
+UPDATE `smf_members` SET `shopMoney` = '13369', `posts` = '3541' WHERE `id_member` = '108';
+
+-- Morgana A. Mayfair
+UPDATE `smf_members` SET `shopMoney` = '2880', `posts` = '33' WHERE `id_member` = '141';
+
+-- Morgana Le Fay
+UPDATE `smf_members` SET `shopMoney` = '3893', `posts` = '605' WHERE `id_member` = '161';
+
+-- Narrador
+UPDATE `smf_members` SET `shopMoney` = '19948', `posts` = '2927' WHERE `id_member` = '186';
+
+-- Nathan A. Carrow
+UPDATE `smf_members` SET `shopMoney` = '7570', `posts` = '180' WHERE `id_member` = '60';
+
+-- Neria Spektral
+UPDATE `smf_members` SET `shopMoney` = '10542', `posts` = '3902' WHERE `id_member` = '100';
+
+-- Nicholas Haywood
+UPDATE `smf_members` SET `shopMoney` = '2660', `posts` = '79' WHERE `id_member` = '130';
+
+-- Nimue E. Valerius
+UPDATE `smf_members` SET `shopMoney` = '10559', `posts` = '1884' WHERE `id_member` = '15';
+
+-- Noah Clearwater
+UPDATE `smf_members` SET `shopMoney` = '10094', `posts` = '802' WHERE `id_member` = '121';
+
+-- Noah Malfoy
+UPDATE `smf_members` SET `shopMoney` = '6545', `posts` = '294' WHERE `id_member` = '59';
+
+-- Paolo Sanna
+UPDATE `smf_members` SET `shopMoney` = '6031', `posts` = '510' WHERE `id_member` = '111';
+
+-- Paul Whit
+UPDATE `smf_members` SET `shopMoney` = '4185', `posts` = '1184' WHERE `id_member` = '16';
+
+-- Penélope Featherington
+UPDATE `smf_members` SET `shopMoney` = '1685', `posts` = '140' WHERE `id_member` = '124';
+
+-- Perseo Katsaros
+UPDATE `smf_members` SET `shopMoney` = '21051', `posts` = '7788' WHERE `id_member` = '18';
+
+-- Persephone A. Windhunter
+UPDATE `smf_members` SET `shopMoney` = '5339', `posts` = '2314' WHERE `id_member` = '51';
+
+-- Peter Peverell
+UPDATE `smf_members` SET `shopMoney` = '4120', `posts` = '695' WHERE `id_member` = '94';
+
+-- Petrichor R. Warlock
+UPDATE `smf_members` SET `shopMoney` = '2880', `posts` = '567' WHERE `id_member` = '79';
+
+-- Philippe Delacour
+UPDATE `smf_members` SET `shopMoney` = '4850', `posts` = '285' WHERE `id_member` = '86';
+
+-- Phobos A. Windhunter
+UPDATE `smf_members` SET `shopMoney` = '3120', `posts` = '126' WHERE `id_member` = '74';
+
+-- Phoenix Richetti
+UPDATE `smf_members` SET `shopMoney` = '2870', `posts` = '201' WHERE `id_member` = '58';
+
+-- Rhys Vladimirovich
+UPDATE `smf_members` SET `shopMoney` = '1340', `posts` = '44' WHERE `id_member` = '159';
+
+-- Ryojin Raiden
+UPDATE `smf_members` SET `shopMoney` = '19985', `posts` = '1263' WHERE `id_member` = '158';
+
+-- Ricardo Suarez
+UPDATE `smf_members` SET `shopMoney` = '3405', `posts` = '650' WHERE `id_member` = '97';
+
+-- Richard Rogers
+UPDATE `smf_members` SET `shopMoney` = '19139', `posts` = '1489' WHERE `id_member` = '163';
+
+-- Riley McAdams
+UPDATE `smf_members` SET `shopMoney` = '3058', `posts` = '301' WHERE `id_member` = '25';
+
+-- River Greyback
+UPDATE `smf_members` SET `shopMoney` = '17443', `posts` = '2526' WHERE `id_member` = '66';
+
+-- Rowan McGrath
+UPDATE `smf_members` SET `shopMoney` = '160', `posts` = '11' WHERE `id_member` = '185';
+
+-- Rye Richetti
+UPDATE `smf_members` SET `shopMoney` = '7006', `posts` = '537' WHERE `id_member` = '17';
+
+-- Saoirse O Byrne
+UPDATE `smf_members` SET `shopMoney` = '2215', `posts` = '216' WHERE `id_member` = '106';
+
+-- Sabrina Starlight
+UPDATE `smf_members` SET `shopMoney` = '1800', `posts` = '477' WHERE `id_member` = '119';
+
+-- Sachiko Ogasawara
+UPDATE `smf_members` SET `shopMoney` = '4890', `posts` = '1828' WHERE `id_member` = '42';
+
+-- Scorpius Malfoy
+UPDATE `smf_members` SET `shopMoney` = '16470', `posts` = '1394' WHERE `id_member` = '147';
+
+-- Scott Ollivander
+UPDATE `smf_members` SET `shopMoney` = '1132', `posts` = '223' WHERE `id_member` = '168';
+
+-- Selene Argyris
+UPDATE `smf_members` SET `shopMoney` = '3145', `posts` = '1222' WHERE `id_member` = '38';
+
+-- Sky S. Lightwood
+UPDATE `smf_members` SET `shopMoney` = '9420', `posts` = '2759' WHERE `id_member` = '23';
+
+-- Stella Ersebet
+UPDATE `smf_members` SET `shopMoney` = '30678', `posts` = '2882' WHERE `id_member` = '22';
+
+-- Susan Black - Petrie
+UPDATE `smf_members` SET `shopMoney` = '10145', `posts` = '1386' WHERE `id_member` = '31';
+
+-- Suspiria Kim
+UPDATE `smf_members` SET `shopMoney` = '1700', `posts` = '1167' WHERE `id_member` = '156';
+
+-- Thomas Grindelwald
+UPDATE `smf_members` SET `shopMoney` = '1441', `posts` = '2937' WHERE `id_member` = '55';
+
+-- Undyne McDowell
+UPDATE `smf_members` SET `shopMoney` = '1300', `posts` = '114' WHERE `id_member` = '125';
+
+-- Vernon Kang
+UPDATE `smf_members` SET `shopMoney` = '9624', `posts` = '1466' WHERE `id_member` = '9';
+
+-- Victoria Da Souza
+UPDATE `smf_members` SET `shopMoney` = '4495', `posts` = '79' WHERE `id_member` = '133';
+
+-- Victoria DeLacourt
+UPDATE `smf_members` SET `shopMoney` = '3810', `posts` = '142' WHERE `id_member` = '122';
+
+-- Whilemina Hardin
+UPDATE `smf_members` SET `shopMoney` = '52821', `posts` = '8663' WHERE `id_member` = '48';
+
+-- William A. Ellis
+UPDATE `smf_members` SET `shopMoney` = '23873', `posts` = '4247' WHERE `id_member` = '85';
+
+-- Willow J. Wilderose
+UPDATE `smf_members` SET `shopMoney` = '19261', `posts` = '1316' WHERE `id_member` = '46';
+
+-- Wyatt Kreiss
+UPDATE `smf_members` SET `shopMoney` = '2035', `posts` = '152' WHERE `id_member` = '109';
+
+-- Yu Hwan
+UPDATE `smf_members` SET `shopMoney` = '9150', `posts` = '498' WHERE `id_member` = '105';
+
+-- Zachary Von Richter
+UPDATE `smf_members` SET `shopMoney` = '3395', `posts` = '1130' WHERE `id_member` = '76';
+
+-- Zeon Klaus
+UPDATE `smf_members` SET `shopMoney` = '7060', `posts` = '907' WHERE `id_member` = '65';
+
+-- Zoe Bennett
+UPDATE `smf_members` SET `shopMoney` = '7419', `posts` = '1748' WHERE `id_member` = '24';
+

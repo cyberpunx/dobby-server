@@ -1,0 +1,495 @@
+-- A. Hyde Lestrange
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('72', '1', 'cust_ataque', '18') ON DUPLICATE KEY UPDATE `value` = '18';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('72', '1', 'cust_defens', '20') ON DUPLICATE KEY UPDATE `value` = '20';
+
+-- A. Caelus Iacovone
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('127', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('127', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Achilles C. Feehily
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('45', '1', 'cust_ataque', '14') ON DUPLICATE KEY UPDATE `value` = '14';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('45', '1', 'cust_defens', '16') ON DUPLICATE KEY UPDATE `value` = '16';
+
+-- Adèle H. V. Gaunt
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('52', '1', 'cust_ataque', '5') ON DUPLICATE KEY UPDATE `value` = '5';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('52', '1', 'cust_defens', '7') ON DUPLICATE KEY UPDATE `value` = '7';
+
+-- Adrianne Anderson
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('150', '1', 'cust_ataque', '14') ON DUPLICATE KEY UPDATE `value` = '14';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('150', '1', 'cust_defens', '16') ON DUPLICATE KEY UPDATE `value` = '16';
+
+-- Aegis S. D. Lestrange
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('117', '1', 'cust_ataque', '14') ON DUPLICATE KEY UPDATE `value` = '14';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('117', '1', 'cust_defens', '16') ON DUPLICATE KEY UPDATE `value` = '16';
+
+-- Aiden Ward
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('112', '1', 'cust_ataque', '4') ON DUPLICATE KEY UPDATE `value` = '4';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('112', '1', 'cust_defens', '6') ON DUPLICATE KEY UPDATE `value` = '6';
+
+-- Alan S. Feehily
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('71', '1', 'cust_ataque', '9') ON DUPLICATE KEY UPDATE `value` = '9';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('71', '1', 'cust_defens', '11') ON DUPLICATE KEY UPDATE `value` = '11';
+
+-- Albus Severus Potter
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('175', '1', 'cust_ataque', '48') ON DUPLICATE KEY UPDATE `value` = '48';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('175', '1', 'cust_defens', '50') ON DUPLICATE KEY UPDATE `value` = '50';
+
+-- Aleksandr I. Romanov
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('92', '1', 'cust_ataque', '8') ON DUPLICATE KEY UPDATE `value` = '8';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('92', '1', 'cust_defens', '10') ON DUPLICATE KEY UPDATE `value` = '10';
+
+-- Alessandro Cabane
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('145', '1', 'cust_ataque', '9') ON DUPLICATE KEY UPDATE `value` = '9';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('145', '1', 'cust_defens', '11') ON DUPLICATE KEY UPDATE `value` = '11';
+
+-- Alex Selwyn
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('13', '1', 'cust_ataque', '20') ON DUPLICATE KEY UPDATE `value` = '20';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('13', '1', 'cust_defens', '22') ON DUPLICATE KEY UPDATE `value` = '22';
+
+-- Alexandra Cabane
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('143', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('143', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Alexei Anderson
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('138', '1', 'cust_ataque', '22') ON DUPLICATE KEY UPDATE `value` = '22';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('138', '1', 'cust_defens', '24') ON DUPLICATE KEY UPDATE `value` = '24';
+
+-- Alice Lovehearth
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('128', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('128', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Allen Österhagen
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('146', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('146', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Alya Rosier
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('115', '1', 'cust_ataque', '8') ON DUPLICATE KEY UPDATE `value` = '8';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('115', '1', 'cust_defens', '10') ON DUPLICATE KEY UPDATE `value` = '10';
+
+-- Amarie
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('176', '1', 'cust_ataque', '10000') ON DUPLICATE KEY UPDATE `value` = '10000';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('176', '1', 'cust_defens', '10002') ON DUPLICATE KEY UPDATE `value` = '10002';
+
+-- Amelie Lacourt
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('110', '1', 'cust_ataque', '20') ON DUPLICATE KEY UPDATE `value` = '20';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('110', '1', 'cust_defens', '22') ON DUPLICATE KEY UPDATE `value` = '22';
+
+-- Amelie Rosier
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('6', '1', 'cust_ataque', '10') ON DUPLICATE KEY UPDATE `value` = '10';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('6', '1', 'cust_defens', '12') ON DUPLICATE KEY UPDATE `value` = '12';
+
+-- Amynus
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('177', '1', 'cust_ataque', '10000') ON DUPLICATE KEY UPDATE `value` = '10000';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('177', '1', 'cust_defens', '10002') ON DUPLICATE KEY UPDATE `value` = '10002';
+
+-- Archie Smith
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('96', '1', 'cust_ataque', '7') ON DUPLICATE KEY UPDATE `value` = '7';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('96', '1', 'cust_defens', '9') ON DUPLICATE KEY UPDATE `value` = '9';
+
+-- Ardan Richetti
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('98', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('98', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Ariadna Katsaros
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('84', '1', 'cust_ataque', '7') ON DUPLICATE KEY UPDATE `value` = '7';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('84', '1', 'cust_defens', '9') ON DUPLICATE KEY UPDATE `value` = '9';
+
+-- Arikel McDowell
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('113', '1', 'cust_ataque', '8') ON DUPLICATE KEY UPDATE `value` = '8';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('113', '1', 'cust_defens', '10') ON DUPLICATE KEY UPDATE `value` = '10';
+
+-- Arthur Beckett
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('99', '1', 'cust_ataque', '20') ON DUPLICATE KEY UPDATE `value` = '20';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('99', '1', 'cust_defens', '22') ON DUPLICATE KEY UPDATE `value` = '22';
+
+-- Arthur Wright
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('40', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('40', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Basthian
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('178', '1', 'cust_ataque', '10000') ON DUPLICATE KEY UPDATE `value` = '10000';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('178', '1', 'cust_defens', '10002') ON DUPLICATE KEY UPDATE `value` = '10002';
+
+-- Bastian E. Weasley
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('90', '1', 'cust_ataque', '14') ON DUPLICATE KEY UPDATE `value` = '14';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('90', '1', 'cust_defens', '16') ON DUPLICATE KEY UPDATE `value` = '16';
+
+-- Bythos Slughorn
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('104', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('104', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Cadmus T. Windhunter
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('166', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('166', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Caius Black
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('136', '1', 'cust_ataque', '33') ON DUPLICATE KEY UPDATE `value` = '33';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('136', '1', 'cust_defens', '35') ON DUPLICATE KEY UPDATE `value` = '35';
+
+-- Catherine Báthory
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('11', '1', 'cust_ataque', '16') ON DUPLICATE KEY UPDATE `value` = '16';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('11', '1', 'cust_defens', '18') ON DUPLICATE KEY UPDATE `value` = '18';
+
+-- Charles Wiggin
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('137', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('137', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Charlotte Beckett
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('95', '1', 'cust_ataque', '21') ON DUPLICATE KEY UPDATE `value` = '21';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('95', '1', 'cust_defens', '23') ON DUPLICATE KEY UPDATE `value` = '23';
+
+-- Cheryl Edgewood
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('12', '1', 'cust_ataque', '15') ON DUPLICATE KEY UPDATE `value` = '15';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('12', '1', 'cust_defens', '17') ON DUPLICATE KEY UPDATE `value` = '17';
+
+-- Chuck Graham
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('170', '1', 'cust_ataque', '12') ON DUPLICATE KEY UPDATE `value` = '12';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('170', '1', 'cust_defens', '14') ON DUPLICATE KEY UPDATE `value` = '14';
+
+-- Clementine Flint
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('78', '1', 'cust_ataque', '5') ON DUPLICATE KEY UPDATE `value` = '5';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('78', '1', 'cust_defens', '7') ON DUPLICATE KEY UPDATE `value` = '7';
+
+-- Cormac O'Donovan
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('82', '1', 'cust_ataque', '19') ON DUPLICATE KEY UPDATE `value` = '19';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('82', '1', 'cust_defens', '21') ON DUPLICATE KEY UPDATE `value` = '21';
+
+-- Darius Bozeman
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('20', '1', 'cust_ataque', '50') ON DUPLICATE KEY UPDATE `value` = '50';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('20', '1', 'cust_defens', '52') ON DUPLICATE KEY UPDATE `value` = '52';
+
+-- Darius Steward
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('37', '1', 'cust_ataque', '17') ON DUPLICATE KEY UPDATE `value` = '17';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('37', '1', 'cust_defens', '19') ON DUPLICATE KEY UPDATE `value` = '19';
+
+-- Darya Bleer
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('126', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('126', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- David Lyon
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('144', '1', 'cust_ataque', '34') ON DUPLICATE KEY UPDATE `value` = '34';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('144', '1', 'cust_defens', '36') ON DUPLICATE KEY UPDATE `value` = '36';
+
+-- Deimos H. Windhunter
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('61', '1', 'cust_ataque', '4') ON DUPLICATE KEY UPDATE `value` = '4';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('61', '1', 'cust_defens', '6') ON DUPLICATE KEY UPDATE `value` = '6';
+
+-- Delphini Riddle
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('179', '1', 'cust_ataque', '39') ON DUPLICATE KEY UPDATE `value` = '39';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('179', '1', 'cust_defens', '41') ON DUPLICATE KEY UPDATE `value` = '41';
+
+-- Derek Andreani
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('64', '1', 'cust_ataque', '12') ON DUPLICATE KEY UPDATE `value` = '12';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('64', '1', 'cust_defens', '14') ON DUPLICATE KEY UPDATE `value` = '14';
+
+-- Dimitry
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('180', '1', 'cust_ataque', '10000') ON DUPLICATE KEY UPDATE `value` = '10000';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('180', '1', 'cust_defens', '10002') ON DUPLICATE KEY UPDATE `value` = '10002';
+
+-- Dorothy Fisher
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('75', '1', 'cust_ataque', '17') ON DUPLICATE KEY UPDATE `value` = '17';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('75', '1', 'cust_defens', '19') ON DUPLICATE KEY UPDATE `value` = '19';
+
+-- Duban Black
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('8', '1', 'cust_ataque', '36') ON DUPLICATE KEY UPDATE `value` = '36';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('8', '1', 'cust_defens', '38') ON DUPLICATE KEY UPDATE `value` = '38';
+
+-- E. Skylar Lestrange
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('87', '1', 'cust_ataque', '3') ON DUPLICATE KEY UPDATE `value` = '3';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('87', '1', 'cust_defens', '5') ON DUPLICATE KEY UPDATE `value` = '5';
+
+-- Éferon Cabane
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('35', '1', 'cust_ataque', '22') ON DUPLICATE KEY UPDATE `value` = '22';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('35', '1', 'cust_defens', '24') ON DUPLICATE KEY UPDATE `value` = '24';
+
+-- Eileen Maskelyne
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('30', '1', 'cust_ataque', '14') ON DUPLICATE KEY UPDATE `value` = '14';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('30', '1', 'cust_defens', '16') ON DUPLICATE KEY UPDATE `value` = '16';
+
+-- Elizabeth C. Sayre
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('187', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('187', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Elián Idriswenjellu
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('107', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('107', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Eloise G. Wood's
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('50', '1', 'cust_ataque', '6') ON DUPLICATE KEY UPDATE `value` = '6';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('50', '1', 'cust_defens', '8') ON DUPLICATE KEY UPDATE `value` = '8';
+
+-- Emily Wolf
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('118', '1', 'cust_ataque', '10') ON DUPLICATE KEY UPDATE `value` = '10';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('118', '1', 'cust_defens', '12') ON DUPLICATE KEY UPDATE `value` = '12';
+
+-- Enzo Castellucci
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('77', '1', 'cust_ataque', '21') ON DUPLICATE KEY UPDATE `value` = '21';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('77', '1', 'cust_defens', '23') ON DUPLICATE KEY UPDATE `value` = '23';
+
+-- Erine Lyon
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('91', '1', 'cust_ataque', '15') ON DUPLICATE KEY UPDATE `value` = '15';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('91', '1', 'cust_defens', '17') ON DUPLICATE KEY UPDATE `value` = '17';
+
+-- Eros Dimakos
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('169', '1', 'cust_ataque', '8') ON DUPLICATE KEY UPDATE `value` = '8';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('169', '1', 'cust_defens', '10') ON DUPLICATE KEY UPDATE `value` = '10';
+
+-- Eros Greyback
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('93', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('93', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Etienne L. McDowell
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('73', '1', 'cust_ataque', '7') ON DUPLICATE KEY UPDATE `value` = '7';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('73', '1', 'cust_defens', '9') ON DUPLICATE KEY UPDATE `value` = '9';
+
+-- Ekrizdis
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('181', '1', 'cust_ataque', '10000') ON DUPLICATE KEY UPDATE `value` = '10000';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('181', '1', 'cust_defens', '10002') ON DUPLICATE KEY UPDATE `value` = '10002';
+
+-- Fae Dalarce
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('47', '1', 'cust_ataque', '14') ON DUPLICATE KEY UPDATE `value` = '14';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('47', '1', 'cust_defens', '16') ON DUPLICATE KEY UPDATE `value` = '16';
+
+-- Gabriel M. Bane
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('116', '1', 'cust_ataque', '16') ON DUPLICATE KEY UPDATE `value` = '16';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('116', '1', 'cust_defens', '18') ON DUPLICATE KEY UPDATE `value` = '18';
+
+-- Gael Richetti
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('27', '1', 'cust_ataque', '14') ON DUPLICATE KEY UPDATE `value` = '14';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('27', '1', 'cust_defens', '16') ON DUPLICATE KEY UPDATE `value` = '16';
+
+-- Galahad N. Prewett
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('102', '1', 'cust_ataque', '24') ON DUPLICATE KEY UPDATE `value` = '24';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('102', '1', 'cust_defens', '26') ON DUPLICATE KEY UPDATE `value` = '26';
+
+-- Ganimedes Windhunter
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('26', '1', 'cust_ataque', '28') ON DUPLICATE KEY UPDATE `value` = '28';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('26', '1', 'cust_defens', '30') ON DUPLICATE KEY UPDATE `value` = '30';
+
+-- Gea V. Marai
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('142', '1', 'cust_ataque', '12') ON DUPLICATE KEY UPDATE `value` = '12';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('142', '1', 'cust_defens', '14') ON DUPLICATE KEY UPDATE `value` = '14';
+
+-- Gideon Katsaros
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('149', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('149', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Giffard A. Abbott
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('10', '1', 'cust_ataque', '36') ON DUPLICATE KEY UPDATE `value` = '36';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('10', '1', 'cust_defens', '38') ON DUPLICATE KEY UPDATE `value` = '38';
+
+-- Gold Belinski
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('134', '1', 'cust_ataque', '6') ON DUPLICATE KEY UPDATE `value` = '6';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('134', '1', 'cust_defens', '8') ON DUPLICATE KEY UPDATE `value` = '8';
+
+-- Gwyndolin Belanger
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('62', '1', 'cust_ataque', '5') ON DUPLICATE KEY UPDATE `value` = '5';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('62', '1', 'cust_defens', '7') ON DUPLICATE KEY UPDATE `value` = '7';
+
+-- Henry Flint
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('54', '1', 'cust_ataque', '7') ON DUPLICATE KEY UPDATE `value` = '7';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('54', '1', 'cust_defens', '9') ON DUPLICATE KEY UPDATE `value` = '9';
+
+-- Hikaru Munetaka
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('135', '1', 'cust_ataque', '10') ON DUPLICATE KEY UPDATE `value` = '10';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('135', '1', 'cust_defens', '12') ON DUPLICATE KEY UPDATE `value` = '12';
+
+-- Hilda S. Nygård
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('101', '1', 'cust_ataque', '17') ON DUPLICATE KEY UPDATE `value` = '17';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('101', '1', 'cust_defens', '19') ON DUPLICATE KEY UPDATE `value` = '19';
+
+-- Hunter D. McDowell
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('120', '1', 'cust_ataque', '9') ON DUPLICATE KEY UPDATE `value` = '9';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('120', '1', 'cust_defens', '11') ON DUPLICATE KEY UPDATE `value` = '11';
+
+-- Icarus Atwood
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('80', '1', 'cust_ataque', '15') ON DUPLICATE KEY UPDATE `value` = '15';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('80', '1', 'cust_defens', '17') ON DUPLICATE KEY UPDATE `value` = '17';
+
+-- Illaoi Laveau
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('148', '1', 'cust_ataque', '15') ON DUPLICATE KEY UPDATE `value` = '15';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('148', '1', 'cust_defens', '17') ON DUPLICATE KEY UPDATE `value` = '17';
+
+-- Ira Ashehound
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('114', '1', 'cust_ataque', '10') ON DUPLICATE KEY UPDATE `value` = '10';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('114', '1', 'cust_defens', '12') ON DUPLICATE KEY UPDATE `value` = '12';
+
+-- Iris Quigley
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('188', '1', 'cust_ataque', '8') ON DUPLICATE KEY UPDATE `value` = '8';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('188', '1', 'cust_defens', '10') ON DUPLICATE KEY UPDATE `value` = '10';
+
+-- Ivar Solheim
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('69', '1', 'cust_ataque', '9') ON DUPLICATE KEY UPDATE `value` = '9';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('69', '1', 'cust_defens', '11') ON DUPLICATE KEY UPDATE `value` = '11';
+
+-- James Scamander
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('129', '1', 'cust_ataque', '18') ON DUPLICATE KEY UPDATE `value` = '18';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('129', '1', 'cust_defens', '20') ON DUPLICATE KEY UPDATE `value` = '20';
+
+-- Jeonghwa Song
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('103', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('103', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Johanna Grindelwald
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('151', '1', 'cust_ataque', '14') ON DUPLICATE KEY UPDATE `value` = '14';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('151', '1', 'cust_defens', '16') ON DUPLICATE KEY UPDATE `value` = '16';
+
+-- John Reese
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('182', '1', 'cust_ataque', '24') ON DUPLICATE KEY UPDATE `value` = '24';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('182', '1', 'cust_defens', '26') ON DUPLICATE KEY UPDATE `value` = '26';
+
+-- Jonathan Sunday
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('70', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('70', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Joseph White
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('183', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('183', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Julian E. Defoe
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('160', '1', 'cust_ataque', '12') ON DUPLICATE KEY UPDATE `value` = '12';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('160', '1', 'cust_defens', '14') ON DUPLICATE KEY UPDATE `value` = '14';
+
+-- Julieta Richetti
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('81', '1', 'cust_ataque', '24') ON DUPLICATE KEY UPDATE `value` = '24';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('81', '1', 'cust_defens', '26') ON DUPLICATE KEY UPDATE `value` = '26';
+
+-- Junniper R. Scamander
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('57', '1', 'cust_ataque', '6') ON DUPLICATE KEY UPDATE `value` = '6';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('57', '1', 'cust_defens', '8') ON DUPLICATE KEY UPDATE `value` = '8';
+
+-- Junseo Kleverk
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('155', '1', 'cust_ataque', '7') ON DUPLICATE KEY UPDATE `value` = '7';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('155', '1', 'cust_defens', '9') ON DUPLICATE KEY UPDATE `value` = '9';
+
+-- Khamila Andreani
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('157', '1', 'cust_ataque', '12') ON DUPLICATE KEY UPDATE `value` = '12';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('157', '1', 'cust_defens', '14') ON DUPLICATE KEY UPDATE `value` = '14';
+
+-- Kin A. Hattori
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('153', '1', 'cust_ataque', '4') ON DUPLICATE KEY UPDATE `value` = '4';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('153', '1', 'cust_defens', '6') ON DUPLICATE KEY UPDATE `value` = '6';
+
+-- Klaus Wolfskinder
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('53', '1', 'cust_ataque', '29') ON DUPLICATE KEY UPDATE `value` = '29';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('53', '1', 'cust_defens', '31') ON DUPLICATE KEY UPDATE `value` = '31';
+
+-- Kris Avery
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('173', '1', 'cust_ataque', '3') ON DUPLICATE KEY UPDATE `value` = '3';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('173', '1', 'cust_defens', '5') ON DUPLICATE KEY UPDATE `value` = '5';
+
+-- L. Danae Dimou
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('49', '1', 'cust_ataque', '19') ON DUPLICATE KEY UPDATE `value` = '19';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('49', '1', 'cust_defens', '21') ON DUPLICATE KEY UPDATE `value` = '21';
+
+-- Larissa N. Wolf
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('14', '1', 'cust_ataque', '31') ON DUPLICATE KEY UPDATE `value` = '31';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('14', '1', 'cust_defens', '33') ON DUPLICATE KEY UPDATE `value` = '33';
+
+-- Leah Nott
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('56', '1', 'cust_ataque', '19') ON DUPLICATE KEY UPDATE `value` = '19';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('56', '1', 'cust_defens', '21') ON DUPLICATE KEY UPDATE `value` = '21';
+
+-- Leticia de RH
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('184', '1', 'cust_ataque', '85') ON DUPLICATE KEY UPDATE `value` = '85';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('184', '1', 'cust_defens', '87') ON DUPLICATE KEY UPDATE `value` = '87';
+
+-- Lillie Windhunter
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('21', '1', 'cust_ataque', '26') ON DUPLICATE KEY UPDATE `value` = '26';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('21', '1', 'cust_defens', '28') ON DUPLICATE KEY UPDATE `value` = '28';
+
+-- Lissandra Bane
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('123', '1', 'cust_ataque', '12') ON DUPLICATE KEY UPDATE `value` = '12';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('123', '1', 'cust_defens', '14') ON DUPLICATE KEY UPDATE `value` = '14';
+
+-- Logan Allen
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('63', '1', 'cust_ataque', '33') ON DUPLICATE KEY UPDATE `value` = '33';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('63', '1', 'cust_defens', '35') ON DUPLICATE KEY UPDATE `value` = '35';
+
+-- Luca Cabane
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('131', '1', 'cust_ataque', '8') ON DUPLICATE KEY UPDATE `value` = '8';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('131', '1', 'cust_defens', '10') ON DUPLICATE KEY UPDATE `value` = '10';
+
+-- Lyrie D. Argent
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('67', '1', 'cust_ataque', '4') ON DUPLICATE KEY UPDATE `value` = '4';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('67', '1', 'cust_defens', '6') ON DUPLICATE KEY UPDATE `value` = '6';
+
+-- Mack Wyse
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('132', '1', 'cust_ataque', '8') ON DUPLICATE KEY UPDATE `value` = '8';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('132', '1', 'cust_defens', '10') ON DUPLICATE KEY UPDATE `value` = '10';
+
+-- Maddie B. Moore
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('139', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('139', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Madisson S. Howells
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('68', '1', 'cust_ataque', '27') ON DUPLICATE KEY UPDATE `value` = '27';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('68', '1', 'cust_defens', '29') ON DUPLICATE KEY UPDATE `value` = '29';
+
+-- Magnus Greengrass
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('29', '1', 'cust_ataque', '39') ON DUPLICATE KEY UPDATE `value` = '39';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('29', '1', 'cust_defens', '41') ON DUPLICATE KEY UPDATE `value` = '41';
+
+-- Marcus Marlowe
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('83', '1', 'cust_ataque', '17') ON DUPLICATE KEY UPDATE `value` = '17';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('83', '1', 'cust_defens', '19') ON DUPLICATE KEY UPDATE `value` = '19';
+
+-- Meredith G. Marlowe
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('88', '1', 'cust_ataque', '7') ON DUPLICATE KEY UPDATE `value` = '7';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('88', '1', 'cust_defens', '9') ON DUPLICATE KEY UPDATE `value` = '9';
+
+-- Merlín
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('162', '1', 'cust_ataque', '63') ON DUPLICATE KEY UPDATE `value` = '63';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('162', '1', 'cust_defens', '65') ON DUPLICATE KEY UPDATE `value` = '65';
+
+-- Miu Asahi
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('152', '1', 'cust_ataque', '7') ON DUPLICATE KEY UPDATE `value` = '7';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('152', '1', 'cust_defens', '9') ON DUPLICATE KEY UPDATE `value` = '9';
+
+-- Noh Mi Rae
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('154', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('154', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Mordred le Fay
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('89', '1', 'cust_ataque', '13') ON DUPLICATE KEY UPDATE `value` = '13';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('89', '1', 'cust_defens', '15') ON DUPLICATE KEY UPDATE `value` = '15';
+
+-- Morgan Fairchild
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('108', '1', 'cust_ataque', '42') ON DUPLICATE KEY UPDATE `value` = '42';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('108', '1', 'cust_defens', '44') ON DUPLICATE KEY UPDATE `value` = '44';
+
+-- Morgana A. Mayfair
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('141', '1', 'cust_ataque', '8') ON DUPLICATE KEY UPDATE `value` = '8';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('141', '1', 'cust_defens', '10') ON DUPLICATE KEY UPDATE `value` = '10';
+
+-- Morgana Le Fay
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('161', '1', 'cust_ataque', '55') ON DUPLICATE KEY UPDATE `value` = '55';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('161', '1', 'cust_defens', '57') ON DUPLICATE KEY UPDATE `value` = '57';
+
+-- Narrador
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('186', '1', 'cust_ataque', '12') ON DUPLICATE KEY UPDATE `value` = '12';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('186', '1', 'cust_defens', '14') ON DUPLICATE KEY UPDATE `value` = '14';
+
+-- Nathan A. Carrow
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('60', '1', 'cust_ataque', '9') ON DUPLICATE KEY UPDATE `value` = '9';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('60', '1', 'cust_defens', '11') ON DUPLICATE KEY UPDATE `value` = '11';
+
+-- Neria Spektral
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('100', '1', 'cust_ataque', '22') ON DUPLICATE KEY UPDATE `value` = '22';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('100', '1', 'cust_defens', '24') ON DUPLICATE KEY UPDATE `value` = '24';
+
+-- Nicholas Haywood
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('130', '1', 'cust_ataque', '8') ON DUPLICATE KEY UPDATE `value` = '8';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('130', '1', 'cust_defens', '10') ON DUPLICATE KEY UPDATE `value` = '10';
+
+-- Nimue E. Valerius
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('15', '1', 'cust_ataque', '12') ON DUPLICATE KEY UPDATE `value` = '12';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('15', '1', 'cust_defens', '14') ON DUPLICATE KEY UPDATE `value` = '14';
+
+-- Noah Clearwater
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('121', '1', 'cust_ataque', '7') ON DUPLICATE KEY UPDATE `value` = '7';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('121', '1', 'cust_defens', '9') ON DUPLICATE KEY UPDATE `value` = '9';
+
+-- Noah Malfoy
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('59', '1', 'cust_ataque', '18') ON DUPLICATE KEY UPDATE `value` = '18';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('59', '1', 'cust_defens', '20') ON DUPLICATE KEY UPDATE `value` = '20';
+
+-- Paolo Sanna
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('111', '1', 'cust_ataque', '10') ON DUPLICATE KEY UPDATE `value` = '10';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('111', '1', 'cust_defens', '12') ON DUPLICATE KEY UPDATE `value` = '12';
+
+-- Paul Whit
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('16', '1', 'cust_ataque', '8') ON DUPLICATE KEY UPDATE `value` = '8';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('16', '1', 'cust_defens', '10') ON DUPLICATE KEY UPDATE `value` = '10';
+
+-- Penélope Featherington
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('124', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('124', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Perseo Katsaros
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('18', '1', 'cust_ataque', '28') ON DUPLICATE KEY UPDATE `value` = '28';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('18', '1', 'cust_defens', '30') ON DUPLICATE KEY UPDATE `value` = '30';
+
+-- Persephone A. Windhunter
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('51', '1', 'cust_ataque', '10') ON DUPLICATE KEY UPDATE `value` = '10';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('51', '1', 'cust_defens', '12') ON DUPLICATE KEY UPDATE `value` = '12';
+
+-- Peter Peverell
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('94', '1', 'cust_ataque', '13') ON DUPLICATE KEY UPDATE `value` = '13';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('94', '1', 'cust_defens', '15') ON DUPLICATE KEY UPDATE `value` = '15';
+
+-- Petrichor R. Warlock
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('79', '1', 'cust_ataque', '8') ON DUPLICATE KEY UPDATE `value` = '8';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('79', '1', 'cust_defens', '10') ON DUPLICATE KEY UPDATE `value` = '10';
+
+-- Philippe Delacour
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('86', '1', 'cust_ataque', '9') ON DUPLICATE KEY UPDATE `value` = '9';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('86', '1', 'cust_defens', '11') ON DUPLICATE KEY UPDATE `value` = '11';
+
+-- Phobos A. Windhunter
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('74', '1', 'cust_ataque', '3') ON DUPLICATE KEY UPDATE `value` = '3';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('74', '1', 'cust_defens', '5') ON DUPLICATE KEY UPDATE `value` = '5';
+
+-- Phoenix Richetti
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('58', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('58', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Rhys Vladimirovich
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('159', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('159', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Ryojin Raiden
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('158', '1', 'cust_ataque', '17') ON DUPLICATE KEY UPDATE `value` = '17';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('158', '1', 'cust_defens', '19') ON DUPLICATE KEY UPDATE `value` = '19';
+
+-- Ricardo Suarez
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('97', '1', 'cust_ataque', '9') ON DUPLICATE KEY UPDATE `value` = '9';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('97', '1', 'cust_defens', '11') ON DUPLICATE KEY UPDATE `value` = '11';
+
+-- Richard Rogers
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('163', '1', 'cust_ataque', '8') ON DUPLICATE KEY UPDATE `value` = '8';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('163', '1', 'cust_defens', '10') ON DUPLICATE KEY UPDATE `value` = '10';
+
+-- Riley McAdams
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('25', '1', 'cust_ataque', '5') ON DUPLICATE KEY UPDATE `value` = '5';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('25', '1', 'cust_defens', '7') ON DUPLICATE KEY UPDATE `value` = '7';
+
+-- River Greyback
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('66', '1', 'cust_ataque', '44') ON DUPLICATE KEY UPDATE `value` = '44';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('66', '1', 'cust_defens', '46') ON DUPLICATE KEY UPDATE `value` = '46';
+
+-- Rowan McGrath
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('185', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('185', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Rye Richetti
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('17', '1', 'cust_ataque', '6') ON DUPLICATE KEY UPDATE `value` = '6';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('17', '1', 'cust_defens', '8') ON DUPLICATE KEY UPDATE `value` = '8';
+
+-- Saoirse O'byrne
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('106', '1', 'cust_ataque', '4') ON DUPLICATE KEY UPDATE `value` = '4';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('106', '1', 'cust_defens', '6') ON DUPLICATE KEY UPDATE `value` = '6';
+
+-- Sabrina Starlight
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('119', '1', 'cust_ataque', '4') ON DUPLICATE KEY UPDATE `value` = '4';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('119', '1', 'cust_defens', '6') ON DUPLICATE KEY UPDATE `value` = '6';
+
+-- Sachiko Ogasawara
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('42', '1', 'cust_ataque', '9') ON DUPLICATE KEY UPDATE `value` = '9';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('42', '1', 'cust_defens', '11') ON DUPLICATE KEY UPDATE `value` = '11';
+
+-- Scorpius Malfoy
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('147', '1', 'cust_ataque', '19') ON DUPLICATE KEY UPDATE `value` = '19';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('147', '1', 'cust_defens', '21') ON DUPLICATE KEY UPDATE `value` = '21';
+
+-- Scott Ollivander
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('168', '1', 'cust_ataque', '4') ON DUPLICATE KEY UPDATE `value` = '4';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('168', '1', 'cust_defens', '6') ON DUPLICATE KEY UPDATE `value` = '6';
+
+-- Selene G. Argyris
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('38', '1', 'cust_ataque', '27') ON DUPLICATE KEY UPDATE `value` = '27';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('38', '1', 'cust_defens', '29') ON DUPLICATE KEY UPDATE `value` = '29';
+
+-- Sky S. Lightwood
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('23', '1', 'cust_ataque', '26') ON DUPLICATE KEY UPDATE `value` = '26';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('23', '1', 'cust_defens', '28') ON DUPLICATE KEY UPDATE `value` = '28';
+
+-- Stella Ersebet
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('22', '1', 'cust_ataque', '24') ON DUPLICATE KEY UPDATE `value` = '24';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('22', '1', 'cust_defens', '26') ON DUPLICATE KEY UPDATE `value` = '26';
+
+-- Susan E. Petrie
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('31', '1', 'cust_ataque', '12') ON DUPLICATE KEY UPDATE `value` = '12';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('31', '1', 'cust_defens', '14') ON DUPLICATE KEY UPDATE `value` = '14';
+
+-- Suspiria Kim
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('156', '1', 'cust_ataque', '18') ON DUPLICATE KEY UPDATE `value` = '18';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('156', '1', 'cust_defens', '20') ON DUPLICATE KEY UPDATE `value` = '20';
+
+-- Thomas Grindelwald
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('55', '1', 'cust_ataque', '45') ON DUPLICATE KEY UPDATE `value` = '45';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('55', '1', 'cust_defens', '47') ON DUPLICATE KEY UPDATE `value` = '47';
+
+-- Undyne McDowell
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('125', '1', 'cust_ataque', '8') ON DUPLICATE KEY UPDATE `value` = '8';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('125', '1', 'cust_defens', '10') ON DUPLICATE KEY UPDATE `value` = '10';
+
+-- Vernon Kang
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('9', '1', 'cust_ataque', '24') ON DUPLICATE KEY UPDATE `value` = '24';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('9', '1', 'cust_defens', '26') ON DUPLICATE KEY UPDATE `value` = '26';
+
+-- Victoria Da Souza
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('133', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('133', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Victoria DeLacourt
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('122', '1', 'cust_ataque', '2') ON DUPLICATE KEY UPDATE `value` = '2';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('122', '1', 'cust_defens', '4') ON DUPLICATE KEY UPDATE `value` = '4';
+
+-- Whilemina Hardin
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('48', '1', 'cust_ataque', '48') ON DUPLICATE KEY UPDATE `value` = '48';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('48', '1', 'cust_defens', '50') ON DUPLICATE KEY UPDATE `value` = '50';
+
+-- William A. Ellis
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('85', '1', 'cust_ataque', '47') ON DUPLICATE KEY UPDATE `value` = '47';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('85', '1', 'cust_defens', '49') ON DUPLICATE KEY UPDATE `value` = '49';
+
+-- Willow J. Wilderose
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('46', '1', 'cust_ataque', '9') ON DUPLICATE KEY UPDATE `value` = '9';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('46', '1', 'cust_defens', '11') ON DUPLICATE KEY UPDATE `value` = '11';
+
+-- Wyatt Kreiss
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('109', '1', 'cust_ataque', '13') ON DUPLICATE KEY UPDATE `value` = '13';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('109', '1', 'cust_defens', '15') ON DUPLICATE KEY UPDATE `value` = '15';
+
+-- Yu Hwan
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('105', '1', 'cust_ataque', '18') ON DUPLICATE KEY UPDATE `value` = '18';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('105', '1', 'cust_defens', '20') ON DUPLICATE KEY UPDATE `value` = '20';
+
+-- Zachary Von Richter
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('76', '1', 'cust_ataque', '15') ON DUPLICATE KEY UPDATE `value` = '15';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('76', '1', 'cust_defens', '17') ON DUPLICATE KEY UPDATE `value` = '17';
+
+-- Zeon Klaus
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('65', '1', 'cust_ataque', '17') ON DUPLICATE KEY UPDATE `value` = '17';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('65', '1', 'cust_defens', '19') ON DUPLICATE KEY UPDATE `value` = '19';
+
+-- Zoe Bennett
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('24', '1', 'cust_ataque', '19') ON DUPLICATE KEY UPDATE `value` = '19';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('24', '1', 'cust_defens', '21') ON DUPLICATE KEY UPDATE `value` = '21';
+
