@@ -5,7 +5,6 @@ INSERT INTO `smf_stshop_categories` (`name`, `image`, `description`) VALUES
 ('Objetos - Estudiantes', 'blank.gif', ''),
 ('Objetos - EXTASIS', 'blank.gif', ''),
 ('Objetos - Hogwarts', 'blank.gif', ''),
-('Objetos - Ingredientes de Rituales', 'blank.gif', ''),
 ('Objetos - Ministerio', 'blank.gif', ''),
 ('Objetos - Mortífagos', 'blank.gif', ''),
 ('Objetos - Pociones', 'blank.gif', ''),
@@ -93,4 +92,6 @@ INSERT INTO `smf_stshop_categories` (`name`, `image`, `description`) VALUES
 ('Logros - Logros de Torneo de Campeones', 'blank.gif', ''),
 ('Logros - Logros de Mortífagos', 'blank.gif', ''),
 ('Logros - Logros de Aurores', 'blank.gif', ''),
+('Rituales - Ingredientes de Rituales', 'blank.gif', ''),
+('Rituales - Rituales', 'blank.gif', ''),
 ('SIN CATEGORIA - SIN CATEGORIA', 'blank.gif', '');

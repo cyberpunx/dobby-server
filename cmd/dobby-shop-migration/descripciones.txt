@@ -780,11 +780,105 @@
 
     <img src="https://i.imgur.com/8XhA97q.png"/>
     • <strong>Grimorio 6</strong><br /><br />
+    </div>
+  </dd>
+</dl>
+
+
+<dl class="codebox spoiler">
+  <dt class="spoiler_title">Rituales</dt>
+  <dd>
+    <div class="spoiler_content">
+      <img src="https://i.imgur.com/bSeOq1d.png" />
+      • <strong>Ritual Bendecido por los dioses</strong>
+      <br />Este ritual le ofrece al participante una versión mejorada del félix felicis otorgando un +5 en los clubes de pociones y cámara de creación mágica. Y un +2 automático en los duelos y misiones | expediciones. <br />
+
+
+      <img src="https://i.imgur.com/X9TfqmW.png" />
+      • <strong>Ritual Búsqueda mágica</strong>
+      <br />Este ritual ofrece al participante la posibilidad de encontrar a una persona deseada sin importar la distancia en la que se encuentre o inclusive si esta persona no quiere ser encontrada aún cuando el tema esté protegido. Este ritual se puede utilizar cada dos meses. <br />
+
+
+      <img src="https://i.imgur.com/0LhWUNa.png" />
+      • <strong>Ritual Defensa absoluta</strong>
+      <br />Este ritual le permite al usuario esquivar un solo ataque cuando se esté utilizando el sistema de duelos. Este le otorgará al usuario una Defensa Exitosa  durante el duelo, pero para que sea válido deberá dejar claro en su narrativo que utiliza el ritual.  En el nombre del hechizo deberá colocar “Ritual Defensa Absoluta - Defensa exitosa”. Esto NO APLICA para el Avada Kedavra.<br />
+
+
+      <img src="https://i.imgur.com/e9m4QRo.png" />
+      • <strong>Ritual Daño inesquivable</strong>
+      <br />Este ritual le permite al usuario realizar un Ataque Exitoso del cual el oponente no podrá defenderse cuando se esté utilizando el sistema de duelos. Este le otorgara al usuario un punto automático en un ataque durante el duelo, pero para que sea válido deberá declarar en su narrativo cuando lo utiliza. En el nombre del hechizo de ataque deberá colocar “Ritual Daño Inesquivable - Ataque exitoso”.<br />
+
+
+      <img src="https://i.imgur.com/GA6VHag.png" />
+      • <strong>Ritual Talismán bendecido por Niké</strong>
+      <br />Este ritual le permite al usuario encantar un objeto de su elección por única vez (Es decir una vez que se encanta siempre se deberá utilizar el mismo objeto) y le otorgará al usuario un +10% / -10% en cualquiera de sus tiradas de clases y/o tareas del Ministerio/San Mungo/Costello, etc. Esto se produce mediante la acumulación de magia en el objeto que será liberada como una inspiración de suerte de la diosa de la victoria, que puede ayudar a conseguir el objetivo al que se apunta.<br />
+
+
+      <img src="https://i.imgur.com/GBZynbx.png" />
+      • <strong>Ritual Pacto de Sangre</strong>
+      <br />Este ritual le permite a los usuarios hacer un pacto de sangre similar al juramento inquebrantable, sin embargo su resultado final no será la muerte en caso de incumplirlo. Ninguno de los involucrados puede romper el contenedor del ritual, sólo puede ser destruído por alguien más. Este ritual vincula a dos personas impidiendoles hacerle daño a la otra hasta que el vínculo se rompa por algún motivo, puede ser pérdida de fe o confianza o  que sea robado por otra persona y destruido.<br />
+
+
+      <img src="https://i.imgur.com/d6riai3.png" />
+      • <strong>Ritual Paso Franco</strong>
+      <br />Este ritual permite a los usuarios atravesar las defensas de lugares protegidos, pueden ser negocios, propiedades o temas de rol inclusive. Para utilizar este ritual debe justificarse on rol que el personaje sabe a ciencia cierta dónde está la defensa o la extensión de la misma barrera y la(s) persona(s) a la que busca. Se utiliza como una continuación del ritual de nivel 1 “Búsqueda Mágica”. De utilizarse ambos, éste ritual creará un portal que lo transportará hacia el lugar en cuestión y al llegar la persona que use el ritual tocará con la punta de la varita y la(s) barrera(s) de defensa se eliminarán.<br />
+
+
+      <img src="https://i.imgur.com/B1qy1EN.png" />
+      • <strong>Ritual Escapar hacia un amigo</strong>
+      <br />En caso de un ataque o una situación de peligro, la persona que realice el ritual podrá escapar desapareciendo y dirigiéndose hacia donde se encuentra la otra persona con la que esté vinculada. <br />
+
+
+      <img src="https://i.imgur.com/EzTv8jT.png" />
+      • <strong>Ritual Guardia mágica</strong>
+      <br />Este ritual le permite a una persona que es buscada no ser encontrada independientemente de cómo la busquen, ya sea con magia, investigación o con el ritual “búsqueda mágica”. La duración de esta protección es de dos semanas desde que se realiza y podrá permanecer oculto durante ese tiempo. Este solo se puede usar una vez por mes y tendrá validez a partir del momento que se apruebe el consumo del ítem.<br />
+
+
+      <img src="https://i.imgur.com/XllMmiY.png" />
+      • <strong>Ritual Objeto de vinculación</strong>
+      <br />Este ritual se debe hacer de a dos personas (o más, según trasfondo) y sirve para encantar dos objetos (o más, según trasfondo) que puedan ser utilizables (anillos, brazaletes, aros, collares, etc) y le permitan a los portadores saber con exactitud dónde se encuentra la otra persona que posea el objeto y cuál es su estado anímico o de salud. Los objetos estarán encantados con un “portus” que le permitirá a una de las dos personas trasladarse hacia la otra si se encuentra en peligro.<br />
+
+
+      <img src="https://i.imgur.com/4XEEzcD.png" />
+      • <strong>Ritual Disfraz mental</strong>
+      <br />Este ritual le permite a la persona (sin importar si es humano o de raza) crear una apariencia y una personalidad con recuerdos y utilizarla durante 12 horas a su gusto. Si se escoge un disfraz de raza podrá utilizar las habilidades de “Velocidad”, “Agilidad y Flexibilidad” y “Fuerza sobrehumana” durante ese tiempo. Convirtiéndose así en cualquier personaje creado en su mente. Para convertirse en personajes jugables deberán contar con la autorización de los mismos. Sólo se podrá utilizar en temas narrativos, no se puede utilizar en duelos y/o misiones.<br />
+
+
+      <img src="https://i.imgur.com/c1UQxfX.png" />
+      • <strong>Ritual Maldición de cuento</strong>
+      <br />Este ritual permite poner a otra persona en un sueño profundo similar a la muerte. La particularidad de este ritual es que la persona que cae dormida solo puede ser despertada destruyendo el muñeco que hace de ancla para que funcione.<br />
+
+
+      <img src="https://i.imgur.com/g2MTQeV.png" />
+      • <strong>Ritual Carne de cañón</strong>
+      <br />Este ritual le permite al usuario crear un ejército de barro con forma humana que puede servir de espía o escudo en cualquier situación. Estos envases estarán vacíos y solo podrán seguir las órdenes de quien los ha creado, además pueden ser fácilmente destruidos. No pueden tener conversaciones fluidas, sus movimientos son rígidos y su temperatura corporal es completamente fría por lo que es fácil notar que no son humanos.<br />
+
+
+      <img src="https://i.imgur.com/bADSxC3.png" />
+      • <strong>Ritual Promesa de Lealtad</strong>
+      <br />Este ritual le permite a la persona que lo conjura y allegados de su propia elección, formar parte de un grupo protegido por aquella promesa de lealtad que les impedirá traicionar a quien sirven o tienen de líder. Es una manera engañosa de mantener a la gente atada a uno sin que lo sepan. <br />
+
+
+      <img src="https://i.imgur.com/UrBg78x.png" />
+      • <strong>Ritual Fuerzas de la naturaleza</strong>
+      <br />Este ritual permite al invocador convocar fuerzas de la naturaleza de manera descontrolada capaces de causar grandes desastres naturales. Si alguien ha invocado este ritual, otra persona puede realizar el mismo como una especie de “contra ritual” para controlar aquella fuerza que estuviese descontrolada.
+      <br />
+
+
+      <img src="https://i.imgur.com/Pdi3iks.png" />
+      • <strong>Ritual El escape del Averno</strong>
+      <br />Este ritual permite revivir por única vez a un personaje jugable. Esta es una vida extra de las cinco que se poseen. Sin embargo este ritual hará que la persona que vuelva a la vida tenga consecuencias on rol por haber estado muerta. Pueden ser enfermedades, olores, etc.<br />
+
+
+      <img src="https://i.imgur.com/WewR5Us.png" />
+      • <strong>Ritual Protección de Afrodita</strong>
+      <br />Este ritual le permite a una persona sacrificar su vida para proteger a otra a quien ame muchísimo. Esta protección de amor funciona como escudo contra cualquier hechizo con el que lo quieran herir, incluída la maldición asesina.<br />
 
     </div>
   </dd>
 </dl>
-<br />
+
+
 <dl class="codebox spoiler">
   <dt class="spoiler_title">Ministerio</dt>
   <dd>
@@ -6141,90 +6235,6 @@
 
 
 
-<img src="https://i.imgur.com/bSeOq1d.png" />
-• <strong>Ritual Bendecido por los dioses</strong>
-<br />Este ritual le ofrece al participante una versión mejorada del félix felicis otorgando un +5 en los clubes de pociones y cámara de creación mágica. Y un +2 automático en los duelos y misiones | expediciones. <br />
-
-
-<img src="https://i.imgur.com/X9TfqmW.png" />
-• <strong>Ritual Búsqueda mágica</strong>
-<br />Este ritual ofrece al participante la posibilidad de encontrar a una persona deseada sin importar la distancia en la que se encuentre o inclusive si esta persona no quiere ser encontrada aún cuando el tema esté protegido. Este ritual se puede utilizar cada dos meses. <br />
-
-
-<img src="https://i.imgur.com/0LhWUNa.png" />
-• <strong>Ritual Defensa absoluta</strong>
-<br />Este ritual le permite al usuario esquivar un solo ataque cuando se esté utilizando el sistema de duelos. Este le otorgará al usuario una Defensa Exitosa  durante el duelo, pero para que sea válido deberá dejar claro en su narrativo que utiliza el ritual.  En el nombre del hechizo deberá colocar “Ritual Defensa Absoluta - Defensa exitosa”. Esto NO APLICA para el Avada Kedavra.<br />
-
-
-<img src="https://i.imgur.com/e9m4QRo.png" />
-• <strong>Ritual Daño inesquivable</strong>
-<br />Este ritual le permite al usuario realizar un Ataque Exitoso del cual el oponente no podrá defenderse cuando se esté utilizando el sistema de duelos. Este le otorgara al usuario un punto automático en un ataque durante el duelo, pero para que sea válido deberá declarar en su narrativo cuando lo utiliza. En el nombre del hechizo de ataque deberá colocar “Ritual Daño Inesquivable - Ataque exitoso”.<br />
-
-
-<img src="https://i.imgur.com/GA6VHag.png" />
-• <strong>Ritual Talismán bendecido por Niké</strong>
-<br />Este ritual le permite al usuario encantar un objeto de su elección por única vez (Es decir una vez que se encanta siempre se deberá utilizar el mismo objeto) y le otorgará al usuario un +10% / -10% en cualquiera de sus tiradas de clases y/o tareas del Ministerio/San Mungo/Costello, etc. Esto se produce mediante la acumulación de magia en el objeto que será liberada como una inspiración de suerte de la diosa de la victoria, que puede ayudar a conseguir el objetivo al que se apunta.<br />
-
-
-<img src="https://i.imgur.com/GBZynbx.png" />
-• <strong>Ritual Pacto de Sangre</strong>
-<br />Este ritual le permite a los usuarios hacer un pacto de sangre similar al juramento inquebrantable, sin embargo su resultado final no será la muerte en caso de incumplirlo. Ninguno de los involucrados puede romper el contenedor del ritual, sólo puede ser destruído por alguien más. Este ritual vincula a dos personas impidiendoles hacerle daño a la otra hasta que el vínculo se rompa por algún motivo, puede ser pérdida de fe o confianza o  que sea robado por otra persona y destruido.<br />
-
-
-<img src="https://i.imgur.com/d6riai3.png" />
-• <strong>Ritual Paso Franco</strong>
-<br />Este ritual permite a los usuarios atravesar las defensas de lugares protegidos, pueden ser negocios, propiedades o temas de rol inclusive. Para utilizar este ritual debe justificarse on rol que el personaje sabe a ciencia cierta dónde está la defensa o la extensión de la misma barrera y la(s) persona(s) a la que busca. Se utiliza como una continuación del ritual de nivel 1 “Búsqueda Mágica”. De utilizarse ambos, éste ritual creará un portal que lo transportará hacia el lugar en cuestión y al llegar la persona que use el ritual tocará con la punta de la varita y la(s) barrera(s) de defensa se eliminarán.<br />
-
-
-<img src="https://i.imgur.com/B1qy1EN.png" />
-• <strong>Ritual Escapar hacia un amigo</strong>
-<br />En caso de un ataque o una situación de peligro, la persona que realice el ritual podrá escapar desapareciendo y dirigiéndose hacia donde se encuentra la otra persona con la que esté vinculada. <br />
-
-
-<img src="https://i.imgur.com/EzTv8jT.png" />
-• <strong>Ritual Guardia mágica</strong>
-<br />Este ritual le permite a una persona que es buscada no ser encontrada independientemente de cómo la busquen, ya sea con magia, investigación o con el ritual “búsqueda mágica”. La duración de esta protección es de dos semanas desde que se realiza y podrá permanecer oculto durante ese tiempo. Este solo se puede usar una vez por mes y tendrá validez a partir del momento que se apruebe el consumo del ítem.<br />
-
-
-<img src="https://i.imgur.com/XllMmiY.png" />
-• <strong>Ritual Objeto de vinculación</strong>
-<br />Este ritual se debe hacer de a dos personas (o más, según trasfondo) y sirve para encantar dos objetos (o más, según trasfondo) que puedan ser utilizables (anillos, brazaletes, aros, collares, etc) y le permitan a los portadores saber con exactitud dónde se encuentra la otra persona que posea el objeto y cuál es su estado anímico o de salud. Los objetos estarán encantados con un “portus” que le permitirá a una de las dos personas trasladarse hacia la otra si se encuentra en peligro.<br />
-
-
-<img src="https://i.imgur.com/4XEEzcD.png" />
-• <strong>Ritual Disfraz mental</strong>
-<br />Este ritual le permite a la persona (sin importar si es humano o de raza) crear una apariencia y una personalidad con recuerdos y utilizarla durante 12 horas a su gusto. Si se escoge un disfraz de raza podrá utilizar las habilidades de “Velocidad”, “Agilidad y Flexibilidad” y “Fuerza sobrehumana” durante ese tiempo. Convirtiéndose así en cualquier personaje creado en su mente. Para convertirse en personajes jugables deberán contar con la autorización de los mismos. Sólo se podrá utilizar en temas narrativos, no se puede utilizar en duelos y/o misiones.<br />
-
-
-<img src="https://i.imgur.com/c1UQxfX.png" />
-• <strong>Ritual Maldición de cuento</strong>
-<br />Este ritual permite poner a otra persona en un sueño profundo similar a la muerte. La particularidad de este ritual es que la persona que cae dormida solo puede ser despertada destruyendo el muñeco que hace de ancla para que funcione.<br />
-
-
-<img src="https://i.imgur.com/g2MTQeV.png" />
-• <strong>Ritual Carne de cañón</strong>
-<br />Este ritual le permite al usuario crear un ejército de barro con forma humana que puede servir de espía o escudo en cualquier situación. Estos envases estarán vacíos y solo podrán seguir las órdenes de quien los ha creado, además pueden ser fácilmente destruidos. No pueden tener conversaciones fluidas, sus movimientos son rígidos y su temperatura corporal es completamente fría por lo que es fácil notar que no son humanos.<br />
-
-
-<img src="https://i.imgur.com/bADSxC3.png" />
-• <strong>Ritual Promesa de Lealtad</strong>
-<br />Este ritual le permite a la persona que lo conjura y allegados de su propia elección, formar parte de un grupo protegido por aquella promesa de lealtad que les impedirá traicionar a quien sirven o tienen de líder. Es una manera engañosa de mantener a la gente atada a uno sin que lo sepan. <br />
-
-
-<img src="https://i.imgur.com/UrBg78x.png" />
-• <strong>Ritual Fuerzas de la naturaleza</strong>
-<br />Este ritual permite al invocador convocar fuerzas de la naturaleza de manera descontrolada capaces de causar grandes desastres naturales. Si alguien ha invocado este ritual, otra persona puede realizar el mismo como una especie de “contra ritual” para controlar aquella fuerza que estuviese descontrolada.
-<br />
-
-
-<img src="https://i.imgur.com/Pdi3iks.png" />
-• <strong>Ritual El escape del Averno</strong>
-<br />Este ritual permite revivir por única vez a un personaje jugable. Esta es una vida extra de las cinco que se poseen. Sin embargo este ritual hará que la persona que vuelva a la vida tenga consecuencias on rol por haber estado muerta. Pueden ser enfermedades, olores, etc.<br />
-
-
-<img src="https://i.imgur.com/WewR5Us.png" />
-• <strong>Ritual Protección de Afrodita</strong>
-<br />Este ritual le permite a una persona sacrificar su vida para proteger a otra a quien ame muchísimo. Esta protección de amor funciona como escudo contra cualquier hechizo con el que lo quieran herir, incluída la maldición asesina.<br />
 
 
 

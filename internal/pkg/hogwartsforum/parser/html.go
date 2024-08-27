@@ -1345,7 +1345,9 @@ func AssignShopToCategory(category string) string {
 	case "Hogwarts":
 		return "Objetos"
 	case "Ingredientes de Rituales":
-		return "Objetos"
+		return "Rituales"
+	case "Rituales":
+		return "Rituales"
 	case "Ministerio":
 		return "Objetos"
 	case "Mortífagos":
