@@ -691,30 +691,19 @@ func PostGetChessLinks(html string) []string {
 }
 
 type Profile struct {
-	Username                   string
-	Galeones                   string
-	Mensajes                   string
-	Ataque                     string
-	Defensa                    string
-	Edad                       string
-	Bando                      string
-	Patronus                   string
-	Sangre                     string
-	Casa                       string
-	Inventario1                string
-	Inventario2                string
-	RazaInventory              Inventory
-	HechizosInventory          Inventory
-	HabilidadesInventory       Inventory
-	HabilidadesDeRazaInventory Inventory
-	PocionesInventory          Inventory
-	IngredientesInventory      Inventory
-	OtrosInventory             Inventory
-	LogrosInventory            Inventory
-	RitualesInventory          Inventory
-	HechizosAurorInventory     Inventory
-	HechizosMortifagoInventory Inventory
-	MaleficiosInventory        Inventory
+	Username    string
+	Galeones    string
+	Mensajes    string
+	Ataque      string
+	Defensa     string
+	Edad        string
+	Bando       string
+	Patronus    string
+	Sangre      string
+	Casa        string
+	Inventario1 string
+	Inventario2 string
+	Inventory   Inventory
 }
 
 func ProfileGetProfile(html string) Profile {
@@ -794,8 +783,12 @@ func ProfileGetProfile(html string) Profile {
 		profile.Inventario2 = htmlpkg.UnescapeString(profileField)
 	})
 
-	profile.RazaInventory, profile.HechizosInventory, profile.HabilidadesInventory, profile.HabilidadesDeRazaInventory, profile.RitualesInventory, profile.MaleficiosInventory, profile.HechizosAurorInventory, profile.HechizosMortifagoInventory = ExtractItemsBySectionOne(profile.Inventario1)
-	profile.PocionesInventory, profile.IngredientesInventory, profile.OtrosInventory, profile.LogrosInventory = ExtractItemsBySectionTwo(profile.Inventario2)
+	var totalInventory Inventory
+	InventoryOne := ExtractItems(profile.Inventario1)
+	InventoryTwo := ExtractItems(profile.Inventario2)
+	totalInventory.Items = append(totalInventory.Items, InventoryOne.Items...)
+	totalInventory.Items = append(totalInventory.Items, InventoryTwo.Items...)
+	profile.Inventory = totalInventory
 
 	return profile
 
@@ -812,21 +805,8 @@ type ParsedItem struct {
 	ImageUrl string
 }
 
-func ExtractItemsBySectionOne(htmlStr string) (Inventory, Inventory, Inventory, Inventory, Inventory, Inventory, Inventory, Inventory) {
-	// Initialize empty sections for each category
-	sections := [][]ParsedItem{
-		{}, // RAZA (sections[0])
-		{}, // HECHIZOS (sections[1])
-		{}, // HABILIDADES (sections[2])
-		{}, // HABILIDADES DE RAZA (sections[3])
-		{}, // RITUALES (sections[4])
-		{}, // MALEFICIOS (sections[5])
-		{}, // HECHIZOS DE AUROR (sections[6])
-		{}, // HECHIZOS DE MORTIFAGO (sections[7])
-	}
-
-	var currentSectionType string
-	var currentSection []ParsedItem
+func ExtractItems(htmlStr string) Inventory {
+	var resultInventory Inventory
 
 	// Parse the HTML string
 	reader := strings.NewReader(htmlStr)
@@ -836,31 +816,7 @@ func ExtractItemsBySectionOne(htmlStr string) (Inventory, Inventory, Inventory, 
 	doc.Find("strong > i > *").Each(func(i int, s *goquery.Selection) {
 		// Check if this is a <div> that starts a new section
 		if s.Is("div") {
-			// If there's a current section being processed, add it to the sections array
-			if len(currentSection) > 0 {
-				// Assign currentSection to the appropriate section index based on the currentSectionType
-				if currentSectionType == "RAZA" {
-					sections[0] = currentSection
-				} else if currentSectionType == "HECHIZOS" {
-					sections[1] = currentSection
-				} else if currentSectionType == "HABILIDADES" {
-					sections[2] = currentSection
-				} else if strings.HasPrefix(currentSectionType, "HABILIDADES DE") {
-					sections[3] = currentSection
-				} else if currentSectionType == "RITUALES" {
-					sections[4] = currentSection
-				} else if currentSectionType == "MALEFICIOS" {
-					sections[5] = currentSection
-				} else if currentSectionType == "HECHIZOS AUROR" {
-					sections[6] = currentSection
-				} else if currentSectionType == "HECHIZOS MORTÍFAGO" {
-					sections[7] = currentSection
-				}
 
-				currentSection = []ParsedItem{} // Start a new section
-			}
-			// Set the type of the current section (e.g., "RAZA", "HECHIZOS")
-			currentSectionType = strings.TrimSpace(s.Find("center").Text())
 		} else if s.Is("img") {
 			// If it's an <img>, create an ParsedItem and add it to the current section
 			src, _ := s.Attr("src")
@@ -869,158 +825,14 @@ func ExtractItemsBySectionOne(htmlStr string) (Inventory, Inventory, Inventory, 
 			title = strings.ReplaceAll(title, " ", " ")
 			item := ParsedItem{
 				Name:     strings.TrimSpace(title),
-				Type:     currentSectionType,
+				Type:     "",
 				ImageUrl: src,
 			}
-			currentSection = append(currentSection, item)
+			resultInventory.Items = append(resultInventory.Items, item)
 		}
 	})
 
-	// Assign the last section if it has elements
-	if len(currentSection) > 0 {
-		switch currentSectionType {
-		case "RAZA":
-			sections[0] = currentSection
-		case "HECHIZOS":
-			sections[1] = currentSection
-		case "HABILIDADES":
-			sections[2] = currentSection
-		case "HABILIDADES DE RAZA":
-			sections[3] = currentSection
-		case "RITUALES":
-			sections[4] = currentSection
-		case "MALEFICIOS":
-			sections[5] = currentSection
-		case "HECHIZOS AUROR":
-			sections[6] = currentSection
-		case "HECHIZOS MORTÍFAGO":
-			sections[7] = currentSection
-		}
-	}
-
-	// Create Inventory structs for each section
-	razaInventory := Inventory{
-		Name:  "RAZA",
-		Items: sections[0],
-	}
-	hechizosInventory := Inventory{
-		Name:  "HECHIZOS",
-		Items: sections[1],
-	}
-	habilidadesInventory := Inventory{
-		Name:  "HABILIDADES",
-		Items: sections[2],
-	}
-	habilidadesDeRazaInventory := Inventory{
-		Name:  "HABILIDADES DE RAZA",
-		Items: sections[3],
-	}
-	ritualesInventory := Inventory{
-		Name:  "RITUALES",
-		Items: sections[4],
-	}
-	maleficiosInventory := Inventory{
-		Name:  "MALEFICIOS",
-		Items: sections[5],
-	}
-	hechizosAurorInventory := Inventory{
-		Name:  "HECHIZOS AUROR",
-		Items: sections[6],
-	}
-	hechizosMortifagoInventory := Inventory{
-		Name:  "HECHIZOS MORTÍFAGO",
-		Items: sections[7],
-	}
-
-	return razaInventory, hechizosInventory, habilidadesInventory, habilidadesDeRazaInventory, ritualesInventory, maleficiosInventory, hechizosAurorInventory, hechizosMortifagoInventory
-}
-
-func ExtractItemsBySectionTwo(htmlStr string) (Inventory, Inventory, Inventory, Inventory) {
-	// Initialize empty sections for each category
-	sections := [][]ParsedItem{
-		{}, // POCIONES (sections[0])
-		{}, // INGREDIENTES RITUALES (sections[1])
-		{}, // OTROS (sections[2])
-		{}, // LOGROS (sections[3])
-	}
-
-	var currentSectionType string
-	var currentSection []ParsedItem
-
-	// Parse the HTML string
-	reader := strings.NewReader(htmlStr)
-	doc, _ := goquery.NewDocumentFromReader(reader)
-
-	// Iterate over the HTML structure
-	doc.Find("strong > i > *").Each(func(i int, s *goquery.Selection) {
-		// Check if this is a <div> that starts a new section
-		if s.Is("div") {
-			// If there's a current section being processed, add it to the sections array
-			if len(currentSection) > 0 {
-				// Assign currentSection to the appropriate section index based on the currentSectionType
-				switch currentSectionType {
-				case "POCIONES":
-					sections[0] = currentSection
-				case "INGREDIENTES RITUALES":
-					sections[1] = currentSection
-				case "OTROS":
-					sections[2] = currentSection
-				case "LOGROS":
-					sections[3] = currentSection
-				}
-				currentSection = []ParsedItem{} // Start a new section
-			}
-			// Set the type of the current section (e.g., "RAZA", "HECHIZOS")
-			currentSectionType = strings.TrimSpace(s.Find("center").Text())
-		} else if s.Is("img") {
-			// If it's an <img>, create an ParsedItem and add it to the current section
-			src, _ := s.Attr("src")
-			title, _ := s.Attr("title")
-
-			//replace   with space in the title
-			title = strings.ReplaceAll(title, " ", " ")
-			item := ParsedItem{
-				Name:     strings.TrimSpace(title),
-				Type:     currentSectionType,
-				ImageUrl: src,
-			}
-			currentSection = append(currentSection, item)
-		}
-	})
-
-	// Assign the last section if it has elements
-	if len(currentSection) > 0 {
-		switch currentSectionType {
-		case "POCIONES":
-			sections[0] = currentSection
-		case "INGREDIENTES RITUALES":
-			sections[1] = currentSection
-		case "OTROS":
-			sections[2] = currentSection
-		case "LOGROS":
-			sections[3] = currentSection
-		}
-	}
-
-	// Create Inventory structs for each section
-	pocionesInventory := Inventory{
-		Name:  "POCIONES",
-		Items: sections[0],
-	}
-	ingredientesInventory := Inventory{
-		Name:  "INGREDIENTES RITUALES",
-		Items: sections[1],
-	}
-	otrosInventory := Inventory{
-		Name:  "OTROS",
-		Items: sections[2],
-	}
-	logrosDeRazaInventory := Inventory{
-		Name:  "LOGROS",
-		Items: sections[3],
-	}
-
-	return pocionesInventory, ingredientesInventory, otrosInventory, logrosDeRazaInventory
+	return resultInventory
 }
 
 type ShopCategory struct {

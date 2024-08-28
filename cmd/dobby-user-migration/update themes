@@ -191,7 +191,7 @@ INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES (
 INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('116', '1', 'cust_ataque', '16') ON DUPLICATE KEY UPDATE `value` = '16';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('116', '1', 'cust_defens', '18') ON DUPLICATE KEY UPDATE `value` = '18';
 
 -- Gael Richetti
-INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('27', '1', 'cust_ataque', '14') ON DUPLICATE KEY UPDATE `value` = '14';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('27', '1', 'cust_defens', '16') ON DUPLICATE KEY UPDATE `value` = '16';
+INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('27', '1', 'cust_ataque', '15') ON DUPLICATE KEY UPDATE `value` = '15';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('27', '1', 'cust_defens', '17') ON DUPLICATE KEY UPDATE `value` = '17';
 
 -- Galahad N. Prewett
 INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('102', '1', 'cust_ataque', '24') ON DUPLICATE KEY UPDATE `value` = '24';INSERT INTO `smf_themes` (`id_member`, `id_theme`, `variable`, `value`) VALUES ('102', '1', 'cust_defens', '26') ON DUPLICATE KEY UPDATE `value` = '26';

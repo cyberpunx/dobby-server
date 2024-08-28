@@ -25,7 +25,9 @@ const (
 	ItemTableOnNewForum   = "smf_stshop_items.csv"
 	ItemUrlsCsv           = "items.csv"
 	MemberTableOnNewForum = "smf_members.csv"
-	csvDelimiter          = ','
+	InventoryTable        = "smf_stshop_inventory.csv" +
+		""
+	csvDelimiter = ','
 )
 
 type session struct {
@@ -99,6 +101,7 @@ type smf_shop_inventory_row struct {
 	date      string
 	tradedate string
 	fav       string
+	name      string
 }
 
 // "id_member","member_name","date_registered","posts","id_group","lngfile","last_login","real_name","instant_messages","unread_messages","new_pm","alerts","buddy_list","pm_ignore_list","pm_prefs","mod_prefs","passwd","email_address","personal_text","birthdate","website_title","website_url","show_online","time_format","signature","time_offset","avatar","usertitle","member_ip","member_ip2","secret_question","secret_answer","id_theme","is_activated","validation_code","id_msg_last_visit","additional_groups","smiley_set","id_post_group","total_time_logged_in","password_salt","ignore_boards","warning","passwd_flood","pm_receive_from","timezone","tfa_secret","tfa_backup","shopMoney","shopBank","shopInventory_hide","gamesPass","referral","ref_count"
@@ -210,43 +213,7 @@ func LoadOldForumUsersFromCsv(inputFile string, sessionLoggedIn *session) []OldF
 				fmt.Println(profile.Username + " - " + findMember.Username)
 			}
 
-			var totalItems []parser.ParsedItem
-			for _, item := range profile.RazaInventory.Items {
-				totalItems = append(totalItems, item)
-			}
-			for _, item := range profile.IngredientesInventory.Items {
-				totalItems = append(totalItems, item)
-			}
-			for _, item := range profile.PocionesInventory.Items {
-				totalItems = append(totalItems, item)
-			}
-			for _, item := range profile.HechizosInventory.Items {
-				totalItems = append(totalItems, item)
-			}
-			for _, item := range profile.OtrosInventory.Items {
-				totalItems = append(totalItems, item)
-			}
-			for _, item := range profile.HabilidadesInventory.Items {
-				totalItems = append(totalItems, item)
-			}
-			for _, item := range profile.HabilidadesDeRazaInventory.Items {
-				totalItems = append(totalItems, item)
-			}
-			for _, item := range profile.LogrosInventory.Items {
-				totalItems = append(totalItems, item)
-			}
-			for _, item := range profile.RitualesInventory.Items {
-				totalItems = append(totalItems, item)
-			}
-			for _, item := range profile.MaleficiosInventory.Items {
-				totalItems = append(totalItems, item)
-			}
-			for _, item := range profile.HechizosAurorInventory.Items {
-				totalItems = append(totalItems, item)
-			}
-			for _, item := range profile.HechizosMortifagoInventory.Items {
-				totalItems = append(totalItems, item)
-			}
+			totalItems := profile.Inventory.Items
 
 			for _, item := range totalItems {
 				if strings.Contains(item.Name, " ") {
@@ -490,6 +457,41 @@ func LoadMembersFromCsv(membersCsvFile string) []NewForumUser {
 	return members
 }
 
+func LoadInventoryTableFromCsv(inventoryCsvFile string) []smf_shop_inventory_row {
+	csvInputFile, err := os.Open(inventoryCsvFile)
+	util.Panic(err)
+	reader := csv.NewReader(bufio.NewReader(csvInputFile))
+	reader.Comma = csvDelimiter
+
+	isHeaderLine := true
+	processedLine := 0
+
+	var inventoryRows []smf_shop_inventory_row
+	for {
+		line, err := reader.Read()
+		if err == io.EOF {
+			break
+		}
+		util.Panic(err)
+		if isHeaderLine {
+			isHeaderLine = false
+		} else {
+			processedLine++
+			inventoryRow := smf_shop_inventory_row{
+				userid:    line[1],
+				itemid:    line[2],
+				trading:   line[3],
+				tradecost: line[4],
+				date:      line[5],
+				tradedate: line[6],
+				fav:       line[7],
+			}
+			inventoryRows = append(inventoryRows, inventoryRow)
+		}
+	}
+	return inventoryRows
+}
+
 func PairUsersBasedOnUsername(oldUsers []OldForumUser, newUsers []NewForumUser) []MigratedUser {
 	var migratedUsers []MigratedUser
 	for _, oldUser := range oldUsers {
@@ -613,6 +615,12 @@ func SearchItemByName(itemName string, items []Item) *Item {
 	if itemName == "Inferi" {
 		itemName = "Inferi +3"
 	}
+	if itemName == "Tabú" {
+		itemName = "Tabu"
+	}
+	if itemName == "Seccionatus" {
+		itemName = "Seccionatus +3"
+	}
 
 	//remove consecutive spaces from itemName
 	itemName = strings.Join(strings.Fields(itemName), " ")
@@ -683,6 +691,7 @@ func PairItemsToUsers(migratedUsers []MigratedUser, items *[]Item) {
 		WriteInventoryQuery(*migratedUser.NewForumUser.InventoryRows, migratedUser.Username)
 		WriteUpdateMemberQuery(&migratedUser)
 		WriteUpdateThemesQuery(*migratedUser.NewForumUser.CustomFields, migratedUser.Username)
+		//WriteQueryAddRemainingInventoryItems(migratedUser)
 	}
 
 	//itemsToInsertIntoDatabase are the totalNotFoundItems without the duplicates
@@ -710,6 +719,48 @@ func PairItemsToUsers(migratedUsers []MigratedUser, items *[]Item) {
 	CreateItems(itemsToInsertIntoDatabase, "ITEMS-SIN-CATEGORIA")
 
 	//ReadReport()
+}
+
+func WriteQueryAddRemainingInventoryItems(migratedUser MigratedUser) {
+	inventoryRows := LoadInventoryTableFromCsv(InventoryTable)
+
+	var remainingItemsToInsertRows []smf_shop_inventory_row
+
+	for _, item := range *migratedUser.NewForumUser.Items {
+		foundRow := false
+		for _, row := range inventoryRows {
+			if row.userid == migratedUser.NewForumUser.Id && row.itemid == item.Itemid {
+				foundRow = true
+				break
+			}
+		}
+		if !foundRow {
+			remainingItemsToInsertRows = append(remainingItemsToInsertRows, smf_shop_inventory_row{
+				userid:    migratedUser.NewForumUser.Id,
+				itemid:    item.Itemid,
+				trading:   "0",
+				tradecost: "0",
+				date:      "0",
+				tradedate: "0",
+				fav:       "0",
+				name:      item.name,
+			})
+		}
+	}
+
+	sqlQuery := ""
+	sqlQuery += "-- " + migratedUser.Username + "\n"
+	for _, row := range remainingItemsToInsertRows {
+		sqlQuery += fmt.Sprintf("INSERT INTO `smf_stshop_inventory` (`userid`, `itemid`, `trading`, `tradecost`, `date`, `tradedate`, `fav`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s'); --%s", row.userid, row.itemid, row.trading, row.tradecost, row.date, row.tradedate, row.fav, row.name)
+		sqlQuery += "\n"
+	}
+	sqlQuery += "\n\n"
+
+	//append to file if exists
+	f, err := os.OpenFile("add remaining items", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	//append total_Lines to file
+	_, err = f.WriteString(sqlQuery)
+	util.Panic(err)
 }
 
 func WriteUpdateThemesQuery(customFields []smf_themes, username string) {
