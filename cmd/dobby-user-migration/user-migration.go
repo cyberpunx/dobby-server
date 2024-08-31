@@ -18,14 +18,14 @@ import (
 )
 
 const (
-	loginUsername              = "Desarrollo"
-	loginPassword              = "programación2055"
-	UsersToMigrateFromOldForum = "Datos de usuarios - Migrados HR.csv"
-	//UsersToMigrateFromOldForum = "TEST.csv"
-	ItemTableOnNewForum   = "smf_stshop_items.csv"
-	ItemUrlsCsv           = "items.csv"
-	MemberTableOnNewForum = "smf_members.csv"
-	InventoryTable        = "smf_stshop_inventory.csv" +
+	loginUsername = "Desarrollo"
+	loginPassword = "programación2055"
+	//UsersToMigrateFromOldForum = "Datos de usuarios - Migrados HR.csv"
+	UsersToMigrateFromOldForum = "TEST.csv"
+	ItemTableOnNewForum        = "smf_stshop_items.csv"
+	ItemUrlsCsv                = "items.csv"
+	MemberTableOnNewForum      = "smf_members.csv"
+	InventoryTable             = "smf_stshop_inventory.csv" +
 		""
 	csvDelimiter = ','
 )
