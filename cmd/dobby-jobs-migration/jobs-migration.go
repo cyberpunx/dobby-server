@@ -66,6 +66,7 @@ func ReplaceLinks(htmlStr string, migratedUsers []MigratedUser) (string, error) 
 	// Selecciona todas las etiquetas <a>
 	doc.Find("a").Each(func(index int, item *goquery.Selection) {
 		text := item.Text()
+		text = strings.TrimSpace(text)
 		// Busca un parámetro que coincida con el texto de la etiqueta <a>
 		for _, user := range migratedUsers {
 			if text == user.OldForumUser.Username {
@@ -84,22 +85,6 @@ func ReplaceLinks(htmlStr string, migratedUsers []MigratedUser) (string, error) 
 	}
 
 	return result.String(), nil
-}
-
-func replaceProfileUrl(migratedUsers []MigratedUser) {
-	file, err := os.Open(JobsPost)
-	util.Panic(err)
-	defer file.Close()
-
-	//newProfileUrl := "https://harrypotterhead.com/foro/index.php?action=profile;u={new_user_id}"
-	//oldProfileUrl := "https://www.hogwartsrol.com/{old_user_id}"
-
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		line := scanner.Text()
-		fmt.Println(line)
-	}
-
 }
 
 func forumLogin(username, password string) *session {
@@ -272,7 +257,7 @@ func LoadMembersFromCsv(membersCsvFile string) []NewForumUser {
 			}
 			members = append(members, NewForumUser{
 				Id:       memberRow.id_member,
-				Username: memberRow.member_name,
+				Username: memberRow.real_name,
 				//InventoryRows: nil,
 				MemberRow: &memberRow,
 				//Items:         nil,
