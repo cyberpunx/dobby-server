@@ -327,3 +327,9 @@ func (o *Tool) CheckThreadElapsedTime(threadUrl string, currentDateTime time.Tim
 	elapsedTime := currentDateTime.Sub(postTime)
 	return elapsedTime
 }
+
+func (o *Tool) GetSubforumThreads(subforumUrl string) []*parser.Thread {
+	subforumHtml := o.getSubforum(subforumUrl)
+	subforumThreads := o.parseSubforum(subforumHtml)
+	return subforumThreads
+}

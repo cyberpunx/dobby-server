@@ -12,48 +12,34 @@ import (
 	"localdev/dobby-server/internal/pkg/hogwartsforum/tool"
 	"localdev/dobby-server/internal/pkg/util"
 	"os"
-	"regexp"
 	"strings"
 )
 
 const (
-	loginUsername         = "Desarrollo"
-	loginPassword         = "programación2055"
-	csvDelimiter          = ','
-	MemberTableOnNewForum = "smf_members.csv"
-	//UsersToMigrateFromOldForum = "Datos de usuarios - Migrados HR.csv"
-	UsersToMigrateFromOldForum = "TEST.csv"
-	csvOldProfiles             = "output/profiles.csv"
+	loginUsername              = "Desarrollo"
+	loginPassword              = "programación2055"
+	csvDelimiter               = ','
+	MemberTableOnNewForum      = "smf_members.csv"
+	UsersToMigrateFromOldForum = "Datos de usuarios - Migrados HR.csv"
+	//UsersToMigrateFromOldForum = "TEST.csv"
+
+	subForumUrl = "f13-lechuceria"
 )
 
 func main() {
 
 	// FORUM LOGIN
 	s := forumLogin(loginUsername, loginPassword)
-	oldUsers := LoadOldForumUsersFromCsv(UsersToMigrateFromOldForum, s)
-	newUsers := LoadMembersFromCsv(MemberTableOnNewForum)
+	subforumThreads := s.Tool.GetSubforumThreads(subForumUrl)
+
+	for _, thread := range subforumThreads {
+		fmt.Println(thread.Title)
+	}
 
 	//PAIR USERS BASED ON USERNAME
-	migratedUsers := PairUsersBasedOnCsvId(oldUsers, newUsers)
-
-	filesArray := []string{
-		"avatar.html",
-		"familia.html",
-		"empleo.html",
-		"patronus.html",
-		"razas.html",
-	}
-	for _, file := range filesArray {
-		htmlStr, err := LeerArchivo(file)
-
-		newHtml, err := ReplaceLinks(htmlStr, migratedUsers)
-		util.Panic(err)
-
-		// Escribe el contenido modificado en un nuevo archivo dentro de /output
-		err = ioutil.WriteFile("output/"+file, []byte(newHtml), 0644)
-		util.Panic(err)
-
-	}
+	//oldUsers := LoadOldForumUsersFromCsv(UsersToMigrateFromOldForum, s)
+	//newUsers := LoadMembersFromCsv(MemberTableOnNewForum)
+	//migratedUsers := PairUsersBasedOnCsvId(oldUsers, newUsers)
 
 }
 
@@ -76,32 +62,19 @@ func ReplaceLinks(htmlStr string, migratedUsers []MigratedUser) (string, error) 
 	}
 
 	newProfileUrl := "https://harrypotterhead.com/foro/index.php?action=profile;u={new_user_id}"
-	//oldProfileUrl := "https://www.hogwartsrol.com/u{old_user_id}"
-
-	re := regexp.MustCompile(`https://www\.hogwartsrol\.com/u(\d+)`)
 
 	// Selecciona todas las etiquetas <a>
 	doc.Find("a").Each(func(index int, item *goquery.Selection) {
-		// Obtén el atributo href del enlace
-		href, exists := item.Attr("href")
-		if !exists {
-			return
-		}
-
-		// Busca el oldUserId usando la expresión regular
-		matches := re.FindStringSubmatch(href)
-		if len(matches) < 2 {
-			return // No hay un oldUserId en el href
-		}
-
-		oldUserId := "u" + matches[1]
-
-		// Busca el nuevo userId correspondiente en la lista de usuarios migrados
-		foundUserId, newUserId := findNewUserId(migratedUsers, oldUserId)
-		if foundUserId {
-			// Reemplaza el enlace con el nuevo userId
-			newUrl := strings.ReplaceAll(newProfileUrl, "{new_user_id}", newUserId)
-			item.SetAttr("href", newUrl)
+		text := item.Text()
+		text = strings.TrimSpace(text)
+		// Busca un parámetro que coincida con el texto de la etiqueta <a>
+		for _, user := range migratedUsers {
+			if text == user.OldForumUser.Username {
+				newUrl := strings.ReplaceAll(newProfileUrl, "{new_user_id}", user.NewForumUser.Id)
+				item.SetAttr("href", newUrl)
+				item.SetText(user.NewForumUser.Username)
+				break
+			}
 		}
 	})
 
@@ -112,15 +85,6 @@ func ReplaceLinks(htmlStr string, migratedUsers []MigratedUser) (string, error) 
 	}
 
 	return result.String(), nil
-}
-
-func findNewUserId(migratedUsers []MigratedUser, oldUserId string) (bool, string) {
-	for _, user := range migratedUsers {
-		if user.OldForumUser.Id == oldUserId {
-			return true, user.NewForumUser.Id
-		}
-	}
-	return false, ""
 }
 
 func forumLogin(username, password string) *session {
@@ -177,10 +141,9 @@ func LoadOldForumUsersFromCsv(inputFile string, sessionLoggedIn *session) []OldF
 			id := line[0]
 			idNewForum := line[1]
 			//GET USER INFO FROM FORUM
-			//time.Sleep(1 * time.Second)
 			profileHtml := sessionLoggedIn.Tool.GetUserProfile(id)
+
 			profile := parser.ProfileGetProfile(profileHtml)
-			WriteProfileToCsv(profile, csvOldProfiles)
 			findMember := SearchMemberById(newMembers, idNewForum)
 			if profile.Username != findMember.Username {
 				fmt.Println(profile.Username + " - " + findMember.Username)
@@ -205,69 +168,6 @@ func LoadOldForumUsersFromCsv(inputFile string, sessionLoggedIn *session) []OldF
 		}
 	}
 	return oldForumUsers
-}
-
-func WriteProfileToCsv(profile parser.Profile, outputFile string) {
-	// Abrir el archivo en modo solo lectura para leer los datos
-	file, err := os.Open(outputFile)
-	if err != nil && !os.IsNotExist(err) {
-		// Si hay un error al abrir el archivo (que no sea que el archivo no existe), pánico
-		util.Panic(err)
-	}
-	// Si el archivo no existe, creamos un slice vacío de usernames
-	var usernames []string
-	if err == nil {
-		// Si el archivo se abrió correctamente, procedemos a leerlo
-		defer file.Close()
-		reader := csv.NewReader(file)
-		reader.Comma = '|'
-		for {
-			line, err := reader.Read()
-			if err == io.EOF {
-				break
-			}
-			util.Panic(err)
-			usernames = append(usernames, line[0])
-		}
-	}
-
-	// Comprobar si el usuario ya existe en el archivo
-	for _, username := range usernames {
-		if username == profile.Username {
-			fmt.Println("Usuario ya existe en el archivo")
-			return
-		}
-	}
-
-	// Abrir el archivo en modo de escritura (apéndice) para agregar el nuevo perfil
-	file, err = os.OpenFile(outputFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-	util.Panic(err)
-	defer file.Close()
-
-	// Configurar el escritor CSV
-	writer := csv.NewWriter(file)
-	writer.Comma = '|'
-	defer writer.Flush()
-
-	// Crear la fila con los datos del perfil
-	row := []string{
-		profile.Username,
-		profile.Galeones,
-		profile.Mensajes,
-		profile.Ataque,
-		profile.Defensa,
-		profile.Edad,
-		profile.Bando,
-		profile.Patronus,
-		profile.Sangre,
-		profile.Casa,
-		profile.Inventario1,
-		profile.Inventario2,
-	}
-	err = writer.Write(row)
-	util.Panic(err)
-
-	fmt.Println("Perfil agregado exitosamente.")
 }
 
 func SearchMemberById(members []NewForumUser, id string) *NewForumUser {

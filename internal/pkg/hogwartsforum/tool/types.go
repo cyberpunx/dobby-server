@@ -34,7 +34,11 @@ type Tool struct {
 
 func NewTool(config *model.Config, client *http.Client, gSheetService *sheets.Service, store *storage.Store) *Tool {
 	forumDateTime, err := util.GetTimeFromTimeZone("America/Mexico_City")
-	util.Panic(err)
+	if err != nil {
+		//Set default time
+		forumDateTime = time.Now()
+	}
+	//util.Panic(err)
 	return &Tool{
 		Config:        config,
 		Client:        client,
